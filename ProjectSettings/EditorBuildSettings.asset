@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LucioQuarto.unity
+    guid: 3005109a0b493494bb2d8b77b4f7cb3c
+  - enabled: 1
+    path: Assets/Scenes/LucioVilarejo.unity
+    guid: df93cfc3506910247b9ad37dbe356656
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
