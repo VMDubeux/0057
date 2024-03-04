@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   dialogueSentences:
-  - "Sauda\xE7\xF5es, meu jovem aprendiz ! "
-  - "Vejo que est\xE1 testando o sistema de chat"
-  - E me parece estar funcionando muito bem ! UAU ! :O
+  - sdasdsadasdas
   speakerImage:
-  - {fileID: 21300000, guid: 2bdee8531831bb741beba9bc2b1e7f72, type: 3}
+  - {fileID: 0}
   speakerName:
-  - Mestre Slime dos Testes
+  - Joao
