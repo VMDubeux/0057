@@ -39,7 +39,7 @@ public class BattleSystem : MonoBehaviour
     private const string UNSUCCESSFULLY_RAN_MESSAGE = "Your party failed to run";
     private const int TURN_DURATION = 2;
     private const int RUN_CHANCE = 50;
-    private const string OVERWORLD_SCENE = "OverworldScene";
+    private const string OVERWORLD_SCENE = "LEVEL_1";
 
     private void Start()
     {
