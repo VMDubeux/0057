@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     public Animator animatorController;
     public float moveSpeed = 5;
-    Vector3 moveInput;
+    public Vector3 moveInput;
     void Start()
     {
         characterController = GetComponent<CharacterController>();

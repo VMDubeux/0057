@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LucioQuarto.unity
-    guid: 3005109a0b493494bb2d8b77b4f7cb3c
+    path: Assets/Scenes/LEVEL_1.unity
+    guid: 68bf4b6a876dab34e979491c4ef1efeb
   - enabled: 1
-    path: Assets/Scenes/LucioVilarejo.unity
-    guid: df93cfc3506910247b9ad37dbe356656
+    path: Assets/Scenes/LEVEL_BATTLE.unity
+    guid: face30aee84aace4f94b27b9f1e36a96
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
