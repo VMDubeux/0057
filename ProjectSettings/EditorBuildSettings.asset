@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LEVEL_INTRO.unity
+    path: Assets/PROJETO_ATUAL/Scenes/LEVEL_INTRO.unity
     guid: 634aac2ae920c4040b239832368f726d
   - enabled: 1
-    path: Assets/Scenes/LEVEL_1.unity
+    path: Assets/PROJETO_ATUAL/Scenes/LEVEL_1.unity
     guid: 68bf4b6a876dab34e979491c4ef1efeb
   - enabled: 1
-    path: Assets/Scenes/LEVEL_BATTLE.unity
+    path: Assets/PROJETO_ATUAL/Scenes/LEVEL_BATTLE.unity
     guid: face30aee84aace4f94b27b9f1e36a96
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
