@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allEnemies:
-  - {fileID: 11400000, guid: 742c19dd50eda5248ba9a4659ae76804, type: 2}
+  - {fileID: 11400000, guid: 59d99f0a020d30345b6aeda027d7160c, type: 2}
   currentEnemies: []
 --- !u!4 &1312558388
 Transform:
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesInScene:
-  - Enemy: {fileID: 11400000, guid: 742c19dd50eda5248ba9a4659ae76804, type: 2}
+  - Enemy: {fileID: 11400000, guid: 59d99f0a020d30345b6aeda027d7160c, type: 2}
     LevelMin: 1
     LevelMax: 5
   maxNumEnemies: 2

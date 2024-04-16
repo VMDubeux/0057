@@ -11,6 +11,7 @@ public class StateMachine : MonoBehaviour
     public Unit CurrentUnit;
     State _current;
     bool _busy;
+
     void Awake(){
         Instance = this;
         CardsToPlay = new Queue<Card>();

@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighlightedColor: {r: 0.50980395, g: 0.35686275, b: 0.27450982, a: 1}
-  Body: {fileID: 8534123039481237243}
+  smrCount: 0
   bodyRenderers: []
 --- !u!114 &4018476285783873432
 MonoBehaviour:
@@ -728,6 +728,8 @@ MonoBehaviour:
   Amount: 0
   StacksIntensity: 0
   StacksDuration: 0
+  smrCount: 0
+  bodyRenderers: []
 --- !u!1 &1505681810154290190
 GameObject:
   m_ObjectHideFlags: 0
