@@ -8,21 +8,24 @@ using UnityEngine.UIElements;
 public class SelectableUnit : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Color HighlightedColor;
+    
+    [SerializeField] internal int smrCount;
 
-    [SerializeField] private GameObject Body;
-
-    [SerializeField] private SkinnedMeshRenderer[] bodyRenderers;
+    [SerializeField] internal SkinnedMeshRenderer[] bodyRenderers;
 
     void Awake()
     {
-        bodyRenderers = new SkinnedMeshRenderer[Body.transform.childCount];
+        foreach (SkinnedMeshRenderer smr in gameObject.transform.GetComponentsInChildren<SkinnedMeshRenderer>()) 
+        {
+            smrCount++;
+        }
+
+        bodyRenderers = new SkinnedMeshRenderer[smrCount];
 
         for (int i = 0; i < bodyRenderers.Length; i++)
         {
-            bodyRenderers[i] = Body.transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
+            bodyRenderers[i] = GetComponentsInChildren<SkinnedMeshRenderer>()[i];
         }
-
-        //NormalColor = bodyRenderers[0].materials[0].color;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

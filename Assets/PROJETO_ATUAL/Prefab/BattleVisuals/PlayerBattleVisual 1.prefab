@@ -1783,6 +1783,7 @@ GameObject:
   - component: {fileID: 3305854942454186664}
   - component: {fileID: 3621656645966171477}
   - component: {fileID: 5942586904155349352}
+  - component: {fileID: 8222850607996121716}
   m_Layer: 6
   m_Name: PlayerBattleVisual 1
   m_TagString: Player
@@ -1881,6 +1882,22 @@ MonoBehaviour:
   HighlightedColor: {r: 0.50980395, g: 0.35686275, b: 0.27450982, a: 1}
   Body: {fileID: 9204133870563857840}
   bodyRenderers: []
+--- !u!114 &8222850607996121716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903129411115756956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559684996892b364faf466a9c17056cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 0
+  Amount: 0
+  StacksIntensity: 0
+  StacksDuration: 0
 --- !u!1 &1916874107790556418
 GameObject:
   m_ObjectHideFlags: 0
