@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
@@ -12,9 +13,10 @@ public class ItemPickUp : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnMouseDown()
+        private void OnTriggerEnter(Collider other)
     {
         PickUp();
-        InventoryManager.Instance.ListItems();
+        InventoryManager.Instance.ListItems();    
     }
+
 }
