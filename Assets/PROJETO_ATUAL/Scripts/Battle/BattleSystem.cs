@@ -195,7 +195,7 @@ public class BattleSystem : MonoBehaviour
                 true);
 
             BattleVisuals tempBattleVisuals = Instantiate(currentParty[i].MemberBattleVisualPrefab,
-                partySpawnPoints[i].position, Quaternion.identity).GetComponent<BattleVisuals>();
+                partySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Player").transform).GetComponent<BattleVisuals>();
 
             tempBattleVisuals.SetStartingValues(currentParty[i].CurrHealth,
                 currentParty[i].MaxHealth, currentParty[i].Level);
@@ -225,7 +225,7 @@ public class BattleSystem : MonoBehaviour
                 false);
 
             BattleVisuals tempBattleVisuals = Instantiate(currentEnemies[i].EnemyVisualPrefab,
-                enemySpawnPoints[i].position, Quaternion.identity).GetComponent<BattleVisuals>();
+                enemySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Enemies").transform).GetComponent<BattleVisuals>();
 
             tempBattleVisuals.SetStartingValues(currentEnemies[i].MaxHealth,
                 currentEnemies[i].MaxHealth, currentEnemies[i].Level);
