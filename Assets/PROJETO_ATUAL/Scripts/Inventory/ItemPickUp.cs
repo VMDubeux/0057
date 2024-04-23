@@ -18,5 +18,4 @@ public class ItemPickUp : MonoBehaviour
         PickUp();
         InventoryManager.Instance.ListItems();    
     }
-
 }
