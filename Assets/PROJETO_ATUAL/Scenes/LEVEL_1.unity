@@ -1125,10 +1125,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3650203216925042105, guid: a3e03699e440d624e99b2063537f7271, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1705,8 +1701,12 @@ PrefabInstance:
       value: -21.097706
       objectReference: {fileID: 0}
     - target: {fileID: 796499550675859973, guid: 757c7f729089c79478dda35473bc7099, type: 3}
+      propertyPath: far clip plane
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 796499550675859973, guid: 757c7f729089c79478dda35473bc7099, type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 796499550675859973, guid: 757c7f729089c79478dda35473bc7099, type: 3}
       propertyPath: orthographic size
@@ -1773,8 +1773,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 366713010}
     - target: {fileID: 6302471031932096717, guid: 757c7f729089c79478dda35473bc7099, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302471031932096717, guid: 757c7f729089c79478dda35473bc7099, type: 3}
       propertyPath: m_Lens.NearClipPlane
-      value: 0.3
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6302471031932096717, guid: 757c7f729089c79478dda35473bc7099, type: 3}
       propertyPath: m_Lens.OrthographicSize
@@ -7349,6 +7353,7 @@ SceneRoots:
   - {fileID: 1368759047}
   - {fileID: 1925408743}
   - {fileID: 224910296}
+  - {fileID: 790100430}
   - {fileID: 327555772}
   - {fileID: 1522900150}
   - {fileID: 1312558388}
@@ -7370,4 +7375,3 @@ SceneRoots:
   - {fileID: 437673140}
   - {fileID: 1984425857}
   - {fileID: 1366285916}
-  - {fileID: 790100430}
