@@ -676,8 +676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd48872002a6dc44bac17258de6d276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 4344965314821079412}
-  levelText: {fileID: 6140866732306106239}
+  healthBar: {fileID: 0}
+  levelText: {fileID: 0}
 --- !u!114 &8536784492664659658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec09b020f969748a0c7172d24a630b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightedColor: {r: 0.50980395, g: 0.35686275, b: 0.27450982, a: 1}
+  HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
   smrCount: 0
   bodyRenderers: []
 --- !u!114 &4018476285783873432
@@ -707,11 +707,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 30
+    Value: 90
   - Type: 1
-    Value: 30
+    Value: 22
   - Type: 2
-    Value: 0
+    Value: 35
 --- !u!114 &5108658499620737112
 MonoBehaviour:
   m_ObjectHideFlags: 0
