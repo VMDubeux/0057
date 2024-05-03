@@ -28,11 +28,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
+        ToggleSFX(PlayerPrefs.GetInt("sfxToggleValue"));
         MusicVolume(PlayerPrefs.GetFloat("MusicVolumeValue"));
-        PlayMusic("Theme");
         SFXVolume(PlayerPrefs.GetFloat("SfxVolumeValue"));
-        ToggleMusic();
-        ToggleSFX();
+        PlayMusic("Theme");
     }
 
     public void PlayMusic(string Name)
@@ -58,14 +58,16 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void ToggleMusic()
+    public void ToggleMusic(int value)
     {
-        PlayerPrefs.GetInt("musicToggleValue");
+        if (value == 0) MusicSource.mute = true;
+        else if (value == 1) MusicSource.mute = false;
     }
 
-    public void ToggleSFX()
+    public void ToggleSFX(int value)
     {
-        PlayerPrefs.GetInt("sfxToggleValue");
+        if (value == 0) SfxSource.mute = true;
+        else if (value == 1) SfxSource.mute = false;
     }
 
     public void MusicVolume(float volume)

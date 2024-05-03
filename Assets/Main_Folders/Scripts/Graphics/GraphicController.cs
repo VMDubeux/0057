@@ -13,18 +13,16 @@ public class GraphicController : MonoBehaviour
     private void Awake()
     {
         resolutionDropdown = GameObject.Find("Canvas/OptionsMenu/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
+        GraphicManager.Instance.resolutionDropdown = resolutionDropdown;
         qualityDropdown = GameObject.Find("Canvas/OptionsMenu/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
+        GraphicManager.Instance.qualityDropdown = qualityDropdown;
         fullScreenToggle = GameObject.Find("Canvas/OptionsMenu/FullScreen/Toggle").GetComponent<Toggle>();
+        GraphicManager.Instance.fullScreenToggle = fullScreenToggle;
     }
 
     private void Start()
     {
         Resolution();
-    }
-
-    private void Update()
-    {
-        LoadFullScreenToggleValue();
     }
 
     private void Resolution()
@@ -49,23 +47,22 @@ public class GraphicController : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
 
     public void SetToggleFullScreen()
     {
-        GraphicManager.Instance.ToggleFullScreen();
         if (fullScreenToggle.isOn == true)
-        {
-            PlayerPrefs.SetInt("fullScreenToggleValue", 0);
-            Screen.fullScreen = false;
-        }
-        else if (fullScreenToggle.isOn == false)
         {
             PlayerPrefs.SetInt("fullScreenToggleValue", 1);
             Screen.fullScreen = true;
         }
+        else if (fullScreenToggle.isOn == false)
+        {
+            PlayerPrefs.SetInt("fullScreenToggleValue", 0);
+            Screen.fullScreen = false;
+        }
+        LoadFullScreenToggleValue();
     }
 
     void LoadFullScreenToggleValue()
@@ -84,7 +81,6 @@ public class GraphicController : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         int resolutionValue = resolutionDropdown.value;
         PlayerPrefs.SetInt("ResolutionValue", resolutionValue);
-        GraphicManager.Instance.ResolutionValue(resolutionValue);
         LoadResolutionValue();
     }
 
@@ -99,7 +95,6 @@ public class GraphicController : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
         int qualityValue = qualityDropdown.value;
         PlayerPrefs.SetInt("QualityValue", qualityValue);
-        GraphicManager.Instance.QualityValue(qualityIndex);
         LoadQualityValue();
     }
 

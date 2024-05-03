@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Threading;
 
 public class GraphicControllerLevels : MonoBehaviour
 {
@@ -13,8 +15,11 @@ public class GraphicControllerLevels : MonoBehaviour
     private void Awake()
     {
         resolutionDropdown = GameObject.Find("CanvasPause/OptionsMenu/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
+        GraphicManager.Instance.resolutionDropdown = resolutionDropdown;
         qualityDropdown = GameObject.Find("CanvasPause/OptionsMenu/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
+        GraphicManager.Instance.qualityDropdown = qualityDropdown;
         fullScreenToggle = GameObject.Find("CanvasPause/OptionsMenu/FullScreen/Toggle").GetComponent<Toggle>();
+        GraphicManager.Instance.fullScreenToggle = fullScreenToggle;
     }
 
     private void Start()
@@ -22,9 +27,17 @@ public class GraphicControllerLevels : MonoBehaviour
         Resolution();
     }
 
-    private void Update()
+    private void OnGUI()
     {
-        LoadFullScreenToggleValue();
+        if (gameObject.activeSelf)
+        {
+            resolutionDropdown = GameObject.Find("CanvasPause/OptionsMenu/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
+            GraphicManager.Instance.resolutionDropdown = resolutionDropdown;
+            qualityDropdown = GameObject.Find("CanvasPause/OptionsMenu/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
+            GraphicManager.Instance.qualityDropdown = qualityDropdown;
+            fullScreenToggle = GameObject.Find("CanvasPause/OptionsMenu/FullScreen/Toggle").GetComponent<Toggle>();
+            GraphicManager.Instance.fullScreenToggle = fullScreenToggle;
+        }
     }
 
     private void Resolution()
@@ -49,23 +62,22 @@ public class GraphicControllerLevels : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
 
     public void SetToggleFullScreen()
     {
-        GraphicManager.Instance.ToggleFullScreen();
         if (fullScreenToggle.isOn == true)
-        {
-            PlayerPrefs.SetInt("fullScreenToggleValue", 0);
-            Screen.fullScreen = false;
-        }
-        else if (fullScreenToggle.isOn == false)
         {
             PlayerPrefs.SetInt("fullScreenToggleValue", 1);
             Screen.fullScreen = true;
         }
+        else if (fullScreenToggle.isOn == false)
+        {
+            PlayerPrefs.SetInt("fullScreenToggleValue", 0);
+            Screen.fullScreen = false;
+        }
+        LoadFullScreenToggleValue();
     }
 
     void LoadFullScreenToggleValue()
@@ -82,9 +94,7 @@ public class GraphicControllerLevels : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        int resolutionValue = resolutionDropdown.value;
-        PlayerPrefs.SetInt("ResolutionValue", resolutionValue);
-        GraphicManager.Instance.ResolutionValue(resolutionValue);
+        PlayerPrefs.SetInt("ResolutionValue", resolutionDropdown.value);
         LoadResolutionValue();
     }
 
@@ -99,7 +109,6 @@ public class GraphicControllerLevels : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
         int qualityValue = qualityDropdown.value;
         PlayerPrefs.SetInt("QualityValue", qualityValue);
-        GraphicManager.Instance.QualityValue(qualityIndex);
         LoadQualityValue();
     }
 

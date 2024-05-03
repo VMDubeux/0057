@@ -12,6 +12,7 @@ TagManager:
   - OptionsMenu
   - ResolutionDropdown
   - QualityDropdown
+  - FullScreenToggle
   layers:
   - Default
   - TransparentFX

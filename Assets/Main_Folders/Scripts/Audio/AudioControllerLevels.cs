@@ -35,7 +35,6 @@ public class AudioControllerLevels : MonoBehaviour
 
     public void ToggleMusic()
     {
-        AudioManager.Instance.ToggleMusic();
         if (MusicToggle.isOn == true)
         {
             PlayerPrefs.SetInt("musicToggleValue", 0);
@@ -46,6 +45,7 @@ public class AudioControllerLevels : MonoBehaviour
             PlayerPrefs.SetInt("musicToggleValue", 1);
             MusicSource.mute = true;
         }
+        AudioManager.Instance.ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
         LoadMusicToggleValue();
     }
 
@@ -61,7 +61,6 @@ public class AudioControllerLevels : MonoBehaviour
 
     public void ToggleSFX()
     {
-        AudioManager.Instance.ToggleSFX();
         if (SfxToggle.isOn == true)
         {
             PlayerPrefs.SetInt("sfxToggleValue", 0);
@@ -72,6 +71,8 @@ public class AudioControllerLevels : MonoBehaviour
             PlayerPrefs.SetInt("sfxToggleValue", 1);
             SfxSource.mute = true;
         }
+        AudioManager.Instance.ToggleSFX(PlayerPrefs.GetInt("sfxToggleValue"));
+        LoadSfxToggleValue();
     }
 
     void LoadSfxToggleValue()

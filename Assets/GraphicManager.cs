@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GraphicManager : MonoBehaviour
 {
     public static GraphicManager Instance;
 
-    [SerializeField] private TMP_Dropdown resolutionDropdown, qualityDropdown;
+    [SerializeField] internal TMP_Dropdown resolutionDropdown, qualityDropdown;
+
+    [SerializeField] internal Toggle fullScreenToggle;
 
     private void Awake()
     {
@@ -23,32 +26,36 @@ public class GraphicManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //resolutionDropdown = GameObject.Find("Canvas/OptionsMenu/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
-        //qualityDropdown = GameObject.Find("Canvas/OptionsMenu/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
-        qualityDropdown = GameObject.FindWithTag("QualityDropdown").GetComponent<TMP_Dropdown>();
-        resolutionDropdown = GameObject.FindWithTag("ResolutionDropdown").GetComponent<TMP_Dropdown>();
+        SearchGameDropdownsAndToggles();
     }
 
-    private void Start()
+    private void Update()
     {
+        ToggleFullScreen(PlayerPrefs.GetInt("fullScreenToggleValue"));
         ResolutionValue(PlayerPrefs.GetInt("ResolutionValue"));
         QualityValue(PlayerPrefs.GetInt("QualityValue"));
-        ToggleFullScreen();
     }
 
-    public void ToggleFullScreen()
+    public void ToggleFullScreen(int value)
     {
-        PlayerPrefs.GetInt("fullScreenToggleValue");
+        if (value == 0) fullScreenToggle.isOn = false;
+        else if (value == 1) fullScreenToggle.isOn = true;
     }
 
     public void ResolutionValue(int resolution)
     {
-        resolutionDropdown.value = resolution;    
+        resolutionDropdown.value = resolution;
     }
 
     public void QualityValue(int quality)
     {
-        QualitySettings.SetQualityLevel(quality);
         qualityDropdown.value = quality;
+    }
+
+    private void SearchGameDropdownsAndToggles()
+    {
+        qualityDropdown = GameObject.FindWithTag("QualityDropdown").GetComponent<TMP_Dropdown>();
+        resolutionDropdown = GameObject.FindWithTag("ResolutionDropdown").GetComponent<TMP_Dropdown>();
+        fullScreenToggle = GameObject.FindWithTag("FullScreenToggle").GetComponent<Toggle>();
     }
 }

@@ -58,18 +58,6 @@ public class LevelsManager : MonoBehaviour
             PauseCanvasMenu.SetActive(false);
     }
 
-    /*public void RestartGame()
-    {
-        SceneManager.LoadScene(currentGameSceneIndex);
-        Time.timeScale = 1.0f;
-    }
-
-    public void NextGameScene()
-    {
-        SceneManager.LoadScene(currentGameSceneIndex + 1);
-        Time.timeScale = 1.0f;
-    }*/
-
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(sceneBuildIndex: 0);
