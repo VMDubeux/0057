@@ -19,7 +19,7 @@ public class EncounterSystem : MonoBehaviour
 [System.Serializable]
 public class Encouter
 {
-    public EnemyInfo Enemy;
+    public GameObject Enemy;
     public int LevelMin;
     public int LevelMax;
 }

@@ -7,5 +7,6 @@ public enum StatType
     MaxHP,
     HP,
     Block,
+    Strength,
     None
 }

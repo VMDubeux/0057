@@ -1437,9 +1437,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allMember:
-  - {fileID: 11400000, guid: e7e157308730ac74eae41c36ab366c25, type: 2}
+  - {fileID: 1903129411115756956, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
   currentParty: []
-  defaultPartyMember: {fileID: 11400000, guid: e7e157308730ac74eae41c36ab366c25, type: 2}
+  defaultPartyMember: {fileID: 1903129411115756956, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
 --- !u!4 &1260760013
 Transform:
   m_ObjectHideFlags: 0
@@ -1485,7 +1485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allEnemies:
-  - {fileID: 11400000, guid: 59d99f0a020d30345b6aeda027d7160c, type: 2}
+  - {fileID: 1445210012511453399, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
   currentEnemies: []
 --- !u!4 &1312558388
 Transform:
@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesInScene:
-  - Enemy: {fileID: 11400000, guid: 59d99f0a020d30345b6aeda027d7160c, type: 2}
+  - Enemy: {fileID: 1445210012511453399, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
     LevelMin: 1
     LevelMax: 5
   maxNumEnemies: 2

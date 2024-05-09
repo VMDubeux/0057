@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerUnit : Unit
 {
+    public GameObject PlayerOverworldVisualPrefab;
+
     public int MaxEnergy;
     public int CurrentEnergy {
         get{

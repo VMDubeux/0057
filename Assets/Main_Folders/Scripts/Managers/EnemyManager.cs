@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private EnemyInfo[] allEnemies;
+    [SerializeField] private GameObject[] allEnemies;
     [SerializeField] private List<Enemy> currentEnemies;
 
     public static GameObject instance;
@@ -35,7 +36,7 @@ public class EnemyManager : MonoBehaviour
         {
             Encouter tempEncouter = encounters[Random.Range(0, encounters.Length)];
             int level = Random.Range(tempEncouter.LevelMin, tempEncouter.LevelMax + 1);
-            GenerateEnemyByName(tempEncouter.Enemy.EnemyName, level);
+            GenerateEnemyByName(tempEncouter.Enemy.name, level);
         }
     }
 
@@ -43,18 +44,18 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < allEnemies.Length; i++)
         {
-            if (enemyName == allEnemies[i].EnemyName)
+            if (enemyName == allEnemies[i].name)
             {
                 Enemy newEnemy = new Enemy();
-                newEnemy.EnemyName = allEnemies[i].EnemyName;
+                newEnemy.EnemyName = allEnemies[i].name;
                 newEnemy.Level = level;
                 float levelModifier = (LEVEL_MOD * newEnemy.Level);
 
-                newEnemy.CurrHealth = Mathf.RoundToInt(allEnemies[i].BaseHealth + (allEnemies[i].BaseHealth * levelModifier));
-                newEnemy.MaxHealth = newEnemy.CurrHealth;
-                newEnemy.Block = Mathf.RoundToInt(allEnemies[i].BaseBlock + (allEnemies[i].BaseBlock * levelModifier));
-                newEnemy.Initiative = Mathf.RoundToInt(allEnemies[i].BaseInitiative + (allEnemies[i].BaseInitiative * levelModifier));
-                newEnemy.EnemyVisualPrefab = allEnemies[i].EnemyVisualPrefab;
+                newEnemy.HP = Mathf.RoundToInt(allEnemies[i].GetComponent<Unit>()._stats[1].Value + (allEnemies[i].GetComponent<Unit>()._stats[1].Value * levelModifier));
+                newEnemy.MaxHP = newEnemy.HP;
+                newEnemy.Block = Mathf.RoundToInt(allEnemies[i].GetComponent<Unit>()._stats[2].Value + (allEnemies[i].GetComponent<Unit>()._stats[2].Value * levelModifier));
+                newEnemy.Strength = Mathf.RoundToInt(allEnemies[i].GetComponent<Unit>()._stats[3].Value + (allEnemies[i].GetComponent<Unit>()._stats[3].Value * levelModifier));
+                newEnemy.EnemyVisualPrefab = allEnemies[i].gameObject;
 
                 currentEnemies.Add(newEnemy);
             }
@@ -72,9 +73,9 @@ public class Enemy
 {
     public string EnemyName;
     public int Level;
-    public int CurrHealth;
-    public int MaxHealth;
+    public int HP;
+    public int MaxHP;
     public int Block;
-    public int Initiative;
+    public int Strength;
     public GameObject EnemyVisualPrefab;
 }

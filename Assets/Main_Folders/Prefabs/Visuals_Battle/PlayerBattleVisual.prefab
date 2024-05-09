@@ -1858,11 +1858,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 100
+    Value: 50
   - Type: 1
-    Value: 100
+    Value: 50
   - Type: 2
-    Value: 0
+    Value: 12
+  - Type: 3
+    Value: 20
+  EnemyVisualPrefab: {fileID: 0}
+  PlayerOverworldVisualPrefab: {fileID: 1415486005634186758, guid: a3e03699e440d624e99b2063537f7271, type: 3}
   MaxEnergy: 3
   _currentEnergy: 0
   DrawAmount: 5
@@ -1880,7 +1884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighlightedColor: {r: 0.50980395, g: 0.35686275, b: 0.27450982, a: 1}
-  Body: {fileID: 9204133870563857840}
+  smrCount: 0
   bodyRenderers: []
 --- !u!114 &8222850607996121716
 MonoBehaviour:
@@ -1898,6 +1902,8 @@ MonoBehaviour:
   Amount: 0
   StacksIntensity: 0
   StacksDuration: 0
+  smrCount: 0
+  bodyRenderers: []
 --- !u!1 &1916874107790556418
 GameObject:
   m_ObjectHideFlags: 0

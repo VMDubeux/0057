@@ -6,8 +6,8 @@ using UnityEngine;
 public class EnemyInfo : ScriptableObject
 {
     public string EnemyName;
-    public int BaseHealth;
+    public int BaseHP;
     public int BaseBlock;
-    public int BaseInitiative;
+    public int BaseStrength;
     public GameObject EnemyVisualPrefab; //used in battle scene
 }
