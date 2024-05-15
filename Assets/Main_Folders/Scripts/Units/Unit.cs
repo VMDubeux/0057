@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public delegate void OnUnit(Unit unit);
-public class Unit : MonoBehaviour, IPointerClickHandler
+//public delegate void OnUnit(Unit unit);
+public class Unit : MonoBehaviour
 {
     //[SerializeField]
     public List<Stat> _stats = new List<Stat>();
+    public GameObject OverworldVisualPrefab;
+    
+    /*
     public OnUnit onUnitClicked = delegate { };
     public OnUnit onUnitTakeTurn = delegate { };
     public TagModifier[] Modify = new TagModifier[(int)ModifierTags.None];
-    public GameObject EnemyVisualPrefab;
+    public int battleEntitiesSerialNumber;
+    */
 
+    /*
     public virtual IEnumerator Recover() //Toda vez que a batalha (o seu respectivo turno) for iniciada o atributo Block aparecerá zerado.
     {
         yield return null;
@@ -20,7 +25,7 @@ public class Unit : MonoBehaviour, IPointerClickHandler
         onUnitTakeTurn(this);
     }
 
-
+    */
     /*[ContextMenu("Generate Stats")]
     public void UnitStats(){
         _stats = new List<Stat>();
@@ -32,10 +37,11 @@ public class Unit : MonoBehaviour, IPointerClickHandler
         }
     }
     */
-    public void OnPointerClick(PointerEventData eventData)
+    /*public void OnPointerClick(PointerEventData eventData)
     {
         onUnitClicked(this);
-    }
+    }*/
+    /*
     public int GetStatValue(StatType type)
     {
         int statValue = _stats[(int)type].Value;
@@ -47,4 +53,5 @@ public class Unit : MonoBehaviour, IPointerClickHandler
         //modify
         _stats[(int)type].Value = value;
     }
+    */
 }

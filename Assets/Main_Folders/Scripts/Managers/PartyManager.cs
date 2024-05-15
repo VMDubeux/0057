@@ -37,12 +37,12 @@ public class PartyManager : MonoBehaviour
                 PartyMember newPartyMember = new PartyMember();
                 newPartyMember.MemberName = allMember[i].name;
                 //newPartyMember.Level = allMember[i].StartingLevel;
-                newPartyMember.HP = allMember[i].GetComponent<PlayerUnit>()._stats[1].Value;
+                newPartyMember.HP = allMember[i].GetComponent<Unit>()._stats[1].Value;
                 newPartyMember.MaxHP = newPartyMember.HP;
-                newPartyMember.Block = allMember[i].GetComponent<PlayerUnit>()._stats[2].Value;
-                newPartyMember.Strength = allMember[i].GetComponent<PlayerUnit>()._stats[3].Value;
+                newPartyMember.Block = allMember[i].GetComponent<Unit>()._stats[2].Value;
+                newPartyMember.Strength = allMember[i].GetComponent<Unit>()._stats[3].Value;
                 newPartyMember.MemberBattleVisualPrefab = allMember[i].gameObject;
-                newPartyMember.MemberOverworldVisualPrefab = allMember[i].GetComponent<PlayerUnit>().PlayerOverworldVisualPrefab;
+                newPartyMember.MemberOverworldVisualPrefab = allMember[i].GetComponent<Unit>().OverworldVisualPrefab;
 
                 currentParty.Add(newPartyMember);
             }

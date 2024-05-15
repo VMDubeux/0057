@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class TargetAllEnemies : MonoBehaviour, ITarget
 {
-    public IEnumerator GetTargets(List<object> targets){
-        GameObject enemiesGameObject = GameObject.Find("Units/Enemies");
-        foreach(Unit unit in enemiesGameObject.GetComponentsInChildren<Unit>()){
-            if(unit.GetStatValue(StatType.HP)>0){
-                targets.Add(unit);
+    public IEnumerator GetTargets(List<object> targets)
+    {
+        foreach (BattleVisuals battleVisuals in StateMachine.Instance.Units)
+        {
+            if (battleVisuals.CompareTag("Enemies"))
+            {
+                if (battleVisuals.HP > 0)
+                {
+                    targets.Add(battleVisuals);
+                }
             }
         }
         yield return null;

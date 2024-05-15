@@ -5,10 +5,16 @@ using UnityEngine;
 public class ChangeEnergyEffect : CardEffect
 {
     public int Value;
-    public override IEnumerator Apply(List<object> targets){
-        foreach(object o in targets){
-            PlayerUnit player = o as PlayerUnit;
-            player.CurrentEnergy+= Value;
+    public override IEnumerator Apply(List<object> targets)
+    {
+        foreach (object o in targets)
+        {
+            BattleVisuals player = o as BattleVisuals;
+            if (player.CompareTag("Player"))
+            {
+                PlayerUnit unit = player.GetComponent<PlayerUnit>();
+                unit.CurrentEnergy += Value;
+            }
             yield return null;
         }
     }

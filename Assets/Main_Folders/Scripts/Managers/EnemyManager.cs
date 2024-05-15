@@ -6,10 +6,10 @@ using UnityEngine.Rendering;
 
 public class EnemyManager : MonoBehaviour
 {
+    public static GameObject instance;
+    
     [SerializeField] private GameObject[] allEnemies;
     [SerializeField] private List<Enemy> currentEnemies;
-
-    public static GameObject instance;
 
     private const float LEVEL_MOD = 0.5f;
 

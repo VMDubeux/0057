@@ -12,14 +12,16 @@ public class BattleSystem : MonoBehaviour
     //[SerializeField] private BattleState state;
     */
 
+    public static BattleSystem Instance;
+
     [Header("Spawn Points")]
     [SerializeField] private Transform[] partySpawnPoints;
     [SerializeField] private Transform[] enemySpawnPoints;
 
     [Header("Battlers")]
-    [SerializeField] private List<BattleEntities> allBattlers = new List<BattleEntities>();
-    [SerializeField] private List<BattleEntities> enemyBattlers = new List<BattleEntities>();
-    [SerializeField] private List<BattleEntities> playerBattlers = new List<BattleEntities>();
+    public List<BattleEntities> allBattlers = new List<BattleEntities>();
+    public List<BattleEntities> enemyBattlers = new List<BattleEntities>();
+    public List<BattleEntities> playerBattlers = new List<BattleEntities>();
 
     /*
     [Header("UI")]
@@ -33,7 +35,7 @@ public class BattleSystem : MonoBehaviour
 
     private PartyManager partyManager;
     private EnemyManager enemyManager;
-    private int currentPlayer;
+    //private int currentPlayer;
 
     /*
     private const string ACTION_MESSAGE = "'s Action:";
@@ -176,30 +178,37 @@ public class BattleSystem : MonoBehaviour
 
     */
 
-    
+
 
     private void CreatePartyEntities()
     {
         List<PartyMember> currentParty = new List<PartyMember>();
         currentParty = partyManager.GetCurrentParty();
+        int serialNumber = 0;
 
         for (int i = 0; i < currentParty.Count; i++)
         {
             BattleEntities tempEntity = new BattleEntities();
 
-            tempEntity.SetEntityValues(currentParty[i].MemberName,
-                currentParty[i].HP,
+            tempEntity.SetEntityValues(currentParty[i].HP,
                 currentParty[i].MaxHP,
                 currentParty[i].Block,
                 currentParty[i].Strength,
                 currentParty[i].Level,
-                true);
+                true,
+                serialNumber);
+
+            serialNumber++;
+
+            tempEntity.SetEntityName(currentParty[i].MemberName + serialNumber);
 
             BattleVisuals tempBattleVisuals = Instantiate(currentParty[i].MemberBattleVisualPrefab,
                 partySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Player").transform).GetComponent<BattleVisuals>();
 
-            tempBattleVisuals.SetStartingValues(currentParty[i].HP,
-                currentParty[i].MaxHP, currentParty[i].Level);
+            tempBattleVisuals.name = currentParty[i].MemberName;
+
+            tempBattleVisuals.SetStartingValues(currentParty[i].MaxHP,
+                currentParty[i].MaxHP, currentParty[i].Block, currentParty[i].Strength, currentParty[i].Level, serialNumber, tempEntity);
 
             tempEntity.BattleVisuals = tempBattleVisuals;
 
@@ -212,24 +221,31 @@ public class BattleSystem : MonoBehaviour
     {
         List<Enemy> currentEnemies = new List<Enemy>();
         currentEnemies = enemyManager.GetCurrentEnemies();
+        int serialNumber = 0;
 
         for (int i = 0; i < currentEnemies.Count; i++)
         {
             BattleEntities tempEntity = new BattleEntities();
 
-            tempEntity.SetEntityValues(currentEnemies[i].EnemyName,
-                currentEnemies[i].HP,
+            tempEntity.SetEntityValues(currentEnemies[i].HP,
                 currentEnemies[i].MaxHP,
                 currentEnemies[i].Block,
                 currentEnemies[i].Strength,
                 currentEnemies[i].Level,
-                false);
+                false,
+                serialNumber);
+
+            serialNumber++;
+
+            tempEntity.SetEntityName(currentEnemies[i].EnemyName + serialNumber);
 
             BattleVisuals tempBattleVisuals = Instantiate(currentEnemies[i].EnemyVisualPrefab,
                 enemySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Enemies").transform).GetComponent<BattleVisuals>();
 
+            tempBattleVisuals.name = currentEnemies[i].EnemyName;
+
             tempBattleVisuals.SetStartingValues(currentEnemies[i].MaxHP,
-                currentEnemies[i].MaxHP, currentEnemies[i].Level);
+                currentEnemies[i].MaxHP, currentEnemies[i].Block, currentEnemies[i].Strength, currentEnemies[i].Level, serialNumber, tempEntity);
 
             tempEntity.BattleVisuals = tempBattleVisuals;
 
@@ -266,11 +282,12 @@ public class BattleSystem : MonoBehaviour
             enemySelectionButtons[j].GetComponentInChildren<TextMeshProUGUI>().text = enemyBattlers[j].Name;
         }
     }
-     
+      */
 
+    /*
     public void SelectEnemy(int currentEnemy)
     {
-        BattleEntities currentPlayerEntity = playerBattlers[currentPlayer];
+        BattleEntities currentPlayerEntity = playerBattlers[0];
         currentPlayerEntity.SetTarget(allBattlers.IndexOf(enemyBattlers[currentEnemy]));
 
         currentPlayerEntity.BattleAction = BattleEntities.Action.Attack;
@@ -285,10 +302,10 @@ public class BattleSystem : MonoBehaviour
             enemySelectionMenu.SetActive(false);
             ShowBattleMenu();
         }
-    }
-    */
+}
+*/
 
-    private void AttackAction(BattleEntities currAttacker, BattleEntities currTarget)
+    /*private void AttackAction(BattleEntities currAttacker, BattleEntities currTarget)
     {
         int damage = currAttacker.Strength;
         currAttacker.BattleVisuals.PlayAttackAnimation();
@@ -297,9 +314,9 @@ public class BattleSystem : MonoBehaviour
         currTarget.UpdateUI();
         //bottomText.text = string.Format("{0} attacks {1} for {2} damage", currAttacker.Name, currTarget.Name, damage);
         SaveHealth();
-    }
+    }*/
 
-    private int GetRandomPartyMember()
+    /*private int GetRandomPartyMember()
     {
         List<int> partyMembers = new();
 
@@ -346,7 +363,7 @@ public class BattleSystem : MonoBehaviour
                 allBattlers.RemoveAt(i);
             }
         }
-    }
+    }*/
 
     /*
     private void DetermineBattleOrder()
@@ -377,7 +394,6 @@ public class BattleSystem : MonoBehaviour
     }
     
      */
-
 }
 
 
@@ -387,26 +403,32 @@ public class BattleEntities
     //public enum Action { Attack, Run }
     //public Action BattleAction;
 
-    public string Name;
-    public int HP;
-    public int MaxHP;
-    public int Block;
-    public int Strength;
-    public int Level;
-    public BattleVisuals BattleVisuals;
-    public bool IsPlayer;
-    public int Target;
+    public string Name; // Index 0 (BattleVisual SetStatValue)
+    public int HP; // Index 1 (BattleVisual SetStatValue)
+    public int MaxHP; // Index 2 (BattleVisual SetStatValue)
+    public int Block; // Index 3 (BattleVisual SetStatValue)
+    public int Strength; // Index 4 (BattleVisual SetStatValue)
+    public int Level; // Index 5 (BattleVisual SetStatValue)
+    public BattleVisuals BattleVisuals; // Index 6 (BattleVisual SetStatValue)
+    public bool IsPlayer; // Index 7 (BattleVisual SetStatValue)
+    public int Target; // Index 8 (BattleVisual SetStatValue)
+    public int SerialNumber; // Index 9 (BattleVisual SetStatValue)
 
-    public void SetEntityValues(string name, int hp, int maxHP,
-        int block, int strength, int level, bool isPlayer)
+    public void SetEntityValues(int hp, int maxHP,
+        int block, int strength, int level, bool isPlayer, int serialNumber)
     {
-        Name = name;
         HP = hp;
         MaxHP = maxHP;
         Block = block;
         Strength = strength;
         Level = level;
         IsPlayer = isPlayer;
+        SerialNumber = serialNumber;
+    }
+
+    public void SetEntityName(string name) 
+    {
+        Name = name;
     }
 
     public void SetTarget(int target)
@@ -414,8 +436,8 @@ public class BattleEntities
         Target = target;
     }
 
-    public void UpdateUI()
+    /*public void UpdateUI()
     {
         BattleVisuals.ChangeHealth(HP);
-    }
+    }*/
 }
