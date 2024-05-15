@@ -24,6 +24,9 @@ public class PlayerUnit : Unit
     void Awake(){
         _energyMeter = GameObject.Find("Canvas/EnergyMeter").GetComponent<Text>();
     }
+    private void Start() {
+        InvokeRepeating("UpdateHealthBar", 2, 2);
+    }
     public override IEnumerator Recover(){
         yield return StartCoroutine(base.Recover());
         CurrentEnergy = MaxEnergy;
@@ -32,5 +35,10 @@ public class PlayerUnit : Unit
     }
     void UpdateEnergyMeter(){
         _energyMeter.text = string.Format("{0}/{1}", CurrentEnergy, MaxEnergy);
+    }
+    void UpdateHealthBar()
+    {
+        gameObject.GetComponentInChildren<Slider>().maxValue = stats[0].Value;
+        gameObject.GetComponentInChildren<Slider>().value = stats[1].Value;
     }
 }

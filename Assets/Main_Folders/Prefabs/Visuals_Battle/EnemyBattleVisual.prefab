@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 2694216229613709537}
   - component: {fileID: 7948299653598627410}
   - component: {fileID: 8536784492664659658}
-  - component: {fileID: 4018476285783873432}
+  - component: {fileID: 6214634169672838637}
   - component: {fileID: 5108658499620737112}
   m_Layer: 0
   m_Name: EnemyBattleVisual
@@ -693,7 +693,7 @@ MonoBehaviour:
   HighlightedColor: {r: 0.50980395, g: 0.35686275, b: 0.27450982, a: 1}
   smrCount: 0
   bodyRenderers: []
---- !u!114 &4018476285783873432
+--- !u!114 &6214634169672838637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -702,16 +702,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445210012511453399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a406b77e5768f9142b9540f34ea74dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: cae270cc62b091244a504ebbcd281749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 30
+    Value: 50
   - Type: 1
-    Value: 30
+    Value: 50
   - Type: 2
-    Value: 0
+    Value: 5
+  isEnemy: 0
+  damage: 12
+  block: 5
 --- !u!114 &5108658499620737112
 MonoBehaviour:
   m_ObjectHideFlags: 0

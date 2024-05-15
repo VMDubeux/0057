@@ -1990,8 +1990,6 @@ MonoBehaviour:
   actionText: {fileID: 849039073}
   bottomTextPopUp: {fileID: 1377997409}
   bottomText: {fileID: 1308984950}
-  Player: {fileID: 2477567837337405494}
-  Enemies: {fileID: 7940036163825636966}
 --- !u!4 &1435610583
 Transform:
   m_ObjectHideFlags: 0
@@ -4424,6 +4422,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4344965314821079412, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344965314821079412, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344965314821079412, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344965314821079412, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506422238141050915, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7864628
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506422238141050915, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7115081590041752914, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.21
@@ -4462,6 +4484,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115081590041752914, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093775561397647591, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8093775561397647591, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
@@ -4750,6 +4776,14 @@ PrefabInstance:
     - target: {fileID: 6708933072290647788, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826248337633441993, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826248337633441993, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
+      propertyPath: m_Color.r
+      value: 0.18991733
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TargetUnit : MonoBehaviour, ITarget
 {
     Unit _clickedUnit;
+
     public IEnumerator GetTargets(List<object> targets){
         _clickedUnit = null;
 

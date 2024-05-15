@@ -1863,6 +1863,7 @@ MonoBehaviour:
     Value: 100
   - Type: 2
     Value: 0
+  isEnemy: 0
   MaxEnergy: 3
   _currentEnergy: 0
   DrawAmount: 5
@@ -1880,7 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighlightedColor: {r: 0.50980395, g: 0.35686275, b: 0.27450982, a: 1}
-  Body: {fileID: 9204133870563857840}
+  smrCount: 0
   bodyRenderers: []
 --- !u!114 &8222850607996121716
 MonoBehaviour:
@@ -1898,6 +1899,8 @@ MonoBehaviour:
   Amount: 0
   StacksIntensity: 0
   StacksDuration: 0
+  smrCount: 0
+  bodyRenderers: []
 --- !u!1 &1916874107790556418
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ public class BattleSystem : MonoBehaviour
 
         CreatePartyEntities();
         CreateEnemyEntities();
-        ShowBattleMenu();
+        //ShowBattleMenu();
         DetermineBattleOrder();
     }
 

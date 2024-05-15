@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Authentication.ExtendedProtection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,9 @@ public class PlayCardsState : State
     HorizontalLayoutGroup _handLayout;
     void Awake(){
         _handLayout = CardsController.Instance.Hand.Holder.GetComponent<HorizontalLayoutGroup>();
+    }
+    private void Update() {
+
     }
     public override IEnumerator Enter(){
         yield return new WaitForSeconds(0.5f);
