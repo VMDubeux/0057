@@ -1844,9 +1844,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 100
+    Value: 10
   - Type: 1
-    Value: 100
+    Value: 10
   - Type: 2
     Value: 10
   - Type: 3
@@ -1883,6 +1883,7 @@ MonoBehaviour:
     IsPlayer: 0
     Target: 0
     SerialNumber: 0
+  nameCharacterUI: {fileID: 0}
   PlayerOverworldVisualPrefab: {fileID: 1415486005634186758, guid: a3e03699e440d624e99b2063537f7271, type: 3}
   MaxEnergy: 3
   _currentEnergy: 0
