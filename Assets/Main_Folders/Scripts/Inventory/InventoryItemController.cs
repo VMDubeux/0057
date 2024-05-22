@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class InventoryItemController : MonoBehaviour
 {
-    ItemSO Item;
+    ItemPickUp Item;
     public Button RemoveButton;
+
     public void RemoveItem()
     {
+        RemoveButton = transform.GetComponentInChildren<Button>();
         InventoryManager.Instance.Remove(Item);
+        Item.Destroy();
         Destroy(gameObject);
     }
     
-    public void AddItem(ItemSO newItem)
+    public void AddItem(ItemPickUp newItem)
     {
         Item = newItem;
     }

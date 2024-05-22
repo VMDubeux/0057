@@ -7,8 +7,9 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
+
     [Header("Lista de Itens")]
-    public List<ItemSO> Items = new List<ItemSO>();
+    public List<ItemPickUp> Items = new();
 
     [Header("Referencias na HUD")]
     public Transform ItemContent;
@@ -22,14 +23,14 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
     }
 
-    public void Add(ItemSO item)
+    public void Add(ItemPickUp itemPickUp)
     {
-        Items.Add(item);
+        Items.Add(itemPickUp);
     }
 
-    public void Remove(ItemSO item)
+    public void Remove(ItemPickUp itemPickUp)
     {
-        Items.Remove(item);
+        Items.Remove(itemPickUp);
     }
 
     public void ListItems()
@@ -39,16 +40,18 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+
         // Adicionar lista de itens ao inventario
-        foreach (var item in Items)
+        //Items = new List<ItemPickUp>();
+        foreach (var o in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
             var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
 
-            itemName.text = item.itemName;
-            itemIcon.sprite = item.icon;
+            itemName.text = ItemSO.GetName(o.ItemType);
+            itemIcon.sprite = ItemSO.GetSprite(o.ItemType);
         }
 
         SetInventoryItems();
@@ -56,9 +59,9 @@ public class InventoryManager : MonoBehaviour
 
     public void EnableItemRemove()
     {
-        if(EnableRemove.isOn)
+        if (EnableRemove.isOn)
         {
-            foreach(Transform item in ItemContent)
+            foreach (Transform item in ItemContent)
             {
                 item.Find("RemoveButton").gameObject.SetActive(true);
             }
@@ -76,7 +79,7 @@ public class InventoryManager : MonoBehaviour
     {
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
 
-        for (int i = 0; i< Items.Count; i++)
+        for (int i = 0; i < Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
         }
