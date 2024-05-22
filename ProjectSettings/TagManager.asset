@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemies
+  - Waypoint
+  - PlayerXP
   layers:
   - Default
   - TransparentFX

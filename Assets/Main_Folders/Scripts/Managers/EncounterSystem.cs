@@ -14,25 +14,39 @@ public class EncounterSystem : MonoBehaviour
 
     private EnemyManager enemyManager;
 
+    public bool battleActive;
+
+    public GameObject prefab;
+
     void Start()
     {
+        //battleActive = false;
         //enemiesInScene = GameObject.FindGameObjectsWithTag("Enemies");
-        enemyManager = GameObject.FindFirstObjectByType<EnemyManager>(); 
-        
+        enemyManager = GameObject.FindFirstObjectByType<EnemyManager>();
     }
 
-    public IEnumerator StartGenerateEnemiesByEncouter(int min, int max, int fixo, bool variavel, int lvlMin, int lvlMax)
+    public IEnumerator StartGenerateEnemiesByEncouter(int min, int max, int fixo, bool variavel, int lvlMin, int lvlMax, GameObject overviewPrefab, GameObject battlePrefab)
     {
-        if (variavel == false)
-            enemyManager.GenerateEnemyByEncouter(/*enemyInBattleScene,*/ fixo, lvlMin, lvlMax);
-        else
-            enemyManager.GenerateVariableEnemiesByEncouter(/*enemiesInBattleScene,*/ min, max, lvlMin, lvlMax);
+        prefab = overviewPrefab;
 
-        yield return new WaitForSeconds(0.1f);
-        SceneManager.LoadScene("LEVEL_BATTLE", LoadSceneMode.Single);
+        if (variavel == false && battleActive == false)
+        {
+            battleActive = true;
+            enemyManager.GenerateEnemyByEncouter(/*enemyInBattleScene,*/ fixo, lvlMin, lvlMax, battlePrefab, overviewPrefab);
+            yield return new WaitForSeconds(0.1f);
+            SceneManager.LoadScene("LEVEL_BATTLE", LoadSceneMode.Additive);
+        }
+        else if (variavel == true && battleActive == false)
+        {
+            battleActive = true;
+            enemyManager.GenerateVariableEnemiesByEncouter(/*enemiesInBattleScene,*/ min, max, lvlMin, lvlMax, battlePrefab, overviewPrefab);
+            yield return new WaitForSeconds(0.1f);
+            SceneManager.LoadScene("LEVEL_BATTLE", LoadSceneMode.Additive);
+        }
+
     }
 
-    
+
 }
 
 /*[System.Serializable]
