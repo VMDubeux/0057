@@ -10,11 +10,19 @@ public class PlayCardsState : State
     Button _endTurnButton;
     Coroutine _cardSequencer;
     HorizontalLayoutGroup _handLayout;
+    PlayerUnit _playerUnit;
     void Awake(){
         _handLayout = CardsController.Instance.Hand.Holder.GetComponent<HorizontalLayoutGroup>();
     }
+    private void Update() {
+        if( _playerUnit == null && machine.CurrentUnit.CompareTag("Player"))
+        {
+            _playerUnit = machine.CurrentUnit as PlayerUnit;
+        }
+    }
     public override IEnumerator Enter(){
         yield return new WaitForSeconds(0.5f);
+        Graciosidade();
         EndTurnButton(true);
         _handLayout.enabled = false;
         _cardSequencer = StartCoroutine(CardSequencer());
@@ -56,5 +64,18 @@ public class PlayCardsState : State
             _endTurnButton = GameObject.Find("Canvas/EndTurnButton").GetComponent<Button>();
         }
         _endTurnButton.interactable = interactability;
+    }
+
+        void Graciosidade()
+    {
+        if(_playerUnit.Graciosidade > 0 && _playerUnit.HP < _playerUnit.MaxHP)
+        {
+            for(int  i = 0; i < GraciousEffect.graciousHeal; i++)
+            {
+            _playerUnit.HP++;
+            _playerUnit.Graciosidade--;
+            Debug.Log("Gracioso !");
+            }
+        }
     }
 }

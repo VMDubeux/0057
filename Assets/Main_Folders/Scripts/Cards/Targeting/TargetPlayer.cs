@@ -11,6 +11,7 @@ public class TargetPlayer : MonoBehaviour, ITarget
             {
                 targets.Add(battleVisuals);
             }
+            Debug.Log("Player é o target");
         }
         yield return null;
     }

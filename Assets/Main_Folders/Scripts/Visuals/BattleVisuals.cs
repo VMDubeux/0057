@@ -16,7 +16,7 @@ public class BattleVisuals : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI levelText;
 
     [SerializeField]
-    public int HP, MaxHP, Block, Strength, Level, SerialNumber;
+    public int HP, MaxHP, Block, Strength, BlockAmount, Level, SerialNumber;
     [SerializeField] private BattleEntities currentEntity;
 
     private Animator anim;
@@ -130,7 +130,13 @@ public class BattleVisuals : MonoBehaviour, IPointerClickHandler
     public virtual IEnumerator Recover()
     {
         yield return null;
-        SetStatValue(3, 0); //Toda vez que a batalha (o seu respectivo turno) for iniciada o atributo Block aparecerá zerado.
+        SetStatValue(3, 0); //Toda vez que a batalha (o seu respectivo turno) for iniciada o atributo Block aparecerï¿½ zerado.
         onBattleVisualsTakeTurn(this);
+    }
+    
+    public int GetBlockAmount()
+    {
+        BlockAmount = Random.Range(2,5);
+        return BlockAmount;
     }
 }
