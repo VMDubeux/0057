@@ -345,8 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f7b7f95ddd6e84986ba504411ba21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 0}
-  RemoveButton: {fileID: 0}
+  ItemInventory: {fileID: 0}
+  ItemPickUp: {fileID: 0}
 --- !u!1 &5944478470365129005
 GameObject:
   m_ObjectHideFlags: 0

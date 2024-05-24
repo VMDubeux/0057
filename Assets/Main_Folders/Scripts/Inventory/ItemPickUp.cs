@@ -34,6 +34,5 @@ public class ItemPickUp : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PickUp();
-        //InventoryManager.Instance.ListItems();    
     }
 }

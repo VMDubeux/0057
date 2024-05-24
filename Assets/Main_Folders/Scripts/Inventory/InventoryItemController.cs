@@ -8,6 +8,11 @@ public class InventoryItemController : MonoBehaviour
     [SerializeField] private InventoryItem ItemInventory;
     [SerializeField] private ItemPickUp ItemPickUp;
 
+    private void Start()
+    {
+        gameObject.GetComponent<Button>().onClick.AddListener(delegate { UseItem(ItemPickUp); });
+    }
+
     public void RemoveItem()
     {
         Button RemoveButton = transform.GetComponentInChildren<Button>();
@@ -27,8 +32,26 @@ public class InventoryItemController : MonoBehaviour
         ItemPickUp = Item;
     }
 
-    public void UseItem()
+    public void UseItem(ItemPickUp item)
     {
-        // Metodo para usar o item específico. 
+        InventoryManager.Instance.Remove(item);
+        //GameObject partyManager = GameObject.Find("PartyManager"); // Centralizar os atributos do Player no PartyManager, pois ele não é destruído.
+
+        switch (item.ItemType)
+        {
+            default:
+            case ItemType.PerfumePeq:
+                Debug.Log("Aumentar vida");
+                break;
+            case ItemType.PerfumeMed:
+                Debug.Log("Aumentar número de cartas na mão");
+                break;
+            case ItemType.PerfumeGrd:
+                Debug.Log("Aumentar quantidade de mana por turno");
+                break;
+            case ItemType.CartaComum:
+                Debug.Log("Ganhar carta comum");
+                break;
+        }
     }
 }
