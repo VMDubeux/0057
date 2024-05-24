@@ -44,7 +44,6 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("Criou objeto!");
             Items[itemPickUp.Id] = itemPickUp;
-            //Items.Insert(itemPickUp.Id, itemPickUp);
             CreateInventoryItem(itemPickUp);
         }
         else
@@ -52,7 +51,6 @@ public class InventoryManager : MonoBehaviour
             Debug.Log("Aumentou quantidade!");
             Items[itemPickUp.Id].InventoryItem.itemQuantity++;
             Items[itemPickUp.Id].InventoryItem.pathNumber.text = Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
-
         }
     }
 
@@ -67,6 +65,16 @@ public class InventoryManager : MonoBehaviour
         else
         {
             Debug.Log("Removeu objeto!");
+            ItemPickUp[] search = FindObjectsByType<ItemPickUp>(FindObjectsInactive.Include,FindObjectsSortMode.InstanceID);
+            Debug.Log(search.Length);
+            for (int i = 0; i < search.Length; i++)
+            {
+                if (search[i].ItemType == itemPickUp.ItemType && !search[i].isActiveAndEnabled)
+                {
+                    Debug.Log("ENTROU!");
+                    search[i].DestroyIt();
+                }
+            }
             Items[itemPickUp.Id] = null;
             InventoryList[itemPickUp.InventoryItem.id].inventoryItem.Destroy();
             InventoryList[itemPickUp.InventoryItem.id] = null;

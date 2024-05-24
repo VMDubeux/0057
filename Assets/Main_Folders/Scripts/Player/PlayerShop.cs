@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShop : MonoBehaviour, IShopCostumer
 {
@@ -17,17 +18,18 @@ public class PlayerShop : MonoBehaviour, IShopCostumer
 
     public void BoughtItem(ItemType itemType)
     {
-        ItemPickUp itemPickUp = new()
-        {
-            ItemType = itemType,
-            Id = ItemSO.GetId(itemType),
-            Name = ItemSO.GetName(itemType),
-            Cost = ItemSO.GetCost(itemType),
-            Sprite = ItemSO.GetSprite(itemType),
-        };
-
-        Debug.Log("Bought: " + itemPickUp.Name);
-        InventoryManager.Instance.Add(itemPickUp);
+        GameObject obj = new();
+        obj.AddComponent<ItemPickUp>();
+        obj.GetComponent<ItemPickUp>().ItemType = itemType;
+        obj.GetComponent<ItemPickUp>().Id = ItemSO.GetId(itemType);
+        obj.GetComponent<ItemPickUp>().Name = ItemSO.GetName(itemType);
+        obj.GetComponent<ItemPickUp>().Cost = ItemSO.GetCost(itemType);
+        obj.GetComponent<ItemPickUp>().Sprite = ItemSO.GetSprite(itemType);
+        
+        Debug.Log("Bought: " + obj.GetComponent<ItemPickUp>().Name);
+        InventoryManager.Instance.Add(obj.GetComponent<ItemPickUp>());
+        obj.SetActive(false);
+        //Destroy(obj);
         //InventoryManager.Instance.ListItems();
     }
 
