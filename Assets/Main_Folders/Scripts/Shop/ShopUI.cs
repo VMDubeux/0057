@@ -10,6 +10,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private Transform container;
     [SerializeField] private Transform shopItemTemplate;
     private IShopCostumer shopCostumer;
+    int increase;
 
     private void Awake()
     {
@@ -20,10 +21,16 @@ public class ShopUI : MonoBehaviour
 
     private void Start()
     {
-        CreateItemButton(ItemType.PerfumePeq, ItemSO.GetSprite(ItemType.PerfumePeq), "Perfume Pequeno", ItemSO.GetCost(ItemType.PerfumePeq), 0);
-        CreateItemButton(ItemType.PerfumeMed, ItemSO.GetSprite(ItemType.PerfumeMed), "Perfume Médio", ItemSO.GetCost(ItemType.PerfumeMed), 6);
-        CreateItemButton(ItemType.PerfumeGrd, ItemSO.GetSprite(ItemType.PerfumeGrd), "Perfume Grande", ItemSO.GetCost(ItemType.PerfumeGrd), 12);
-        CreateItemButton(ItemType.CartaComum, ItemSO.GetSprite(ItemType.CartaComum), "Carta", ItemSO.GetCost(ItemType.CartaComum), 18);
+        ItemSO item = new();
+
+        for (int i = 0; i < 4; i++)
+        {
+            int random = Random.Range(0, 4);
+            item.itemType = ItemSO.GetItemType(random);
+            CreateItemButton(item.itemType, ItemSO.GetSprite(item.itemType), ItemSO.GetName(item.itemType), ItemSO.GetCost(item.itemType), increase);
+
+            increase += 6;
+        }
 
         Hide();
     }

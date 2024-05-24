@@ -55,6 +55,18 @@ public class ItemSO
             case ItemType.PerfumeGrd: return GameAssets.i.PerfumeGrd;
         }
     }
+
+    public static ItemType GetItemType(int value)
+    {
+        switch (value)
+        {
+            default:
+            case 0: return ItemType.CartaComum;
+            case 1: return ItemType.PerfumePeq;
+            case 2: return ItemType.PerfumeMed;
+            case 3: return ItemType.PerfumeGrd;
+        }
+    }
 }
 
 public enum ItemType
