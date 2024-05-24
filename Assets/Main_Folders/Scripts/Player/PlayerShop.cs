@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerShop : MonoBehaviour, IShopCostumer
 {
     public event EventHandler OnDripAmountChanged;
-    public event EventHandler OnHealthPotionAmountChanged;
+    //public event EventHandler OnHealthPotionAmountChanged;
 
-    int dripAmount = 50;
+    [SerializeField] int dripAmount = 50;
 
     public int GetDripAmount()
     {
@@ -23,12 +23,12 @@ public class PlayerShop : MonoBehaviour, IShopCostumer
             Id = ItemSO.GetId(itemType),
             Name = ItemSO.GetName(itemType),
             Cost = ItemSO.GetCost(itemType),
-            Sprite = ItemSO.GetSprite(itemType)
+            Sprite = ItemSO.GetSprite(itemType),
         };
 
         Debug.Log("Bought: " + itemPickUp.Name);
         InventoryManager.Instance.Add(itemPickUp);
-        InventoryManager.Instance.ListItems();
+        //InventoryManager.Instance.ListItems();
     }
 
     public bool TrySpendDripAmount(int spendDripAmount)

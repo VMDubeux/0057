@@ -15,6 +15,7 @@ public class GameAssets : MonoBehaviour
         }
     }
 
+    [Header("Sprites: ")]
     public Sprite CartaComum,
         PerfumePeq,
         PerfumeMed,

@@ -48,3 +48,7 @@ MonoBehaviour:
   PerfumePeq: {fileID: 21300000, guid: 8db8e943753efe04a84922a546671e5e, type: 3}
   PerfumeMed: {fileID: 21300000, guid: b6c5f043b526e7949962172010dc1c93, type: 3}
   PerfumeGrd: {fileID: 21300000, guid: df6b54409db4fff4c8a651bb5ebbad01, type: 3}
+  CartaComumG: {fileID: 0}
+  PerfumePeqG: {fileID: 323725989227656799, guid: 1b358e9dd9322be43b266fc7dd07b278, type: 3}
+  PerfumeMedG: {fileID: 4792677967762884981, guid: 46d2dc65814e5494a89f4d7f1759e7f8, type: 3}
+  PerfumeGrdG: {fileID: 7407634866672694851, guid: 8fe61be77b57059419eecd92d6b85504, type: 3}

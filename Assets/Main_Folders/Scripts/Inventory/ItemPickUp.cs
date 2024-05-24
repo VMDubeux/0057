@@ -10,6 +10,7 @@ public class ItemPickUp : MonoBehaviour
     [SerializeField] internal string Name;
     [SerializeField] internal int Cost;
     [SerializeField] internal Sprite Sprite;
+    [SerializeField] internal InventoryItem InventoryItem;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class ItemPickUp : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Destroy()
+    public void DestroyIt()
     {
         Destroy(gameObject);
     }
@@ -33,6 +34,6 @@ public class ItemPickUp : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PickUp();
-        InventoryManager.Instance.ListItems();    
+        //InventoryManager.Instance.ListItems();    
     }
 }

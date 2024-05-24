@@ -13,10 +13,10 @@ public class ItemSO
         switch (itemType)
         {
             default:
-            case ItemType.CartaComum: return 0;
-            case ItemType.PerfumePeq: return 1;
-            case ItemType.PerfumeMed: return 2;
-            case ItemType.PerfumeGrd: return 3;
+            case ItemType.CartaComum: return 1;
+            case ItemType.PerfumePeq: return 2;
+            case ItemType.PerfumeMed: return 3;
+            case ItemType.PerfumeGrd: return 4;
         }
     }
 
