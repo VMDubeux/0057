@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6636765096738281829}
   - component: {fileID: 3754309827206922039}
   - component: {fileID: 7372911024840100089}
-  - component: {fileID: 6323558275335834225}
+  - component: {fileID: 8707036827732361753}
   m_Layer: 0
   m_Name: HP Pot
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323725989227656799}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.515412, y: -7.4971275, z: 16.967813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -58,13 +58,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6323558275335834225
+--- !u!114 &8707036827732361753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,10 +73,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 323725989227656799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a6f4dff7d2b4f458bea17b54635d6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 98a76dd371075c04997a15820222698a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: bf2a8ec9180e32440842455339627e40, type: 2}
+  ItemType: 1
+  Id: 0
+  Name: 
+  Cost: 0
+  Sprite: {fileID: 0}
+  GameObject: {fileID: 0}
 --- !u!1 &5815202440783408594
 GameObject:
   m_ObjectHideFlags: 0

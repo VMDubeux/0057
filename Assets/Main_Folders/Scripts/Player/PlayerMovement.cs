@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animatorController;
     public float moveSpeed = 5;
     public Vector3 moveInput;
+    
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -15,9 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(DialogueManager.isChatting == false)
+        if (DialogueManager.isChatting == false)
         {
-        GatherInput();
+            GatherInput();
         }
 
     }

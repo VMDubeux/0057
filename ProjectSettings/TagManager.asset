@@ -13,6 +13,7 @@ TagManager:
   - ResolutionDropdown
   - QualityDropdown
   - FullScreenToggle
+  - ImageSold
   layers:
   - Default
   - TransparentFX
