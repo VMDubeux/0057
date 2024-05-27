@@ -5,12 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController characterController;
-    public Animator animatorController;
+    private Animator animatorController;
     public float moveSpeed = 5;
     public Vector3 moveInput;
+
+    [SerializeField] private GameObject brute;
+    [SerializeField] private GameObject batato;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        animatorController = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -43,5 +47,14 @@ public class PlayerMovement : MonoBehaviour
             //parar animacao de corrida
             animatorController.SetBool("run", false);
         }
+    }
+
+    public void GiveDripToPlayer()
+    {
+        brute.active = true;
+        batato.active = false;
+
+        animatorController = brute.GetComponent<Animator>();
+
     }
 }
