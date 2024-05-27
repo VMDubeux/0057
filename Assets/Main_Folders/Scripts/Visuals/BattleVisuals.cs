@@ -27,7 +27,7 @@ public class BattleVisuals : MonoBehaviour, IPointerClickHandler
     private const string IS_HIT_PARAM = "IsHit";
     private const string IS_DEATH_PARAM = "IsDeath";
 
-    [SerializeField]private TextMeshProUGUI nameCharacterUI;
+    [SerializeField] private TextMeshProUGUI nameCharacterUI;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class BattleVisuals : MonoBehaviour, IPointerClickHandler
         nameCharacterUI.text = currentEntity.ToString();
     }
 
-    public void SetStartingValues(int hp, int maxHP, int block, int strength,int level, int serialNumber, BattleEntities currentEntity)
+    public void SetStartingValues(int hp, int maxHP, int block, int strength, int level, int serialNumber, BattleEntities currentEntity)
     {
         this.HP = hp;
         this.MaxHP = maxHP;
@@ -107,6 +107,11 @@ public class BattleVisuals : MonoBehaviour, IPointerClickHandler
     {
         healthBar.maxValue = MaxHP;
         healthBar.value = HP;
+
+        if (healthBar.value <= 0)
+        {
+            transform.GetChild(1).gameObject.SetActive(false);
+        }
     }
 
     /*public void PlayAttackAnimation()

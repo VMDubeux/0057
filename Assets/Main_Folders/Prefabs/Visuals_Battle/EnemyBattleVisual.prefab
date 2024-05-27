@@ -709,9 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec09b020f969748a0c7172d24a630b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightedColor: {r: 0.50980395, g: 0.35686275, b: 0.27450982, a: 1}
-  smrCount: 0
-  bodyRenderers: []
 --- !u!114 &4018476285783873432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,9 +723,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 30
+    Value: 10
   - Type: 1
-    Value: 30
+    Value: 10
   - Type: 2
     Value: 1
   - Type: 3

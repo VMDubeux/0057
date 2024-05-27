@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class PartyManager : MonoBehaviour
 {
+    public static PartyManager Instance;
+
     [SerializeField] private GameObject[] allMember;
     [SerializeField] private List<PartyMember> currentParty;
 
@@ -11,17 +17,29 @@ public class PartyManager : MonoBehaviour
 
     private Vector3 playerPosition;
 
-    private static GameObject instance;
+    [Header("Player Definitions: ")]
+    public int playerMaxLevel;
+    public int playerMaxExp;
+
+    private int playerLevel;
+
+    private TextMeshProUGUI playerLevelText;
+
+    private float playerExp;
+
+    private Slider sliderExp;
+
+    private GameObject partyManager;
 
     private void Awake()
     {
-        if (instance != null)
+        if (partyManager != null)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            instance = this.gameObject;
+            partyManager = this.gameObject;
             AddMemberToPartyByName(defaultPartyMember.name);
         }
 
@@ -76,6 +94,48 @@ public class PartyManager : MonoBehaviour
     public Vector3 GetPosition()
     {
         return playerPosition;
+    }
+
+    public int GetLevel()
+    {
+        return playerLevel;
+    }
+
+    public void SetExperience(float exp)
+    {
+        playerExp += exp;
+    }
+
+    public float GetExperience()
+    {
+        return playerLevel;
+    }
+
+    public void ChangeExpSliderValue()
+    {
+        if (SceneManager.GetActiveScene().name != "LEVEL_BATTLE" && SceneManager.GetActiveScene().name != "LEVEL_INTRO")
+        {
+            sliderExp = GameObject.Find("Canvas (HUD)/Image/Slider").GetComponent<Slider>();
+            sliderExp.maxValue = playerMaxExp;
+            sliderExp.value = playerExp;
+
+            if (playerExp >= playerMaxExp)
+            {
+                if (playerLevel < playerMaxLevel)
+                    playerLevel++;
+
+                playerExp = 0;
+                sliderExp.value = playerExp;
+            }
+
+            playerLevelText = GameObject.Find("Canvas (HUD)/Image/Text (TMP) LVL").GetComponent<TextMeshProUGUI>();
+            playerLevelText.text = "LVL " + playerLevel.ToString();
+        }
+    }
+
+    private void OnGUI()
+    {
+        ChangeExpSliderValue();
     }
 }
 

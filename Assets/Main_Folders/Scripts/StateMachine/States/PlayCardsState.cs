@@ -12,7 +12,7 @@ public class PlayCardsState : State
     HorizontalLayoutGroup _handLayout;
     PlayerUnit _playerUnit;
     void Awake(){
-        _handLayout = CardsController.Instance.Hand.Holder.GetComponent<HorizontalLayoutGroup>();
+        _handLayout = CardsController.Instance.Hand.Holder.GetComponent<HorizontalLayoutGroup>();        
     }
     private void Update() {
         if( _playerUnit == null && machine.CurrentUnit.CompareTag("Player"))

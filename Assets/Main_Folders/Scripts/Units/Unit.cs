@@ -11,7 +11,12 @@ public class Unit : MonoBehaviour
     //[SerializeField]
     public List<Stat> _stats = new List<Stat>();
 
+    public float expToGive;
+
     public GameObject OverworldVisualPrefab;
+    public GameObject BattleVisualPrefab;
+
+    public bool hasFought;
 
     /*
     public OnUnit onUnitClicked = delegate { };

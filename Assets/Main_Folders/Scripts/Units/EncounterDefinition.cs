@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class EncounterDefinition : MonoBehaviour
 {
+    private GameObject BattleVisualPrefab;
+    private GameObject OverworldVisualPrefab;
+
     [HideInInspector] public bool EncounterIsVariable;
 
     [HideInInspector] public int levelMin;
@@ -23,10 +26,12 @@ public class EncounterDefinition : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player") && gameObject.GetComponent<Unit>().hasFought == false)
         {
+            OverworldVisualPrefab = gameObject.GetComponent<Unit>().OverworldVisualPrefab;
+            BattleVisualPrefab = gameObject.GetComponent<Unit>().BattleVisualPrefab;
             EncounterSystem encouter = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
-            StartCoroutine(encouter.StartGenerateEnemiesByEncouter(minNumEncouters, maxNumEncouters, numEncouters, EncounterIsVariable, levelMin, levelMax));
+            StartCoroutine(encouter.StartGenerateEnemiesByEncouter(minNumEncouters, maxNumEncouters, numEncouters, EncounterIsVariable, levelMin, levelMax, OverworldVisualPrefab, BattleVisualPrefab));
         }
     }
 }
@@ -36,7 +41,7 @@ public class EncounterDefinition_Editor : Editor
 {
     public override void OnInspectorGUI()
     {
-        var script = (EncounterDefinition)target; 
+        var script = (EncounterDefinition)target;
 
         script.EncounterIsVariable = EditorGUILayout.Toggle("Número de Encouter é variável?", script.EncounterIsVariable);
 

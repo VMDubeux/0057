@@ -8,12 +8,8 @@ public class EnemyManager : MonoBehaviour
 {
     public static GameObject instance;
 
-    public GameObject[] allEnemies;
-    [Header("Enemy Prefab")]
-    public GameObject enemy;
-    [Header("")]
-    [SerializeField] private List<Enemy> currentEnemies;
-
+    public List<Enemy> currentEnemies;
+   
     private const float LEVEL_MOD = 0.5f;
 
     private void Awake()
@@ -30,9 +26,10 @@ public class EnemyManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void GenerateEnemyByEncouter(int numEnemy, int lvlMin, int lvlMax)
+    public void GenerateEnemyByEncouter(int numEnemy, int lvlMin, int lvlMax, GameObject battlePrefab, GameObject overviewPrefab)
     {
         currentEnemies.Clear();
+
         int NumEnemy = numEnemy;
 
         for (int i = 0; i < NumEnemy; i++)
@@ -40,11 +37,11 @@ public class EnemyManager : MonoBehaviour
             //Encouter tempEncouter = encounter;
             int level = Random.Range(lvlMin, lvlMax + 1);
             Debug.Log(level);
-            GenerateEnemyByName(level);
+            GenerateEnemyByName(level, battlePrefab, overviewPrefab);
         }
     }
 
-    public void GenerateVariableEnemiesByEncouter(int minNumEnemies, int maxNumEnemies, int lvlMin, int lvlMax)
+    public void GenerateVariableEnemiesByEncouter(int minNumEnemies, int maxNumEnemies, int lvlMin, int lvlMax, GameObject battlePrefab, GameObject overviewPrefab)
     {
         currentEnemies.Clear();
         int numEnemies = Random.Range(minNumEnemies, maxNumEnemies + 1);
@@ -52,12 +49,13 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < numEnemies; i++)
         {
             int level = Random.Range(lvlMin, lvlMax + 1);
-            GenerateEnemiesByName(level);
+            GenerateEnemiesByName(level, numEnemies, battlePrefab, overviewPrefab);
         }
     }
 
-    public void GenerateEnemyByName(int level)
+    public void GenerateEnemyByName(int level, GameObject battlePrefab, GameObject overviewPrefab)
     {
+        GameObject enemy = battlePrefab;
         Enemy newEnemy = new Enemy();
         newEnemy.EnemyName = enemy.name;
         newEnemy.Level = level;
@@ -67,25 +65,28 @@ public class EnemyManager : MonoBehaviour
         newEnemy.MaxHP = newEnemy.HP;
         newEnemy.Block = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[2].Value + (enemy.GetComponent<Unit>()._stats[2].Value * levelModifier));
         newEnemy.Strength = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[3].Value + (enemy.GetComponent<Unit>()._stats[3].Value * levelModifier));
-        newEnemy.EnemyVisualPrefab = enemy.gameObject;
+        newEnemy.EnemyVisualPrefab = battlePrefab;
+        newEnemy.EnemyOverviewPrefab = overviewPrefab;
 
         currentEnemies.Add(newEnemy);
     }
 
-    public void GenerateEnemiesByName(int level)
+    public void GenerateEnemiesByName(int level, int numEnemies, GameObject battlePrefab, GameObject overviewPrefab)
     {
-        for (int i = 0; i < allEnemies.Length; i++)
+        GameObject allEnemies = battlePrefab;
+        for (int i = 0; i < numEnemies; i++)
         {
             Enemy newEnemy = new Enemy();
-            newEnemy.EnemyName = allEnemies[i].name;
+            newEnemy.EnemyName = allEnemies.name;
             newEnemy.Level = level;
             float levelModifier = (LEVEL_MOD * newEnemy.Level);
 
-            newEnemy.HP = Mathf.RoundToInt(allEnemies[i].GetComponent<Unit>()._stats[1].Value + (allEnemies[i].GetComponent<Unit>()._stats[1].Value * levelModifier));
+            newEnemy.HP = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[1].Value + (allEnemies.GetComponent<Unit>()._stats[1].Value * levelModifier));
             newEnemy.MaxHP = newEnemy.HP;
-            newEnemy.Block = Mathf.RoundToInt(allEnemies[i].GetComponent<Unit>()._stats[2].Value + (allEnemies[i].GetComponent<Unit>()._stats[2].Value * levelModifier));
-            newEnemy.Strength = Mathf.RoundToInt(allEnemies[i].GetComponent<Unit>()._stats[3].Value + (allEnemies[i].GetComponent<Unit>()._stats[3].Value * levelModifier));
-            newEnemy.EnemyVisualPrefab = allEnemies[i].gameObject;
+            newEnemy.Block = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[2].Value + (allEnemies.GetComponent<Unit>()._stats[2].Value * levelModifier));
+            newEnemy.Strength = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[3].Value + (allEnemies.GetComponent<Unit>()._stats[3].Value * levelModifier));
+            newEnemy.EnemyVisualPrefab = battlePrefab;
+            newEnemy.EnemyOverviewPrefab = overviewPrefab;
 
             currentEnemies.Add(newEnemy);
         }
@@ -107,4 +108,5 @@ public class Enemy
     public int Block;
     public int Strength;
     public GameObject EnemyVisualPrefab;
+    public GameObject EnemyOverviewPrefab;
 }

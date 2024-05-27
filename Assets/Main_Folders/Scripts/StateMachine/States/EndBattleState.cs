@@ -8,6 +8,6 @@ public class EndBattleState  : State
     public override IEnumerator Enter(){
         yield return null;
         Debug.Log("Battle ended");
-        SceneManager.LoadScene("LEVEL_1");
+        SceneManager.UnloadSceneAsync("LEVEL_BATTLE");
     }
 }
