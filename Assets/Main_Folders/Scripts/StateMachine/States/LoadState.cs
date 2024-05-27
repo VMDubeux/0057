@@ -18,8 +18,8 @@ public class LoadState : State
         CardsController.Instance.Deck.SetInitialRotation();
     }
     IEnumerator InitializeUnits(){
-        machine.Units = new Queue<Unit>();
-        foreach(Unit unit in GameObject.Find("Units").GetComponentsInChildren<Unit>()){
+        machine.Units = new Queue<BattleVisuals>();
+        foreach(BattleVisuals unit in GameObject.Find("Units").GetComponentsInChildren<BattleVisuals>()){
             machine.Units.Enqueue(unit);
         }
         yield return null;

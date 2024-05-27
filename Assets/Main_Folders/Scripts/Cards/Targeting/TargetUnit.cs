@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class TargetUnit : MonoBehaviour, ITarget
 {
-    Unit _clickedUnit;
-    public IEnumerator GetTargets(List<object> targets){
-        _clickedUnit = null;
+    //Unit _clickedUnit;
+    BattleVisuals _clickedVisuals;
 
-        foreach(Unit unit in StateMachine.Instance.Units){
-            unit.onUnitClicked += OnUnitClicked;
+    public IEnumerator GetTargets(List<object> targets){
+        _clickedVisuals = null;
+
+        foreach(BattleVisuals battleVisuals in StateMachine.Instance.Units){
+            battleVisuals.onBattleVisualsClicked += OnBattleVisualsClicked;
         }
 
-        while(_clickedUnit == null){
+        while(_clickedVisuals == null){
             yield return null;
         }
-        targets.Add(_clickedUnit);
+        targets.Add(_clickedVisuals);
 
-        foreach(Unit unit in StateMachine.Instance.Units){
-            unit.onUnitClicked -= OnUnitClicked;
+        foreach(BattleVisuals battleVisuals in StateMachine.Instance.Units){
+            battleVisuals.onBattleVisualsClicked -= OnBattleVisualsClicked;
         }
     }
-    void OnUnitClicked(Unit unit){
-        _clickedUnit = unit;
+
+    void OnBattleVisualsClicked(BattleVisuals battleVisuals) 
+    {
+        _clickedVisuals = battleVisuals;
     }
+
+    /*void OnUnitClicked(Unit unit){
+        _clickedUnit = unit;
+    }*/
 }

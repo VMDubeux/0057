@@ -1,28 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class PartyManager : MonoBehaviour
 {
-    [SerializeField] private PartyMemberInfo[] allMember;
+    public static PartyManager Instance;
+
+    [SerializeField] private GameObject[] allMember;
     [SerializeField] private List<PartyMember> currentParty;
 
-    [SerializeField] private PartyMemberInfo defaultPartyMember;
+    [SerializeField] private GameObject defaultPartyMember;
 
     private Vector3 playerPosition;
 
-    private static GameObject instance;
+    [Header("Player Definitions: ")]
+    public int playerMaxLevel;
+    public int playerMaxExp;
+
+    private int playerLevel;
+
+    private TextMeshProUGUI playerLevelText;
+
+    private float playerExp;
+
+    private Slider sliderExp;
+
+    private GameObject partyManager;
 
     private void Awake()
     {
-        if (instance != null)
+        if (partyManager != null)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            instance = this.gameObject;
-            AddMemberToPartyByName(defaultPartyMember.MemberName);
+            partyManager = this.gameObject;
+            AddMemberToPartyByName(defaultPartyMember.name);
         }
 
         DontDestroyOnLoad(this.gameObject);
@@ -32,17 +50,17 @@ public class PartyManager : MonoBehaviour
     {
         for (int i = 0; i < allMember.Length; i++)
         {
-            if (allMember[i].MemberName == memberName)
+            if (allMember[i].name == memberName)
             {
                 PartyMember newPartyMember = new PartyMember();
-                newPartyMember.MemberName = allMember[i].MemberName;
-                newPartyMember.Level = allMember[i].StartingLevel;
-                newPartyMember.CurrHealth = allMember[i].BaseHealth;
-                newPartyMember.MaxHealth = newPartyMember.CurrHealth;
-                newPartyMember.Block = allMember[i].BaseBlock;
-                newPartyMember.Initiative = allMember[i].BaseInitiative;
-                newPartyMember.MemberBattleVisualPrefab = allMember[i].MemberBattleVisualPrefab;
-                newPartyMember.MemberOverworldVisualPrefab = allMember[i].MemberOverworldVisualPrefab;
+                newPartyMember.MemberName = allMember[i].name;
+                //newPartyMember.Level = allMember[i].StartingLevel;
+                newPartyMember.HP = allMember[i].GetComponent<Unit>()._stats[1].Value;
+                newPartyMember.MaxHP = newPartyMember.HP;
+                newPartyMember.Block = allMember[i].GetComponent<Unit>()._stats[2].Value;
+                newPartyMember.Strength = allMember[i].GetComponent<Unit>()._stats[3].Value;
+                newPartyMember.MemberBattleVisualPrefab = allMember[i].gameObject;
+                newPartyMember.MemberOverworldVisualPrefab = allMember[i].GetComponent<Unit>().OverworldVisualPrefab;
 
                 currentParty.Add(newPartyMember);
             }
@@ -55,7 +73,7 @@ public class PartyManager : MonoBehaviour
         aliveParty = currentParty;
         for (int i = 0; i < aliveParty.Count; i++)
         {
-            if (aliveParty[i].CurrHealth <= 0)
+            if (aliveParty[i].HP <= 0)
             {
                 aliveParty.RemoveAt(i);
             }
@@ -65,7 +83,7 @@ public class PartyManager : MonoBehaviour
 
     public void SaveHealth(int partyMember, int health)
     {
-        currentParty[partyMember].CurrHealth = health;
+        currentParty[partyMember].HP = health;
     }
 
     public void SetPosition(Vector3 position)
@@ -77,6 +95,48 @@ public class PartyManager : MonoBehaviour
     {
         return playerPosition;
     }
+
+    public int GetLevel()
+    {
+        return playerLevel;
+    }
+
+    public void SetExperience(float exp)
+    {
+        playerExp += exp;
+    }
+
+    public float GetExperience()
+    {
+        return playerLevel;
+    }
+
+    public void ChangeExpSliderValue()
+    {
+        if (SceneManager.GetActiveScene().name != "LEVEL_BATTLE" && SceneManager.GetActiveScene().name != "LEVEL_INTRO")
+        {
+            sliderExp = GameObject.Find("Canvas (HUD)/Image/Slider").GetComponent<Slider>();
+            sliderExp.maxValue = playerMaxExp;
+            sliderExp.value = playerExp;
+
+            if (playerExp >= playerMaxExp)
+            {
+                if (playerLevel < playerMaxLevel)
+                    playerLevel++;
+
+                playerExp = 0;
+                sliderExp.value = playerExp;
+            }
+
+            playerLevelText = GameObject.Find("Canvas (HUD)/Image/Text (TMP) LVL").GetComponent<TextMeshProUGUI>();
+            playerLevelText.text = "LVL " + playerLevel.ToString();
+        }
+    }
+
+    private void OnGUI()
+    {
+        ChangeExpSliderValue();
+    }
 }
 
 [System.Serializable]
@@ -84,10 +144,10 @@ public class PartyMember
 {
     public string MemberName;
     public int Level;
-    public int CurrHealth;
-    public int MaxHealth;
+    public int HP;
+    public int MaxHP;
     public int Block;
-    public int Initiative;
+    public int Strength;
     public int CurrExp;
     public int MaxExp;
     public GameObject MemberBattleVisualPrefab; //what will be displayed in battle scene

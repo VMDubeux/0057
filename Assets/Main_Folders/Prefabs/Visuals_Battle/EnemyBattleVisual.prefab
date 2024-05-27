@@ -676,8 +676,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd48872002a6dc44bac17258de6d276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  levelText: {fileID: 0}
+  healthBar: {fileID: 4344965314821079412}
+  levelText: {fileID: 6140866732306106239}
+  HP: 0
+  MaxHP: 0
+  Block: 0
+  Strength: 0
+  Level: 0
+  SerialNumber: 0
+  currentEntity:
+    Name: 
+    HP: 0
+    MaxHP: 0
+    Block: 0
+    Strength: 0
+    Level: 0
+    BattleVisuals: {fileID: 0}
+    IsPlayer: 0
+    Target: 0
+    SerialNumber: 0
+  nameCharacterUI: {fileID: 0}
 --- !u!114 &8536784492664659658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,9 +708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec09b020f969748a0c7172d24a630b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-  smrCount: 0
-  bodyRenderers: []
 --- !u!114 &4018476285783873432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,11 +722,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 90
+    Value: 10
   - Type: 1
-    Value: 22
+    Value: 10
   - Type: 2
-    Value: 35
+    Value: 5
+  - Type: 3
+    Value: 1
+  expToGive: 10
+  OverworldVisualPrefab: {fileID: 1415486005634186758, guid: 1210f624c533c4840b994bb63c4b471d, type: 3}
 --- !u!114 &5108658499620737112
 MonoBehaviour:
   m_ObjectHideFlags: 0

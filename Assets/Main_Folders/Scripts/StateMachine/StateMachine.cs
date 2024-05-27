@@ -9,8 +9,8 @@ public class StateMachine : MonoBehaviour
     public static StateMachine Instance;
     public State Current { get { return _current; } }
     public Queue<Card> CardsToPlay;
-    public Queue<Unit> Units;
-    public Unit CurrentUnit;
+    public Queue<BattleVisuals> Units;
+    public BattleVisuals CurrentUnit;
     State _current;
     bool _busy;
 
@@ -24,6 +24,7 @@ public class StateMachine : MonoBehaviour
     {
         ChangeState<LoadState>();
     }
+
     #region State Control
     public void ChangeState<T>() where T : State
     {

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class RecoveryState : State
 {
-    public override IEnumerator Enter(){
+    public override IEnumerator Enter()
+    {
         yield return StartCoroutine(machine.CurrentUnit.Recover());
-        StartCoroutine(WaitThenChangeState<PlayCardsState>());
+        if (StateMachine.Instance.CurrentUnit.CompareTag("Player"))
+            StartCoroutine(WaitThenChangeState<PlayCardsState>());
+        else
+            StartCoroutine(WaitThenChangeState<EnemyTurnState>());
     }
 }

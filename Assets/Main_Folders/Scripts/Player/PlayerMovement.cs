@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +8,17 @@ public class PlayerMovement : MonoBehaviour
     public Animator animatorController;
     public float moveSpeed = 5;
     public Vector3 moveInput;
-    
+    private PartyManager partyManager;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        partyManager = GameObject.FindFirstObjectByType<PartyManager>();
+
+        if (partyManager.GetPosition() != Vector3.zero)
+        {
+            transform.position = partyManager.GetPosition();
+        }
     }
 
     void Update()
@@ -45,5 +51,7 @@ public class PlayerMovement : MonoBehaviour
             //parar animacao de corrida
             animatorController.SetBool("run", false);
         }
+
+        partyManager.SetPosition(transform.position);
     }
 }

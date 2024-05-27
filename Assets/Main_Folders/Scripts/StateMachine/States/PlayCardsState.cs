@@ -10,8 +10,9 @@ public class PlayCardsState : State
     Button _endTurnButton;
     Coroutine _cardSequencer;
     HorizontalLayoutGroup _handLayout;
+
     void Awake(){
-        _handLayout = CardsController.Instance.Hand.Holder.GetComponent<HorizontalLayoutGroup>();
+        _handLayout = CardsController.Instance.Hand.Holder.GetComponent<HorizontalLayoutGroup>();        
     }
     public override IEnumerator Enter(){
         yield return new WaitForSeconds(0.5f);

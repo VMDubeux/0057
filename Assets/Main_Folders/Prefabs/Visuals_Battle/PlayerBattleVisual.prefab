@@ -1780,7 +1780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4897157445181698913}
   - component: {fileID: 6466894137058826386}
-  - component: {fileID: 3305854942454186664}
+  - component: {fileID: -586091921968902038}
   - component: {fileID: 3621656645966171477}
   - component: {fileID: 5942586904155349352}
   - component: {fileID: 8222850607996121716}
@@ -1830,7 +1830,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3305854942454186664
+--- !u!114 &-586091921968902038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1839,11 +1839,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1903129411115756956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd48872002a6dc44bac17258de6d276, type: 3}
+  m_Script: {fileID: 11500000, guid: a406b77e5768f9142b9540f34ea74dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 7629077894621514337}
-  levelText: {fileID: 6442352470815843908}
+  _stats:
+  - Type: 0
+    Value: 100
+  - Type: 1
+    Value: 100
+  - Type: 2
+    Value: 10
+  - Type: 3
+    Value: 10
+  OverworldVisualPrefab: {fileID: 1415486005634186758, guid: a3e03699e440d624e99b2063537f7271, type: 3}
 --- !u!114 &3621656645966171477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,17 +1864,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb9909f61702bb439016171db1a15fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats:
-  - Type: 0
-    Value: 100
-  - Type: 1
-    Value: 100
-  - Type: 2
-    Value: 0
+  healthBar: {fileID: 7629077894621514337}
+  levelText: {fileID: 6442352470815843908}
+  HP: 0
+  MaxHP: 0
+  Block: 0
+  Strength: 0
+  Level: 0
+  SerialNumber: 0
+  currentEntity:
+    Name: 
+    HP: 0
+    MaxHP: 0
+    Block: 0
+    Strength: 0
+    Level: 0
+    BattleVisuals: {fileID: 0}
+    IsPlayer: 0
+    Target: 0
+    SerialNumber: 0
+  nameCharacterUI: {fileID: 0}
+  PlayerOverworldVisualPrefab: {fileID: 1415486005634186758, guid: a3e03699e440d624e99b2063537f7271, type: 3}
   MaxEnergy: 3
   _currentEnergy: 0
   DrawAmount: 5
   MaxCards: 7
+  _energyMeter: {fileID: 0}
 --- !u!114 &5942586904155349352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1880,7 +1903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighlightedColor: {r: 0.50980395, g: 0.35686275, b: 0.27450982, a: 1}
-  Body: {fileID: 9204133870563857840}
+  smrCount: 0
   bodyRenderers: []
 --- !u!114 &8222850607996121716
 MonoBehaviour:
@@ -1898,6 +1921,8 @@ MonoBehaviour:
   Amount: 0
   StacksIntensity: 0
   StacksDuration: 0
+  smrCount: 0
+  bodyRenderers: []
 --- !u!1 &1916874107790556418
 GameObject:
   m_ObjectHideFlags: 0

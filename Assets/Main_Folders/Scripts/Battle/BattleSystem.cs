@@ -6,20 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class BattleSystem : MonoBehaviour
 {
-    [SerializeField] private enum BattleState { Start, Selection, Battle, Won, Lost, Run }
+    /*[SerializeField] private enum BattleState { Start, Selection, Battle, Won, Lost, Run }
 
-    [Header("Battle State")]
-    [SerializeField] private BattleState state;
+    //[Header("Battle State")]
+    //[SerializeField] private BattleState state;
+    */
+
+    public static BattleSystem Instance;
 
     [Header("Spawn Points")]
     [SerializeField] private Transform[] partySpawnPoints;
     [SerializeField] private Transform[] enemySpawnPoints;
 
     [Header("Battlers")]
-    [SerializeField] private List<BattleEntities> allBattlers = new List<BattleEntities>();
-    [SerializeField] private List<BattleEntities> enemyBattlers = new List<BattleEntities>();
-    [SerializeField] private List<BattleEntities> playerBattlers = new List<BattleEntities>();
+    public List<BattleEntities> allBattlers = new List<BattleEntities>();
+    public List<BattleEntities> enemyBattlers = new List<BattleEntities>();
+    public List<BattleEntities> playerBattlers = new List<BattleEntities>();
 
+    /*
     [Header("UI")]
     [SerializeField] private GameObject[] enemySelectionButtons;
     [SerializeField] private GameObject battleMenu;
@@ -27,11 +31,13 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI actionText;
     [SerializeField] private GameObject bottomTextPopUp;
     [SerializeField] private TextMeshProUGUI bottomText;
+    */
 
     private PartyManager partyManager;
     private EnemyManager enemyManager;
-    private int currentPlayer;
+    //private int currentPlayer;
 
+    /*
     private const string ACTION_MESSAGE = "'s Action:";
     private const string WIN_MESSAGE = "Your party won the battle";
     private const string LOSE_MESSAGE = "Your party has been defeated";
@@ -40,6 +46,7 @@ public class BattleSystem : MonoBehaviour
     private const int TURN_DURATION = 2;
     private const int RUN_CHANCE = 50;
     private const string OVERWORLD_SCENE = "LEVEL_1";
+    */
 
     private void Start()
     {
@@ -48,10 +55,11 @@ public class BattleSystem : MonoBehaviour
 
         CreatePartyEntities();
         CreateEnemyEntities();
-        ShowBattleMenu();
-        DetermineBattleOrder();
+        //ShowBattleMenu();
+        //DetermineBattleOrder();
     }
 
+    /*
     private IEnumerator BattleRoutine()
     {
         enemySelectionMenu.SetActive(false);
@@ -145,6 +153,8 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    
+
     private IEnumerator RunRoutine()
     {
         if (state == BattleState.Battle)
@@ -166,39 +176,39 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    public void RemoveDeadBattlers()
-    {
-        for (int i = 0; i < allBattlers.Count; i++)
-        {
-            if (allBattlers[i].CurrHealth <= 0)
-            {
-                allBattlers.RemoveAt(i);
-            }
-        }
-    }
+    */
+
+
 
     private void CreatePartyEntities()
     {
         List<PartyMember> currentParty = new List<PartyMember>();
         currentParty = partyManager.GetCurrentParty();
+        int serialNumber = 0;
 
         for (int i = 0; i < currentParty.Count; i++)
         {
             BattleEntities tempEntity = new BattleEntities();
 
-            tempEntity.SetEntityValues(currentParty[i].MemberName,
-                currentParty[i].CurrHealth,
-                currentParty[i].MaxHealth,
-                currentParty[i].Initiative,
+            tempEntity.SetEntityValues(currentParty[i].HP,
+                currentParty[i].MaxHP,
                 currentParty[i].Block,
+                currentParty[i].Strength,
                 currentParty[i].Level,
-                true);
+                true,
+                serialNumber);
+
+            serialNumber++;
+
+            tempEntity.SetEntityName(currentParty[i].MemberName + serialNumber);
 
             BattleVisuals tempBattleVisuals = Instantiate(currentParty[i].MemberBattleVisualPrefab,
                 partySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Player").transform).GetComponent<BattleVisuals>();
 
-            tempBattleVisuals.SetStartingValues(currentParty[i].CurrHealth,
-                currentParty[i].MaxHealth, currentParty[i].Level);
+            tempBattleVisuals.name = currentParty[i].MemberName;
+
+            tempBattleVisuals.SetStartingValues(currentParty[i].MaxHP,
+                currentParty[i].MaxHP, currentParty[i].Block, currentParty[i].Strength, currentParty[i].Level, serialNumber, tempEntity);
 
             tempEntity.BattleVisuals = tempBattleVisuals;
 
@@ -211,24 +221,31 @@ public class BattleSystem : MonoBehaviour
     {
         List<Enemy> currentEnemies = new List<Enemy>();
         currentEnemies = enemyManager.GetCurrentEnemies();
+        int serialNumber = 0;
 
         for (int i = 0; i < currentEnemies.Count; i++)
         {
             BattleEntities tempEntity = new BattleEntities();
 
-            tempEntity.SetEntityValues(currentEnemies[i].EnemyName,
-                currentEnemies[i].CurrHealth,
-                currentEnemies[i].MaxHealth,
-                currentEnemies[i].Initiative,
+            tempEntity.SetEntityValues(currentEnemies[i].HP,
+                currentEnemies[i].MaxHP,
                 currentEnemies[i].Block,
+                currentEnemies[i].Strength,
                 currentEnemies[i].Level,
-                false);
+                false,
+                serialNumber);
+
+            serialNumber++;
+
+            tempEntity.SetEntityName(currentEnemies[i].EnemyName + serialNumber);
 
             BattleVisuals tempBattleVisuals = Instantiate(currentEnemies[i].EnemyVisualPrefab,
                 enemySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Enemies").transform).GetComponent<BattleVisuals>();
 
-            tempBattleVisuals.SetStartingValues(currentEnemies[i].MaxHealth,
-                currentEnemies[i].MaxHealth, currentEnemies[i].Level);
+            tempBattleVisuals.name = currentEnemies[i].EnemyName;
+
+            tempBattleVisuals.SetStartingValues(currentEnemies[i].MaxHP,
+                currentEnemies[i].MaxHP, currentEnemies[i].Block, currentEnemies[i].Strength, currentEnemies[i].Level, serialNumber, tempEntity);
 
             tempEntity.BattleVisuals = tempBattleVisuals;
 
@@ -237,18 +254,20 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    public void ShowBattleMenu()
-    {
-        actionText.text = playerBattlers[currentPlayer].Name + ACTION_MESSAGE;
-        battleMenu.SetActive(true);
-    }
+    /*    public void ShowBattleMenu()
+        {
+            actionText.text = playerBattlers[currentPlayer].Name + ACTION_MESSAGE;
+            battleMenu.SetActive(true);
+        }
 
-    public void ShowEnemySelectionMenu()
-    {
-        battleMenu.SetActive(false);
-        SetEnemySelectionButtons();
-        enemySelectionMenu.SetActive(true);
-    }
+
+        public void ShowEnemySelectionMenu()
+        {
+            battleMenu.SetActive(false);
+            SetEnemySelectionButtons();
+            enemySelectionMenu.SetActive(true);
+        }
+    
 
     private void SetEnemySelectionButtons()
     {
@@ -263,10 +282,12 @@ public class BattleSystem : MonoBehaviour
             enemySelectionButtons[j].GetComponentInChildren<TextMeshProUGUI>().text = enemyBattlers[j].Name;
         }
     }
+      */
 
+    /*
     public void SelectEnemy(int currentEnemy)
     {
-        BattleEntities currentPlayerEntity = playerBattlers[currentPlayer];
+        BattleEntities currentPlayerEntity = playerBattlers[0];
         currentPlayerEntity.SetTarget(allBattlers.IndexOf(enemyBattlers[currentEnemy]));
 
         currentPlayerEntity.BattleAction = BattleEntities.Action.Attack;
@@ -281,20 +302,21 @@ public class BattleSystem : MonoBehaviour
             enemySelectionMenu.SetActive(false);
             ShowBattleMenu();
         }
-    }
+}
+*/
 
-    private void AttackAction(BattleEntities currAttacker, BattleEntities currTarget)
+    /*private void AttackAction(BattleEntities currAttacker, BattleEntities currTarget)
     {
         int damage = currAttacker.Strength;
         currAttacker.BattleVisuals.PlayAttackAnimation();
-        currTarget.CurrHealth -= damage;
+        currTarget.HP -= damage;
         currTarget.BattleVisuals.PlayHitAnimation();
         currTarget.UpdateUI();
-        bottomText.text = string.Format("{0} attacks {1} for {2} damage", currAttacker.Name, currTarget.Name, damage);
+        //bottomText.text = string.Format("{0} attacks {1} for {2} damage", currAttacker.Name, currTarget.Name, damage);
         SaveHealth();
-    }
+    }*/
 
-    private int GetRandomPartyMember()
+    /*private int GetRandomPartyMember()
     {
         List<int> partyMembers = new();
 
@@ -328,15 +350,27 @@ public class BattleSystem : MonoBehaviour
     {
         for (int i = 0; i < playerBattlers.Count; i++)
         {
-            partyManager.SaveHealth(i, playerBattlers[i].CurrHealth);
+            partyManager.SaveHealth(i, playerBattlers[i].HP);
         }
     }
 
+    public void RemoveDeadBattlers()
+    {
+        for (int i = 0; i < allBattlers.Count; i++)
+        {
+            if (allBattlers[i].HP <= 0)
+            {
+                allBattlers.RemoveAt(i);
+            }
+        }
+    }*/
+
+    /*
     private void DetermineBattleOrder()
     {
         allBattlers.Sort((bi1, bi2) => -bi1.Initiative.CompareTo(bi2.Initiative));
     }
-
+    
     public void SelectRunAction()
     {
         state = BattleState.Selection;
@@ -358,35 +392,43 @@ public class BattleSystem : MonoBehaviour
             ShowBattleMenu();
         }
     }
+    
+     */
 }
 
 
 [System.Serializable]
 public class BattleEntities
 {
-    public enum Action { Attack, Run }
-    public Action BattleAction;
+    //public enum Action { Attack, Run }
+    //public Action BattleAction;
 
-    public string Name;
-    public int CurrHealth;
-    public int MaxHealth;
-    public int Initiative;
-    public int Strength;
-    public int Level;
-    public BattleVisuals BattleVisuals;
-    public bool IsPlayer;
-    public int Target;
+    public string Name; // Index 0 (BattleVisual SetStatValue)
+    public int HP; // Index 1 (BattleVisual SetStatValue)
+    public int MaxHP; // Index 2 (BattleVisual SetStatValue)
+    public int Block; // Index 3 (BattleVisual SetStatValue)
+    public int Strength; // Index 4 (BattleVisual SetStatValue)
+    public int Level; // Index 5 (BattleVisual SetStatValue)
+    public BattleVisuals BattleVisuals; // Index 6 (BattleVisual SetStatValue)
+    public bool IsPlayer; // Index 7 (BattleVisual SetStatValue)
+    public int Target; // Index 8 (BattleVisual SetStatValue)
+    public int SerialNumber; // Index 9 (BattleVisual SetStatValue)
 
-    public void SetEntityValues(string name, int currHealth, int maxHealth,
-        int initiative, int strength, int level, bool isPlayer)
+    public void SetEntityValues(int hp, int maxHP,
+        int block, int strength, int level, bool isPlayer, int serialNumber)
     {
-        Name = name;
-        CurrHealth = currHealth;
-        MaxHealth = maxHealth;
-        Initiative = initiative;
+        HP = hp;
+        MaxHP = maxHP;
+        Block = block;
         Strength = strength;
         Level = level;
         IsPlayer = isPlayer;
+        SerialNumber = serialNumber;
+    }
+
+    public void SetEntityName(string name) 
+    {
+        Name = name;
     }
 
     public void SetTarget(int target)
@@ -394,8 +436,8 @@ public class BattleEntities
         Target = target;
     }
 
-    public void UpdateUI()
+    /*public void UpdateUI()
     {
-        BattleVisuals.ChangeHealth(CurrHealth);
-    }
+        BattleVisuals.ChangeHealth(HP);
+    }*/
 }

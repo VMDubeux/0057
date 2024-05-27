@@ -5,14 +5,14 @@ using UnityEngine;
 public class CombatTester : MonoBehaviour
 {
     public static CombatTester Instance;
-    public Unit Attacker;
-    public Unit Defender;
+    public BattleVisuals Attacker;
+    public BattleVisuals Defender;
     void Awake(){
         Instance = this;
     }
     [ContextMenu("Switch Units")]
     void SwitchUnits(){
-        Unit temp = Attacker;
+        BattleVisuals temp = Attacker;
         Attacker = Defender;
         Defender = temp;
     }

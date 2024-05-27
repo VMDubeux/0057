@@ -1,23 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public delegate void OnUnit(Unit unit);
-public class Unit : MonoBehaviour, IPointerClickHandler
+//public delegate void OnUnit(Unit unit);
+public class Unit : MonoBehaviour
 {
-    [SerializeField]
-    List<Stat> _stats;
-    public OnUnit onUnitClicked = delegate{};
-    public OnUnit onUnitTakeTurn = delegate{};
+    //[SerializeField]
+    public List<Stat> _stats = new List<Stat>();
+
+    public float expToGive;
+
+    public GameObject OverworldVisualPrefab;
+    public GameObject BattleVisualPrefab;
+
+    public bool hasFought;
+
+    /*
+    public OnUnit onUnitClicked = delegate { };
+    public OnUnit onUnitTakeTurn = delegate { };
     public TagModifier[] Modify = new TagModifier[(int)ModifierTags.None];
-    public virtual IEnumerator Recover(){
+    public int battleEntitiesSerialNumber;
+    */
+
+    /*
+    public virtual IEnumerator Recover() //Toda vez que a batalha (o seu respectivo turno) for iniciada o atributo Block aparecerá zerado.
+    {
         yield return null;
         SetStatValue(StatType.Block, 0);
         onUnitTakeTurn(this);
     }
-    [ContextMenu("Generate Stats")]
-    void GenerateStats(){
+
+    */
+    /*[ContextMenu("Generate Stats")]
+    public void UnitStats(){
         _stats = new List<Stat>();
         for(int i=0; i<(int)StatType.None; i++){
             Stat stat = new Stat();
@@ -26,16 +44,22 @@ public class Unit : MonoBehaviour, IPointerClickHandler
             _stats.Add(stat);
         }
     }
-    public void OnPointerClick(PointerEventData eventData){
+    */
+    /*public void OnPointerClick(PointerEventData eventData)
+    {
         onUnitClicked(this);
-    }
-    public int GetStatValue(StatType type){
+    }*/
+    /*
+    public int GetStatValue(StatType type)
+    {
         int statValue = _stats[(int)type].Value;
         //modify
         return statValue;
     }
-    public void SetStatValue(StatType type, int value){
+    public void SetStatValue(StatType type, int value)
+    {
         //modify
         _stats[(int)type].Value = value;
     }
+    */
 }

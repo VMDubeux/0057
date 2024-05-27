@@ -8,7 +8,7 @@ public class InflictEffect : CardEffect
     public int AppliesXTimes;
     public override IEnumerator Apply(List<object> targets){
         foreach(Object o in targets){
-            Unit unit = o as Unit;
+            BattleVisuals unit = o as BattleVisuals;
             for(int i=0; i<AppliesXTimes; i++){
                 TryToApply(unit);
             }
@@ -16,7 +16,7 @@ public class InflictEffect : CardEffect
             yield return null;
         }
     }
-    void TryToApply(Unit unit){
+    void TryToApply(BattleVisuals unit){
         StatusEffect status = GetEffect(unit);
         if(status == null){
             status = CreateEffect(unit);
@@ -29,7 +29,7 @@ public class InflictEffect : CardEffect
             }
         }
     }
-    StatusEffect GetEffect(Unit unit){
+    StatusEffect GetEffect(BattleVisuals unit){
         foreach(StatusEffect status in unit.GetComponentsInChildren<StatusEffect>()){
             if(status.name == StatusEffectPrefab.name){
                 return status;
@@ -37,7 +37,7 @@ public class InflictEffect : CardEffect
         }
         return null;
     }
-    StatusEffect CreateEffect(Unit unit){
+    StatusEffect CreateEffect(BattleVisuals unit){
         StatusEffect instantiated = Instantiate(StatusEffectPrefab, Vector3.zero, Quaternion.identity, unit.transform);
         instantiated.name = StatusEffectPrefab.name;
         return instantiated;
