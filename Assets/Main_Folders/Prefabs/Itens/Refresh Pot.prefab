@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7801478108453164641}
   - component: {fileID: 3140699649527232278}
   - component: {fileID: 8878403107080146913}
-  - component: {fileID: 3433436644942188616}
+  - component: {fileID: 8855538171836621186}
   m_Layer: 0
   m_Name: Refresh Pot
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4792677967762884981}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.515412, y: -11.497128, z: 16.967813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -58,7 +58,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -66,7 +66,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &3433436644942188616
+--- !u!114 &8855538171836621186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,10 +75,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4792677967762884981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a6f4dff7d2b4f458bea17b54635d6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 98a76dd371075c04997a15820222698a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 7503ca6e98c6ed94a813e842525c7124, type: 2}
+  ItemType: 2
+  Id: 0
+  Name: 
+  Cost: 0
+  Sprite: {fileID: 0}
+  GameObject: {fileID: 0}
 --- !u!1 &8437895654293207498
 GameObject:
   m_ObjectHideFlags: 0

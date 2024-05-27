@@ -5,21 +5,53 @@ using UnityEngine.UI;
 
 public class InventoryItemController : MonoBehaviour
 {
-    ItemSO Item;
-    public Button RemoveButton;
-    public void RemoveItem()
+    [SerializeField] private InventoryItem ItemInventory;
+    [SerializeField] private ItemPickUp ItemPickUp;
+
+    private void Start()
     {
-        InventoryManager.Instance.Remove(Item);
-        Destroy(gameObject);
-    }
-    
-    public void AddItem(ItemSO newItem)
-    {
-        Item = newItem;
+        gameObject.GetComponent<Button>().onClick.AddListener(delegate { UseItem(ItemPickUp); });
     }
 
-    public void UseItem()
+    public void RemoveItem()
     {
-        // Metodo para usar o item específico. 
+        Button RemoveButton = transform.GetComponentInChildren<Button>();
+        InventoryManager.Instance.Remove(ItemPickUp);
+        //Item.Destroy();
+        //Destroy(gameObject);
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    public void AddItem(InventoryItem newItem, ItemPickUp Item)
+    {
+        ItemInventory = newItem;
+        ItemPickUp = Item;
+    }
+
+    public void UseItem(ItemPickUp item)
+    {
+        InventoryManager.Instance.Remove(item);
+        //GameObject partyManager = GameObject.Find("PartyManager"); // Centralizar os atributos do Player no PartyManager, pois ele não é destruído.
+
+        switch (item.ItemType)
+        {
+            default:
+            case ItemType.PerfumePeq:
+                Debug.Log("Aumentar vida");
+                break;
+            case ItemType.PerfumeMed:
+                Debug.Log("Aumentar número de cartas na mão");
+                break;
+            case ItemType.PerfumeGrd:
+                Debug.Log("Aumentar quantidade de mana por turno");
+                break;
+            case ItemType.CartaComum:
+                Debug.Log("Ganhar carta comum");
+                break;
+        }
     }
 }

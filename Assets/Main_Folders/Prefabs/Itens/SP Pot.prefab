@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2843684148368098357}
   - component: {fileID: 1406463925041913761}
   - component: {fileID: 6329514530186380770}
-  - component: {fileID: 1393872050010707336}
+  - component: {fileID: 4693030429368291629}
   m_Layer: 0
   m_Name: SP Pot
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7407634866672694851}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.515412, y: -9.497128, z: 16.967813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -58,13 +58,13 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1393872050010707336
+--- !u!114 &4693030429368291629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,10 +73,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7407634866672694851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a6f4dff7d2b4f458bea17b54635d6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 98a76dd371075c04997a15820222698a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: b08c5f5da542f754a8664a8f9245130b, type: 2}
+  ItemType: 3
+  Id: 0
+  Name: 
+  Cost: 0
+  Sprite: {fileID: 0}
+  GameObject: {fileID: 0}
 --- !u!1 &8431056006058827155
 GameObject:
   m_ObjectHideFlags: 0
