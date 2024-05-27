@@ -25,7 +25,7 @@ public class LevelsManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        PauseCanvasMenu = GameObject.Find("Canvas_Pause_Menu");
+        PauseCanvasMenu = GameObject.Find("CanvasPause");
     }
 
     private void Start()
