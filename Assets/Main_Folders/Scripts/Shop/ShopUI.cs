@@ -39,7 +39,7 @@ public class ShopUI : MonoBehaviour
     {
         Transform shopItemTransform = Instantiate(shopItemTemplate, container);
         shopItemTransform.gameObject.SetActive(true);
-        RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
+        //RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
         //float shopItemHeight = 30f;
         //shopItemRectTransform.anchoredPosition = new Vector2(0, -shopItemHeight * positionIndex);
         shopItemTransform.Find("NameText").GetComponent<TextMeshProUGUI>().SetText(itemName.ToString());
@@ -49,7 +49,7 @@ public class ShopUI : MonoBehaviour
         shopItemTransform.GetComponent<Button>().onClick.AddListener(delegate { TryBuyItem(itemType); });
     }
 
-    private void TryBuyItem(ItemType itemType)
+    public void TryBuyItem(ItemType itemType)
     {
         if (shopCostumer.TrySpendDripAmount(ItemSO.GetCost(itemType)))
             shopCostumer.BoughtItem(itemType);
@@ -65,6 +65,6 @@ public class ShopUI : MonoBehaviour
     public void Hide()
     {
         canvasStore.gameObject.SetActive(false);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }

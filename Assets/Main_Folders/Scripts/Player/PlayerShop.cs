@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class PlayerShop : MonoBehaviour, IShopCostumer
 {
-    public event EventHandler OnDripAmountChanged;
+    //public event EventHandler OnDripAmountChanged;
     //public event EventHandler OnHealthPotionAmountChanged;
 
     [SerializeField] int dripAmount = 50;
+    public bool canBuy;
 
     public int GetDripAmount()
     {
@@ -39,12 +40,14 @@ public class PlayerShop : MonoBehaviour, IShopCostumer
         {
             dripAmount -= spendDripAmount;
             print(dripAmount);
-            OnDripAmountChanged?.Invoke(this, EventArgs.Empty);
+            //OnDripAmountChanged?.Invoke(this, EventArgs.Empty);
+            canBuy = true;
             return true;
         }
         else
         {
             print("RECURSOS INSUFICIENTES!");
+            canBuy = false;
             return false;
         }
     }
