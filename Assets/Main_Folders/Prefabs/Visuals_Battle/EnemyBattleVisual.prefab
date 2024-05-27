@@ -682,6 +682,7 @@ MonoBehaviour:
   MaxHP: 0
   Block: 0
   Strength: 0
+  BlockAmount: 0
   Level: 0
   SerialNumber: 0
   currentEntity:
@@ -726,10 +727,9 @@ MonoBehaviour:
   - Type: 1
     Value: 10
   - Type: 2
-    Value: 5
-  - Type: 3
     Value: 1
-  expToGive: 10
+  - Type: 3
+    Value: 5
   OverworldVisualPrefab: {fileID: 1415486005634186758, guid: 1210f624c533c4840b994bb63c4b471d, type: 3}
 --- !u!114 &5108658499620737112
 MonoBehaviour:

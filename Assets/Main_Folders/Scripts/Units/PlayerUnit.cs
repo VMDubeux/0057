@@ -10,6 +10,7 @@ public class PlayerUnit : BattleVisuals
     public GameObject PlayerOverworldVisualPrefab;
 
     public int MaxEnergy;
+    public int Graciosidade = 0;
     public int CurrentEnergy
     {
         get

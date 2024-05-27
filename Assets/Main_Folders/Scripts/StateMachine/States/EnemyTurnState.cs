@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEngine.UI.CanvasScaler;
 
 public class EnemyTurnState : State
@@ -18,16 +19,58 @@ public class EnemyTurnState : State
         {
             _playerUnit = machine.CurrentUnit as PlayerUnit;
         }
-
-        if (currentUnit == null && !machine.CurrentUnit.CompareTag("Player"))
-        {
-            currentUnit = machine.CurrentUnit;
-            Amount = currentUnit.Strength;
-        }
     }
 
     public override IEnumerator Enter()
     {
+        if(!machine.CurrentUnit.CompareTag("Player"))
+        {
+        currentUnit = machine.CurrentUnit;
+        EnemySkillChoice();
+        }
+        //EnemySkillChoice();
+
+        yield return null;
+        StartCoroutine(WaitThenChangeState<TurnBeginState>());
+    }
+
+    public void EnemySkillChoice()
+    {
+        int r = Random.Range(0,9);
+        if(currentUnit.HP > currentUnit.MaxHP/2)
+        {
+            if(r < 7)
+            {
+                Attack();
+            }
+            else 
+                Shield();
+        }
+        else
+        {
+            if( r < 3 )
+            {
+                Attack();
+            }
+            else
+                Shield();
+        }
+    }
+
+    private void Shield()
+    {
+        ModifiedValues modifiedValues = new ModifiedValues(Amount);
+        ApplyModifier(modifiedValues, ModifierTags.GainBlock, StateMachine.Instance.CurrentUnit);
+        ApplyModifier(modifiedValues, ModifierTags.TakeAttackDamage, _playerUnit);
+
+
+
+        currentUnit.SetStatValue(3, currentUnit.GetBlockAmount()); // 5 como valor padrão para teste.
+    }
+
+    private void Attack()
+    {
+        Amount = currentUnit.Strength;
         ModifiedValues modifiedValues = new ModifiedValues(Amount);
         ApplyModifier(modifiedValues, ModifierTags.DoAttackDamage, StateMachine.Instance.CurrentUnit);
         ApplyModifier(modifiedValues, ModifierTags.TakeAttackDamage, _playerUnit);
@@ -45,10 +88,6 @@ public class EnemyTurnState : State
             _playerUnit.Modify[(int)ModifierTags.WhenUnitDies](null);
         }
 
-        /*Debug.LogFormat("Enemy Unit {0} Attacked: Unit {1} HP went from {2} to {3}; block went from {4} to {5} ",
-                currentUnit.name, _playerUnit.name, currentHP, _playerUnit.GetStatValue(1), block, leftoverBlock);*/
-        yield return null;
-        StartCoroutine(WaitThenChangeState<TurnBeginState>());
     }
 
     void ApplyModifier(ModifiedValues modifiedValues, ModifierTags tag, BattleVisuals unit)
