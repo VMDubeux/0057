@@ -71,7 +71,7 @@ public class LevelsManager : MonoBehaviour
             CameraPivot = null;
             EventSystem = null;
         }
-        if (currentGameSceneIndex > 0)
+        if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 1)
         {
             CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
             CameraPivot = GameObject.Find("CameraPivot");
@@ -81,7 +81,7 @@ public class LevelsManager : MonoBehaviour
             CanvasInventario.SetActive(true);
             EventSystem.SetActive(true);
         }
-        else if (SceneManager.GetActiveScene().name == "LEVEL_BATTLE")
+        else if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 2)
         {
             CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
             CameraPivot = GameObject.Find("CameraPivot");
