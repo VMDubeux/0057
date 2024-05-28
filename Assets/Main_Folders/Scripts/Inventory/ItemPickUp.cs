@@ -14,7 +14,8 @@ public class ItemPickUp : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
+
     }
 
     private void Start()

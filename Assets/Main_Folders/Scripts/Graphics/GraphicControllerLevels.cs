@@ -14,11 +14,11 @@ public class GraphicControllerLevels : MonoBehaviour
 
     private void Awake()
     {
-        resolutionDropdown = GameObject.Find("CanvasPause/OptionsMenu/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
+        resolutionDropdown = GameObject.Find("CanvasPause/Container/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
         GraphicManager.Instance.resolutionDropdown = resolutionDropdown;
-        qualityDropdown = GameObject.Find("CanvasPause/OptionsMenu/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
+        qualityDropdown = GameObject.Find("CanvasPause/Container/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
         GraphicManager.Instance.qualityDropdown = qualityDropdown;
-        fullScreenToggle = GameObject.Find("CanvasPause/OptionsMenu/FullScreen/Toggle").GetComponent<Toggle>();
+        fullScreenToggle = GameObject.Find("CanvasPause/Container/FullScreen/Toggle").GetComponent<Toggle>();
         GraphicManager.Instance.fullScreenToggle = fullScreenToggle;
     }
 
@@ -31,11 +31,11 @@ public class GraphicControllerLevels : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
-            resolutionDropdown = GameObject.Find("CanvasPause/OptionsMenu/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
+            resolutionDropdown = GameObject.Find("CanvasPause/Container/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
             GraphicManager.Instance.resolutionDropdown = resolutionDropdown;
-            qualityDropdown = GameObject.Find("CanvasPause/OptionsMenu/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
+            qualityDropdown = GameObject.Find("CanvasPause/Container/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
             GraphicManager.Instance.qualityDropdown = qualityDropdown;
-            fullScreenToggle = GameObject.Find("CanvasPause/OptionsMenu/FullScreen/Toggle").GetComponent<Toggle>();
+            fullScreenToggle = GameObject.Find("CanvasPause/Container/FullScreen/Toggle").GetComponent<Toggle>();
             GraphicManager.Instance.fullScreenToggle = fullScreenToggle;
         }
     }
