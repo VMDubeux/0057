@@ -12,11 +12,11 @@ public class GraphicController : MonoBehaviour
 
     private void Awake()
     {
-        resolutionDropdown = GameObject.Find("Canvas/OptionsMenu/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
+        resolutionDropdown = GameObject.Find("Canvas/OptionsMenu/Container/FullScreen/Dropdown").GetComponent<TMP_Dropdown>();
         GraphicManager.Instance.resolutionDropdown = resolutionDropdown;
-        qualityDropdown = GameObject.Find("Canvas/OptionsMenu/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
+        qualityDropdown = GameObject.Find("Canvas/OptionsMenu/Container/Graphics/GraphicsDropdown").GetComponent<TMP_Dropdown>();
         GraphicManager.Instance.qualityDropdown = qualityDropdown;
-        fullScreenToggle = GameObject.Find("Canvas/OptionsMenu/FullScreen/Toggle").GetComponent<Toggle>();
+        fullScreenToggle = GameObject.Find("Canvas/OptionsMenu/Container/FullScreen/Toggle").GetComponent<Toggle>();
         GraphicManager.Instance.fullScreenToggle = fullScreenToggle;
     }
 
