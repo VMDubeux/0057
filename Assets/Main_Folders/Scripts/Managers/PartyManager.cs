@@ -8,7 +8,7 @@ using static Cinemachine.DocumentationSortingAttribute;
 
 public class PartyManager : MonoBehaviour
 {
-    public static PartyManager Instance;
+    //public static PartyManager Instance;
 
     [SerializeField] private GameObject[] allMember;
     [SerializeField] private List<PartyMember> currentParty;
@@ -29,7 +29,7 @@ public class PartyManager : MonoBehaviour
 
     private Slider sliderExp;
 
-    private GameObject partyManager;
+    private static GameObject partyManager;
 
     private void Awake()
     {

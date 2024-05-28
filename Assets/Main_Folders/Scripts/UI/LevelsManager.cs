@@ -8,7 +8,13 @@ public class LevelsManager : MonoBehaviour
 {
     public static LevelsManager Instance;
 
-    private GameObject PauseCanvasMenu;
+    [SerializeField] private GameObject PauseCanvasMenu;
+
+    [SerializeField] private GameObject CanvasInventario;
+
+    [SerializeField] private GameObject CameraPivot;
+
+    [SerializeField] private GameObject EventSystem;
 
     [Header("Escreva o nome da cena atual:")]
     [SerializeField] internal int currentGameSceneIndex;
@@ -24,13 +30,14 @@ public class LevelsManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        PauseCanvasMenu = GameObject.Find("CanvasPause");
     }
 
     private void Start()
     {
+        PauseCanvasMenu = FindAnyObjectByType<AudioControllerLevels>(FindObjectsInactive.Include).gameObject;
+
         PauseCanvasMenu.SetActive(false);
+
         Time.timeScale = 1.0f; // Verificar necessidade;
     }
 
@@ -49,13 +56,41 @@ public class LevelsManager : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+
+
     }
 
     private void OnGUI()
     {
         currentGameSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
         if (currentGameSceneIndex == 0)
+        {
             PauseCanvasMenu.SetActive(false);
+            CanvasInventario = null;
+            CameraPivot = null;
+            EventSystem = null;
+        }
+        if (currentGameSceneIndex > 0)
+        {
+            CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+            CameraPivot = GameObject.Find("CameraPivot");
+            EventSystem = GameObject.Find("EventSystem");
+
+            CameraPivot.SetActive(true);
+            CanvasInventario.SetActive(true);
+            EventSystem.SetActive(true);
+        }
+        else if (SceneManager.GetActiveScene().name == "LEVEL_BATTLE")
+        {
+            CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+            CameraPivot = GameObject.Find("CameraPivot");
+            EventSystem = GameObject.Find("EventSystem");
+
+            CameraPivot.SetActive(false);
+            CanvasInventario.SetActive(false);
+            EventSystem.SetActive(false);
+        }
     }
 
     public void ReturnToMainMenu()
