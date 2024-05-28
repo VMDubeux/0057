@@ -17,6 +17,8 @@ public class LevelsManager : MonoBehaviour
 
     [SerializeField] private GameObject EventSystem;
 
+    [SerializeField] private GameObject Light;
+
     [Header("Escreva o nome da cena atual:")]
     [SerializeField] internal int currentGameSceneIndex;
 
@@ -62,7 +64,8 @@ public class LevelsManager : MonoBehaviour
         {
             CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
             CameraPivot = FindAnyObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
-            EventSystem = FindAnyObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
+            EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
+            Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
         }
     }
 
@@ -76,10 +79,14 @@ public class LevelsManager : MonoBehaviour
             CanvasInventario = null;
             CameraPivot = null;
             EventSystem = null;
+            Light = null;
         }
         if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 1)
         {
-            StartCoroutine(TimeToWait());
+            CameraPivot.SetActive(true);
+            CanvasInventario.SetActive(true);
+            EventSystem.SetActive(true);
+            Light.SetActive(true);
 
         }
         else if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 2)
@@ -87,6 +94,7 @@ public class LevelsManager : MonoBehaviour
             CameraPivot.SetActive(false);
             CanvasInventario.SetActive(false);
             EventSystem.SetActive(false);
+            Light.SetActive(false);
         }
     }
 
@@ -100,13 +108,5 @@ public class LevelsManager : MonoBehaviour
     {
         PauseCanvasMenu.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
-    }
-
-    IEnumerator TimeToWait()
-    {
-        yield return new WaitForSeconds(2);
-        CameraPivot.SetActive(true);
-        CanvasInventario.SetActive(true);
-        EventSystem.SetActive(true);
     }
 }
