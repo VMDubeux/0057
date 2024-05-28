@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LevelsManager : MonoBehaviour
@@ -57,7 +58,12 @@ public class LevelsManager : MonoBehaviour
             }
         }
 
-
+        if (currentGameSceneIndex > 0)
+        {
+            CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+            CameraPivot = FindAnyObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
+            EventSystem = FindAnyObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
+        }
     }
 
     private void OnGUI()
@@ -73,20 +79,11 @@ public class LevelsManager : MonoBehaviour
         }
         if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 1)
         {
-            CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
-            CameraPivot = GameObject.Find("CameraPivot");
-            EventSystem = GameObject.Find("EventSystem");
+            StartCoroutine(TimeToWait());
 
-            CameraPivot.SetActive(true);
-            CanvasInventario.SetActive(true);
-            EventSystem.SetActive(true);
         }
         else if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 2)
         {
-            CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
-            CameraPivot = GameObject.Find("CameraPivot");
-            EventSystem = GameObject.Find("EventSystem");
-
             CameraPivot.SetActive(false);
             CanvasInventario.SetActive(false);
             EventSystem.SetActive(false);
@@ -103,5 +100,13 @@ public class LevelsManager : MonoBehaviour
     {
         PauseCanvasMenu.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
+    }
+
+    IEnumerator TimeToWait()
+    {
+        yield return new WaitForSeconds(2);
+        CameraPivot.SetActive(true);
+        CanvasInventario.SetActive(true);
+        EventSystem.SetActive(true);
     }
 }

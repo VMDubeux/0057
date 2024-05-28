@@ -12,6 +12,11 @@ public class ItemPickUp : MonoBehaviour
     [SerializeField] internal Sprite Sprite;
     [SerializeField] internal InventoryItem InventoryItem;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     private void Start()
     {
         Id = ItemSO.GetId(ItemType);
