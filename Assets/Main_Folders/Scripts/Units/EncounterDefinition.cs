@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
-using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class EncounterDefinition : MonoBehaviour
 {
@@ -36,6 +34,7 @@ public class EncounterDefinition : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(EncounterDefinition))]
 public class EncounterDefinition_Editor : Editor
 {
@@ -70,3 +69,4 @@ public class EncounterDefinition_Editor : Editor
         script.levelMax = EditorGUILayout.IntField("Level máximo:", script.levelMax);
     }
 }
+#endif

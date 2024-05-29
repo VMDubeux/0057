@@ -28,12 +28,10 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
-        //ToggleSFX(PlayerPrefs.GetInt("sfxToggleValue"));
-        //MusicVolume(PlayerPrefs.GetFloat("MusicVolumeValue"));
-        //SFXVolume(PlayerPrefs.GetFloat("SfxVolumeValue"));
+        StartAudioSetup();
         PlayMusic("Soundtrack");
     }
+
 
     public void PlayMusic(string Name)
     {
@@ -78,5 +76,44 @@ public class AudioManager : MonoBehaviour
     public void SFXVolume(float volume)
     {
         SfxSource.volume = volume;
+    }
+
+    private void StartAudioSetup()
+    {
+        // Music Toggle
+        if (PlayerPrefs.HasKey("musicToggleValue"))
+            ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
+        else
+        {
+            PlayerPrefs.SetInt("musicToggleValue", 0);
+            ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
+        }
+
+        // Sfx Toggle
+        if (PlayerPrefs.HasKey("sfxToggleValue"))
+            ToggleSFX(PlayerPrefs.GetInt("sfxToggleValue"));
+        else
+        {
+            PlayerPrefs.SetInt("sfxToggleValue", 0);
+            ToggleSFX(PlayerPrefs.GetInt("sfxToggleValue"));
+        }
+
+        // Music Volume
+        if (PlayerPrefs.HasKey("MusicVolumeValue"))
+            MusicVolume(PlayerPrefs.GetFloat("MusicVolumeValue"));
+        else
+        {
+            PlayerPrefs.GetFloat("MusicVolumeValue", 0.5f);
+            MusicVolume(PlayerPrefs.GetFloat("MusicVolumeValue"));
+        }
+
+        // Sfx Volume
+        if (PlayerPrefs.HasKey("SfxVolumeValue"))
+            SFXVolume(PlayerPrefs.GetFloat("SfxVolumeValue"));
+        else
+        {
+            PlayerPrefs.GetFloat("SfxVolumeValue", 0.5f);
+            SFXVolume(PlayerPrefs.GetFloat("SfxVolumeValue"));
+        }
     }
 }

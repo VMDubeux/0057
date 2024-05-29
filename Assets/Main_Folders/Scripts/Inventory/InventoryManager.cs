@@ -1,14 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.Hardware;
-using System.Linq;
-using JetBrains.Annotations;
-using System;
-using Unity.VisualScripting;
-using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
