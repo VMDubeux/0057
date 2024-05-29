@@ -5,13 +5,22 @@ using UnityEngine;
 public class MentorFirstDialogue : MonoBehaviour
 {
     [SerializeField] private DialogManager dialogTriggerPrefab;
+    internal DialogManager dialogTrigger;
     [SerializeField] private DialogStep mentorDialogue;
     [SerializeField] private PlayerMovement playerMovement;
 
     private void OnTriggerEnter(Collider other)
     {
-        DialogManager dialogTrigger = Instantiate(dialogTriggerPrefab);
+        dialogTrigger = Instantiate(dialogTriggerPrefab);
         dialogTrigger.step = mentorDialogue;
         dialogTrigger.dialogueDelegate += playerMovement.GiveDripToPlayer;
+        dialogTriggerPrefab.gameObject.SetActive(true);
+        LevelsManager.Instance.isTalking = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        LevelsManager.Instance.isTalking = false;
+        Destroy(dialogTrigger.gameObject);
     }
 }

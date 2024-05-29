@@ -9,9 +9,13 @@ public class LevelsManager : MonoBehaviour
 {
     public static LevelsManager Instance;
 
+    internal bool isTalking = false;
+
     [SerializeField] private GameObject PauseCanvasMenu;
 
-    [SerializeField] private GameObject CanvasInventario;
+    [SerializeField] internal GameObject LevelCanvas;
+
+    [SerializeField] internal GameObject CanvasInventario;
 
     [SerializeField] private GameObject CameraPivot;
 
@@ -63,6 +67,7 @@ public class LevelsManager : MonoBehaviour
         if (currentGameSceneIndex > 0)
         {
             CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+            LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
             CameraPivot = FindAnyObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
             EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
             Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
@@ -77,6 +82,7 @@ public class LevelsManager : MonoBehaviour
         {
             PauseCanvasMenu.SetActive(false);
             CanvasInventario = null;
+            LevelCanvas = null;
             CameraPivot = null;
             EventSystem = null;
             Light = null;
@@ -84,15 +90,25 @@ public class LevelsManager : MonoBehaviour
         if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 1)
         {
             CameraPivot.SetActive(true);
-            CanvasInventario.SetActive(true);
             EventSystem.SetActive(true);
             Light.SetActive(true);
 
+            if (isTalking == false)
+            {
+                CanvasInventario.SetActive(true);
+                LevelCanvas.SetActive(true);
+            }
+            else
+            {
+                CanvasInventario.SetActive(false);
+                LevelCanvas.SetActive(false);
+            }
         }
         else if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 2)
         {
             CameraPivot.SetActive(false);
             CanvasInventario.SetActive(false);
+            LevelCanvas.SetActive(false);
             EventSystem.SetActive(false);
             Light.SetActive(false);
         }

@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
         animatorController = GetComponentInChildren<Animator>();
         partyManager = FindFirstObjectByType<PartyManager>();
 
-        if (partyManager.GetPosition() != Vector3.zero) 
+        if (partyManager.GetPosition() != Vector3.zero)
         {
             transform.position = partyManager.GetPosition();
         }
@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
         {
             GatherInput();
         }
-
     }
 
     private void GatherInput()

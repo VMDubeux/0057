@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TurnBeginState : State
 {
-    PartyManager partyManager;
+    [SerializeField] PartyManager partyManager;
 
-    EncounterSystem encounterSystem;
+    [SerializeField] EncounterSystem encounterSystem;
 
-    PlayerUnit _playerUnit;
+    [SerializeField] PlayerUnit _playerUnit;
 
-    private float accumulatedExperience = 0;
+    [SerializeField] float accumulatedExperience = 0;
 
     public override IEnumerator Enter()
     {
@@ -43,7 +43,7 @@ public class TurnBeginState : State
             {
                 partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
                 partyManager.SetExperience(accumulatedExperience); // Envio do quantitativo acumulado de experiência para o player, mediante uso do método constante no script Party Manager.
-                encounterSystem = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
+                encounterSystem = FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>();
                 encounterSystem.prefab.GetComponent<Unit>().hasFought = true;
                 encounterSystem.battleActive = false;
             }
