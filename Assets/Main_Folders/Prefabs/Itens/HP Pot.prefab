@@ -81,7 +81,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   Sprite: {fileID: 0}
-  GameObject: {fileID: 0}
+  InventoryItem: {fileID: 0}
 --- !u!1 &5815202440783408594
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 5815202440783408594}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0.489, z: 0}
+  m_LocalPosition: {x: 0.142, y: -0.5, z: 0}
   m_LocalScale: {x: 200, y: 200, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []

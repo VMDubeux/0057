@@ -81,7 +81,7 @@ MonoBehaviour:
   Name: 
   Cost: 0
   Sprite: {fileID: 0}
-  GameObject: {fileID: 0}
+  InventoryItem: {fileID: 0}
 --- !u!1 &8431056006058827155
 GameObject:
   m_ObjectHideFlags: 0

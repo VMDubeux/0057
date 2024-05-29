@@ -13,10 +13,10 @@ public class AudioControllerLevels : MonoBehaviour
 
     private void Awake()
     {
-        MusicSlider = GameObject.Find("CanvasPause/OptionsMenu/Music/SliderMusic").GetComponent<Slider>();
-        MusicToggle = GameObject.Find("CanvasPause/OptionsMenu/Music/MusicToggle").GetComponent<Toggle>();
-        SfxSlider = GameObject.Find("CanvasPause/OptionsMenu/SFX/SliderSFX").GetComponent<Slider>();
-        SfxToggle = GameObject.Find("CanvasPause/OptionsMenu/SFX/SfxToggle").GetComponent<Toggle>();
+        MusicSlider = GameObject.Find("CanvasPause/Container/Music/SliderMusic").GetComponent<Slider>();
+        MusicToggle = GameObject.Find("CanvasPause/Container/Music/MusicToggle").GetComponent<Toggle>();
+        SfxSlider = GameObject.Find("CanvasPause/Container/SFX/SliderSFX").GetComponent<Slider>();
+        SfxToggle = GameObject.Find("CanvasPause/Container/SFX/SfxToggle").GetComponent<Toggle>();
     }
 
     private void Start()

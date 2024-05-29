@@ -5,8 +5,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    //public static AudioController Controller;
-
     [Header("AudioClips:")]
     public Sound[] MusicSounds, SfxSounds;
 
@@ -32,8 +30,9 @@ public class AudioManager : MonoBehaviour
         ToggleSFX(PlayerPrefs.GetInt("sfxToggleValue"));
         MusicVolume(PlayerPrefs.GetFloat("MusicVolumeValue"));
         SFXVolume(PlayerPrefs.GetFloat("SfxVolumeValue"));
-        PlayMusic("Theme");
+        PlayMusic("Soundtrack");
     }
+
 
     public void PlayMusic(string Name)
     {

@@ -14,8 +14,10 @@ public class DialogManager : MonoBehaviour
 
     private DialogButtonMenu currentDialogButtonMenu;
     private int currentDialog = -1;
+    public delegate void DialogueDelegate();
+    public DialogueDelegate dialogueDelegate;
 
-    
+
     void Start() {
         if (step == null || step.dialogues.Length == 0) return;
         currentDialogButtonMenu = Instantiate(dialogButtonMenuPrefab, transform);
@@ -29,6 +31,7 @@ public class DialogManager : MonoBehaviour
         if (currentDialog == step.dialogues.Length) {
 
             if (step.options.Length == 0) {
+                dialogueDelegate();
                 Destroy(gameObject);
             } else {
                 currentDialogButtonMenu.ConfigureWith(step.options, this);
@@ -38,6 +41,7 @@ public class DialogManager : MonoBehaviour
         }
 
         if (currentDialog == step.dialogues.Length + 1) {
+            dialogueDelegate();
             Destroy(gameObject);
             return;
         }
