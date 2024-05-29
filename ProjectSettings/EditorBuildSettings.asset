@@ -9,13 +9,19 @@ EditorBuildSettings:
     path: Assets/Main_Folders/Scenes/LEVEL_INTRO.unity
     guid: 634aac2ae920c4040b239832368f726d
   - enabled: 1
+    path: Assets/Main_Folders/Scenes/LEVEL_1 LET.unity
+    guid: 07590e936f05c0944ba5b13b35faf290
+  - enabled: 1
+    path: Assets/Main_Folders/Scenes/LEVEL_2 LET.unity
+    guid: 8cda60cddf536b24a9b0b817f12a1026
+  - enabled: 1
+    path: Assets/Main_Folders/Scenes/LEVEL_BATTLE.unity
+    guid: face30aee84aace4f94b27b9f1e36a96
+  - enabled: 1
     path: Assets/Main_Folders/Scenes/LEVEL_1.unity
     guid: 68bf4b6a876dab34e979491c4ef1efeb
   - enabled: 1
     path: Assets/Main_Folders/Scenes/LEVEL_2.unity
     guid: 8280fece4268cc84aba2bfd3ba8d8eb3
-  - enabled: 1
-    path: Assets/Main_Folders/Scenes/LEVEL_BATTLE.unity
-    guid: face30aee84aace4f94b27b9f1e36a96
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
