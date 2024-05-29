@@ -8,6 +8,7 @@ public class AudioController : MonoBehaviour
     private Toggle MusicToggle, SfxToggle;
     private Slider MusicSlider, SfxSlider;
     private AudioSource MusicSource, SfxSource;
+    //public static AudioController Instance;
 
     private void Awake()
     {

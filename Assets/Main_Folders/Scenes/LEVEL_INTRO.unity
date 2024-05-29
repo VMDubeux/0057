@@ -1891,7 +1891,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!224 &2846784801920430206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6273,7 +6273,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!224 &8693692162879735818
 RectTransform:
   m_ObjectHideFlags: 0

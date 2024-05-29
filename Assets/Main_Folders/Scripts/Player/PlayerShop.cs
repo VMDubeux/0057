@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class PlayerShop : MonoBehaviour, IShopCostumer
 {
     //public event EventHandler OnDripAmountChanged;
@@ -23,7 +22,7 @@ public class PlayerShop : MonoBehaviour, IShopCostumer
         obj.GetComponent<ItemPickUp>().Name = ItemSO.GetName(itemType);
         obj.GetComponent<ItemPickUp>().Cost = ItemSO.GetCost(itemType);
         obj.GetComponent<ItemPickUp>().Sprite = ItemSO.GetSprite(itemType);
-        
+
         Debug.Log("Bought: " + obj.GetComponent<ItemPickUp>().Name);
         InventoryManager.Instance.Add(obj.GetComponent<ItemPickUp>());
         obj.SetActive(false);
