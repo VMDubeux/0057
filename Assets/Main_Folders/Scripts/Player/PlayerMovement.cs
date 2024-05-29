@@ -5,27 +5,23 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController characterController;
-    public Animator animatorController;
+    private Animator animatorController;
     public float moveSpeed = 5;
     public Vector3 moveInput;
-    private PartyManager partyManager;
 
+    [SerializeField] private GameObject brute;
+    [SerializeField] private GameObject batato;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        partyManager = GameObject.FindFirstObjectByType<PartyManager>();
-
-        if (partyManager.GetPosition() != Vector3.zero)
-        {
-            transform.position = partyManager.GetPosition();
-        }
+        animatorController = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
-        if (DialogueManager.isChatting == false)
+        if(DialogueManager.isChatting == false)
         {
-            GatherInput();
+        GatherInput();
         }
 
     }
@@ -51,7 +47,14 @@ public class PlayerMovement : MonoBehaviour
             //parar animacao de corrida
             animatorController.SetBool("run", false);
         }
+    }
 
-        partyManager.SetPosition(transform.position);
+    public void GiveDripToPlayer()
+    {
+        brute.active = true;
+        batato.active = false;
+
+        animatorController = brute.GetComponent<Animator>();
+
     }
 }
