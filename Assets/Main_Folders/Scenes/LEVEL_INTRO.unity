@@ -4760,7 +4760,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4857,8 +4857,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MusicSounds:
-  - Name: Theme
-    Clip: {fileID: 8300000, guid: 80b942a2203967c44b70d998a96c83ad, type: 3}
+  - Name: Soundtrack
+    Clip: {fileID: 8300000, guid: 52fed029c30deed4ab5493047eb91ff2, type: 3}
   SfxSounds: []
   MusicSource: {fileID: 5917565988654805599}
   SfxSource: {fileID: 5917565990596187975}
