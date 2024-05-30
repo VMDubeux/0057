@@ -8,17 +8,17 @@ public class SaveTest : MonoBehaviour
 {
     public int shift = 47;
     [SerializeField] List<GameObject> _gameObjects = new List<GameObject> ();
-    private void Start() {
-        Debug.Log("A capacidade da lista é: " + _gameObjects.Capacity);
-        Save();
-    }
+
     [ContextMenu("Save")]
     public void Save()
     {
-        GameObject [] obj = FindObjectsByType<GameObject>(FindObjectsSortMode.InstanceID);
+        GameObject _player = GameObject.FindGameObjectWithTag("Player");
+        GameObject [] _enemies = GameObject.FindGameObjectsWithTag("Enemies");
+        Debug.Log("Achou o player? ("+_player+")");
         StreamWriter sw = new StreamWriter("D:\\Unity\\0057\\Assets\\Others\\SaveTest\\save.txt");
         _gameObjects.Clear(); // Limpa a lista de objetos atual
-        foreach(GameObject go in obj)
+        if(_player != null)  _gameObjects.Add(_player);
+        foreach(GameObject go in _enemies)
         {
             _gameObjects.Add(go);
         }
@@ -32,7 +32,7 @@ public class SaveTest : MonoBehaviour
         sw.Close();
     }
     [ContextMenu("Load")]
-public void Load()
+    public void Load()
     {
         Debug.Log("A capacidade da lista é: " + _gameObjects.Capacity);
 
