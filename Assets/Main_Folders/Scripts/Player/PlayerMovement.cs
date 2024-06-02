@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -57,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void GiveDripToPlayer()
     {
-        brute.active = true;
-        batato.active = false;
+        brute.SetActive(true);
+        batato.SetActive(false);
 
         animatorController = brute.GetComponent<Animator>();
 
