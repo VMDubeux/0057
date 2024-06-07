@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Main_Folders.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -71,7 +72,7 @@ public class AudioControllerLevels : MonoBehaviour
             PlayerPrefs.SetInt("sfxToggleValue", 1);
             SfxSource.mute = true;
         }
-        AudioManager.Instance.ToggleSFX(PlayerPrefs.GetInt("sfxToggleValue"));
+        AudioManager.Instance.ToggleSfx(PlayerPrefs.GetInt("sfxToggleValue"));
         LoadSfxToggleValue();
     }
 
@@ -101,7 +102,7 @@ public class AudioControllerLevels : MonoBehaviour
 
     public void SFXVolume()
     {
-        AudioManager.Instance.SFXVolume(SfxSlider.value);
+        AudioManager.Instance.SfxVolume(SfxSlider.value);
         float sfxVolumeValue = SfxSlider.value;
         PlayerPrefs.SetFloat("SfxVolumeValue", sfxVolumeValue);
         LoadMusicValue();

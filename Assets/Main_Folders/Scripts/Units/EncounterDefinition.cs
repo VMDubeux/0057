@@ -42,18 +42,18 @@ public class EncounterDefinition_Editor : Editor
     {
         var script = (EncounterDefinition)target;
 
-        script.EncounterIsVariable = EditorGUILayout.Toggle("Número de Encouter é variável?", script.EncounterIsVariable);
+        script.EncounterIsVariable = EditorGUILayout.Toggle("NÃºmero de Encouter Ã© variÃ¡vel?", script.EncounterIsVariable);
 
         if (script.EncounterIsVariable == false)
         {
             //script.EnemyBattlePrefab = EditorGUILayout.ObjectField("Enemy Battle Visual Prefab", script.EnemyBattlePrefab, typeof(GameObject), true) as GameObject;
-            script.numEncouters = EditorGUILayout.IntField("Número fixo de Encouters:", script.numEncouters);
+            script.numEncouters = EditorGUILayout.IntField("NÃºmero fixo de Encouters:", script.numEncouters);
             LevelControl();
             return;
         }
 
-        script.minNumEncouters = EditorGUILayout.IntField("Número mínimo de Encouters:", script.minNumEncouters);
-        script.maxNumEncouters = EditorGUILayout.IntField("Número máximo de Encouters:", script.maxNumEncouters);
+        script.minNumEncouters = EditorGUILayout.IntField("NÃºmero mÃ­nimo de Encouters:", script.minNumEncouters);
+        script.maxNumEncouters = EditorGUILayout.IntField("NÃºmero mÃ¡ximo de Encouters:", script.maxNumEncouters);
         LevelControl();
 
         //script.EnemiesBattlePrefab[0] = EditorGUILayout.ObjectField("Enemy Battle Visual Prefab", script.EnemiesBattlePrefab[0], typeof(GameObject), true) as GameObject;
@@ -65,8 +65,8 @@ public class EncounterDefinition_Editor : Editor
     {
         var script = (EncounterDefinition)target;
 
-        script.levelMin = EditorGUILayout.IntField("Level mínimo:", script.levelMin);
-        script.levelMax = EditorGUILayout.IntField("Level máximo:", script.levelMax);
+        script.levelMin = EditorGUILayout.IntField("Level mÃ­nimo:", script.levelMin);
+        script.levelMax = EditorGUILayout.IntField("Level mÃ¡ximo:", script.levelMax);
     }
 }
 #endif

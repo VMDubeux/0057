@@ -23,6 +23,6 @@ public class LoadState : State
             machine.Units.Enqueue(unit);
         }
         yield return null;
-        Debug.Log($"O número de unidades (player + inimigos) no cenário é: {machine.Units.Count}.");
+        Debug.Log($"O nÃºmero de unidades (player + inimigos) no cenÃ¡rio Ã©: {machine.Units.Count}.");
     }
 }

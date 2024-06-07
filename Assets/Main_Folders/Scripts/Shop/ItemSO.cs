@@ -27,7 +27,7 @@ public class ItemSO
             default:
             case ItemType.CartaComum: return "Carta Comum";
             case ItemType.PerfumePeq: return "Perfume Pequeno";
-            case ItemType.PerfumeMed: return "Perfume Médio";
+            case ItemType.PerfumeMed: return "Perfume MÃ©dio";
             case ItemType.PerfumeGrd: return "Perfume Grande";
         }
     }

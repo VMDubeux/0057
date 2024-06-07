@@ -26,7 +26,7 @@ public class Unit : MonoBehaviour
     */
 
     /*
-    public virtual IEnumerator Recover() //Toda vez que a batalha (o seu respectivo turno) for iniciada o atributo Block aparecer· zerado.
+    public virtual IEnumerator Recover() //Toda vez que a batalha (o seu respectivo turno) for iniciada o atributo Block aparecer√° zerado.
     {
         yield return null;
         SetStatValue(StatType.Block, 0);

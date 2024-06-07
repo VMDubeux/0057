@@ -30,7 +30,7 @@ public class DamageEffect : CardEffect
             {
                 unit.Modify[(int)ModifierTags.WhenUnitDies](null);
 
-                if (targets.Count == 1) // Com isso, o jogo retorna para o level anterior quando o player È morto em batalha de maneira autom·tica.
+                if (targets.Count == 1) // Com isso, o jogo retorna para o level anterior quando o player √© morto em batalha de maneira autom√°tica.
                 {
                     StateMachine.Instance.ChangeState<TurnBeginState>();
                 }

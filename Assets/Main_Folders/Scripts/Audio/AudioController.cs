@@ -1,3 +1,4 @@
+using Main_Folders.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -44,6 +45,7 @@ public class AudioController : MonoBehaviour
             PlayerPrefs.SetInt("musicToggleValue", 1);
             MusicSource.mute = true;
         }
+
         AudioManager.Instance.ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
         LoadMusicToggleValue();
     }
@@ -55,7 +57,11 @@ public class AudioController : MonoBehaviour
             if (PlayerPrefs.GetInt("musicToggleValue") == 0) MusicToggle.isOn = true;
             else if (PlayerPrefs.GetInt("musicToggleValue") == 1) MusicToggle.isOn = false;
         }
-        else PlayerPrefs.SetInt("musicToggleValue", 0);
+        else
+        {
+            PlayerPrefs.SetInt("musicToggleValue", 0);
+            ToggleMusic();
+        }
     }
 
     public void ToggleSFX()
@@ -70,7 +76,8 @@ public class AudioController : MonoBehaviour
             PlayerPrefs.SetInt("sfxToggleValue", 1);
             SfxSource.mute = true;
         }
-        AudioManager.Instance.ToggleSFX(PlayerPrefs.GetInt("sfxToggleValue"));
+
+        AudioManager.Instance.ToggleSfx(PlayerPrefs.GetInt("sfxToggleValue"));
         LoadSfxToggleValue();
     }
 
@@ -81,7 +88,11 @@ public class AudioController : MonoBehaviour
             if (PlayerPrefs.GetInt("sfxToggleValue") == 0) SfxToggle.isOn = true;
             else if (PlayerPrefs.GetInt("sfxToggleValue") == 1) SfxToggle.isOn = false;
         }
-        else PlayerPrefs.SetInt("sfxToggleValue", 0);
+        else
+        {
+            PlayerPrefs.SetInt("sfxToggleValue", 0);
+            ToggleSFX();
+        }
     }
 
     public void MusicVolume()
@@ -100,7 +111,7 @@ public class AudioController : MonoBehaviour
 
     public void SFXVolume()
     {
-        AudioManager.Instance.SFXVolume(SfxSlider.value);
+        AudioManager.Instance.SfxVolume(SfxSlider.value);
         float sfxVolumeValue = SfxSlider.value;
         PlayerPrefs.SetFloat("SfxVolumeValue", sfxVolumeValue);
         LoadMusicValue();

@@ -35,7 +35,7 @@ public class InventoryItemController : MonoBehaviour
     public void UseItem(ItemPickUp item)
     {
         InventoryManager.Instance.Remove(item);
-        //GameObject partyManager = GameObject.Find("PartyManager"); // Centralizar os atributos do Player no PartyManager, pois ele n„o È destruÌdo.
+        //GameObject partyManager = GameObject.Find("PartyManager"); // Centralizar os atributos do Player no PartyManager, pois ele n√£o √© destru√≠do.
 
         switch (item.ItemType)
         {
@@ -44,7 +44,7 @@ public class InventoryItemController : MonoBehaviour
                 Debug.Log("Aumentar vida");
                 break;
             case ItemType.PerfumeMed:
-                Debug.Log("Aumentar n˙mero de cartas na m„o");
+                Debug.Log("Aumentar n√∫mero de cartas na m√£o");
                 break;
             case ItemType.PerfumeGrd:
                 Debug.Log("Aumentar quantidade de mana por turno");
