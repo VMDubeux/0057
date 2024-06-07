@@ -125,14 +125,18 @@ namespace Main_Folders.Scripts.Graphics
             {
                 int listLastIndex = options.Count;
 
-                string[] parameters = { "x", "@", "." };
-                string resolutionString = options[listLastIndex].ToString();
+                string[] parameters = { "x", "@", ".", " " };
+                string resolutionString = options[listLastIndex - 1];
                 string[] splitArray = resolutionString.Split(parameters, 3, StringSplitOptions.RemoveEmptyEntries);
 
                 string width = splitArray[0];
+                Debug.Log(width);
                 string height = splitArray[1];
+                Debug.Log(height);
                 Screen.SetResolution(int.Parse(width), int.Parse(height), FullScreenMode.FullScreenWindow);
                 _resolutionDropdown.value = listLastIndex - 1;
+                _resolutionDropdown.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
+                    $"{resolutionString}";
             }
         }
 
