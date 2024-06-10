@@ -11,8 +11,11 @@ namespace Main_Folders.Scripts.Graphics
     {
         private TMP_Dropdown _resolutionDropdown, _qualityDropdown;
         private Resolution[] _resolutions;
+        private string[] _qualities;
         private Toggle _fullScreenToggle;
         List<string> options = new();
+        List<string> optionsQuality = new();
+
 
         private void Awake()
         {
@@ -29,9 +32,10 @@ namespace Main_Folders.Scripts.Graphics
         private void Start()
         {
             Resolution();
-            LoadFullScreenToggleValue();
-            LoadResolutionValue();
+            Quality();
             LoadQualityValue();
+            LoadResolutionValue();
+            LoadFullScreenToggleValue();
         }
 
         private void Resolution()
@@ -63,6 +67,20 @@ namespace Main_Folders.Scripts.Graphics
             _resolutionDropdown.RefreshShownValue();
         }
 
+        private void Quality()
+        {
+            _qualities = QualitySettings.names;
+
+            foreach (var t in _qualities)
+            {
+                optionsQuality.Add(t);
+            }
+
+            _qualityDropdown.ClearOptions();
+            _qualityDropdown.AddOptions(optionsQuality);
+            _qualityDropdown.RefreshShownValue();
+        }
+
         public void SetToggleFullScreen()
         {
             switch (_fullScreenToggle.isOn)
@@ -80,15 +98,26 @@ namespace Main_Folders.Scripts.Graphics
             LoadFullScreenToggleValue();
         }
 
-        private static void LoadFullScreenToggleValue()
+        private void LoadFullScreenToggleValue()
         {
             if (PlayerPrefs.HasKey("fullScreenToggleValue"))
             {
-                if (PlayerPrefs.GetInt("fullScreenToggleValue") == 0) Screen.fullScreen = false;
-                else if (PlayerPrefs.GetInt("fullScreenToggleValue") == 1) Screen.fullScreen = true;
+                switch (PlayerPrefs.GetInt("fullScreenToggleValue"))
+                {
+                    case 1:
+                        Screen.fullScreen = true;
+                        break;
+                    default:
+                        Screen.fullScreen = false;
+                        break;
+                }
             }
 
-            else PlayerPrefs.SetInt("fullScreenToggleValue", 1);
+            else
+            {
+                PlayerPrefs.SetInt("fullScreenToggleValue", 1);
+                SetToggleFullScreen();
+            }
         }
 
         public void SetResolutions()
@@ -130,19 +159,22 @@ namespace Main_Folders.Scripts.Graphics
                 string[] splitArray = resolutionString.Split(parameters, 3, StringSplitOptions.RemoveEmptyEntries);
 
                 string width = splitArray[0];
-                Debug.Log(width);
                 string height = splitArray[1];
-                Debug.Log(height);
+
                 Screen.SetResolution(int.Parse(width), int.Parse(height), FullScreenMode.FullScreenWindow);
+
                 _resolutionDropdown.value = listLastIndex - 1;
+
                 _resolutionDropdown.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                     $"{resolutionString}";
+
+                SetResolutions();
             }
         }
 
         public void SetQuality()
         {
-            QualitySettings.SetQualityLevel(_qualityDropdown.value);
+            QualitySettings.SetQualityLevel(_qualityDropdown.value, false);
             PlayerPrefs.SetInt("QualityValue", _qualityDropdown.value);
             LoadQualityValue();
         }
@@ -153,10 +185,17 @@ namespace Main_Folders.Scripts.Graphics
             {
                 int qualityValue = PlayerPrefs.GetInt("QualityValue");
                 _qualityDropdown.value = qualityValue;
+                _qualityDropdown.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
+                    $"{QualitySettings.names[qualityValue]}";
             }
             else
             {
-                QualitySettings.SetQualityLevel(2);
+                const int qualityValue = 2;
+                QualitySettings.SetQualityLevel(qualityValue, false);
+                _qualityDropdown.value = qualityValue;
+                _qualityDropdown.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
+                    $"{QualitySettings.names[qualityValue]}";
+                SetQuality();
             }
         }
     }

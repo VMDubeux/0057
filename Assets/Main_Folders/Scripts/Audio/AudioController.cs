@@ -3,123 +3,171 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class AudioController : MonoBehaviour
+namespace Main_Folders.Scripts.Audio
 {
-    public AudioMixer AudioMixer;
-    private Toggle MusicToggle, SfxToggle;
-    private Slider MusicSlider, SfxSlider;
-    private AudioSource MusicSource, SfxSource;
-    //public static AudioController Instance;
-
-    private void Awake()
+    public class AudioController : MonoBehaviour
     {
-        MusicSlider = GameObject.Find("Canvas/OptionsMenu/Container/Music/SliderMusic").GetComponent<Slider>();
-        MusicToggle = GameObject.Find("Canvas/OptionsMenu/Container/Music/MusicToggle").GetComponent<Toggle>();
-        SfxSlider = GameObject.Find("Canvas/OptionsMenu/Container/SFX/SliderSFX").GetComponent<Slider>();
-        SfxToggle = GameObject.Find("Canvas/OptionsMenu/Container/SFX/SfxToggle").GetComponent<Toggle>();
-    }
+        public AudioMixer AudioMixer;
+        private Toggle MusicToggle, SfxToggle;
+        private Slider MusicSlider, SfxSlider;
+        private AudioSource MusicSource, SfxSource;
+        //public static AudioController Instance;
 
-    private void Start()
-    {
-        MusicSource = GameObject.FindGameObjectWithTag("MusicSource").GetComponent<AudioSource>();
-        SfxSource = GameObject.FindGameObjectWithTag("SfxSource").GetComponent<AudioSource>();
-    }
-
-    void Update()
-    {
-        LoadMusicToggleValue();
-        LoadSfxToggleValue();
-        LoadMusicValue();
-        LoadSfxValue();
-    }
-
-    public void ToggleMusic()
-    {
-        if (MusicToggle.isOn == true)
+        private void Awake()
         {
-            PlayerPrefs.SetInt("musicToggleValue", 0);
-            MusicSource.mute = false;
-        }
-        else if (MusicToggle.isOn == false)
-        {
-            PlayerPrefs.SetInt("musicToggleValue", 1);
-            MusicSource.mute = true;
+            MusicSlider = GameObject.Find("Canvas/OptionsMenu/Container/Music/SliderMusic").GetComponent<Slider>();
+            MusicToggle = GameObject.Find("Canvas/OptionsMenu/Container/Music/MusicToggle").GetComponent<Toggle>();
+            SfxSlider = GameObject.Find("Canvas/OptionsMenu/Container/SFX/SliderSFX").GetComponent<Slider>();
+            SfxToggle = GameObject.Find("Canvas/OptionsMenu/Container/SFX/SfxToggle").GetComponent<Toggle>();
         }
 
-        AudioManager.Instance.ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
-        LoadMusicToggleValue();
-    }
+        private void Start()
+        {
+            MusicSource = GameObject.FindGameObjectWithTag("MusicSource").GetComponent<AudioSource>();
+            SfxSource = GameObject.FindGameObjectWithTag("SfxSource").GetComponent<AudioSource>();
 
-    void LoadMusicToggleValue()
-    {
-        if (PlayerPrefs.HasKey("musicToggleValue"))
-        {
-            if (PlayerPrefs.GetInt("musicToggleValue") == 0) MusicToggle.isOn = true;
-            else if (PlayerPrefs.GetInt("musicToggleValue") == 1) MusicToggle.isOn = false;
-        }
-        else
-        {
-            PlayerPrefs.SetInt("musicToggleValue", 0);
-            ToggleMusic();
-        }
-    }
-
-    public void ToggleSFX()
-    {
-        if (SfxToggle.isOn == true)
-        {
-            PlayerPrefs.SetInt("sfxToggleValue", 0);
-            SfxSource.mute = false;
-        }
-        else if (SfxToggle.isOn == false)
-        {
-            PlayerPrefs.SetInt("sfxToggleValue", 1);
-            SfxSource.mute = true;
+            LoadMusicToggleValue();
+            LoadSfxToggleValue();
+            LoadMusicValue();
+            LoadSfxValue();
         }
 
-        AudioManager.Instance.ToggleSfx(PlayerPrefs.GetInt("sfxToggleValue"));
-        LoadSfxToggleValue();
-    }
-
-    void LoadSfxToggleValue()
-    {
-        if (PlayerPrefs.HasKey("sfxToggleValue"))
+        public void ToggleMusic()
         {
-            if (PlayerPrefs.GetInt("sfxToggleValue") == 0) SfxToggle.isOn = true;
-            else if (PlayerPrefs.GetInt("sfxToggleValue") == 1) SfxToggle.isOn = false;
+            switch (MusicToggle.isOn)
+            {
+                case true:
+                    PlayerPrefs.SetInt("musicToggleValue", 0);
+                    MusicSource.mute = true;
+                    break;
+
+                case false:
+                    PlayerPrefs.SetInt("musicToggleValue", 1);
+                    MusicSource.mute = false;
+                    break;
+            }
+
+            AudioManager.Instance.ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
+            LoadMusicToggleValue();
         }
-        else
+
+        void LoadMusicToggleValue()
         {
-            PlayerPrefs.SetInt("sfxToggleValue", 0);
-            ToggleSFX();
+            if (PlayerPrefs.HasKey("musicToggleValue"))
+            {
+                switch (PlayerPrefs.GetInt("musicToggleValue"))
+                {
+                    case 0:
+                        MusicToggle.isOn = true;
+                        MusicSource.mute = true;
+                        break;
+
+                    default:
+                        MusicToggle.isOn = false;
+                        MusicSource.mute = false;
+                        break;
+                }
+            }
+            else
+            {
+                const int musicToggleValue = 1;
+                PlayerPrefs.SetInt("musicToggleValue", musicToggleValue);
+                MusicToggle.isOn = false;
+                MusicSource.mute = false;
+                ToggleMusic();
+            }
         }
-    }
 
-    public void MusicVolume()
-    {
-        AudioManager.Instance.MusicVolume(MusicSlider.value);
-        float musicVolumeValue = MusicSlider.value;
-        PlayerPrefs.SetFloat("MusicVolumeValue", musicVolumeValue);
-        LoadMusicValue();
-    }
+        public void ToggleSFX()
+        {
+            switch (SfxToggle.isOn)
+            {
+                case true:
+                    PlayerPrefs.SetInt("sfxToggleValue", 0);
+                    SfxSource.mute = true;
+                    break;
 
-    void LoadMusicValue()
-    {
-        float musicVolumeValue = PlayerPrefs.GetFloat("MusicVolumeValue");
-        MusicSlider.value = musicVolumeValue;
-    }
+                case false:
+                    PlayerPrefs.SetInt("sfxToggleValue", 1);
+                    SfxSource.mute = false;
+                    break;
+            }
 
-    public void SFXVolume()
-    {
-        AudioManager.Instance.SfxVolume(SfxSlider.value);
-        float sfxVolumeValue = SfxSlider.value;
-        PlayerPrefs.SetFloat("SfxVolumeValue", sfxVolumeValue);
-        LoadMusicValue();
-    }
+            AudioManager.Instance.ToggleSfx(PlayerPrefs.GetInt("sfxToggleValue"));
+            LoadSfxToggleValue();
+        }
 
-    void LoadSfxValue()
-    {
-        float sfxVolumeValue = PlayerPrefs.GetFloat("SfxVolumeValue");
-        SfxSlider.value = sfxVolumeValue;
+        void LoadSfxToggleValue()
+        {
+            if (PlayerPrefs.HasKey("sfxToggleValue"))
+            {
+                switch (PlayerPrefs.GetInt("sfxToggleValue"))
+                {
+                    case 0:
+                        SfxToggle.isOn = true;
+                        SfxSource.mute = true;
+                        break;
+
+                    default:
+                        SfxToggle.isOn = false;
+                        SfxSource.mute = false;
+                        break;
+                }
+            }
+            else
+            {
+                const int sfxToggleValue = 1;
+                PlayerPrefs.SetInt("sfxToggleValue", sfxToggleValue);
+                SfxToggle.isOn = false;
+                SfxSource.mute = false;
+                ToggleSFX();
+            }
+        }
+
+        public void MusicVolume()
+        {
+            AudioManager.Instance.MusicVolume(MusicSlider.value);
+            float musicVolumeValue = MusicSlider.value;
+            PlayerPrefs.SetFloat("MusicVolumeValue", musicVolumeValue);
+            LoadMusicValue();
+        }
+
+        private void LoadMusicValue()
+        {
+            if (PlayerPrefs.HasKey("MusicVolumeValue"))
+            {
+                float musicVolumeValue = PlayerPrefs.GetFloat("MusicVolumeValue");
+                MusicSlider.value = musicVolumeValue;
+            }
+            else
+            {
+                PlayerPrefs.SetFloat("MusicVolumeValue", AudioManager.MusicParam);
+                MusicSlider.value = AudioManager.MusicParam;
+                MusicVolume();
+            }
+        }
+
+        private void SFXVolume()
+        {
+            AudioManager.Instance.SfxVolume(SfxSlider.value);
+            float sfxVolumeValue = SfxSlider.value;
+            PlayerPrefs.SetFloat("SfxVolumeValue", sfxVolumeValue);
+            LoadMusicValue();
+        }
+
+        private void LoadSfxValue()
+        {
+            if (PlayerPrefs.HasKey("SfxVolumeValue"))
+            {
+                float sfxVolumeValue = PlayerPrefs.GetFloat("SfxVolumeValue");
+                SfxSlider.value = sfxVolumeValue;
+            }
+            else
+            {
+                PlayerPrefs.SetFloat("SfxVolumeValue", AudioManager.MusicParam);
+                SfxSlider.value = AudioManager.MusicParam;
+                SFXVolume();
+            }
+        }
     }
 }

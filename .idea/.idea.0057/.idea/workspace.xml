@@ -4,24 +4,64 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="" />
+    <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_INTRO.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_INTRO.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Audio/AudioController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Audio/AudioController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Audio/AudioControllerLevels.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Audio/AudioControllerLevels.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Graphics/GraphicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Graphics/GraphicController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Graphics/GraphicControllerLevels.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Graphics/GraphicControllerLevels.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/GraphicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/GraphicManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Main_Folders/Scripts/Graphics/GraphicController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/MenuManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@2.0.0/Runtime/TMP/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2hfHopbHFV3id9apz8YEoqmJkbu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "branch-temp-main-derivada",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "configurable.group.language"
+    "settings.editor.selected.configurable": "configurable.group.language",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\mrdub\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\mrdub\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\mrdub\\AppData\\Local\\Symbols\\src"
+    ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Standalone Player.Standalone Player">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Desktop/Teste/_0057.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -30,12 +70,63 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2023.2.7f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mrdub\Documents\GitHub\0057 -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\mrdub\Documents\GitHub\0057" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2023.2.7f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mrdub\Documents\GitHub\0057 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\mrdub\Documents\GitHub\0057" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="" />
+      <created>1717978407036</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717978407036</updated>
+      <workItem from="1717978420662" duration="11825000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />

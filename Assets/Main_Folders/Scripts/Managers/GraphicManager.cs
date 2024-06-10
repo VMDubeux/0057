@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,9 +29,9 @@ namespace Main_Folders.Scripts.Managers
 
         private void Update()
         {
-            ToggleFullScreen(PlayerPrefs.GetInt("fullScreenToggleValue"));
-            ResolutionValue(PlayerPrefs.GetInt("ResolutionValue"));
-            QualityValue(PlayerPrefs.GetInt("QualityValue"));
+            //ToggleFullScreen(PlayerPrefs.GetInt("fullScreenToggleValue"));
+            //ResolutionValue(PlayerPrefs.GetInt("ResolutionValue"));
+            //QualityValue(PlayerPrefs.GetInt("QualityValue"));
         }
 
         public void ToggleFullScreen(int value)

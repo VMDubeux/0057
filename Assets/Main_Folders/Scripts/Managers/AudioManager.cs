@@ -20,6 +20,8 @@ namespace Main_Folders.Scripts.Managers
         [FormerlySerializedAs("SfxSource")] [Header("Audio Sources:")]
         public AudioSource sfxSource;
 
+        public const float MusicParam = 0.5f;
+        
         private void Awake()
         {
             if (Instance == null)
@@ -35,22 +37,11 @@ namespace Main_Folders.Scripts.Managers
 
         private void Start()
         {
-            if (PlayerPrefs.HasKey("musicToggleValue"))
-                ToggleMusic(PlayerPrefs.GetInt("musicToggleValue"));
-            else
-                
-            if (PlayerPrefs.HasKey("sfxToggleValue"))
-                ToggleSfx(PlayerPrefs.GetInt("sfxToggleValue"));
-            if (PlayerPrefs.HasKey("MusicVolumeValue"))
-                MusicVolume(PlayerPrefs.GetFloat("MusicVolumeValue"));
-            if (PlayerPrefs.HasKey("SfxVolumeValue"))
-                SfxVolume(PlayerPrefs.GetFloat("SfxVolumeValue"));
-            
-            PlayMusic("Soundtrack");
+            PlayMusic("Soundtrack", MusicParam);
         }
 
 
-        public void PlayMusic(string Name)
+        public void PlayMusic(string Name, float Volume)
         {
             Sound s = Array.Find(musicSounds, x => x.Name == Name);
             if (s == null)
@@ -61,6 +52,7 @@ namespace Main_Folders.Scripts.Managers
             {
                 musicSource.clip = s.Clip;
                 musicSource.Play();
+                musicSource.volume = Volume;
             }
         }
 
