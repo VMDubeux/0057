@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class DamageEffect : CardEffect
@@ -30,12 +31,14 @@ public class DamageEffect : CardEffect
             {
                 unit.Modify[(int)ModifierTags.WhenUnitDies](null);
 
-                if (targets.Count == 1) // Com isso, o jogo retorna para o level anterior quando o player é morto em batalha de maneira automática.
+                if (targets.Count == 1) // Com isso, o jogo retorna para o level anterior quando o player ï¿½ morto em batalha de maneira automï¿½tica.
                 {
                     StateMachine.Instance.ChangeState<TurnBeginState>();
                 }
             }
         }
+        GameObject.Find("PlayerBattleVisual").GetComponent<PoseAnimation>().AttackPose();
+
     }
 
     void ApplyModifier(ModifiedValues modifiedValues, ModifierTags tag, BattleVisuals unit)

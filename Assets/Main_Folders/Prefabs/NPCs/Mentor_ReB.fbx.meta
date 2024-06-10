@@ -3,7 +3,42 @@ guid: a43900b3568dfd44bbf479b74b392fc9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blusa
+    second: {fileID: 2100000, guid: 2166df651105c3d35a8e4eafa2f70e8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cabelo
+    second: {fileID: 2100000, guid: 353ed60c7fc4fecad9f293a633a99691, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Couro
+    second: {fileID: 2100000, guid: 64da7aefb108288f9b0aab10cd970211, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pele
+    second: {fileID: 2100000, guid: c7faad0857000bffba707bb488d7d200, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prata
+    second: {fileID: 2100000, guid: 7c8435030d3edfb1e8ae80f278540e04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roxo
+    second: {fileID: 2100000, guid: ecf8da67d299981fe84ddca2c03873a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roxo2
+    second: {fileID: 2100000, guid: ea4e6b03dbcd17be9bc6d4ff6b998022, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

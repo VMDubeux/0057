@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,8 +9,8 @@ public class EncounterSystem : MonoBehaviour
     //Encouter encouter;
     //[SerializeField] private Encouter[] enemiesInBattleScene;
     //[SerializeField] private Encouter enemyInBattleScene;
-    //[SerializeField] private int minNumEnemies; // Se quiser, pode ser um número fixo, basta modificar no GenerateEnemiesByEncounter.
-    //[SerializeField] private int maxNumEnemies; // Se quiser, pode ser um número fixo, basta modificar no GenerateEnemiesByEncounter.
+    //[SerializeField] private int minNumEnemies; // Se quiser, pode ser um nï¿½mero fixo, basta modificar no GenerateEnemiesByEncounter.
+    //[SerializeField] private int maxNumEnemies; // Se quiser, pode ser um nï¿½mero fixo, basta modificar no GenerateEnemiesByEncounter.
 
     private EnemyManager enemyManager;
 

@@ -44,6 +44,14 @@ public class CardsController : MonoBehaviour
         Deck.RemoveCard(card);
         DiscardPile.AddCard(card);
     }
+
+    public void DiscardHand()// FATLA IMPLEMENTAR O MÉTODO !!!
+    {
+        foreach (Card card in Hand.Cards)
+        {
+            Discard(card);
+        }
+    }
     public IEnumerator ShuffleDiscardIntoDeck()
     {
         List<Card> cards = DiscardPile.Cards;
