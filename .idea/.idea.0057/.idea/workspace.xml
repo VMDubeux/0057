@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Others/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Others/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Exit_Credits.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main_Folders/Scripts/Graphics/GraphicController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/MenuManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@2.0.0/Runtime/TMP/TMP_Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
@@ -109,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717978407036</updated>
       <workItem from="1717978420662" duration="12352000" />
-      <workItem from="1718042986668" duration="1980000" />
+      <workItem from="1718042986668" duration="3062000" />
     </task>
     <servers />
   </component>

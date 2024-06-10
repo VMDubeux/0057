@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main_Folders/Scenes/LEVEL_BATTLE.unity
     guid: face30aee84aace4f94b27b9f1e36a96
+  - enabled: 1
+    path: Assets/Main_Folders/Scenes/LEVEL_CREDITS.unity
+    guid: 357d045dfda1e6842821aa49ae74e16a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
