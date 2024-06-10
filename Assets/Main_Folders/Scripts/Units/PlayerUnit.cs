@@ -37,6 +37,7 @@ public class PlayerUnit : BattleVisuals
     public override IEnumerator Recover()
     {
         yield return StartCoroutine(base.Recover());
+        yield return StartCoroutine(CardsController.Instance.DiscardHand());
         CurrentEnergy = MaxEnergy;
         int cardsToDraw = Mathf.Min(MaxCards - CardsController.Instance.Hand.Cards.Count, DrawAmount);
         yield return StartCoroutine(CardsController.Instance.Draw(cardsToDraw));

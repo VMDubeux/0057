@@ -36,6 +36,8 @@ public class EnemyTurnState : State
 
     public void EnemySkillChoice()
     {
+        currentUnit.GetComponentInChildren<Animator>().SetTrigger("pose");
+        Debug.Log("Enemy Pose!");
         int r = Random.Range(0,9);
         if(currentUnit.HP > currentUnit.MaxHP/2)
         {
