@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Main_Folders.Scripts.Audio;
+using Main_Folders.Scripts.Minimapa;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,8 +25,18 @@ public class LevelsManager : MonoBehaviour
 
     [SerializeField] private GameObject Light;
 
-    [Header("Escreva o nome da cena atual:")]
-    [SerializeField] internal int currentGameSceneIndex;
+    [SerializeField] private Camera minimapCamera;
+    [SerializeField] private GameObject minimapGameObject;
+    [SerializeField] private GameObject coordenadasGameObject;
+    [SerializeField] private GameObject playerGameObject;
+    [SerializeField] private MinimapaSetup[] setup;
+
+    [Range(0, 3)] public int nivelInicial;
+
+    private int nivelAtual;
+
+    [Header("Escreva o nome da cena atual:")] [SerializeField]
+    internal int currentGameSceneIndex;
 
     private void Awake()
     {
@@ -47,11 +58,19 @@ public class LevelsManager : MonoBehaviour
         PauseCanvasMenu.SetActive(false);
 
         Time.timeScale = 1.0f; // Verificar necessidade;
+
+        nivelAtual = nivelInicial;
+        TrocaMapa();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && currentGameSceneIndex != 0)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && currentGameSceneIndex > 1)
+        {
+            TrocaMapa();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && currentGameSceneIndex > 1)
         {
             if (PauseCanvasMenu.activeSelf)
             {
@@ -65,7 +84,7 @@ public class LevelsManager : MonoBehaviour
             }
         }
 
-        if (currentGameSceneIndex > 0)
+        if (currentGameSceneIndex > 1)
         {
             CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
             LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
@@ -75,11 +94,28 @@ public class LevelsManager : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (minimapCamera.enabled)
+        {
+            Quaternion rotacao = new Quaternion();
+            Vector3 orientacao = new Vector3();
+
+            orientacao.x = 0;
+            orientacao.y = 0;
+            orientacao.z = playerGameObject.transform.rotation.eulerAngles.y;
+
+            rotacao.eulerAngles = orientacao;
+
+            coordenadasGameObject.transform.rotation = rotacao;
+        }
+    }
+
     private void OnGUI()
     {
         currentGameSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (currentGameSceneIndex == 0)
+        if (currentGameSceneIndex == 1)
         {
             PauseCanvasMenu.SetActive(false);
             CanvasInventario = null;
@@ -88,7 +124,8 @@ public class LevelsManager : MonoBehaviour
             EventSystem = null;
             Light = null;
         }
-        if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 1)
+
+        if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 1)
         {
             CameraPivot.SetActive(true);
             EventSystem.SetActive(true);
@@ -105,7 +142,7 @@ public class LevelsManager : MonoBehaviour
                 LevelCanvas.SetActive(false);
             }
         }
-        else if (currentGameSceneIndex > 0 && SceneManager.sceneCount == 2)
+        else if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 2)
         {
             CameraPivot.SetActive(false);
             CanvasInventario.SetActive(false);
@@ -115,9 +152,38 @@ public class LevelsManager : MonoBehaviour
         }
     }
 
+    private void TrocaMapa()
+    {
+        if (nivelAtual - 1 < setup.Length)
+        {
+            if (nivelAtual != 0)
+            {
+                VisualizarMiniMapa(true);
+                minimapCamera.orthographicSize = setup[nivelAtual - 1].zoomLevel;
+            }
+            else
+            {
+                VisualizarMiniMapa(false);
+            }
+
+            nivelAtual++;
+        }
+        else
+        {
+            VisualizarMiniMapa(false);
+            nivelAtual = 1;
+        }
+    }
+
+    private void VisualizarMiniMapa(bool estado)
+    {
+        minimapGameObject.SetActive(estado);
+        minimapCamera.enabled = estado;
+    }
+
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 0);
+        SceneManager.LoadScene(sceneBuildIndex: 1);
         Time.timeScale = 1.0f;
     }
 
