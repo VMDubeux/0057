@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Main_Folders.Scripts.Player;
+using Main_Folders.Scripts.UI;
 using UnityEngine;
 
 public class MentorFirstDialogue : MonoBehaviour

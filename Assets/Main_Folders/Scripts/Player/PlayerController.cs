@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Main_Folders.Scripts.Managers;
+using Main_Folders.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

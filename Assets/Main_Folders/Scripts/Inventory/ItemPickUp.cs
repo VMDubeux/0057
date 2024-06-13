@@ -15,7 +15,6 @@ public class ItemPickUp : MonoBehaviour
     private void Awake()
     {
         //DontDestroyOnLoad(this);
-
     }
 
     private void Start()
@@ -29,6 +28,7 @@ public class ItemPickUp : MonoBehaviour
     void PickUp()
     {
         InventoryManager.Instance.Add(this.gameObject.GetComponent<ItemPickUp>());
+        DontDestroyOnLoad(gameObject);
         gameObject.SetActive(false);
     }
 

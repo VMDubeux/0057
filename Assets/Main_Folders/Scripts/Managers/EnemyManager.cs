@@ -6,27 +6,12 @@ using UnityEngine.Rendering;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static GameObject instance;
-
     public List<Enemy> currentEnemies;
-   
+
     private const float LEVEL_MOD = 0.5f;
 
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this.gameObject;
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public void GenerateEnemyByEncouter(int numEnemy, int lvlMin, int lvlMax, GameObject battlePrefab, GameObject overviewPrefab)
+    public void GenerateEnemyByEncouter(int numEnemy, int lvlMin, int lvlMax, GameObject battlePrefab,
+        GameObject overviewPrefab)
     {
         currentEnemies.Clear();
 
@@ -41,7 +26,8 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void GenerateVariableEnemiesByEncouter(int minNumEnemies, int maxNumEnemies, int lvlMin, int lvlMax, GameObject battlePrefab, GameObject overviewPrefab)
+    public void GenerateVariableEnemiesByEncouter(int minNumEnemies, int maxNumEnemies, int lvlMin, int lvlMax,
+        GameObject battlePrefab, GameObject overviewPrefab)
     {
         currentEnemies.Clear();
         int numEnemies = Random.Range(minNumEnemies, maxNumEnemies + 1);
@@ -61,10 +47,13 @@ public class EnemyManager : MonoBehaviour
         newEnemy.Level = level;
         float levelModifier = (LEVEL_MOD * newEnemy.Level);
 
-        newEnemy.HP = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[1].Value + (enemy.GetComponent<Unit>()._stats[1].Value * levelModifier));
+        newEnemy.HP = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[1].Value +
+                                       (enemy.GetComponent<Unit>()._stats[1].Value * levelModifier));
         newEnemy.MaxHP = newEnemy.HP;
-        newEnemy.Block = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[2].Value + (enemy.GetComponent<Unit>()._stats[2].Value * levelModifier));
-        newEnemy.Strength = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[3].Value + (enemy.GetComponent<Unit>()._stats[3].Value * levelModifier));
+        newEnemy.Block = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[2].Value +
+                                          (enemy.GetComponent<Unit>()._stats[2].Value * levelModifier));
+        newEnemy.Strength = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[3].Value +
+                                             (enemy.GetComponent<Unit>()._stats[3].Value * levelModifier));
         newEnemy.EnemyVisualPrefab = battlePrefab;
         newEnemy.EnemyOverviewPrefab = overviewPrefab;
 
@@ -81,10 +70,13 @@ public class EnemyManager : MonoBehaviour
             newEnemy.Level = level;
             float levelModifier = (LEVEL_MOD * newEnemy.Level);
 
-            newEnemy.HP = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[1].Value + (allEnemies.GetComponent<Unit>()._stats[1].Value * levelModifier));
+            newEnemy.HP = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[1].Value +
+                                           (allEnemies.GetComponent<Unit>()._stats[1].Value * levelModifier));
             newEnemy.MaxHP = newEnemy.HP;
-            newEnemy.Block = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[2].Value + (allEnemies.GetComponent<Unit>()._stats[2].Value * levelModifier));
-            newEnemy.Strength = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[3].Value + (allEnemies.GetComponent<Unit>()._stats[3].Value * levelModifier));
+            newEnemy.Block = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[2].Value +
+                                              (allEnemies.GetComponent<Unit>()._stats[2].Value * levelModifier));
+            newEnemy.Strength = Mathf.RoundToInt(allEnemies.GetComponent<Unit>()._stats[3].Value +
+                                                 (allEnemies.GetComponent<Unit>()._stats[3].Value * levelModifier));
             newEnemy.EnemyVisualPrefab = battlePrefab;
             newEnemy.EnemyOverviewPrefab = overviewPrefab;
 

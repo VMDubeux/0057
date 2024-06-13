@@ -8,8 +8,7 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] private ItemPickUp[] Items;
 
-    [Header("Referencias na HUD")]
-    public GameObject Inventory;
+    [Header("Referencias na HUD")] public GameObject Inventory;
     public Transform ItemContent;
     public GameObject InventoryItemBackground;
     public Toggle EnableRemove;
@@ -26,6 +25,7 @@ public class InventoryManager : MonoBehaviour
         {
             Instance = this;
         }
+
         Items = new ItemPickUp[5];
         InventoryList = new InventoryItem[5];
     }
@@ -42,7 +42,8 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("Aumentou quantidade!");
             Items[itemPickUp.Id].InventoryItem.itemQuantity++;
-            Items[itemPickUp.Id].InventoryItem.pathNumber.text = Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
+            Items[itemPickUp.Id].InventoryItem.pathNumber.text =
+                Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
         }
     }
 
@@ -52,12 +53,14 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("Removeu quantidade!");
             Items[itemPickUp.Id].InventoryItem.itemQuantity--;
-            Items[itemPickUp.Id].InventoryItem.pathNumber.text = Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
+            Items[itemPickUp.Id].InventoryItem.pathNumber.text =
+                Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
         }
         else
         {
             Debug.Log("Removeu objeto!");
-            ItemPickUp[] search = FindObjectsByType<ItemPickUp>(FindObjectsInactive.Include,FindObjectsSortMode.InstanceID);
+            ItemPickUp[] search =
+                FindObjectsByType<ItemPickUp>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
             Debug.Log(search.Length);
             for (int i = 0; i < search.Length; i++)
             {
@@ -67,6 +70,7 @@ public class InventoryManager : MonoBehaviour
                     search[i].DestroyIt();
                 }
             }
+
             Items[itemPickUp.Id] = null;
             InventoryList[itemPickUp.InventoryItem.id].inventoryItem.Destroy();
             InventoryList[itemPickUp.InventoryItem.id] = null;

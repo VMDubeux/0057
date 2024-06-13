@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity
     guid: 72b3ba335126ccf46a8ba4e2a375faf0
   - enabled: 1
-    path: Assets/Main_Folders/Scenes/LEVEL_2.unity
-    guid: 8cda60cddf536b24a9b0b817f12a1026
+    path: Assets/Main_Folders/Scenes/LEVEL_2_NEW.unity
+    guid: bae22de1dc1e9784e98e0efb7cc43d87
   - enabled: 1
     path: Assets/Main_Folders/Scenes/LEVEL_BATTLE.unity
     guid: face30aee84aace4f94b27b9f1e36a96

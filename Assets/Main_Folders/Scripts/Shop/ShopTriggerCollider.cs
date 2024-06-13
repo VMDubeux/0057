@@ -1,31 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopTriggerCollider : MonoBehaviour
+namespace Main_Folders.Scripts.Shop
 {
-    [SerializeField] private ShopUI shopUI;
-
-    private void OnTriggerEnter(Collider collider)
+    public class ShopTriggerCollider : MonoBehaviour
     {
-        IShopCostumer shopCostumer = collider.GetComponent<IShopCostumer>();
-        if (shopCostumer != null)
-        {
-            shopUI.Show(shopCostumer);
-        }
-    }
+        [SerializeField] private ShopUI shopUI;
 
-    private void OnTriggerExit(Collider collider)
-    {
-        IShopCostumer shopCostumer = collider.GetComponent<IShopCostumer>();
-        if (shopCostumer != null)
+        private void OnTriggerEnter(Collider collider)
         {
-            shopUI.Hide();
-
-            ShopItemController[] items = FindObjectsByType<ShopItemController>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
-            foreach (ShopItemController item in items)
+            IShopCostumer shopCostumer = collider.GetComponent<IShopCostumer>();
+            if (shopCostumer != null)
             {
-                item.transform.localScale = new Vector3(1, 1, 1);
+                shopUI.Show(shopCostumer);
+            }
+        }
+
+        private void OnTriggerExit(Collider collider)
+        {
+            IShopCostumer shopCostumer = collider.GetComponent<IShopCostumer>();
+            if (shopCostumer != null)
+            {
+                shopUI.Hide();
+
+                ShopItemController[] items = FindObjectsByType<ShopItemController>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
+                foreach (ShopItemController item in items)
+                {
+                    item.transform.localScale = new Vector3(1, 1, 1);
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Main_Folders.Scripts.Managers;
 using UnityEngine;
 
 public class TurnBeginState : State
@@ -42,7 +43,7 @@ public class TurnBeginState : State
             if (_playerUnit.HP > 0)
             {
                 partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
-                partyManager.SetExperience(accumulatedExperience); // Envio do quantitativo acumulado de experiência para o player, mediante uso do método constante no script Party Manager.
+                partyManager.SetExperience(0,accumulatedExperience); // Envio do quantitativo acumulado de experiência para o player, mediante uso do método constante no script Party Manager.
                 encounterSystem = FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>();
                 encounterSystem.prefab.GetComponent<Unit>().hasFought = true;
                 encounterSystem.battleActive = false;
