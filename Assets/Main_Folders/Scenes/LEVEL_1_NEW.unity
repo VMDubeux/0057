@@ -2081,8 +2081,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7952871622148538921, guid: a3e03699e440d624e99b2063537f7271, type: 3}
+    - target: {fileID: 7727373221056867040, guid: a3e03699e440d624e99b2063537f7271, type: 3}
+      propertyPath: orthographic size
+      value: 35
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9446,8 +9449,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7011367822610027666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -60.00006, y: -63.2}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 0}
@@ -9485,7 +9488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3101023438280227287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9501,7 +9504,7 @@ RectTransform:
   m_Father: {fileID: 7038909526519992134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10919,8 +10922,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6868053071575154654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -60.00006, y: -63.2}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0, y: 0}
@@ -10943,7 +10946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4047501419997300212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11385,7 +11388,7 @@ RectTransform:
   m_Father: {fileID: 8753757786170662233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.293213, y: 3}
   m_SizeDelta: {x: -6.5864, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12452,7 +12455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7873726923367013634, guid: fe85fd92c3b152548a36a42cbaed2908, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12772,10 +12775,10 @@ RectTransform:
   - {fileID: 1684710989222208793}
   m_Father: {fileID: 8686907475202230765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -535, y: 200}
+  m_SizeDelta: {x: 370, y: 370}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &5371225485909230349
 Transform:
@@ -13501,7 +13504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &5763524558769415802
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13778,10 +13781,10 @@ MonoBehaviour:
   PauseCanvasMenu: {fileID: 0}
   LevelCanvas: {fileID: 0}
   CanvasInventario: {fileID: 0}
-  CameraPivot: {fileID: 0}
+  CameraPivot: {fileID: 1368759049}
   EventSystem: {fileID: 0}
   Light: {fileID: 0}
-  minimapCamera: {fileID: 0}
+  minimapCamera: {fileID: 1650951331}
   minimapGameObject: {fileID: 0}
   coordenadasGameObject: {fileID: 0}
   playerGameObject: {fileID: 0}
@@ -13789,7 +13792,7 @@ MonoBehaviour:
   - zoomLevel: 35
   - zoomLevel: 25
   - zoomLevel: 15
-  nivelInicial: 0
+  nivelInicial: 3
   currentGameSceneIndex: 0
   staticObjects:
   - {fileID: 524508086}
@@ -15774,7 +15777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7379464432688347724
 Transform:
   m_ObjectHideFlags: 0
@@ -17856,7 +17859,7 @@ RectTransform:
   m_Father: {fileID: 242858767502294637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.293213, y: 3}
   m_SizeDelta: {x: -6.5864, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}

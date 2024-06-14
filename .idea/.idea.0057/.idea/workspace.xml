@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="" />
+    <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Visuals_Overworld/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Visuals_Overworld/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/PartyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/PartyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +118,7 @@
       <workItem from="1718042986668" duration="12041000" />
       <workItem from="1718198896373" duration="25900000" />
       <workItem from="1718305598246" duration="8132000" />
-      <workItem from="1718367762053" duration="11740000" />
+      <workItem from="1718367762053" duration="15248000" />
     </task>
     <servers />
   </component>

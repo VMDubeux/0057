@@ -118,7 +118,8 @@ namespace Main_Folders.Scripts.Managers
             if (SceneManager.GetActiveScene().name != "LEVEL_BATTLE" &&
                 SceneManager.GetActiveScene().name != "LEVEL_INTRO_NEW")
             {
-                sliderExp = GameObject.Find("Canvas (HUD)/Image/Slider").GetComponent<Slider>();
+                sliderExp = FindFirstObjectByType<CanvasHUD>(FindObjectsInactive.Include).transform
+                    .GetComponentInChildren<Slider>();
                 sliderExp.maxValue = playerMaxExp;
                 sliderExp.value = playerExp;
 
@@ -131,7 +132,8 @@ namespace Main_Folders.Scripts.Managers
                     sliderExp.value = playerExp;
                 }
 
-                playerLevelText = GameObject.Find("Canvas (HUD)/Image/Text (TMP) LVL").GetComponent<TextMeshProUGUI>();
+                playerLevelText = FindFirstObjectByType<CanvasHUD>(FindObjectsInactive.Include).transform
+                    .GetComponentInChildren<TextMeshProUGUI>();
                 playerLevelText.text = "LVL " + playerLevel.ToString();
             }
         }
@@ -179,9 +181,9 @@ namespace Main_Folders.Scripts.Managers
         public int MaxHP;
         public int Block;
         public int Strength;
-        
+
         public float CurrExp;
-        
+
         //public int MaxExp;
         public GameObject[] Drips = new GameObject[2];
         public GameObject MemberBattleVisualPrefab; //what will be displayed in battle scene

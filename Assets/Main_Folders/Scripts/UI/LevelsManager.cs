@@ -103,13 +103,13 @@ namespace Main_Folders.Scripts.UI
             {
                 CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
                 LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
-                CameraPivot = FindAnyObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
+                CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
-                minimapCamera = GameObject.Find("Player").transform.Find("Camera").GetComponent<Camera>();
+                minimapCamera = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).transform.Find("Camera").GetComponent<Camera>();
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
-                coordenadasGameObject = minimapGameObject.transform.Find("CoordenadaBussola").gameObject;
-                playerGameObject = GameObject.Find("Player").gameObject;
+                coordenadasGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject.transform.Find("CoordenadaBussola").gameObject;
+                playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
             }
         }
 
@@ -122,10 +122,12 @@ namespace Main_Folders.Scripts.UI
 
                 orientacao.x = 0;
                 orientacao.y = 0;
+                playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
                 orientacao.z = playerGameObject.transform.rotation.eulerAngles.y;
 
                 rotacao.eulerAngles = orientacao;
 
+                coordenadasGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject.transform.Find("CoordenadaBussola").gameObject;
                 coordenadasGameObject.transform.rotation = rotacao;
             }
         }
@@ -146,23 +148,35 @@ namespace Main_Folders.Scripts.UI
 
             if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 1)
             {
+                CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
+                EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
+                Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
                 CameraPivot.SetActive(true);
                 EventSystem.SetActive(true);
                 Light.SetActive(true);
 
                 if (isTalking == false)
                 {
+                    CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+                    LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                     CanvasInventario.SetActive(true);
                     LevelCanvas.SetActive(true);
                 }
                 else
                 {
+                    CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+                    LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                     CanvasInventario.SetActive(false);
                     LevelCanvas.SetActive(false);
                 }
             }
             else if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 2)
             {
+                CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+                LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
+                CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
+                EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
+                Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
                 CameraPivot.SetActive(false);
                 CanvasInventario.SetActive(false);
                 LevelCanvas.SetActive(false);
