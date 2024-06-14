@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/HP Pot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/HP Pot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/Refresh Pot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/Refresh Pot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/SP Pot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/SP Pot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_2_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_2_NEW.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryItemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryItemController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/ItemPickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/ItemPickUp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Minimapa/MarkerHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Minimapa/MarkerHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Shop/ShopUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Shop/ShopUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,7 +157,7 @@
       <workItem from="1718198896373" duration="25900000" />
       <workItem from="1718305598246" duration="8132000" />
       <workItem from="1718367762053" duration="21406000" />
-      <workItem from="1718399799761" duration="1488000" />
+      <workItem from="1718399799761" duration="2078000" />
     </task>
     <servers />
   </component>

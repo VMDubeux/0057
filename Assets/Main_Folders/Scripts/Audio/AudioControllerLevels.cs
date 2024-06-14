@@ -30,6 +30,14 @@ namespace Main_Folders.Scripts.Audio
             LoadMusicValue();
             LoadSfxValue();
         }
+        
+        private void LateUpdate()
+        {
+            LoadMusicToggleValue();
+            LoadSfxToggleValue();
+            LoadMusicValue();
+            LoadSfxValue();
+        }
 
         public void ToggleMusic()
         {

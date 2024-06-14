@@ -1,3 +1,4 @@
+using System;
 using Main_Folders.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -26,6 +27,14 @@ namespace Main_Folders.Scripts.Audio
             MusicSource = GameObject.FindGameObjectWithTag("MusicSource").GetComponent<AudioSource>();
             SfxSource = GameObject.FindGameObjectWithTag("SfxSource").GetComponent<AudioSource>();
 
+            LoadMusicToggleValue();
+            LoadSfxToggleValue();
+            LoadMusicValue();
+            LoadSfxValue();
+        }
+
+        private void LateUpdate()
+        {
             LoadMusicToggleValue();
             LoadSfxToggleValue();
             LoadMusicValue();
