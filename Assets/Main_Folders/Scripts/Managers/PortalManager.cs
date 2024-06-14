@@ -43,7 +43,7 @@ namespace Main_Folders.Scripts.Managers
         private IEnumerator LoadScene()
         {
             yield return new WaitForSeconds(0.5f);
-            SceneManager.LoadScene(sceneId);
+            SceneLoader.LoadScene(sceneId);
         }
     }
 }

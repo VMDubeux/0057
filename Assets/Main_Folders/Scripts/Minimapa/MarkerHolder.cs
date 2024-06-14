@@ -19,7 +19,8 @@ namespace Main_Folders.Scripts.Minimapa
         {
             currentObjectives = new List<(ObjectivePosition objectivePosition, RectTransform markerRectTransform)>();
             playerObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
-            minimapCamera = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).transform.Find("Camera").GetComponent<Camera>();
+            minimapCamera = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).transform.Find("Camera")
+                .GetComponent<Camera>();
         }
 
         // Update is called once per frame
@@ -28,9 +29,11 @@ namespace Main_Folders.Scripts.Minimapa
             foreach ((ObjectivePosition objectivePosition, RectTransform markerRectTransform) marker in
                      currentObjectives)
             {
-                Vector3 offset = Vector3.ClampMagnitude(
-                    marker.objectivePosition.transform.position - playerObject.transform.position,
-                    minimapCamera.orthographicSize);
+                Vector3 offset = marker.objectivePosition.transform.position - playerObject.transform.position;
+                offset = Vector3.ClampMagnitude(offset, minimapCamera.orthographicSize);
+                float cameraRotationY = minimapCamera.transform.eulerAngles.y;
+                Quaternion rotation = Quaternion.Euler(0, -cameraRotationY, 0);
+                offset = rotation * offset;
                 offset = offset / minimapCamera.orthographicSize * (markerParentRectTransform.rect.width / 2f);
                 marker.markerRectTransform.anchoredPosition = new Vector2(offset.x, offset.z);
             }

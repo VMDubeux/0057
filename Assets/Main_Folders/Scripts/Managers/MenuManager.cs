@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OpenOptions()

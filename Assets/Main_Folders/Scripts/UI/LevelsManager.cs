@@ -236,7 +236,7 @@ namespace Main_Folders.Scripts.UI
 
         public void ReturnToMainMenu()
         {
-            SceneManager.LoadScene(sceneBuildIndex: 1);
+            SceneLoader.LoadScene(1);
             Time.timeScale = 1.0f;
         }
 
