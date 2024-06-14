@@ -105,30 +105,47 @@ namespace Main_Folders.Scripts.UI
                 LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                 CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
-                Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
-                minimapCamera = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).transform.Find("Camera").GetComponent<Camera>();
+                minimapCamera = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).transform
+                    .Find("Camera").GetComponent<Camera>();
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
-                coordenadasGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject.transform.Find("CoordenadaBussola").gameObject;
+                coordenadasGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject
+                    .transform.Find("CoordenadaBussola").gameObject;
                 playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
+                Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
             }
         }
 
         private void LateUpdate()
         {
-            if (minimapCamera.enabled)
+            switch (currentGameSceneIndex)
             {
-                Quaternion rotacao = new Quaternion();
-                Vector3 orientacao = new Vector3();
+                case 1:
+                    return;
 
-                orientacao.x = 0;
-                orientacao.y = 0;
-                playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
-                orientacao.z = playerGameObject.transform.rotation.eulerAngles.y;
+                case > 1:
+                {
+                    if (minimapCamera.enabled)
+                    {
+                        Quaternion rotacao = new Quaternion();
+                        Vector3 orientacao = new Vector3();
 
-                rotacao.eulerAngles = orientacao;
+                        orientacao.x = 0;
+                        orientacao.y = 0;
+                        playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include)
+                            .gameObject;
+                        orientacao.z = playerGameObject.transform.rotation.eulerAngles.y;
 
-                coordenadasGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject.transform.Find("CoordenadaBussola").gameObject;
-                coordenadasGameObject.transform.rotation = rotacao;
+                        rotacao.eulerAngles = orientacao;
+
+                        coordenadasGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include)
+                            .gameObject
+                            .transform.Find("CoordenadaBussola").gameObject;
+
+                        coordenadasGameObject.transform.rotation = rotacao;
+                    }
+
+                    break;
+                }
             }
         }
 
@@ -144,6 +161,7 @@ namespace Main_Folders.Scripts.UI
                 CameraPivot = null;
                 EventSystem = null;
                 Light = null;
+                playerGameObject.SetActive(false);
             }
 
             if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 1)
@@ -151,9 +169,11 @@ namespace Main_Folders.Scripts.UI
                 CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
+                playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
                 CameraPivot.SetActive(true);
                 EventSystem.SetActive(true);
                 Light.SetActive(true);
+                playerGameObject.SetActive(true);
 
                 if (isTalking == false)
                 {

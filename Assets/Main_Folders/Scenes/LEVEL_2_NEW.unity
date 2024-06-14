@@ -948,39 +948,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4792677967762884981, guid: 46d2dc65814e5494a89f4d7f1759e7f8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 940557672}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46d2dc65814e5494a89f4d7f1759e7f8, type: 3}
 --- !u!4 &940557670 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7801478108453164641, guid: 46d2dc65814e5494a89f4d7f1759e7f8, type: 3}
   m_PrefabInstance: {fileID: 940557669}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &940557671 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4792677967762884981, guid: 46d2dc65814e5494a89f4d7f1759e7f8, type: 3}
-  m_PrefabInstance: {fileID: 940557669}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &940557672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940557671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a76dd371075c04997a15820222698a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemType: 0
-  Id: 0
-  Name: 
-  Cost: 0
-  Sprite: {fileID: 0}
-  InventoryItem: {fileID: 0}
 --- !u!1001 &942010765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1363,39 +1337,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7407634866672694851, guid: 8fe61be77b57059419eecd92d6b85504, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1246982002}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe61be77b57059419eecd92d6b85504, type: 3}
 --- !u!4 &1246982000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2843684148368098357, guid: 8fe61be77b57059419eecd92d6b85504, type: 3}
   m_PrefabInstance: {fileID: 1246981999}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1246982001 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7407634866672694851, guid: 8fe61be77b57059419eecd92d6b85504, type: 3}
-  m_PrefabInstance: {fileID: 1246981999}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1246982002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246982001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a76dd371075c04997a15820222698a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemType: 0
-  Id: 0
-  Name: 
-  Cost: 0
-  Sprite: {fileID: 0}
-  InventoryItem: {fileID: 0}
 --- !u!1001 &1256343179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1757,39 +1705,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 323725989227656799, guid: 1b358e9dd9322be43b266fc7dd07b278, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1408115856}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b358e9dd9322be43b266fc7dd07b278, type: 3}
 --- !u!4 &1408115854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6636765096738281829, guid: 1b358e9dd9322be43b266fc7dd07b278, type: 3}
   m_PrefabInstance: {fileID: 1408115853}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1408115855 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 323725989227656799, guid: 1b358e9dd9322be43b266fc7dd07b278, type: 3}
-  m_PrefabInstance: {fileID: 1408115853}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1408115856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408115855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a76dd371075c04997a15820222698a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemType: 0
-  Id: 0
-  Name: 
-  Cost: 0
-  Sprite: {fileID: 0}
-  InventoryItem: {fileID: 0}
 --- !u!4 &1425093918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7d635cc0ac7274d4d8e9601e040173ab, type: 3}

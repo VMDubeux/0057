@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
+    public int identity;
     public ItemType ItemType;
     [SerializeField] internal int Id;
     [SerializeField] internal string Name;
@@ -24,12 +25,17 @@ public class ItemPickUp : MonoBehaviour
         Name = ItemSO.GetName(ItemType);
         Cost = ItemSO.GetCost(ItemType);
         Sprite = ItemSO.GetSprite(ItemType);
+        if (PlayerPrefs.HasKey(Id + Name + identity))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void PickUp()
     {
         InventoryManager.Instance.Add(this.gameObject.GetComponent<ItemPickUp>());
         DontDestroyOnLoad(gameObject);
+        PlayerPrefs.SetString(Id + Name + identity, "Picked");
         gameObject.SetActive(false);
     }
 

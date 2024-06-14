@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Main_Folders.Scripts.Inventory
@@ -74,7 +75,7 @@ namespace Main_Folders.Scripts.Inventory
                 }
 
                 Items[itemPickUp.Id] = null;
-                InventoryList[itemPickUp.InventoryItem.id].inventoryItem.Destroy();
+                InventoryList[itemPickUp.InventoryItem.id].inventoryItemController.Destroy();
                 InventoryList[itemPickUp.InventoryItem.id] = null;
                 //itemPickUp.DestroyIt();
             }
@@ -103,44 +104,10 @@ namespace Main_Folders.Scripts.Inventory
 
             InventoryList[Item.id] = Item;
 
-            Item.inventoryItem = obj.GetComponent<InventoryItemController>();
+            Item.inventoryItemController = obj.GetComponent<InventoryItemController>();
 
-            Item.inventoryItem.AddItem(Item, itemPickUp);
+            Item.inventoryItemController.AddItem(Item, itemPickUp);
         }
-
-        /*
-    public void ListItems()
-    {
-
-        // Limpar itens do inventario
-        foreach (Transform item in ItemContent)
-        {
-            Destroy(item.gameObject);
-        }
-
-        foreach (ItemPickUp o in Items) // Adicionar lista de itens ao inventario
-        {
-            Debug.Log(Items.Count);
-
-            GameObject obj = Instantiate(InventoryItemBackground, ItemContent);
-            InventoryItem Item = new();
-
-            Item.type = o.ItemType;
-            Item.pathName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
-            Item.pathNumber = obj.transform.Find("NumberText").GetComponent<TextMeshProUGUI>();
-            Item.pathIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-            Item.pathRemoveButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
-
-            Item.pathName.text = ItemSO.GetName(o.ItemType);
-            Item.pathIcon.sprite = ItemSO.GetSprite(o.ItemType);
-            Item.gameObjects = ItemSO.GetGameObject(o.ItemType);
-            Item.itemQuantity++;
-            Item.pathNumber.text = Item.itemQuantity.ToString();
-            InventoryList.Add(Item);
-        }
-        SetInventoryItems();
-    }
-    */
 
         public void EnableItemRemove()
         {
@@ -174,7 +141,8 @@ namespace Main_Folders.Scripts.Inventory
         }
     }
 
-    public class InventoryItem : MonoBehaviour
+    [System.Serializable]
+    public class InventoryItem
     {
         public ItemType type;
         public int id;
@@ -183,6 +151,6 @@ namespace Main_Folders.Scripts.Inventory
         public Image pathIcon;
         public Button pathRemoveButton;
         public int itemQuantity = 0;
-        public InventoryItemController inventoryItem;
+        [FormerlySerializedAs("inventoryItem")] public InventoryItemController inventoryItemController;
     }
 }

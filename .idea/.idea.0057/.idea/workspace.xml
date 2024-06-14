@@ -6,9 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Visuals_Overworld/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Visuals_Overworld/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/HP Pot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/HP Pot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/Refresh Pot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/Refresh Pot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/SP Pot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/SP Pot.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/PartyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/PartyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_2_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_2_NEW.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryItemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryItemController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/ItemPickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/ItemPickUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Minimapa/MarkerHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Minimapa/MarkerHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Shop/ShopUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Shop/ShopUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +76,22 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/Teste/_0057.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\mrdub\Desktop\Teste" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2023.2.7f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mrdub\Documents\GitHub\0057 -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\mrdub\Documents\GitHub\0057" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2023.2.7f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mrdub\Documents\GitHub\0057 -debugCodeOptimization" />
@@ -85,7 +108,35 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2023.2.7f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mrdub\Documents\GitHub\0057 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\mrdub\Documents\GitHub\0057" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
@@ -118,7 +169,8 @@
       <workItem from="1718042986668" duration="12041000" />
       <workItem from="1718198896373" duration="25900000" />
       <workItem from="1718305598246" duration="8132000" />
-      <workItem from="1718367762053" duration="15248000" />
+      <workItem from="1718367762053" duration="21406000" />
+      <workItem from="1718399799761" duration="1488000" />
     </task>
     <servers />
   </component>
