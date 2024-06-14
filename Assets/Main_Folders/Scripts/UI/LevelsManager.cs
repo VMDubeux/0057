@@ -76,7 +76,6 @@ namespace Main_Folders.Scripts.UI
             Time.timeScale = 1.0f; // Verificar necessidade;
 
             nivelAtual = nivelInicial;
-            TrocaMapa();
         }
 
         private void Update()
@@ -111,9 +110,6 @@ namespace Main_Folders.Scripts.UI
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
                 coordenadasGameObject = minimapGameObject.transform.Find("CoordenadaBussola").gameObject;
                 playerGameObject = GameObject.Find("Player").gameObject;
-                setup[0].zoomLevel = 35.0F;
-                setup[1].zoomLevel = 25.0F;
-                setup[2].zoomLevel = 15.0F;
             }
         }
 

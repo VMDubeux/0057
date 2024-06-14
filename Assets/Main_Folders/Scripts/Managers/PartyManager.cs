@@ -11,9 +11,9 @@ namespace Main_Folders.Scripts.Managers
     public class PartyManager : MonoBehaviour
     {
         [SerializeField] [Tooltip("Todos os prefabs de batalha dos personagens jogáveis")]
-        private GameObject[] allMember;
+        public GameObject[] allMember;
 
-        private List<PartyMember> currentParty;
+        [SerializeField] private List<PartyMember> currentParty;
 
         [SerializeField] private Vector3 playerPosition;
 
@@ -170,6 +170,7 @@ namespace Main_Folders.Scripts.Managers
         }
     }
 
+    [System.Serializable]
     public class PartyMember
     {
         public string MemberName;
@@ -178,9 +179,9 @@ namespace Main_Folders.Scripts.Managers
         public int MaxHP;
         public int Block;
         public int Strength;
-
+        
         public float CurrExp;
-
+        
         //public int MaxExp;
         public GameObject[] Drips = new GameObject[2];
         public GameObject MemberBattleVisualPrefab; //what will be displayed in battle scene

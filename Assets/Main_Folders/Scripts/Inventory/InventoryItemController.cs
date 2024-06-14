@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using Main_Folders.Scripts.Inventory;
+using Main_Folders.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +10,13 @@ public class InventoryItemController : MonoBehaviour
 
     private void Start()
     {
-        gameObject.GetComponent<Button>().onClick.AddListener(delegate { UseItem(ItemPickUp); });
+        gameObject.GetComponent<Button>().onClick
+            .AddListener(delegate { UseItem(ItemPickUp); }); // Chama método de uso dos itens
     }
 
     public void RemoveItem()
     {
-        Button RemoveButton = transform.GetComponentInChildren<Button>();
+        //Button RemoveButton = transform.GetComponentInChildren<Button>();
         InventoryManager.Instance.Remove(ItemPickUp);
         //Item.Destroy();
         //Destroy(gameObject);
@@ -35,23 +36,32 @@ public class InventoryItemController : MonoBehaviour
     public void UseItem(ItemPickUp item)
     {
         InventoryManager.Instance.Remove(item);
-        //GameObject partyManager = GameObject.Find("PartyManager"); // Centralizar os atributos do Player no PartyManager, pois ele não é destruído.
+        GameObject battleVisual = GameObject.FindAnyObjectByType<PartyManager>().allMember[0].gameObject;
 
         switch (item.ItemType)
         {
             default:
             case ItemType.PerfumePeq:
-                Debug.Log("Aumentar vida");
+                ChangeValues(ref battleVisual.GetComponent<Unit>()._stats[0].Value, 20);
+                Debug.Log($"Aumentou HP Máximo: {battleVisual.GetComponent<Unit>()._stats[0].Value}");
                 break;
             case ItemType.PerfumeMed:
-                Debug.Log("Aumentar número de cartas na mão");
+                if (battleVisual.GetComponent<PlayerUnit>().DrawAmount == 7) return;
+                ChangeValues(ref battleVisual.GetComponent<PlayerUnit>().DrawAmount, 1);
+                Debug.Log($"Aumentou Draw Amount: {battleVisual.GetComponent<PlayerUnit>().DrawAmount}");
                 break;
             case ItemType.PerfumeGrd:
-                Debug.Log("Aumentar quantidade de mana por turno");
+                ChangeValues(ref battleVisual.GetComponent<PlayerUnit>().MaxEnergy, 1);
+                Debug.Log($"Aumentou Max Energy: {battleVisual.GetComponent<PlayerUnit>().MaxEnergy}");
                 break;
             case ItemType.CartaComum:
-                Debug.Log("Ganhar carta comum");
+                Debug.Log("Adicionar carta ao inventário de cartas");
                 break;
         }
+    }
+
+    void ChangeValues(ref int valueRef, int valueChange)
+    {
+        valueRef += valueChange;
     }
 }

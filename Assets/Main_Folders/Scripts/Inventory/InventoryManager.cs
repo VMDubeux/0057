@@ -1,112 +1,114 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class InventoryManager : MonoBehaviour
+namespace Main_Folders.Scripts.Inventory
 {
-    public static InventoryManager Instance;
-
-    [SerializeField] private ItemPickUp[] Items;
-
-    [Header("Referencias na HUD")] public GameObject Inventory;
-    public Transform ItemContent;
-    public GameObject InventoryItemBackground;
-    public Toggle EnableRemove;
-
-    [SerializeField] private InventoryItem[] InventoryList;
-
-    private void Awake()
+    public class InventoryManager : MonoBehaviour
     {
-        if (Instance != null)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        public static InventoryManager Instance;
 
-        Items = new ItemPickUp[5];
-        InventoryList = new InventoryItem[5];
-    }
+        [SerializeField] private ItemPickUp[] Items;
 
-    public void Add(ItemPickUp itemPickUp)
-    {
-        if (Items[itemPickUp.Id] == null)
-        {
-            Debug.Log("Criou objeto!");
-            Items[itemPickUp.Id] = itemPickUp;
-            CreateInventoryItem(itemPickUp);
-        }
-        else
-        {
-            Debug.Log("Aumentou quantidade!");
-            Items[itemPickUp.Id].InventoryItem.itemQuantity++;
-            Items[itemPickUp.Id].InventoryItem.pathNumber.text =
-                Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
-        }
-    }
+        [Header("Referencias na HUD")] public GameObject Inventory;
+        public Transform ItemContent;
+        public GameObject InventoryItemBackground;
+        public Toggle EnableRemove;
 
-    public void Remove(ItemPickUp itemPickUp)
-    {
-        if (Items[itemPickUp.Id].InventoryItem.itemQuantity > 1)
+        [SerializeField] private InventoryItem[] InventoryList;
+
+        private void Awake()
         {
-            Debug.Log("Removeu quantidade!");
-            Items[itemPickUp.Id].InventoryItem.itemQuantity--;
-            Items[itemPickUp.Id].InventoryItem.pathNumber.text =
-                Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
-        }
-        else
-        {
-            Debug.Log("Removeu objeto!");
-            ItemPickUp[] search =
-                FindObjectsByType<ItemPickUp>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
-            Debug.Log(search.Length);
-            for (int i = 0; i < search.Length; i++)
+            if (Instance != null)
             {
-                if (search[i].ItemType == itemPickUp.ItemType && !search[i].isActiveAndEnabled)
-                {
-                    Debug.Log("ENTROU!");
-                    search[i].DestroyIt();
-                }
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
             }
 
-            Items[itemPickUp.Id] = null;
-            InventoryList[itemPickUp.InventoryItem.id].inventoryItem.Destroy();
-            InventoryList[itemPickUp.InventoryItem.id] = null;
-            //itemPickUp.DestroyIt();
+            Items = new ItemPickUp[5];
+            InventoryList = new InventoryItem[5];
         }
-    }
 
-    public void CreateInventoryItem(ItemPickUp itemPickUp)
-    {
-        GameObject obj = Instantiate(InventoryItemBackground, ItemContent);
-
-        InventoryItem Item = new()
+        public void Add(ItemPickUp itemPickUp)
         {
-            type = itemPickUp.ItemType,
-            pathName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>(),
-            pathNumber = obj.transform.Find("NumberText").GetComponent<TextMeshProUGUI>(),
-            pathIcon = obj.transform.Find("ItemIcon").GetComponent<Image>(),
-            pathRemoveButton = obj.transform.Find("RemoveButton").GetComponent<Button>()
-        };
+            if (Items[itemPickUp.Id] == null)
+            {
+                Debug.Log("Criou objeto!");
+                Items[itemPickUp.Id] = itemPickUp;
+                CreateInventoryItem(itemPickUp);
+            }
+            else
+            {
+                Debug.Log("Aumentou quantidade!");
+                Items[itemPickUp.Id].InventoryItem.itemQuantity++;
+                Items[itemPickUp.Id].InventoryItem.pathNumber.text =
+                    Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
+            }
+        }
 
-        Item.pathName.text = ItemSO.GetName(itemPickUp.ItemType);
-        Item.pathIcon.sprite = ItemSO.GetSprite(itemPickUp.ItemType);
-        Item.id = ItemSO.GetId(itemPickUp.ItemType);
-        Item.itemQuantity++;
-        Item.pathNumber.text = Item.itemQuantity.ToString();
+        public void Remove(ItemPickUp itemPickUp)
+        {
+            if (Items[itemPickUp.Id].InventoryItem.itemQuantity > 1)
+            {
+                Debug.Log("Removeu quantidade!");
+                Items[itemPickUp.Id].InventoryItem.itemQuantity--;
+                Items[itemPickUp.Id].InventoryItem.pathNumber.text =
+                    Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
+            }
+            else
+            {
+                Debug.Log("Removeu objeto!");
+                ItemPickUp[] search =
+                    FindObjectsByType<ItemPickUp>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
+                Debug.Log(search.Length);
+                for (int i = 0; i < search.Length; i++)
+                {
+                    if (search[i].ItemType == itemPickUp.ItemType && !search[i].isActiveAndEnabled)
+                    {
+                        Debug.Log("ENTROU!");
+                        search[i].DestroyIt();
+                    }
+                }
 
-        itemPickUp.InventoryItem = Item;
+                Items[itemPickUp.Id] = null;
+                InventoryList[itemPickUp.InventoryItem.id].inventoryItem.Destroy();
+                InventoryList[itemPickUp.InventoryItem.id] = null;
+                //itemPickUp.DestroyIt();
+            }
+        }
 
-        InventoryList[Item.id] = Item;
+        public void CreateInventoryItem(ItemPickUp itemPickUp)
+        {
+            GameObject obj = Instantiate(InventoryItemBackground, ItemContent);
 
-        Item.inventoryItem = obj.GetComponent<InventoryItemController>();
+            InventoryItem Item = new()
+            {
+                type = itemPickUp.ItemType,
+                pathName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>(),
+                pathNumber = obj.transform.Find("NumberText").GetComponent<TextMeshProUGUI>(),
+                pathIcon = obj.transform.Find("ItemIcon").GetComponent<Image>(),
+                pathRemoveButton = obj.transform.Find("RemoveButton").GetComponent<Button>()
+            };
 
-        Item.inventoryItem.AddItem(Item, itemPickUp);
-    }
+            Item.pathName.text = ItemSO.GetName(itemPickUp.ItemType);
+            Item.pathIcon.sprite = ItemSO.GetSprite(itemPickUp.ItemType);
+            Item.id = ItemSO.GetId(itemPickUp.ItemType);
+            Item.itemQuantity++;
+            Item.pathNumber.text = Item.itemQuantity.ToString();
 
-    /*
+            itemPickUp.InventoryItem = Item;
+
+            InventoryList[Item.id] = Item;
+
+            Item.inventoryItem = obj.GetComponent<InventoryItemController>();
+
+            Item.inventoryItem.AddItem(Item, itemPickUp);
+        }
+
+        /*
     public void ListItems()
     {
 
@@ -140,46 +142,47 @@ public class InventoryManager : MonoBehaviour
     }
     */
 
-    public void EnableItemRemove()
-    {
-        if (EnableRemove.isOn)
+        public void EnableItemRemove()
         {
-            foreach (Transform item in ItemContent)
+            if (EnableRemove.isOn)
             {
-                item.Find("RemoveButton").gameObject.SetActive(true);
+                foreach (Transform item in ItemContent)
+                {
+                    item.Find("RemoveButton").gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                foreach (Transform item in ItemContent)
+                {
+                    item.Find("RemoveButton").gameObject.SetActive(false);
+                }
             }
         }
-        else
+
+        void InventoryActive()
         {
-            foreach (Transform item in ItemContent)
+            if (!Inventory.activeSelf)
             {
-                item.Find("RemoveButton").gameObject.SetActive(false);
+                EnableRemove.isOn = false;
             }
         }
-    }
 
-    void InventoryActive()
-    {
-        if (!Inventory.activeSelf)
+        void OnGUI()
         {
-            EnableRemove.isOn = false;
+            InventoryActive();
         }
     }
 
-    void OnGUI()
+    public class InventoryItem : MonoBehaviour
     {
-        InventoryActive();
+        public ItemType type;
+        public int id;
+        public TextMeshProUGUI pathName;
+        public TextMeshProUGUI pathNumber;
+        public Image pathIcon;
+        public Button pathRemoveButton;
+        public int itemQuantity = 0;
+        public InventoryItemController inventoryItem;
     }
-}
-
-public class InventoryItem : MonoBehaviour
-{
-    public ItemType type;
-    public int id;
-    public TextMeshProUGUI pathName;
-    public TextMeshProUGUI pathNumber;
-    public Image pathIcon;
-    public Button pathRemoveButton;
-    public int itemQuantity = 0;
-    public InventoryItemController inventoryItem;
 }

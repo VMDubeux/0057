@@ -1,3 +1,4 @@
+using Main_Folders.Scripts.Inventory;
 using UnityEngine;
 
 namespace Main_Folders.Scripts.Player
