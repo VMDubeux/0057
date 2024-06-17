@@ -39,13 +39,22 @@ public class TurnBeginState : State
         yield return null;
         if (machine.Units.Count == 1 || _playerUnit.HP <= 0)
         {
-            if (_playerUnit.HP > 0)
+            GameObject player = GameObject.Find("Player");
+            if (_playerUnit.HP > 0)//inimigo derrotado
             {
                 partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
                 partyManager.SetExperience(accumulatedExperience); // Envio do quantitativo acumulado de experi�ncia para o player, mediante uso do m�todo constante no script Party Manager.
                 encounterSystem = FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>();
                 encounterSystem.prefab.GetComponent<Unit>().hasFought = true;
                 encounterSystem.battleActive = false;
+                //dropar carta
+                References.Instance.CurrentEnemyBattle.GetComponent<ItemDrop>().CardDrop();
+            }
+            else
+            {
+                //player retorna ao respawnPoint
+                Transform respawnPoint = GameObject.Find("RespawnPoint").transform;
+                player.transform.position = new Vector3(respawnPoint.position.x, player.transform.position.y, respawnPoint.position.z);
             }
             StartCoroutine(WaitThenChangeState<EndBattleState>());
         }
