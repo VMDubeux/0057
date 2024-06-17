@@ -26,6 +26,7 @@ public class EncounterDefinition : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player") && gameObject.GetComponent<Unit>().hasFought == false)
         {
+            References.Instance.CurrentEnemyBattle = this.gameObject;
             OverworldVisualPrefab = gameObject.GetComponent<Unit>().OverworldVisualPrefab;
             BattleVisualPrefab = gameObject.GetComponent<Unit>().BattleVisualPrefab;
             EncounterSystem encouter = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
@@ -42,18 +43,18 @@ public class EncounterDefinition_Editor : Editor
     {
         var script = (EncounterDefinition)target;
 
-        script.EncounterIsVariable = EditorGUILayout.Toggle("Número de Encouter é variável?", script.EncounterIsVariable);
+        script.EncounterIsVariable = EditorGUILayout.Toggle("N�mero de Encouter � vari�vel?", script.EncounterIsVariable);
 
         if (script.EncounterIsVariable == false)
         {
             //script.EnemyBattlePrefab = EditorGUILayout.ObjectField("Enemy Battle Visual Prefab", script.EnemyBattlePrefab, typeof(GameObject), true) as GameObject;
-            script.numEncouters = EditorGUILayout.IntField("Número fixo de Encouters:", script.numEncouters);
+            script.numEncouters = EditorGUILayout.IntField("N�mero fixo de Encouters:", script.numEncouters);
             LevelControl();
             return;
         }
 
-        script.minNumEncouters = EditorGUILayout.IntField("Número mínimo de Encouters:", script.minNumEncouters);
-        script.maxNumEncouters = EditorGUILayout.IntField("Número máximo de Encouters:", script.maxNumEncouters);
+        script.minNumEncouters = EditorGUILayout.IntField("N�mero m�nimo de Encouters:", script.minNumEncouters);
+        script.maxNumEncouters = EditorGUILayout.IntField("N�mero m�ximo de Encouters:", script.maxNumEncouters);
         LevelControl();
 
         //script.EnemiesBattlePrefab[0] = EditorGUILayout.ObjectField("Enemy Battle Visual Prefab", script.EnemiesBattlePrefab[0], typeof(GameObject), true) as GameObject;
@@ -65,8 +66,9 @@ public class EncounterDefinition_Editor : Editor
     {
         var script = (EncounterDefinition)target;
 
-        script.levelMin = EditorGUILayout.IntField("Level mínimo:", script.levelMin);
-        script.levelMax = EditorGUILayout.IntField("Level máximo:", script.levelMax);
+        script.levelMin = EditorGUILayout.IntField("Level m�nimo:", script.levelMin);
+        script.levelMax = EditorGUILayout.IntField("Level m�ximo:", script.levelMax);
     }
+
 }
 #endif

@@ -15,6 +15,7 @@ TagManager:
   - FullScreenToggle
   - ImageSold
   - PlayerXP
+  - ref
   layers:
   - Default
   - TransparentFX

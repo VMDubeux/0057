@@ -21,8 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hat
-  m_Shader: {fileID: 4800000, guid: abaf2020b803b6847b5c081ed22c05c5, type: 3}
-  m_ShaderKeywords: _SEGMENTED_ON
+  m_Shader: {fileID: 4800000, guid: 313fcf3aebc04cf4ab4f8c5f2850be7f, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -33,7 +33,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 93d7d2a184a4b8b4298e4234f3a27999, type: 3}
+        m_Texture: {fileID: 2800000, guid: 90837331d298b2742a3c9992a7bdbe91, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -126,6 +126,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _Gloss: 10
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossinessSource: 0
@@ -136,12 +137,17 @@ Material:
     - _MinLight: 0
     - _OcclusionStrength: 1
     - _Offset: 0
+    - _OutlineWidth: 0.1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimOffset: 0.24
     - _RimPower: 0.5
+    - _RimStep: 0.51
+    - _RimStepSmooth: 0.39
     - _Segmented: 1
+    - _ShadowStep: 0.75
+    - _ShadowStepSmooth: 0.31
     - _Shininess: 0
     - _ShnIntense: 0
     - _ShnOverlap: 0
@@ -152,7 +158,13 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
     - _SpecularHighlights: 1
+    - _SpecularStep: 0.52
+    - _SpecularStepSmooth: 0.01
     - _SrcBlend: 1
+    - _Step1: 0.847
+    - _Step2: 0.021
+    - _Step3: 0.996
+    - _Step4: 0
     - _Steps: 3
     - _StpSmooth: 0
     - _Surface: 0
@@ -162,8 +174,11 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 1, b: 0.8758622, a: 0}
+    - _HighColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0.8, g: 0.8, b: 1, a: 1}
     - _ShnColor: {r: 1, g: 1, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

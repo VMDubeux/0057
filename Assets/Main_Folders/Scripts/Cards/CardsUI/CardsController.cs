@@ -44,6 +44,24 @@ public class CardsController : MonoBehaviour
         Deck.RemoveCard(card);
         DiscardPile.AddCard(card);
     }
+
+    public IEnumerator DiscardHand()// FATLA IMPLEMENTAR O MÉTODO !!!
+    {
+        List<Card> cardsToRemove = new List<Card>();
+        foreach (Card card in Hand.Cards)
+        {
+            DiscardPile.AddCard(card);
+            cardsToRemove.Add(card);
+        }
+
+        foreach (Card card in cardsToRemove)
+        {
+            Hand.RemoveCard(card);
+            Deck.RemoveCard(card);
+        }
+
+        yield return new WaitForSecondsRealtime(0.5f);
+    }
     public IEnumerator ShuffleDiscardIntoDeck()
     {
         List<Card> cards = DiscardPile.Cards;
