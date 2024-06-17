@@ -5,13 +5,237 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/.idea/.idea.Assets.dir/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/.idea/.idea.Assets.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/.idea/.idea.Assets.dir/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Enemies.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Enemies/EnemyAnimControl.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Enemies/EnemyAnimControl.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Enemies/Male Action Pose.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Enemies/Male Action Pose.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Enemies/Standing Idle.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Enemies/Standing Idle.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Player/Bruto/Battle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Player/Bruto/Battle/BrutoController.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Animation/Player/Bruto/Battle/BrutoController.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Blusa.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Blusa.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Cabelo.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Cabelo.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Couro.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Couro.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Pele.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Pele.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Prata.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Prata.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Roxo.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Roxo.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Roxo2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Mentor/MentorMaterial/Roxo2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Brute_ReB 1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Brute_ReB 1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Player/DriplessMaterial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Player/DriplessMaterial/Dripless.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Player/DriplessMaterial/Dripless.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Player/DriplessMaterial/Dripp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Player/DriplessMaterial/Dripp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Controllers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Controllers/References.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Controllers/References.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Controllers/SaveManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Controllers/SaveManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/TesteSave.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/TesteSave.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Enemies/ItemDrop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Enemies/ItemDrop.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/References.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/References.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Others/MovimentoCamera.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Others/MovimentoCamera/Main Camera.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Others/MovimentoCamera/Main Camera.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Others/MovimentoCamera/movcamera.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Others/MovimentoCamera/movcamera.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Others/SaveTest.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Others/SaveTest/save.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Others/SaveTest/save.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PoseAnimation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PoseAnimation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Materials/ObjectMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Materials/ObjectMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Meshes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Meshes/cube.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Meshes/cube.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Prefabs/Test Elements - DELETE.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Prefabs/Test Elements - DELETE.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts/FadeMaterials.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts/FadeMaterials.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts/RandomPalette.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts/RandomPalette.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts/RandomPaletteButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts/RandomPaletteButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts/Rotate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Scripts/Rotate.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Shaders/VertexColor.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/Shaders/VertexColor.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/UI Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/UI Textures/GBCamera.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/UI Textures/GBCamera.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/UI Textures/question.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/UI Textures/question.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/UI Textures/roguenoodle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Example Elements/UI Textures/roguenoodle.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Materials/GBCamera_Render.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Materials/GBCamera_Render.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Materials/GBCamera_UI.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Materials/GBCamera_UI.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Prefabs/Game Camera - RENDERS TO TEXTURE.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Prefabs/Game Camera - RENDERS TO TEXTURE.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Prefabs/Render Camera - DO NOT ADJUST.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Prefabs/Render Camera - DO NOT ADJUST.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Scenes/GBCamera_RenderTexture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Scenes/GBCamera_RenderTexture.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Scenes/GBCamera_RenderTexture.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Scenes/GBCamera_RenderTexture/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Scenes/GBCamera_RenderTexture/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Scenes/GBCamera_RenderTextureSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Scenes/GBCamera_RenderTextureSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Shaders/GBPalette.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Shaders/GBPalette.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Shaders/GBPalette_UI.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Shaders/GBPalette_UI.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/GBRenderTexture.renderTexture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/GBRenderTexture.renderTexture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette Import.preset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette Import.preset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-0.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-6.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-7.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-8.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette-9.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/Textures/Palettes/GBPalette.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/gbcamera_PPS.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/RogueNoodle/GBCamera/readme.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/SaveTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/SaveTest.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/MenuManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/PortalManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/PortalManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Minimapa/MarkerHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Minimapa/MarkerHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/UI/LevelsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Material/Hand Painted Stone Texture/Material/Stone_normal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Hand Painted Stone Texture/Material/Stone_normal.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Material/Stylize Terrain Texture/Materials/Stylize Terrain.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Material/Stylize Terrain Texture/Materials/Stylize Terrain.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Player/Dripless_ReB.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Models_Não_Excluir/Player/Dripless_ReB.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFarmLite/LowPolyFarmLite_2020.3_HDRP_v1.02.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFarmLite/LowPolyFarmLite_2020.3_URP_v1.02.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFoodLite/LowPolyFoodLite_2020.3.0_HDRP_v1.0.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFoodLite/LowPolyFoodLite_2020.3.0_URP_v1.0.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/NPCs/Mentor_ReB.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/NPCs/Mentor_ReB.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Visuals_Battle/EnemyBattleVisual.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Visuals_Battle/EnemyBattleVisual.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Visuals_Battle/PlayerBattleVisual.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Visuals_Battle/PlayerBattleVisual.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_BATTLE.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_BATTLE.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Cards/CardsEffects/DamageEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Cards/CardsEffects/DamageEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Cards/CardsUI/CardsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Cards/CardsUI/CardsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryItemController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Inventory/InventoryItemController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/EncounterSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Managers/EncounterSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/StateMachine/States/EnemyTurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/StateMachine/States/EnemyTurnState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/StateMachine/States/TurnBeginState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/StateMachine/States/TurnBeginState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Units/EncounterDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Units/EncounterDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Units/PlayerUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/Units/PlayerUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/LeanTween/Examples/Scripts/TestingUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/LeanTween/Examples/Scripts/TestingUnitTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 0.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 0.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 1.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 1.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 2.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 2.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 3.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face 3.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Face/Face.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Hat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Hat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Hat.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Hat.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_King.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_King.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_King.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_King.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_Viking.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_Viking.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_Viking.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_Viking.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_White.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_White.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 1/Slime1_White.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 2/Slime2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 2/Slime2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 2/Slime2.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 2/Slime2.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 3/Slime3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 3/Slime3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 3/Slime3.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Materials/Slime 3/Slime3.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Slimes/Slime_01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Slimes/Slime_01.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Slimes/Slime_02.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Slimes/Slime_02.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Slimes/Slime_03.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Slimes/Slime_03.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/Crown.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/Crown.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/Leaf.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/Leaf.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/MetalHelmet.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/MetalHelmet.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/Sprout.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/Sprout.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/VikingHelmet.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Models/Top/VikingHelmet.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_King.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_King.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_King.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_King.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_MeltalHelmet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_MeltalHelmet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_MeltalHelmet.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_MeltalHelmet.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_Viking.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_Viking.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_Viking.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_01_Viking.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_02.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_02.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_02.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 King.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 King.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 King.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 King.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 Leaf.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 Leaf.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 Sprout.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 Sprout.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 Sprout.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03 Sprout.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Prefabs/Slime_03.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Face/Face_00.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Face/Face_00.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Face/Face_01.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Face/Face_01.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Face/Face_02.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Face/Face_02.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Face/Face_03.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Face/Face_03.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/ProtectiveHat.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/ProtectiveHat.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Slime_02.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Slime_02.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Slime_03.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/PlaceHolders/Kawaii Slimes/Textures/Slime_03.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Others/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Others/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +273,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;branch-temp-main-derivada&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging branch-temp-final&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -168,6 +392,8 @@
       <workItem from="1718305598246" duration="8132000" />
       <workItem from="1718367762053" duration="21406000" />
       <workItem from="1718399799761" duration="7365000" />
+      <workItem from="1718657183535" duration="64000" />
+      <workItem from="1718657401646" duration="95000" />
     </task>
     <servers />
   </component>
