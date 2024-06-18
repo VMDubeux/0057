@@ -9,16 +9,21 @@ public class DisableUnit : StatusEffect
     [SerializeField] internal SkinnedMeshRenderer[] bodyRenderers;
 
     ModifierTags Tag = ModifierTags.WhenUnitDies;
+
     public override void OnInflicted()
     {
         _host.Modify[(int)Tag] += Change;
     }
+
     public override void OnRemoved()
     {
         _host.Modify[(int)Tag] -= Change;
     }
+
     void Change(ModifiedValues modifiedValues)
     {
+        if (gameObject.CompareTag("Player")) return;
+
         foreach (SkinnedMeshRenderer smr in gameObject.transform.GetComponentsInChildren<SkinnedMeshRenderer>())
         {
             smrCount++;

@@ -26,10 +26,10 @@ public class EnemyTurnState : State
 
     public override IEnumerator Enter()
     {
-        if(!machine.CurrentUnit.CompareTag("Player"))
+        if (!machine.CurrentUnit.CompareTag("Player"))
         {
-        currentUnit = machine.CurrentUnit;
-        EnemySkillChoice();
+            currentUnit = machine.CurrentUnit;
+            EnemySkillChoice();
         }
         //EnemySkillChoice();
 
@@ -41,19 +41,19 @@ public class EnemyTurnState : State
     {
         currentUnit.GetComponentInChildren<Animator>().SetTrigger("pose");
         Debug.Log("Enemy Pose!");
-        int r = Random.Range(0,9);
-        if(currentUnit.HP > currentUnit.MaxHP/2)
+        int r = Random.Range(0, 9);
+        if (currentUnit.HP > currentUnit.MaxHP / 2)
         {
-            if(r < 7)
+            if (r < 7)
             {
                 Attack();
             }
-            else 
+            else
                 Shield();
         }
         else
         {
-            if( r < 3 )
+            if (r < 3)
             {
                 Attack();
             }
@@ -67,7 +67,6 @@ public class EnemyTurnState : State
         ModifiedValues modifiedValues = new ModifiedValues(Amount);
         ApplyModifier(modifiedValues, ModifierTags.GainBlock, StateMachine.Instance.CurrentUnit);
         ApplyModifier(modifiedValues, ModifierTags.TakeAttackDamage, _playerUnit);
-
 
 
         currentUnit.SetStatValue(3, currentUnit.GetBlockAmount()); // 5 como valor padrão para teste.
@@ -92,7 +91,6 @@ public class EnemyTurnState : State
         {
             _playerUnit.Modify[(int)ModifierTags.WhenUnitDies](null);
         }
-
     }
 
     void ApplyModifier(ModifiedValues modifiedValues, ModifierTags tag, BattleVisuals unit)

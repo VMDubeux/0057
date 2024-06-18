@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Main_Folders.Scripts.Managers;
 using Main_Folders.Scripts.Visuals;
 using UnityEngine;
@@ -16,12 +18,12 @@ public class BattleSystem : MonoBehaviour
 
     public static BattleSystem Instance;
 
-    [Header("Spawn Points")]
-    [SerializeField] private Transform[] partySpawnPoints;
+    [Header("Spawn Points")] [SerializeField]
+    private Transform[] partySpawnPoints;
+
     [SerializeField] private Transform[] enemySpawnPoints;
 
-    [Header("Battlers")]
-    public List<BattleEntities> allBattlers = new List<BattleEntities>();
+    [Header("Battlers")] public List<BattleEntities> allBattlers = new List<BattleEntities>();
     public List<BattleEntities> enemyBattlers = new List<BattleEntities>();
     public List<BattleEntities> playerBattlers = new List<BattleEntities>();
 
@@ -37,6 +39,10 @@ public class BattleSystem : MonoBehaviour
 
     private PartyManager partyManager;
     private EnemyManager enemyManager;
+
+    [Header("GameOver Moment:")] public GameObject camera;
+    public GameObject canvasDeath;
+    public GameObject canvasBattle;
     //private int currentPlayer;
 
     /*
@@ -54,6 +60,9 @@ public class BattleSystem : MonoBehaviour
     {
         partyManager = GameObject.FindFirstObjectByType<PartyManager>();
         enemyManager = GameObject.FindFirstObjectByType<EnemyManager>();
+        //camera = GameObject.FindFirstObjectByType<CinemachineVirtualCamera>().gameObject;
+        //canvasDeath = GameObject.FindFirstObjectByType<CanvasDeath>(FindObjectsInactive.Include).gameObject;
+        //canvasBattle = GameObject.FindFirstObjectByType<CanvasBattle>(FindObjectsInactive.Include).gameObject;
 
         CreatePartyEntities();
         CreateEnemyEntities();
@@ -155,7 +164,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    
+
 
     private IEnumerator RunRoutine()
     {
@@ -181,7 +190,6 @@ public class BattleSystem : MonoBehaviour
     */
 
 
-
     private void CreatePartyEntities()
     {
         List<PartyMember> currentParty = new List<PartyMember>();
@@ -205,12 +213,14 @@ public class BattleSystem : MonoBehaviour
             tempEntity.SetEntityName(currentParty[i].MemberName + serialNumber);
 
             BattleVisuals tempBattleVisuals = Instantiate(currentParty[i].MemberBattleVisualPrefab,
-                partySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Player").transform).GetComponent<BattleVisuals>();
+                    partySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Player").transform)
+                .GetComponent<BattleVisuals>();
 
             tempBattleVisuals.name = currentParty[i].MemberName;
 
             tempBattleVisuals.SetStartingValues(currentParty[i].MaxHP,
-                currentParty[i].MaxHP, currentParty[i].Block, currentParty[i].Strength, currentParty[i].Level, serialNumber, tempEntity);
+                currentParty[i].MaxHP, currentParty[i].Block, currentParty[i].Strength, currentParty[i].Level,
+                serialNumber, tempEntity);
 
             tempEntity.BattleVisuals = tempBattleVisuals;
 
@@ -242,12 +252,14 @@ public class BattleSystem : MonoBehaviour
             tempEntity.SetEntityName(currentEnemies[i].EnemyName + serialNumber);
 
             BattleVisuals tempBattleVisuals = Instantiate(currentEnemies[i].EnemyVisualPrefab,
-                enemySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Enemies").transform).GetComponent<BattleVisuals>();
+                    enemySpawnPoints[i].position, Quaternion.identity, GameObject.Find("Units/Enemies").transform)
+                .GetComponent<BattleVisuals>();
 
             tempBattleVisuals.name = currentEnemies[i].EnemyName;
 
             tempBattleVisuals.SetStartingValues(currentEnemies[i].MaxHP,
-                currentEnemies[i].MaxHP, currentEnemies[i].Block, currentEnemies[i].Strength, currentEnemies[i].Level, serialNumber, tempEntity);
+                currentEnemies[i].MaxHP, currentEnemies[i].Block, currentEnemies[i].Strength, currentEnemies[i].Level,
+                serialNumber, tempEntity);
 
             tempEntity.BattleVisuals = tempBattleVisuals;
 
@@ -269,7 +281,7 @@ public class BattleSystem : MonoBehaviour
             SetEnemySelectionButtons();
             enemySelectionMenu.SetActive(true);
         }
-    
+
 
     private void SetEnemySelectionButtons()
     {
@@ -372,7 +384,7 @@ public class BattleSystem : MonoBehaviour
     {
         allBattlers.Sort((bi1, bi2) => -bi1.Initiative.CompareTo(bi2.Initiative));
     }
-    
+
     public void SelectRunAction()
     {
         state = BattleState.Selection;
@@ -394,8 +406,27 @@ public class BattleSystem : MonoBehaviour
             ShowBattleMenu();
         }
     }
-    
+
      */
+
+    private void Update()
+    {
+        if (playerBattlers[0].HP <= 0)
+        {
+            StartCoroutine(AnimationCam());
+        }
+    }
+
+    private IEnumerator AnimationCam()
+    {
+        playerBattlers[0].BattleVisuals.gameObject.GetComponent<SelectableUnit>().enabled = false; // Na morte, desativa o script em que o mouse destaca o personagem
+        canvasBattle.SetActive(false); // Na morte, desativa o canvas da batalha (deck, etc.)
+        playerBattlers[0].BattleVisuals.gameObject.transform.GetChild(1).gameObject.SetActive(false); // Na morte, desativa o canvas da barra de vida.
+        camera.GetComponent<Animator>().enabled = true;
+        camera.GetComponent<Animator>().Play("DeathCam");
+        yield return new WaitForSeconds(5);
+        canvasDeath.SetActive(true);
+    }
 }
 
 
@@ -428,7 +459,7 @@ public class BattleEntities
         SerialNumber = serialNumber;
     }
 
-    public void SetEntityName(string name) 
+    public void SetEntityName(string name)
     {
         Name = name;
     }
