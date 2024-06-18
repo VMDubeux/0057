@@ -170,6 +170,7 @@ namespace Main_Folders.Scripts.UI
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
                 playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
+                minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
                 CameraPivot.SetActive(true);
                 EventSystem.SetActive(true);
                 Light.SetActive(true);
@@ -189,6 +190,11 @@ namespace Main_Folders.Scripts.UI
                     CanvasInventario.SetActive(false);
                     LevelCanvas.SetActive(false);
                 }
+
+                if (nivelAtual != 1)
+                {
+                    VisualizarMiniMapa(true);
+                }
             }
             else if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 2)
             {
@@ -197,11 +203,13 @@ namespace Main_Folders.Scripts.UI
                 CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
+                minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
                 CameraPivot.SetActive(false);
                 CanvasInventario.SetActive(false);
                 LevelCanvas.SetActive(false);
                 EventSystem.SetActive(false);
                 Light.SetActive(false);
+                minimapGameObject.SetActive(false);
             }
         }
 
