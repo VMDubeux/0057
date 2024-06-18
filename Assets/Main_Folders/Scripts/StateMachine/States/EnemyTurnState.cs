@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Main_Folders.Scripts.StateMachine.States;
+using Main_Folders.Scripts.Units;
+using Main_Folders.Scripts.Visuals;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;

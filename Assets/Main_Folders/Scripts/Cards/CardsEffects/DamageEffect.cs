@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Main_Folders.Scripts.StateMachine.States;
+using Main_Folders.Scripts.Visuals;
 using UnityEngine;
 
 namespace Main_Folders.Scripts.Cards.CardsEffects

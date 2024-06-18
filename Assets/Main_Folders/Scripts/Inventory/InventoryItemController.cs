@@ -1,4 +1,5 @@
 using Main_Folders.Scripts.Managers;
+using Main_Folders.Scripts.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,27 +40,34 @@ namespace Main_Folders.Scripts.Inventory
 
         public void UseItem(ItemPickUp item)
         {
-            InventoryManager.Instance.Remove(item);
             GameObject battleVisual = GameObject.FindAnyObjectByType<PartyManager>().allMember[0].gameObject;
+            PartyManager partyManager = GameObject.FindAnyObjectByType<PartyManager>();
 
             switch (item.ItemType)
             {
                 default:
                 case ItemType.PerfumePeq:
-                    ChangeValues(ref battleVisual.GetComponent<Unit>()._stats[0].Value, 20);
+                    partyManager.SetStatsValues(0, 20);
                     Debug.Log($"Aumentou HP Máximo: {battleVisual.GetComponent<Unit>()._stats[0].Value}");
+                    InventoryManager.Instance.Remove(item);
                     break;
                 case ItemType.PerfumeMed:
                     if (battleVisual.GetComponent<PlayerUnit>().DrawAmount == 7) return;
                     ChangeValues(ref battleVisual.GetComponent<PlayerUnit>().DrawAmount, 1);
+                    partyManager.SetStatsValues(1, 1);
                     Debug.Log($"Aumentou Draw Amount: {battleVisual.GetComponent<PlayerUnit>().DrawAmount}");
+                    InventoryManager.Instance.Remove(item);
                     break;
                 case ItemType.PerfumeGrd:
+                    if (battleVisual.GetComponent<PlayerUnit>().MaxEnergy == 6) return;
                     ChangeValues(ref battleVisual.GetComponent<PlayerUnit>().MaxEnergy, 1);
+                    partyManager.SetStatsValues(2, 1);
                     Debug.Log($"Aumentou Max Energy: {battleVisual.GetComponent<PlayerUnit>().MaxEnergy}");
+                    InventoryManager.Instance.Remove(item);
                     break;
                 case ItemType.CartaComum:
                     Debug.Log("Adicionar carta ao inventário de cartas");
+                    InventoryManager.Instance.Remove(item);
                     break;
             }
         }

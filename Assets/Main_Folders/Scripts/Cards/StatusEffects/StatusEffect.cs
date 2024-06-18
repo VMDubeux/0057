@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Main_Folders.Scripts.Visuals;
 using UnityEngine;
 
 public abstract class StatusEffect : MonoBehaviour

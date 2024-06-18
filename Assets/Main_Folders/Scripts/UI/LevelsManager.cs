@@ -52,6 +52,8 @@ namespace Main_Folders.Scripts.UI
                 foreach (var variable in staticObjects)
                 {
                     DontDestroyOnLoad(variable);
+                    if (variable.name == "Player")
+                        variable.transform.position = new Vector3(-11.0f, 0.2f, -22.6f);
                 }
 
                 DontDestroyOnLoad(gameObject);
@@ -85,7 +87,7 @@ namespace Main_Folders.Scripts.UI
                 TrocaMapa();
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape) && currentGameSceneIndex > 1)
+            if (Input.GetKeyDown(KeyCode.Escape) && currentGameSceneIndex > 1 && SceneManager.sceneCount == 1)
             {
                 if (PauseCanvasMenu.activeSelf)
                 {
@@ -155,13 +157,20 @@ namespace Main_Folders.Scripts.UI
 
             if (currentGameSceneIndex == 1)
             {
-                PauseCanvasMenu.SetActive(false);
+                /*PauseCanvasMenu.SetActive(false);
                 CanvasInventario = null;
                 LevelCanvas = null;
                 CameraPivot = null;
                 EventSystem = null;
                 Light = null;
-                playerGameObject.SetActive(false);
+                playerGameObject.SetActive(false);*/
+
+                foreach (var variable in staticObjects)
+                {
+                    Destroy(variable);
+                }
+
+                Destroy(gameObject);
             }
 
             if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 1)
@@ -244,6 +253,7 @@ namespace Main_Folders.Scripts.UI
 
         public void ReturnToMainMenu()
         {
+            PlayerPrefs.DeleteAll();
             SceneLoader.LoadScene(1);
             Time.timeScale = 1.0f;
         }

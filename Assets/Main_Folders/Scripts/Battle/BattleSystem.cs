@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Main_Folders.Scripts.Managers;
+using Main_Folders.Scripts.Visuals;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Main_Folders.Scripts.Player;
+using Main_Folders.Scripts.Units;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,12 @@ namespace Main_Folders.Scripts.Managers
         private int playerLevel;
 
         private TextMeshProUGUI playerLevelText;
+
+        private TextMeshProUGUI playerLifeText;
+
+        private TextMeshProUGUI playerHandText;
+
+        private TextMeshProUGUI playerEnergyText;
 
         private float playerExp;
 
@@ -58,12 +65,31 @@ namespace Main_Folders.Scripts.Managers
                     newPartyMember.MaxHP = newPartyMember.HP;
                     newPartyMember.Block = allMember[i].GetComponent<Unit>()._stats[2].Value;
                     newPartyMember.Strength = allMember[i].GetComponent<Unit>()._stats[3].Value;
+                    newPartyMember.Hand = allMember[i].GetComponent<PlayerUnit>().DrawAmount;
+                    newPartyMember.Energy = allMember[i].GetComponent<PlayerUnit>().MaxEnergy;
                     newPartyMember.MemberBattleVisualPrefab = allMember[i].gameObject;
                     newPartyMember.MemberOverworldVisualPrefab =
                         allMember[i].GetComponent<Unit>().OverworldVisualPrefab;
 
                     currentParty.Add(newPartyMember);
                 }
+            }
+        }
+
+        public void SetStatsValues(int stat, int value)
+        {
+            switch (stat)
+            {
+                case 0:
+                    currentParty[0].MaxHP += value;
+                    currentParty[0].HP = currentParty[0].MaxHP;
+                    break;
+                case 1:
+                    currentParty[0].Hand += value;
+                    break;
+                case 2:
+                    currentParty[0].Energy += value;
+                    break;
             }
         }
 
@@ -115,11 +141,12 @@ namespace Main_Folders.Scripts.Managers
 
         public void ChangeExpSliderValue()
         {
+            var hud = FindFirstObjectByType<CanvasHUD>(FindObjectsInactive.Include).transform;
+
             if (SceneManager.GetActiveScene().name != "LEVEL_BATTLE" &&
                 SceneManager.GetActiveScene().name != "LEVEL_INTRO_NEW")
             {
-                sliderExp = FindFirstObjectByType<CanvasHUD>(FindObjectsInactive.Include).transform
-                    .GetComponentInChildren<Slider>();
+                sliderExp = hud.GetComponentInChildren<Slider>();
                 sliderExp.maxValue = playerMaxExp;
                 sliderExp.value = playerExp;
 
@@ -132,9 +159,17 @@ namespace Main_Folders.Scripts.Managers
                     sliderExp.value = playerExp;
                 }
 
-                playerLevelText = FindFirstObjectByType<CanvasHUD>(FindObjectsInactive.Include).transform
-                    .GetComponentInChildren<TextMeshProUGUI>();
+                playerLevelText = hud.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
                 playerLevelText.text = "LVL " + playerLevel.ToString();
+
+                playerLifeText = hud.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>();
+                playerLifeText.text = "Life " + currentParty[0].MaxHP.ToString();
+
+                playerHandText = hud.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>();
+                playerHandText.text = "Hand " + currentParty[0].Hand.ToString();
+
+                playerEnergyText = hud.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>();
+                playerEnergyText.text = "Energy " + currentParty[0].Energy.ToString();
             }
         }
 
@@ -181,7 +216,8 @@ namespace Main_Folders.Scripts.Managers
         public int MaxHP;
         public int Block;
         public int Strength;
-
+        public int Hand;
+        public int Energy;
         public float CurrExp;
 
         //public int MaxExp;
