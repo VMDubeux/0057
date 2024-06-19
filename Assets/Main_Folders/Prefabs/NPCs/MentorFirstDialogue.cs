@@ -22,7 +22,7 @@ public class MentorFirstDialogue : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        LevelsManager.Instance.isTalking = false;
         Destroy(dialogTrigger.gameObject);
+        LevelsManager.Instance.isTalking = false;
     }
 }
