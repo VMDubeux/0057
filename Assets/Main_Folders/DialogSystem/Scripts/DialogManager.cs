@@ -17,7 +17,6 @@ public class DialogManager : MonoBehaviour
     public delegate void DialogueDelegate();
     public DialogueDelegate dialogueDelegate;
 
-
     void Start() {
         if (step == null || step.dialogues.Length == 0) return;
         currentDialogButtonMenu = Instantiate(dialogButtonMenuPrefab, transform);
