@@ -16,6 +16,7 @@ public class MentorFirstDialogue : MonoBehaviour
 
     private void Start()
     {
+        playerMovement = FindFirstObjectByType<PlayerMovement>();
         questManager = GetComponent<QuestManager>();
         questManager.completedQuest += EndedQuest;
     }
@@ -31,8 +32,8 @@ public class MentorFirstDialogue : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Destroy(dialogTrigger.gameObject);
         LevelsManager.Instance.isTalking = false;
+        Destroy(dialogTrigger.gameObject);
     }
 
     private void EndedDialog()

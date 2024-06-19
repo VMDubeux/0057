@@ -1,53 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableUnit : StatusEffect
+namespace Main_Folders.Scripts.Cards.StatusEffects
 {
-    [SerializeField] internal int smrCount;
-
-    [SerializeField] internal SkinnedMeshRenderer[] bodyRenderers;
-
-    ModifierTags Tag = ModifierTags.WhenUnitDies;
-
-    public override void OnInflicted()
+    public class DisableUnit : StatusEffect
     {
-        _host.Modify[(int)Tag] += Change;
-    }
+        [SerializeField] internal int smrCount;
 
-    public override void OnRemoved()
-    {
-        _host.Modify[(int)Tag] -= Change;
-    }
+        [SerializeField] internal SkinnedMeshRenderer[] bodyRenderers;
 
-    void Change(ModifiedValues modifiedValues)
-    {
-        if (gameObject.CompareTag("Player")) return;
+        ModifierTags Tag = ModifierTags.WhenUnitDies;
 
-        foreach (SkinnedMeshRenderer smr in gameObject.transform.GetComponentsInChildren<SkinnedMeshRenderer>())
+        public override void OnInflicted()
         {
-            smrCount++;
+            _host.Modify[(int)Tag] += Change;
         }
 
-        bodyRenderers = new SkinnedMeshRenderer[smrCount];
-
-        for (int i = 0; i < bodyRenderers.Length; i++)
+        public override void OnRemoved()
         {
-            bodyRenderers[i] = GetComponentsInChildren<SkinnedMeshRenderer>()[i];
+            _host.Modify[(int)Tag] -= Change;
         }
 
-        if (bodyRenderers != null)
+        void Change(ModifiedValues modifiedValues)
         {
+            if (gameObject.CompareTag("Player")) return;
+
+            foreach (SkinnedMeshRenderer smr in gameObject.transform.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                smrCount++;
+            }
+
+            bodyRenderers = new SkinnedMeshRenderer[smrCount];
+
             for (int i = 0; i < bodyRenderers.Length; i++)
             {
-                bodyRenderers[i].enabled = !bodyRenderers[i].enabled;
+                bodyRenderers[i] = GetComponentsInChildren<SkinnedMeshRenderer>()[i];
             }
-        }
 
-        Collider2D coll = GetComponentInChildren<Collider2D>();
-        if (coll != null)
-        {
-            coll.enabled = !coll.enabled;
+            if (bodyRenderers != null)
+            {
+                for (int i = 0; i < bodyRenderers.Length; i++)
+                {
+                    bodyRenderers[i].enabled = !bodyRenderers[i].enabled;
+                }
+            }
+
+            Collider2D coll = GetComponentInChildren<Collider2D>();
+            if (coll != null)
+            {
+                coll.enabled = !coll.enabled;
+            }
         }
     }
 }
