@@ -60,7 +60,7 @@ namespace Main_Folders.Scripts.StateMachine.States
                 {
                     //player retorna ao respawnPoint
                     Transform respawnPoint = GameObject.Find("RespawnPoint").transform;
-                    player.transform.position = new Vector3(respawnPoint.position.x, player.transform.position.y,
+                    player.transform.position = new Vector3(respawnPoint.position.x - 1, player.transform.position.y,
                         respawnPoint.position.z);
                     yield return new WaitForSeconds(7.5f);
                 }
