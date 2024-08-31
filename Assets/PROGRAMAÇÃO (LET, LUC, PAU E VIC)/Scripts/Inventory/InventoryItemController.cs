@@ -65,10 +65,6 @@ namespace Main_Folders.Scripts.Inventory
                     Debug.Log($"Aumentou Max Energy: {battleVisual.GetComponent<PlayerUnit>().MaxEnergy}");
                     InventoryManager.Instance.Remove(item);
                     break;
-                case ItemType.CartaComum:
-                    Debug.Log("Adicionar carta ao inventário de cartas");
-                    InventoryManager.Instance.Remove(item);
-                    break;
             }
         }
 

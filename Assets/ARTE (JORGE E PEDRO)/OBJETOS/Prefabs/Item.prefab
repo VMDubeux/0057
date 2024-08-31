@@ -272,15 +272,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7137255, g: 0.11764705, b: 0.50822437, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e9b7c03050bd3264db15bc8365841c58, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -345,7 +345,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f7b7f95ddd6e84986ba504411ba21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemInventory: {fileID: 0}
+  ItemInventory:
+    type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
   ItemPickUp: {fileID: 0}
 --- !u!1 &5944478470365129005
 GameObject:

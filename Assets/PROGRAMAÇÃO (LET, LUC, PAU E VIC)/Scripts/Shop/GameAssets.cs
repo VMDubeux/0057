@@ -16,5 +16,7 @@ public class GameAssets : MonoBehaviour
     public Sprite CartaComum,
         PerfumePeq,
         PerfumeMed,
-        PerfumeGrd;
+        PerfumeGrd, 
+        CartaEsp,
+        CartaMed;
 }

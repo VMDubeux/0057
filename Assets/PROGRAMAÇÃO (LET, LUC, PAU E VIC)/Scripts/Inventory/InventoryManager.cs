@@ -13,6 +13,7 @@ namespace Main_Folders.Scripts.Inventory
 
         [Header("Referencias na HUD")] public GameObject Inventory;
         public Transform ItemContent;
+        public Transform CardContent;
         public GameObject InventoryItemBackground;
         public Toggle EnableRemove;
 
@@ -83,7 +84,20 @@ namespace Main_Folders.Scripts.Inventory
 
         public void CreateInventoryItem(ItemPickUp itemPickUp)
         {
-            GameObject obj = Instantiate(InventoryItemBackground, ItemContent);
+            Transform Content;
+
+            if (itemPickUp.ItemType == ItemType.CartaComum ||
+                itemPickUp.ItemType == ItemType.CartaMed ||
+                itemPickUp.ItemType == ItemType.CartaEsp)
+            {
+                Content = CardContent;
+            }
+            else
+            {
+                Content = ItemContent;
+            }
+
+            GameObject obj = Instantiate(InventoryItemBackground, Content);
 
             InventoryItem Item = new()
             {

@@ -17,6 +17,8 @@ public class ItemSO
             case ItemType.PerfumePeq: return 2;
             case ItemType.PerfumeMed: return 3;
             case ItemType.PerfumeGrd: return 4;
+            case ItemType.CartaEsp: return 5;
+            case ItemType.CartaMed: return 6;
         }
     }
 
@@ -29,6 +31,8 @@ public class ItemSO
             case ItemType.PerfumePeq: return "Perfume Pequeno";
             case ItemType.PerfumeMed: return "Perfume Médio";
             case ItemType.PerfumeGrd: return "Perfume Grande";
+            case ItemType.CartaEsp: return "Carta Especial";
+            case ItemType.CartaMed: return "Carta Média";
         }
     }
 
@@ -41,6 +45,8 @@ public class ItemSO
             case ItemType.PerfumePeq: return 2;
             case ItemType.PerfumeMed: return 5;
             case ItemType.PerfumeGrd: return 10;
+            case ItemType.CartaEsp: return 10;
+            case ItemType.CartaMed: return 10;
         }
     }
 
@@ -53,6 +59,8 @@ public class ItemSO
             case ItemType.PerfumePeq: return GameAssets.i.PerfumePeq;
             case ItemType.PerfumeMed: return GameAssets.i.PerfumeMed;
             case ItemType.PerfumeGrd: return GameAssets.i.PerfumeGrd;
+            case ItemType.CartaEsp: return GameAssets.i.CartaEsp;
+            case ItemType.CartaMed: return GameAssets.i.CartaMed;
         }
     }
 
@@ -65,6 +73,8 @@ public class ItemSO
             case 1: return ItemType.PerfumePeq;
             case 2: return ItemType.PerfumeMed;
             case 3: return ItemType.PerfumeGrd;
+            case 4: return ItemType.CartaEsp;
+            case 5: return ItemType.CartaMed;
         }
     }
 }
@@ -75,5 +85,7 @@ public enum ItemType
     PerfumePeq,
     PerfumeMed,
     PerfumeGrd,
+    CartaEsp,
+    CartaMed,
     None
 }

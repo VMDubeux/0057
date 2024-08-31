@@ -1,6 +1,7 @@
 using Main_Folders.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.AI; // Necessário para trabalhar com NavMeshAgent
+using UnityEngine.EventSystems; // Necessário para verificar interações com UI
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -38,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Detecta clique do mouse
         {
+            // Verifica se o clique foi em um elemento da UI
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return; // Não faz nada se o clique foi sobre a UI
+            }
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
