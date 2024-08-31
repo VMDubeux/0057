@@ -1,19 +1,15 @@
-using Unity.VisualScripting;
+using Main_Folders.Scripts.Minimapa;
 using UnityEngine;
 
-namespace Main_Folders.Scripts.Minimapa
+public class ObjectivePosition : MonoBehaviour
 {
-    public class ObjectivePosition : MonoBehaviour
+    void Start()
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-            FindObjectOfType<MarkerHolder>().AddObjectiveMarker(this);
-        }
+        FindAnyObjectByType<MarkerHolder>().AddObjectiveMarker(this);
+    }
 
-        void OnTriggerEnter()
-        {
-            FindObjectOfType<MarkerHolder>().RemoveObjectiveMarker(this);
-        }
+    void OnTriggerEnter()
+    {
+        FindAnyObjectByType<MarkerHolder>().RemoveObjectiveMarker(this);
     }
 }

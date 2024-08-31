@@ -1,66 +1,100 @@
 using Main_Folders.Scripts.Managers;
 using UnityEngine;
+using UnityEngine.AI; // Necessário para trabalhar com NavMeshAgent
 
-namespace Main_Folders.Scripts.Player
+public class PlayerMovement : MonoBehaviour
 {
-    public class PlayerMovement : MonoBehaviour
+    private NavMeshAgent navMeshAgent; // Usando NavMeshAgent em vez de Rigidbody
+    private Animator animatorController;
+    private PartyManager partyManager;
+    public float moveSpeed = 5f;
+    public float rotationSpeed = 10f; // Velocidade de rotação
+    private bool isMoving;
+
+    [SerializeField] private GameObject brute;
+    [SerializeField] private GameObject batato;
+
+    [SerializeField] private LayerMask walkableLayer; // Camada que define o que é caminhável
+
+    void Start()
     {
-        private CharacterController characterController;
-        private Animator animatorController;
-        private PartyManager partyManager;
-        public float moveSpeed = 5;
-        public Vector3 moveInput;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        animatorController = GetComponentInChildren<Animator>();
+        partyManager = FindObjectOfType<PartyManager>();
 
-        [SerializeField] public GameObject brute;
-        [SerializeField] public GameObject batato;
+        // Configura o NavMeshAgent
+        navMeshAgent.speed = moveSpeed;
+        navMeshAgent.angularSpeed = rotationSpeed;
+        navMeshAgent.updateRotation = false; // Para controlar a rotação manualmente
+    }
 
-        void Start()
+    void Update()
+    {
+        if (!DialogueManager.isChatting)
         {
-            characterController = GetComponent<CharacterController>();
-            animatorController = GetComponentInChildren<Animator>();
-            partyManager = FindFirstObjectByType<PartyManager>();
+            HandleInput();
+            MoveToTarget();
+            partyManager.ChangeExpSliderValue();
         }
+    }
 
-        void Update()
+    private void HandleInput()
+    {
+        if (Input.GetMouseButtonDown(0)) // Detecta clique do mouse
         {
-            if (DialogueManager.isChatting == false)
-            {
-                GatherInput();
-                partyManager.ChangeExpSliderValue();
-            }
-        }
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        private void GatherInput()
-        {
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            // Verifica se o clique do mouse está em uma área caminhável
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, walkableLayer))
             {
-                //Input de movimento do player 
-                moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-                //Corrige movimento pela visao isometrica
-                var moveFixed = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0)).MultiplyPoint3x4(moveInput);
-                characterController.Move(moveFixed * Time.deltaTime * moveSpeed);
-                //animacao de corrida
-                animatorController.SetBool("run", true);
-                //rotacao durante movimento do player
-                var relative = (transform.position + moveFixed) - transform.position;
-                var rot = Quaternion.LookRotation(relative, Vector3.up);
-                transform.rotation = rot;
+                // Define o destino do NavMeshAgent para o ponto clicado
+                navMeshAgent.SetDestination(hit.point);
+                isMoving = true; // Inicia a movimentação
             }
             else
             {
-                //parar animacao de corrida
-                animatorController.SetBool("run", false);
+                // Caso não esteja em uma área caminhável, define a movimentação como falsa
+                isMoving = false;
             }
         }
+    }
 
-        public void GiveDripToPlayer()
+    private void MoveToTarget()
+    {
+        if (isMoving)
         {
-            brute.active = true;
-            batato.active = false;
+            // Atualiza a animação
+            animatorController.SetBool("run", true);
 
-            animatorController = brute.GetComponent<Animator>();
+            // Verifica se o personagem chegou ao destino
+            if (Vector3.Distance(transform.position, navMeshAgent.destination) < 0.1f)
+            {
+                isMoving = false;
+                animatorController.SetBool("run", false);
+            }
 
-            partyManager.ChosenDrip(brute, batato);
+            // Controla a rotação manualmente para que o personagem se alinhe com a direção do movimento
+            Vector3 direction = navMeshAgent.velocity.normalized;
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
         }
+        else
+        {
+            animatorController.SetBool("run", false);
+        }
+    }
+
+    public void GiveDripToPlayer()
+    {
+        brute.SetActive(true);
+        batato.SetActive(false);
+
+        animatorController = brute.GetComponent<Animator>();
+
+        partyManager.ChosenDrip(brute, batato);
     }
 }
