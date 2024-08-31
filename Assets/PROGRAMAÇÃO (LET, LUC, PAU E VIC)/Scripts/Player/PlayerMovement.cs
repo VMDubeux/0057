@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
     private NavMeshAgent navMeshAgent; // Usando NavMeshAgent em vez de Rigidbody
     private Animator animatorController;
     private PartyManager partyManager;
-    public float moveSpeed = 5f;
-    public float rotationSpeed = 10f; // Velocidade de rotação
     private bool isMoving;
 
     [SerializeField] private GameObject brute;
@@ -20,11 +18,9 @@ public class PlayerMovement : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animatorController = GetComponentInChildren<Animator>();
-        partyManager = FindObjectOfType<PartyManager>();
+        partyManager = FindAnyObjectByType<PartyManager>();
 
         // Configura o NavMeshAgent
-        navMeshAgent.speed = moveSpeed;
-        navMeshAgent.angularSpeed = rotationSpeed;
         navMeshAgent.updateRotation = false; // Para controlar a rotação manualmente
     }
 
@@ -79,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             if (direction != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, navMeshAgent.angularSpeed * Time.deltaTime);
             }
         }
         else
