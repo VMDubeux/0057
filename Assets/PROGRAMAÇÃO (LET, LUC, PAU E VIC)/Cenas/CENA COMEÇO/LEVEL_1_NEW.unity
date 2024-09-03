@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 72b3ba335126ccf46a8ba4e2a375faf0
+  m_OcclusionCullingData: {fileID: 36300000, guid: f6a7c8160a1847f4d8ae7886f85fc4ca, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -5598,18 +5598,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4873334576267015025, guid: a3e03699e440d624e99b2063537f7271, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902279668547959073, guid: a3e03699e440d624e99b2063537f7271, type: 3}
-      propertyPath: m_Radius
-      value: 0.42791605
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902279668547959073, guid: a3e03699e440d624e99b2063537f7271, type: 3}
-      propertyPath: m_Center.x
-      value: -0.005458355
-      objectReference: {fileID: 0}
+    - target: {fileID: 4711583313236367183, guid: a3e03699e440d624e99b2063537f7271, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 1368759048}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5660,7 +5652,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1080754, y: 0.11807587}
   m_AnchorMax: {x: 0.8727874, y: 0.9127873}
-  m_AnchoredPosition: {x: 0.099975586, y: 2.149994}
+  m_AnchoredPosition: {x: 0.099975586, y: 2.1499634}
   m_SizeDelta: {x: 123.79999, y: -34.299995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867765067
@@ -6216,13 +6208,33 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -31.433037
       objectReference: {fileID: 0}
+    - target: {fileID: 633327019355120737, guid: 757c7f729089c79478dda35473bc7099, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 633327019355120737, guid: 757c7f729089c79478dda35473bc7099, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633327019355120737, guid: 757c7f729089c79478dda35473bc7099, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633327019355120737, guid: 757c7f729089c79478dda35473bc7099, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796499550675859973, guid: 757c7f729089c79478dda35473bc7099, type: 3}
+      propertyPath: m_ClearFlags
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 796499550675859973, guid: 757c7f729089c79478dda35473bc7099, type: 3}
       propertyPath: far clip plane
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 796499550675859973, guid: 757c7f729089c79478dda35473bc7099, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 759
+      value: 1783
       objectReference: {fileID: 0}
     - target: {fileID: 2410048870271941334, guid: 757c7f729089c79478dda35473bc7099, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7721,7 +7733,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7892,12 +7904,12 @@ GameObject:
   - component: {fileID: 5197728359188455998}
   - component: {fileID: 4131805930729037163}
   - component: {fileID: 5197728359188455999}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &71490696260708271
 Transform:
@@ -9156,7 +9168,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12754,7 +12766,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &897527032060000418
 GameObject:
@@ -13186,7 +13198,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &999827383935582221
 GameObject:
@@ -13201,12 +13213,12 @@ GameObject:
   - component: {fileID: 5296067569708418138}
   - component: {fileID: 4631605928421436739}
   - component: {fileID: 9009576482029308412}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!114 &1002505816214205831
 MonoBehaviour:
@@ -13576,12 +13588,12 @@ GameObject:
   - component: {fileID: 2390003409767402576}
   - component: {fileID: 5698797358295888892}
   - component: {fileID: 5698797358295888893}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!205 &1092459591826171686
 LODGroup:
@@ -14408,7 +14420,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15057,7 +15069,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15689,12 +15701,12 @@ GameObject:
   - component: {fileID: 7198704912120275392}
   - component: {fileID: 7792750557427690131}
   - component: {fileID: 7792750557427690132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1555669312673042438
 GameObject:
@@ -15808,12 +15820,12 @@ GameObject:
   - component: {fileID: 4384125564587894841}
   - component: {fileID: 4210846454466499302}
   - component: {fileID: 4588846771750751801}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1579502092937120280
 Transform:
@@ -16046,7 +16058,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19366,12 +19378,12 @@ GameObject:
   - component: {fileID: 4077317430628966370}
   - component: {fileID: 3484894912256914344}
   - component: {fileID: 8542743881259205647}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &2247898537387608082
 GameObject:
@@ -19981,7 +19993,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20632,12 +20644,12 @@ GameObject:
   - component: {fileID: 2953752756214272759}
   - component: {fileID: 777413351467967501}
   - component: {fileID: 2969262937105258787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &2497064826644409260
 GameObject:
@@ -20852,12 +20864,12 @@ GameObject:
   - component: {fileID: 5545220625711767779}
   - component: {fileID: 3860681108300220892}
   - component: {fileID: 5545220625711767780}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!114 &2543130009036542800
 MonoBehaviour:
@@ -23241,7 +23253,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23842,7 +23854,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3031712233462524483
 Transform:
@@ -24346,7 +24358,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24390,7 +24402,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25564,12 +25576,12 @@ GameObject:
   - component: {fileID: 1278462743790101346}
   - component: {fileID: 2596763961658878793}
   - component: {fileID: 3291612290456717160}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!208 &3291612290456717160
 NavMeshObstacle:
@@ -26078,12 +26090,12 @@ GameObject:
   - component: {fileID: 260966708928068162}
   - component: {fileID: 683635756124895601}
   - component: {fileID: 6367730059239694715}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &3399658689634314986
 GameObject:
@@ -26190,7 +26202,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3418567426689789903
 Transform:
@@ -26425,12 +26437,12 @@ GameObject:
   - component: {fileID: 4532949745789598988}
   - component: {fileID: 6250341833316400236}
   - component: {fileID: 6250341833316400237}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &3450881723940505360
 GameObject:
@@ -28309,6 +28321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 0
   m_OverrideGenerateLinks: 0
@@ -29344,7 +29357,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3929827460333215425
 Transform:
@@ -30167,7 +30180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30937,12 +30950,12 @@ GameObject:
   - component: {fileID: 1612548645282834821}
   - component: {fileID: 6454612751013241537}
   - component: {fileID: 6454612751013241538}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.015 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &4236409566098958579
 GameObject:
@@ -31854,6 +31867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -31941,7 +31955,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32692,7 +32706,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34255,12 +34269,12 @@ GameObject:
   - component: {fileID: 3101443564699204329}
   - component: {fileID: 6552833945703193131}
   - component: {fileID: 6552833945703193132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &4770125777872697098
 GameObject:
@@ -34600,12 +34614,12 @@ GameObject:
   - component: {fileID: 5344309269055312384}
   - component: {fileID: 6223436422679222841}
   - component: {fileID: 7845729218326630719}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &4828490945666847110
 GameObject:
@@ -36974,7 +36988,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37182,6 +37196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -37626,7 +37641,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37944,7 +37959,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38308,12 +38323,12 @@ GameObject:
   - component: {fileID: 6183047077731769882}
   - component: {fileID: 1108537219532276645}
   - component: {fileID: 7689275650959442369}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!222 &5409040854863159088
 CanvasRenderer:
@@ -39028,7 +39043,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40788,6 +40803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -41300,7 +41316,7 @@ GameObject:
   - component: {fileID: 1426790082409902950}
   - component: {fileID: 7291859914089543621}
   - component: {fileID: 7291859914089543622}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42553,7 +42569,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -43850,6 +43866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
@@ -47235,12 +47252,12 @@ GameObject:
   - component: {fileID: 60534371895229756}
   - component: {fileID: 5451834381216535444}
   - component: {fileID: 8084819967012248490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &7105883369845843684
 Transform:
@@ -47808,7 +47825,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47881,12 +47898,12 @@ GameObject:
   - component: {fileID: 8657291771487197799}
   - component: {fileID: 4422231344783780034}
   - component: {fileID: 8657291771487197800}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!137 &7205361771058045804
 SkinnedMeshRenderer:
@@ -50422,6 +50439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -51808,6 +51826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -52489,7 +52508,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &7868426861245934616
 MonoBehaviour:
@@ -52503,6 +52522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -52691,7 +52711,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &7886547664920487888
 MonoBehaviour:
@@ -52705,6 +52725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -53971,7 +53992,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -56613,6 +56634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -56723,7 +56745,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -58187,6 +58209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -58590,12 +58613,12 @@ GameObject:
   - component: {fileID: 3102868502208430741}
   - component: {fileID: 2856226771653757966}
   - component: {fileID: 8996955929747272870}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!208 &8996955929747272870
 NavMeshObstacle:
@@ -58765,12 +58788,12 @@ GameObject:
   - component: {fileID: 8088465355750992729}
   - component: {fileID: 7082417057905199855}
   - component: {fileID: 9030534135684984858}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barraco tipo 1.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!208 &9030534135684984858
 NavMeshObstacle:
