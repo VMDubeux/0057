@@ -1,2 +1,12 @@
 fileFormatVersion: 2
 guid: 8a92c979aeb1ace4ebea3a671147e607
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - CanvasGameJuices: {fileID: 2881748799340079551, guid: 7e9753638b20fc048adadd3ba2e6c0b1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
