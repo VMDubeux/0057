@@ -28,7 +28,6 @@ namespace Main_Folders.Scripts.UI
 
         [SerializeField] private Camera minimapCamera;
         [SerializeField] private GameObject minimapGameObject;
-        [SerializeField] private GameObject coordenadasGameObject;
         [SerializeField] private GameObject playerGameObject;
         [SerializeField] private MinimapaSetup[] setup;
 
@@ -110,8 +109,6 @@ namespace Main_Folders.Scripts.UI
                 minimapCamera = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).transform
                     .Find("Camera").GetComponent<Camera>();
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
-                coordenadasGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject
-                    .transform.Find("CoordenadaBussola").gameObject;
                 playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
             }
@@ -138,12 +135,6 @@ namespace Main_Folders.Scripts.UI
                         orientacao.z = playerGameObject.transform.rotation.eulerAngles.y;
 
                         rotacao.eulerAngles = orientacao;
-
-                        coordenadasGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include)
-                            .gameObject
-                            .transform.Find("CoordenadaBussola").gameObject;
-
-                        coordenadasGameObject.transform.rotation = rotacao;
                     }
 
                     break;
