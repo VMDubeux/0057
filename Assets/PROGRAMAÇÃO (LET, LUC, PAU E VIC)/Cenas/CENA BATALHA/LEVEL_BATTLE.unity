@@ -4984,18 +4984,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 6249146986226295659, guid: 376b61dc22c889b48a7bdde9167692fa, type: 3}
-  - {fileID: 6249146986226295659, guid: a6f33811d0d776a47b3cc7fac30a20de, type: 3}
+  - {fileID: 3903109483182574400, guid: cb633d7dfee10a349a0cda52b57439dc, type: 3}
+  - {fileID: 4593699300808683793, guid: 04d8b5ebe975b4f489172a08d714e893, type: 3}
+  - {fileID: 3903109483182574400, guid: 5f2ca472ebd674741b2beb3d73005a55, type: 3}
+  - {fileID: 3903109483182574400, guid: f5f1fc50d2bd1d24eb4df43d4cce92c0, type: 3}
+  - {fileID: 3903109483182574400, guid: cb633d7dfee10a349a0cda52b57439dc, type: 3}
+  - {fileID: 4593699300808683793, guid: 04d8b5ebe975b4f489172a08d714e893, type: 3}
+  - {fileID: 3903109483182574400, guid: 5f2ca472ebd674741b2beb3d73005a55, type: 3}
+  - {fileID: 3903109483182574400, guid: f5f1fc50d2bd1d24eb4df43d4cce92c0, type: 3}
+  - {fileID: 3903109483182574400, guid: cb633d7dfee10a349a0cda52b57439dc, type: 3}
+  - {fileID: 4593699300808683793, guid: 04d8b5ebe975b4f489172a08d714e893, type: 3}
+  - {fileID: 3903109483182574400, guid: 5f2ca472ebd674741b2beb3d73005a55, type: 3}
+  - {fileID: 3903109483182574400, guid: f5f1fc50d2bd1d24eb4df43d4cce92c0, type: 3}
   - {fileID: 5985246791289866782, guid: 2ca90fcf03fc7ab47ab11c6ecf5640d6, type: 3}
-  - {fileID: 4593699300808683793, guid: ef230848b8646c842b92558e47699c6b, type: 3}
   - {fileID: 5985246791289866782, guid: 2ca90fcf03fc7ab47ab11c6ecf5640d6, type: 3}
-  - {fileID: 4593699300808683793, guid: ef230848b8646c842b92558e47699c6b, type: 3}
   - {fileID: 5985246791289866782, guid: 2ca90fcf03fc7ab47ab11c6ecf5640d6, type: 3}
-  - {fileID: 4593699300808683793, guid: ef230848b8646c842b92558e47699c6b, type: 3}
-  - {fileID: 6249146986226295659, guid: a6f33811d0d776a47b3cc7fac30a20de, type: 3}
-  - {fileID: 6249146986226295659, guid: 376b61dc22c889b48a7bdde9167692fa, type: 3}
-  - {fileID: 4989792092866745549, guid: ab5368db02188554f8652f5cc5c2c80a, type: 3}
-  - {fileID: 4989792092866745549, guid: ab5368db02188554f8652f5cc5c2c80a, type: 3}
 --- !u!1 &7311588806680398577
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class GraciousEffect : CardEffect
     {
         foreach (BattleVisuals battleVisuals in StateMachine.Instance.Units)
         {
-            if (battleVisuals.HP > 0 && battleVisuals.CompareTag("Player"))
+            if (battleVisuals.HP > 0 && battleVisuals is PlayerUnit)
             {
                 targets.Add(battleVisuals);
                 battleVisuals.GetComponent<PlayerUnit>().Graciosidade += graciousAmount;

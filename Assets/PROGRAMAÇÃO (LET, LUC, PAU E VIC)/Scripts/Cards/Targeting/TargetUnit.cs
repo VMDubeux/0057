@@ -23,6 +23,7 @@ public class TargetUnit : MonoBehaviour, ITarget
         foreach(BattleVisuals battleVisuals in StateMachine.Instance.Units){
             battleVisuals.onBattleVisualsClicked -= OnBattleVisualsClicked;
         }
+        Debug.Log(_clickedVisuals);
     }
 
     void OnBattleVisualsClicked(BattleVisuals battleVisuals) 
