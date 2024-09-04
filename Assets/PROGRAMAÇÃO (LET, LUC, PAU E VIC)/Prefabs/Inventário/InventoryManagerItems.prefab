@@ -44,8 +44,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69055a244013df440b7d2e82f9c97436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items: []
-  Inventory: {fileID: 0}
-  ItemContent: {fileID: 0}
-  InventoryItemBackground: {fileID: 5558179635586784999, guid: 5e9d69002dd769c408a4842d9ceda759, type: 3}
-  EnableRemove: {fileID: 0}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventoryList:
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  - type: 0
+    id: 0
+    pathName: {fileID: 0}
+    pathNumber: {fileID: 0}
+    pathIcon: {fileID: 0}
+    pathRemoveButton: {fileID: 0}
+    itemQuantity: 0
+    inventoryItemController: {fileID: 0}
+  inventory: {fileID: 0}
+  itemContent: {fileID: 0}
+  cardContent: {fileID: 0}
+  inventoryItemBackground: {fileID: 5558179635586784999, guid: 5e9d69002dd769c408a4842d9ceda759, type: 3}
+  enableRemove: {fileID: 0}

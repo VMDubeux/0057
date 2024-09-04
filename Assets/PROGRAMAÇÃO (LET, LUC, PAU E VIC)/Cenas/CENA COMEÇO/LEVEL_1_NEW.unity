@@ -30683,29 +30683,29 @@ PrefabInstance:
       value: InventoryManager
       objectReference: {fileID: 0}
     - target: {fileID: 7302193857902613733, guid: 15d45190b69444946a8f5e66af7153cf, type: 3}
-      propertyPath: Inventory
+      propertyPath: inventory
       value: 
       objectReference: {fileID: 1866579830963716599}
     - target: {fileID: 7302193857902613733, guid: 15d45190b69444946a8f5e66af7153cf, type: 3}
-      propertyPath: CardContent
+      propertyPath: cardContent
       value: 
       objectReference: {fileID: 205622453}
     - target: {fileID: 7302193857902613733, guid: 15d45190b69444946a8f5e66af7153cf, type: 3}
-      propertyPath: ItemContent
+      propertyPath: itemContent
       value: 
       objectReference: {fileID: 3360619382988526853}
     - target: {fileID: 7302193857902613733, guid: 15d45190b69444946a8f5e66af7153cf, type: 3}
-      propertyPath: EnableRemove
+      propertyPath: enableRemove
       value: 
       objectReference: {fileID: 3466285721194250521}
     - target: {fileID: 7302193857902613733, guid: 15d45190b69444946a8f5e66af7153cf, type: 3}
-      propertyPath: CardsViewport
+      propertyPath: 'contentTransforms.Array.data[0]'
       value: 
-      objectReference: {fileID: 5004053892886769909}
+      objectReference: {fileID: 3360619382988526853}
     - target: {fileID: 7302193857902613733, guid: 15d45190b69444946a8f5e66af7153cf, type: 3}
-      propertyPath: ItensViewport
+      propertyPath: 'contentTransforms.Array.data[1]'
       value: 
-      objectReference: {fileID: 1685250078}
+      objectReference: {fileID: 205622453}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

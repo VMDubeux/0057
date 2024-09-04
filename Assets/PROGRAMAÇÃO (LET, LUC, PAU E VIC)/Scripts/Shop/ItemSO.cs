@@ -12,6 +12,7 @@ public class ItemSO
     {
         switch (itemType)
         {
+            case ItemType.None:
             default:
             case ItemType.CartaComum: return 1;
             case ItemType.PerfumePeq: return 2;
@@ -26,6 +27,7 @@ public class ItemSO
     {
         switch (itemType)
         {
+            case ItemType.None:
             default:
             case ItemType.CartaComum: return "Carta Comum";
             case ItemType.PerfumePeq: return "Perfume Pequeno";
@@ -40,6 +42,7 @@ public class ItemSO
     {
         switch (itemType)
         {
+            case ItemType.None:
             default:
             case ItemType.CartaComum: return 20;
             case ItemType.PerfumePeq: return 2;
@@ -54,6 +57,7 @@ public class ItemSO
     {
         switch (itemType)
         {
+            case ItemType.None:
             default:
             case ItemType.CartaComum: return GameAssets.i.CartaComum;
             case ItemType.PerfumePeq: return GameAssets.i.PerfumePeq;

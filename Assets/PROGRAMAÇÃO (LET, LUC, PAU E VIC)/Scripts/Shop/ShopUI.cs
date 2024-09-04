@@ -26,7 +26,7 @@ namespace Main_Folders.Scripts.Shop
 
             for (int i = 0; i < 8; i++)
             {
-                int random = Random.Range(0, 4);
+                int random = Random.Range(0, 6);
                 item.itemType = ItemSO.GetItemType(random);
                 CreateItemButton(item.itemType, ItemSO.GetSprite(item.itemType), ItemSO.GetName(item.itemType), ItemSO.GetCost(item.itemType));
             }

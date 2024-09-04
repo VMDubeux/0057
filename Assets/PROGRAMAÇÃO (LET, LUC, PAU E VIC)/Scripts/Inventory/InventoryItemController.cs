@@ -46,6 +46,18 @@ namespace Main_Folders.Scripts.Inventory
             switch (item.ItemType)
             {
                 default:
+                case ItemType.CartaComum:
+                    Debug.Log($"Carta Comum enviada ao Deck");
+                    InventoryManager.Instance.Remove(item);
+                    break;
+                case ItemType.CartaEsp:
+                    Debug.Log($"Carta Especial enviada ao Deck");
+                    InventoryManager.Instance.Remove(item);
+                    break;
+                case ItemType.CartaMed:
+                    Debug.Log($"Carta Média enviada ao Deck");
+                    InventoryManager.Instance.Remove(item);
+                    break;
                 case ItemType.PerfumePeq:
                     partyManager.SetStatsValues(0, 20);
                     Debug.Log($"Aumentou HP Máximo: {battleVisual.GetComponent<Unit>()._stats[0].Value}");

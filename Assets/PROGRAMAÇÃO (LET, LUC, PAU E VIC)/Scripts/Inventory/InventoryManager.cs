@@ -1,105 +1,105 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Main_Folders.Scripts.Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
-        public static InventoryManager Instance;
+        public static InventoryManager Instance { get; private set; }
 
-        [SerializeField] private ItemPickUp[] Items;
+        [Header("Itens do Inventário")]
+        [SerializeField] private ItemPickUp[] items = new ItemPickUp[10];
+        [SerializeField] private InventoryItem[] inventoryList = new InventoryItem[10];
 
-        [Header("Referencias na HUD")] public GameObject Inventory;
-        public Transform ItemContent;
-        public Transform CardContent;
-        public GameObject InventoryItemBackground;
-        public Toggle EnableRemove;
-
-        [SerializeField] private InventoryItem[] InventoryList;
+        [Header("Referências na HUD")]
+        [SerializeField] private GameObject inventory;
+        [SerializeField] private Transform[] contentTransforms = new Transform[2]; // 0: Itens, 1: Cartas
+        [SerializeField] private GameObject inventoryItemBackground;
+        [SerializeField] private Toggle enableRemove;
 
         private void Awake()
         {
-            if (Instance != null)
+            if (Instance == null)
             {
-                Destroy(this);
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
-                Instance = this;
+                Destroy(gameObject);
             }
-
-            Items = new ItemPickUp[5];
-            InventoryList = new InventoryItem[5];
         }
 
         public void Add(ItemPickUp itemPickUp)
         {
-            if (Items[itemPickUp.Id] == null)
+            if (itemPickUp == null) return;
+
+            if (items[itemPickUp.Id] == null)
             {
                 Debug.Log("Criou objeto!");
-                Items[itemPickUp.Id] = itemPickUp;
+                items[itemPickUp.Id] = itemPickUp;
                 CreateInventoryItem(itemPickUp);
             }
             else
             {
                 Debug.Log("Aumentou quantidade!");
-                Items[itemPickUp.Id].InventoryItem.itemQuantity++;
-                Items[itemPickUp.Id].InventoryItem.pathNumber.text =
-                    Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
+                UpdateItemQuantity(itemPickUp, items[itemPickUp.Id].InventoryItem.itemQuantity + 1);
             }
         }
 
         public void Remove(ItemPickUp itemPickUp)
         {
-            if (Items[itemPickUp.Id].InventoryItem.itemQuantity > 1)
+            if (itemPickUp == null || items[itemPickUp.Id] == null) return;
+
+            if (items[itemPickUp.Id].InventoryItem.itemQuantity > 1)
             {
                 Debug.Log("Removeu quantidade!");
-                Items[itemPickUp.Id].InventoryItem.itemQuantity--;
-                Items[itemPickUp.Id].InventoryItem.pathNumber.text =
-                    Items[itemPickUp.Id].InventoryItem.itemQuantity.ToString();
+                UpdateItemQuantity(itemPickUp, items[itemPickUp.Id].InventoryItem.itemQuantity - 1);
             }
             else
             {
                 Debug.Log("Removeu objeto!");
-                ItemPickUp[] search =
-                    FindObjectsByType<ItemPickUp>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
-                Debug.Log(search.Length);
-                for (int i = 0; i < search.Length; i++)
-                {
-                    if (search[i].ItemType == itemPickUp.ItemType && !search[i].isActiveAndEnabled)
-                    {
-                        Debug.Log("ENTROU!");
-                        search[i].DestroyIt();
-                    }
-                }
-
-                Items[itemPickUp.Id] = null;
-                InventoryList[itemPickUp.InventoryItem.id].inventoryItemController.Destroy();
-                InventoryList[itemPickUp.InventoryItem.id] = null;
-                //itemPickUp.DestroyIt();
+                DestroyInactiveItem(itemPickUp);
+                ClearItemData(itemPickUp);
             }
         }
 
-        public void CreateInventoryItem(ItemPickUp itemPickUp)
+        private void UpdateItemQuantity(ItemPickUp itemPickUp, int newQuantity)
         {
-            Transform Content;
+            items[itemPickUp.Id].InventoryItem.itemQuantity = newQuantity;
+            items[itemPickUp.Id].InventoryItem.pathNumber.text = newQuantity.ToString();
+        }
 
-            if (itemPickUp.ItemType == ItemType.CartaComum ||
-                itemPickUp.ItemType == ItemType.CartaMed ||
-                itemPickUp.ItemType == ItemType.CartaEsp)
+        private void DestroyInactiveItem(ItemPickUp itemPickUp)
+        {
+            ItemPickUp[] search = FindObjectsOfType<ItemPickUp>(true);
+            foreach (var item in search)
             {
-                Content = CardContent;
+                if (item.ItemType == itemPickUp.ItemType && !item.isActiveAndEnabled)
+                {
+                    item.DestroyIt();
+                    break; // Assuming only one item needs to be destroyed.
+                }
             }
-            else
+        }
+
+        private void ClearItemData(ItemPickUp itemPickUp)
+        {
+            items[itemPickUp.Id] = null;
+            if (inventoryList[itemPickUp.InventoryItem.id] != null)
             {
-                Content = ItemContent;
+                inventoryList[itemPickUp.InventoryItem.id].inventoryItemController.Destroy();
+                inventoryList[itemPickUp.InventoryItem.id] = null;
             }
+        }
 
-            GameObject obj = Instantiate(InventoryItemBackground, Content);
+        private void CreateInventoryItem(ItemPickUp itemPickUp)
+        {
+            Transform content = GetContentForItem(itemPickUp.ItemType);
+            GameObject obj = Instantiate(inventoryItemBackground, content);
 
-            InventoryItem Item = new()
+            InventoryItem item = new InventoryItem
             {
                 type = itemPickUp.ItemType,
                 pathName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>(),
@@ -108,50 +108,51 @@ namespace Main_Folders.Scripts.Inventory
                 pathRemoveButton = obj.transform.Find("RemoveButton").GetComponent<Button>()
             };
 
-            Item.pathName.text = ItemSO.GetName(itemPickUp.ItemType);
-            Item.pathIcon.sprite = ItemSO.GetSprite(itemPickUp.ItemType);
-            Item.id = ItemSO.GetId(itemPickUp.ItemType);
-            Item.itemQuantity++;
-            Item.pathNumber.text = Item.itemQuantity.ToString();
+            item.pathName.text = ItemSO.GetName(itemPickUp.ItemType);
+            item.pathIcon.sprite = ItemSO.GetSprite(itemPickUp.ItemType);
+            item.id = ItemSO.GetId(itemPickUp.ItemType);
+            item.itemQuantity = 1;
+            item.pathNumber.text = item.itemQuantity.ToString();
 
-            itemPickUp.InventoryItem = Item;
+            itemPickUp.InventoryItem = item;
+            inventoryList[item.id] = item;
 
-            InventoryList[Item.id] = Item;
+            item.inventoryItemController = obj.GetComponent<InventoryItemController>();
+            item.inventoryItemController.AddItem(item, itemPickUp);
+        }
 
-            Item.inventoryItemController = obj.GetComponent<InventoryItemController>();
-
-            Item.inventoryItemController.AddItem(Item, itemPickUp);
+        private Transform GetContentForItem(ItemType itemType)
+        {
+            switch (itemType)
+            {
+                case ItemType.CartaComum:
+                case ItemType.CartaMed:
+                case ItemType.CartaEsp:
+                    return contentTransforms[1]; // Cartas
+                default:
+                    return contentTransforms[0]; // Itens
+            }
         }
 
         public void EnableItemRemove()
         {
-            if (EnableRemove.isOn)
+            bool isActive = enableRemove.isOn;
+            foreach (Transform item in contentTransforms[0])
             {
-                foreach (Transform item in ItemContent)
-                {
-                    item.Find("RemoveButton").gameObject.SetActive(true);
-                }
+                item.Find("RemoveButton").gameObject.SetActive(isActive);
             }
-            else
+            foreach (Transform item in contentTransforms[1])
             {
-                foreach (Transform item in ItemContent)
-                {
-                    item.Find("RemoveButton").gameObject.SetActive(false);
-                }
+                item.Find("RemoveButton").gameObject.SetActive(isActive);
             }
         }
 
-        void InventoryActive()
+        private void Update()
         {
-            if (!Inventory.activeSelf)
+            if (!inventory.activeSelf)
             {
-                EnableRemove.isOn = false;
+                enableRemove.isOn = false;
             }
-        }
-
-        void OnGUI()
-        {
-            InventoryActive();
         }
     }
 
@@ -164,7 +165,7 @@ namespace Main_Folders.Scripts.Inventory
         public TextMeshProUGUI pathNumber;
         public Image pathIcon;
         public Button pathRemoveButton;
-        public int itemQuantity = 0;
-        [FormerlySerializedAs("inventoryItem")] public InventoryItemController inventoryItemController;
+        public int itemQuantity;
+        public InventoryItemController inventoryItemController;
     }
 }
