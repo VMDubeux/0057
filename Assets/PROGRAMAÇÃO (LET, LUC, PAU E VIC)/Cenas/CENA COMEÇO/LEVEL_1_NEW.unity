@@ -20141,6 +20141,10 @@ PrefabInstance:
       propertyPath: CanvasGameJuices
       value: 
       objectReference: {fileID: 404985932}
+    - target: {fileID: 7103676032538726102, guid: 46346bfebb04f62478587dd913aab9d8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ac44221f3aeaf448bbc1cece67532d0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50367,6 +50371,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 264583802467794755, guid: 6f5ebc7f5a58e6c4bad4e7ee99a4df0c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bbd14a21c9c70884eb7e23fc2da0bd34, type: 2}
     - target: {fileID: 693752876064941924, guid: 6f5ebc7f5a58e6c4bad4e7ee99a4df0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.299437
