@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Main_Folders.Scripts.Inventory;
+using Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
 using Unity.VisualScripting;
 using UnityEngine;
 

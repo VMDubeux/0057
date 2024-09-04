@@ -3,27 +3,25 @@ using Main_Folders.Scripts.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Main_Folders.Scripts.Inventory
+namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
 {
     public class InventoryItemController : MonoBehaviour
     {
-        [SerializeField] private InventoryItem ItemInventory;
-        [SerializeField] private ItemPickUp ItemPickUp;
+        [SerializeField] private ItemPickUp itemPickUp; // Item atual associado a este controlador
+        private InventoryItem itemInventory; // Item de inventário associado a este controlador
 
         private void Start()
         {
-            gameObject.GetComponent<Button>().onClick
-                .AddListener(delegate { UseItem(ItemPickUp); }); // Chama método de uso dos itens
-            
-            DontDestroyOnLoad(this);
+            // Configura o botão para chamar UseItem no clique
+            GetComponent<Button>().onClick.AddListener(() => UseItem(itemPickUp));
+
+            DontDestroyOnLoad(gameObject);
         }
 
         public void RemoveItem()
         {
-            //Button RemoveButton = transform.GetComponentInChildren<Button>();
-            InventoryManager.Instance.Remove(ItemPickUp);
-            //Item.Destroy();
-            //Destroy(gameObject);
+            Debug.Log($"Removing item: {itemPickUp}");
+            InventoryManager.Instance.Remove(itemPickUp);
         }
 
         public void Destroy()
@@ -31,38 +29,38 @@ namespace Main_Folders.Scripts.Inventory
             Destroy(gameObject);
         }
 
-        public void AddItem(InventoryItem newItem, ItemPickUp Item)
+        public void AddItem(InventoryItem newItem, ItemPickUp item)
         {
-            ItemInventory = newItem;
-            ItemPickUp = Item;
+            itemInventory = newItem; // Atualiza o item de inventário
+            itemPickUp = item; // Atualiza o item pick up associado
             DontDestroyOnLoad(gameObject);
         }
 
         public void UseItem(ItemPickUp item)
         {
+            Debug.Log($"Using item: {item}");
             GameObject battleVisual = GameObject.FindAnyObjectByType<PartyManager>().allMember[0].gameObject;
             PartyManager partyManager = GameObject.FindAnyObjectByType<PartyManager>();
 
-            switch (item.ItemType)
+            // Cria uma cópia do item para evitar perder a referência
+            ItemPickUp itemCopy = Instantiate(item);
+
+            switch (itemCopy.ItemType)
             {
-                default:
                 case ItemType.CartaComum:
-                    Debug.Log($"Carta Comum enviada ao Deck");
-                    InventoryManager.Instance.Remove(item);
-                    break;
                 case ItemType.CartaEsp:
-                    Debug.Log($"Carta Especial enviada ao Deck");
-                    InventoryManager.Instance.Remove(item);
-                    break;
                 case ItemType.CartaMed:
-                    Debug.Log($"Carta Média enviada ao Deck");
-                    InventoryManager.Instance.Remove(item);
+                    Debug.Log($"{itemCopy.ItemType} enviada ao Deck");
+                    AddToDeckCanvas(item);
+                    InventoryManager.Instance.Remove(itemCopy);
                     break;
+
                 case ItemType.PerfumePeq:
                     partyManager.SetStatsValues(0, 20);
                     Debug.Log($"Aumentou HP Máximo: {battleVisual.GetComponent<Unit>()._stats[0].Value}");
                     InventoryManager.Instance.Remove(item);
                     break;
+
                 case ItemType.PerfumeMed:
                     if (battleVisual.GetComponent<PlayerUnit>().DrawAmount == 7) return;
                     ChangeValues(ref battleVisual.GetComponent<PlayerUnit>().DrawAmount, 1);
@@ -70,6 +68,7 @@ namespace Main_Folders.Scripts.Inventory
                     Debug.Log($"Aumentou Draw Amount: {battleVisual.GetComponent<PlayerUnit>().DrawAmount}");
                     InventoryManager.Instance.Remove(item);
                     break;
+
                 case ItemType.PerfumeGrd:
                     if (battleVisual.GetComponent<PlayerUnit>().MaxEnergy == 6) return;
                     ChangeValues(ref battleVisual.GetComponent<PlayerUnit>().MaxEnergy, 1);
@@ -80,7 +79,33 @@ namespace Main_Folders.Scripts.Inventory
             }
         }
 
-        void ChangeValues(ref int valueRef, int valueChange)
+        private void AddToDeckCanvas(ItemPickUp item)
+        {
+            // Encontrar o Canvas do Deck, mesmo que esteja inativo
+            GameObject deckCanvasObject = GameObject.FindAnyObjectByType<CanvasDeck>(FindObjectsInactive.Include)?.gameObject;
+
+            if (deckCanvasObject == null)
+            {
+                Debug.LogError("Deck Canvas não encontrado!");
+                return;
+            }
+
+            // Encontrar os botões do Deck
+            DeckItemController[] deckButtons = deckCanvasObject.GetComponentsInChildren<DeckItemController>(true);
+
+            // Adicionar o item ao primeiro botão disponível
+            foreach (DeckItemController deckButton in deckButtons)
+            {
+                if (deckButton.IsEmpty())
+                {
+                    // Adiciona a referência ao item pick-up
+                    deckButton.Setup(item, ItemSO.GetSprite(item.ItemType));
+                    break;
+                }
+            }
+        }
+
+        private void ChangeValues(ref int valueRef, int valueChange)
         {
             valueRef += valueChange;
         }

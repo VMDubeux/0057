@@ -1,4 +1,4 @@
-using Main_Folders.Scripts.Inventory;
+using Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
 using UnityEngine;
 
 namespace Main_Folders.Scripts.Player

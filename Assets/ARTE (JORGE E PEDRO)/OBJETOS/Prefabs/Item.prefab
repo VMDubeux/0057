@@ -355,6 +355,15 @@ MonoBehaviour:
     itemQuantity: 0
     inventoryItemController: {fileID: 0}
   ItemPickUp: {fileID: 0}
+  deckCanvas: {fileID: 0}
+  deckImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5944478470365129005
 GameObject:
   m_ObjectHideFlags: 0
