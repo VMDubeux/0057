@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanvasGameJuices: {fileID: 0}
+  _assetKey: 
 --- !u!114 &258182247502788182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950030622836930796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c43c6b76e9af6d4aa6f4638d8aed358, type: 3}
   m_Name: 
@@ -381,7 +382,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 9dd58977dae880e4fabdea0958e40f85, type: 3}
+  - {fileID: 2100000, guid: 3ac44221f3aeaf448bbc1cece67532d0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

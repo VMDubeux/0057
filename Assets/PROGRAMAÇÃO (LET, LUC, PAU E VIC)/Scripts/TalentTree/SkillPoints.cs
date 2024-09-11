@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -8,44 +7,66 @@ public class SkillPoints : MonoBehaviour
 {
     public int skillPoints;
     public TextMeshProUGUI sP_text;
-    public GameObject[] upgradeButtons; 
-    bool disableUpgradeButton = false;
+    public GameObject[] upgradeButtons;
 
     private void Start()
     {
+        // Atualiza a UI no início
+        UpdateSkillPointsUI();
+    }
+
+    private void UpdateSkillPointsUI()
+    {
         sP_text.text = "Skill Points: " + skillPoints;
     }
-    private void Update()
-    {
-        if(disableUpgradeButton == true)
-        {
-            disableUpgradeButton = false;
-            foreach(GameObject g in upgradeButtons)
-            {
-                if (g.GetComponent<Button>().interactable == true)
-                {
-                    g.SetActive(false);
-                }
-            }
-        }
-    }
+
     public void UseSkillPoint()
     {
-        skillPoints--;
-        sP_text.text = "Skill Points: " + skillPoints;
-        if(skillPoints == 0)
+        if (skillPoints > 0)
         {
-            disableUpgradeButton = true;
-        }
-    }
-    public void LevelUp()
-    {
-        skillPoints++;
-        sP_text.text = "Skill Points: " + skillPoints;
-        foreach(GameObject g in upgradeButtons)
-        {
-            g.GetComponent<SkillUpgrade>().CheckUpgrades();
+            skillPoints--;
+            UpdateSkillPointsUI();
+
+            if (skillPoints == 0)
+            {
+                DisableUpgradeButtons();
+            }
+
+            // Atualiza os botões de upgrade
+            UpdateUpgradeButtons();
         }
     }
 
+    public void LevelUp()
+    {
+        skillPoints++;
+        UpdateSkillPointsUI();
+
+        // Atualiza os botões de upgrade
+        UpdateUpgradeButtons();
+    }
+
+    private void UpdateUpgradeButtons()
+    {
+        foreach (GameObject buttonObject in upgradeButtons)
+        {
+            SkillUpgrade skillUpgrade = buttonObject.GetComponent<SkillUpgrade>();
+            if (skillUpgrade != null)
+            {
+                skillUpgrade.CheckUpgrades();
+            }
+        }
+    }
+
+    private void DisableUpgradeButtons()
+    {
+        foreach (GameObject buttonObject in upgradeButtons)
+        {
+            Button buttonComponent = buttonObject.GetComponent<Button>();
+            if (buttonComponent != null)
+            {
+                buttonComponent.interactable = false;
+            }
+        }
+    }
 }

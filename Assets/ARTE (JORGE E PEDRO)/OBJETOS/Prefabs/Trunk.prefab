@@ -278,6 +278,8 @@ MonoBehaviour:
   CanvasGameJuices: {fileID: 0}
   _lightGameJuice: {fileID: 969402479744107793}
   _particleGameJuice: {fileID: 2455173106258052110}
+  _itemPrefab: {fileID: 0}
+  _possibleItemTypes: 0500000000000000010000000400000002000000
 --- !u!114 &7854939337004954012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5323,7 +5325,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -824685834980454842, guid: 3a55a859b44110242bb7b6283a89a84c, type: 3}
+  - {fileID: 2100000, guid: bbd14a21c9c70884eb7e23fc2da0bd34, type: 2}
   - {fileID: 1164219100109008899, guid: 3a55a859b44110242bb7b6283a89a84c, type: 3}
   - {fileID: 6187170639472748419, guid: 3a55a859b44110242bb7b6283a89a84c, type: 3}
   m_StaticBatchInfo:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
+using NUnit.Framework.Internal.Commands;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -47,5 +48,17 @@ public class ItemPickUp : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PickUp();
+    }
+
+    internal void ExternalSetupItem(ItemType type)
+    {
+        Id = ItemSO.GetId(type);
+        Name = ItemSO.GetName(type);
+        Cost = ItemSO.GetCost(type);
+        Sprite = ItemSO.GetSprite(type);
+        if (PlayerPrefs.HasKey(Id + Name + identity))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

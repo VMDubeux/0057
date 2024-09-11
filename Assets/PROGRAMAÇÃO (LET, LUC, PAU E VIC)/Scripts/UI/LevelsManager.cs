@@ -12,6 +12,8 @@ namespace Main_Folders.Scripts.UI
     {
         public static LevelsManager Instance;
 
+        public SkillPoints skillPointsScript;
+
         internal bool isTalking = false;
 
         [SerializeField] private GameObject PauseCanvasMenu;
