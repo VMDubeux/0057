@@ -1086,7 +1086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &243366207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6771,6 +6771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682727905}
   - component: {fileID: 1682727906}
+  - component: {fileID: 1682727907}
   m_Layer: 0
   m_Name: RespawnPoint
   m_TagString: Untagged
@@ -6787,7 +6788,7 @@ Transform:
   m_GameObject: {fileID: 1682727904}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.14, y: 0.03, z: -9.36}
+  m_LocalPosition: {x: 32, y: 0, z: -9.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6814,7 +6815,19 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 3.1634505, z: 1.7347689}
-  m_Center: {x: 0, y: 1.6196641, z: -0.03876877}
+  m_Center: {x: 0, y: 1.6196641, z: 0}
+--- !u!114 &1682727907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682727904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac494e01071fda04195f63dabf4909b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1685250078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 856591927058959467, guid: fe85fd92c3b152548a36a42cbaed2908, type: 3}
@@ -11507,7 +11520,7 @@ Transform:
   m_GameObject: {fileID: 919132147726035079}
   serializedVersion: 2
   m_LocalRotation: {x: -0.01094926, y: 0.7070222, z: 0.7070219, w: 0.010949218}
-  m_LocalPosition: {x: 3.5, y: 2.32, z: -0.86}
+  m_LocalPosition: {x: 0, y: 2.4, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []

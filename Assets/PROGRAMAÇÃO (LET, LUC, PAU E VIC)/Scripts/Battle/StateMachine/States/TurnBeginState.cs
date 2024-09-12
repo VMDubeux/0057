@@ -2,6 +2,7 @@ using System.Collections;
 using Main_Folders.Scripts.Managers;
 using Main_Folders.Scripts.Units;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Main_Folders.Scripts.StateMachine.States
 {
@@ -59,13 +60,17 @@ namespace Main_Folders.Scripts.StateMachine.States
                 else
                 {
                     //player retorna ao respawnPoint
-                    Transform respawnPoint = GameObject.Find("RespawnPoint").transform;
+                    Transform respawnPoint = FindFirstObjectByType<RespawnPoint>(FindObjectsInactive.Include).transform;
                     player.transform.position = new Vector3(respawnPoint.position.x - 1, player.transform.position.y,
                         respawnPoint.position.z);
+                    player.GetComponent<NavMeshAgent>().SetDestination(player.transform.position);
                     yield return new WaitForSeconds(7.5f);
                 }
 
+                FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include)
+                        .GetComponent<EncounterSystem>().battleActive = false;
                 EnemyMovementStates.OnStartCombat -= EncounterDefinition.Verification;
+
                 StartCoroutine(WaitThenChangeState<EndBattleState>());
             }
             else

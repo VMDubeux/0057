@@ -80,10 +80,11 @@ public abstract class EnemyMovementStates : MonoBehaviour
         if (OnStartCombat == null && _currentState == State.Battle)
         {
             if (gameObject.GetComponent<Unit>().hasFought == true)
+            {
                 SwitchStates(State.Dead);
+            }
             else
             {
-                _animator.SetBool("EnemyWin", true);
                 _animator.SetBool("OnBattle", false);
                 gameObject.transform.position = _startPos;
                 SwitchStates(State.Patrol);
@@ -135,9 +136,9 @@ public abstract class EnemyMovementStates : MonoBehaviour
 
     protected void HandleDead()
     {
-        _animator.SetBool("OnBattle", false);
-        _animator.SetBool("EnemyWin", false);
+        _animator.SetTrigger("PlayerWin");
         Debug.Log("Iniciar animação de morte");
+        _animator.SetBool("OnBattle", false);
         //Destroy(gameObject);
         //Substituir por animação de morte depois
         // Inserir um delegate para somente destruir o objeto ou tocar a animação após o drop da carta
