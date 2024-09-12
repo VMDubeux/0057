@@ -2076,6 +2076,7 @@ GameObject:
   - component: {fileID: 6997833956847732603}
   - component: {fileID: 184739308638023529}
   - component: {fileID: 2925894863842148119}
+  - component: {fileID: 6217249357484787559}
   - component: {fileID: 2068643019469489120}
   - component: {fileID: 4609979309438353704}
   m_Layer: 0
@@ -2227,6 +2228,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardsToDrop:
   - {fileID: 323725989227656799, guid: 1b358e9dd9322be43b266fc7dd07b278, type: 3}
+--- !u!114 &6217249357484787559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7837898937811390560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa958e8e30bbac749a14b9783fd1a710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &2068643019469489120
 BoxCollider:
   m_ObjectHideFlags: 0

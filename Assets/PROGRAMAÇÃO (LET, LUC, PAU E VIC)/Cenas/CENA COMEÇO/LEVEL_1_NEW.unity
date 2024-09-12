@@ -3725,6 +3725,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3512660122652239401, guid: a3e03699e440d624e99b2063537f7271, type: 3}
+      propertyPath: m_Name
+      value: MinimapCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 4711583313236367183, guid: a3e03699e440d624e99b2063537f7271, type: 3}
       propertyPath: Camera
       value: 
@@ -6756,11 +6760,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628620327}
   m_Mesh: {fileID: -4550333048667864503, guid: 0273d9b39d94dd543a0e593fef52a8d7, type: 3}
---- !u!20 &1650951331 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 7727373221056867040, guid: a3e03699e440d624e99b2063537f7271, type: 3}
-  m_PrefabInstance: {fileID: 790100430}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1682727904
 GameObject:
   m_ObjectHideFlags: 0
@@ -8613,6 +8612,103 @@ RectTransform:
   m_AnchoredPosition: {x: -607, y: 258.9}
   m_SizeDelta: {x: 150, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1938610167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938610169}
+  - component: {fileID: 1938610168}
+  - component: {fileID: 1938610170}
+  m_Layer: 8
+  m_Name: CameraMinimap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!20 &1938610168
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938610167}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 100
+  field of view: 60
+  orthographic: 1
+  orthographic size: 35
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1857
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: d230892e3a0001342befebe076a49a33, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1938610169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938610167}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 80, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1938610170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938610167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf9dbed0dcb99c4ca5f0fec9c6e8b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 366713010}
 --- !u!1 &1944845788
 GameObject:
   m_ObjectHideFlags: 0
@@ -20315,9 +20411,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markerPrefab: {fileID: 6509466769042766619, guid: 1052f3bb13fc6c34c9bc531139b59317, type: 3}
+  enemyMarkerPrefab: {fileID: 6509466769042766619, guid: cf136f0e85dd6cf4594399010af85fef, type: 3}
   playerObject: {fileID: 524508086}
   markerParentRectTransform: {fileID: 3598796046836063473}
-  minimapCamera: {fileID: 1650951331}
+  minimapCamera: {fileID: 1938610168}
 --- !u!224 &3906714118478777822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26823,7 +26920,7 @@ MonoBehaviour:
   CameraPivot: {fileID: 1368759049}
   EventSystem: {fileID: 0}
   Light: {fileID: 0}
-  minimapCamera: {fileID: 1650951331}
+  minimapCamera: {fileID: 1938610168}
   minimapGameObject: {fileID: 0}
   playerGameObject: {fileID: 0}
   setup:
@@ -36192,6 +36289,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1925408743}
   - {fileID: 1368759047}
+  - {fileID: 1938610169}
   - {fileID: 2145863893}
   - {fileID: 803467396}
   - {fileID: 9161517004944312441}

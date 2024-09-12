@@ -108,8 +108,7 @@ namespace Main_Folders.Scripts.UI
                 LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                 CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
-                minimapCamera = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).transform
-                    .Find("Camera").GetComponent<Camera>();
+                minimapCamera = GameObject.Find("CameraMinimap").GetComponent<Camera>();
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
                 playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
