@@ -27,12 +27,18 @@ public class EncounterDefinition : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player") && gameObject.GetComponent<Unit>().hasFought == false)
         {
+            EnemyMovementStates.OnStartCombat += Verification; // DELEGATE QUE INFORMA O INÍCIO DO COMBATE AO SCRIP DE MOVIMENTO DO INIMIGO
             References.Instance.CurrentEnemyBattle = this.gameObject;
             OverworldVisualPrefab = gameObject.GetComponent<Unit>().OverworldVisualPrefab;
             BattleVisualPrefab = gameObject.GetComponent<Unit>().BattleVisualPrefab;
             EncounterSystem encouter = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
             StartCoroutine(encouter.StartGenerateEnemiesByEncouter(minNumEncouters, maxNumEncouters, numEncouters, EncounterIsVariable, levelMin, levelMax, OverworldVisualPrefab, BattleVisualPrefab));
         }
+    }
+
+    public static void Verification() // MÉTODO ACESSADO NO SCRIPT TURN BEGIN STATE PARA RETIRAR O MÉTODO VERIFICATION DO DELEGATE DO SCRIPT DE MOVIMENTO DO INIMIGO
+    {
+        //não precisa de implementação
     }
 }
 

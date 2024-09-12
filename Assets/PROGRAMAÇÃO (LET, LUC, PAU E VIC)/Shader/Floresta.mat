@@ -32,10 +32,10 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _Opacity: 1
-    - _Size: 0.8
+    - _Size: 0
     - _Smoothness: 0.5
     m_Colors:
-    - _Position: {r: 0, g: 0.15, b: 0, a: 0}
+    - _Position: {r: 0, g: 0.15, b: 9.999476, a: 0}
     - _Tint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

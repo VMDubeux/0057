@@ -65,6 +65,7 @@ namespace Main_Folders.Scripts.StateMachine.States
                     yield return new WaitForSeconds(7.5f);
                 }
 
+                EnemyMovementStates.OnStartCombat -= EncounterDefinition.Verification;
                 StartCoroutine(WaitThenChangeState<EndBattleState>());
             }
             else
