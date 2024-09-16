@@ -11,6 +11,7 @@ namespace Main_Folders.Scripts.Cards.CardsEffects
     {
         public int Amount;
         int fixedAmount;
+        public static int lightQuantity = 0;
         public bool damageEqualsBlock = false;
         public override IEnumerator Apply(List<object> targets)
         {
@@ -20,11 +21,11 @@ namespace Main_Folders.Scripts.Cards.CardsEffects
                 Debug.Log("Dano de escudo foi aplicado. O dano foi: " + Amount);
             }
             //Estabelece valor do FixedAmount
-            fixedAmount = Amount;
+            fixedAmount = Amount + lightQuantity;
             //Aumentar dano conforme numero de usos
             if(gameObject.GetComponent<CardUseCounter>() != null)
             {
-                fixedAmount = Amount + (2* CardUseCounter.timesUsed);
+                fixedAmount = Amount + (gameObject.GetComponent<CardUseCounter>().extraDamage* CardUseCounter.timesUsed);
                 Debug.Log("Dano inicial: " + Amount + " e o Dano Final: " + fixedAmount);
                 gameObject.GetComponent<CardUseCounter>().Increase();
             }
@@ -58,7 +59,6 @@ namespace Main_Folders.Scripts.Cards.CardsEffects
                 }
             }
             GameObject.Find("PlayerBattleVisual").GetComponent<PoseAnimation>().AttackPose();
-
         }
 
         void ApplyModifier(ModifiedValues modifiedValues, ModifierTags tag, BattleVisuals unit)

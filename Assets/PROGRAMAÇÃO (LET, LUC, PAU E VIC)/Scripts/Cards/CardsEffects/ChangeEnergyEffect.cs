@@ -7,6 +7,7 @@ using UnityEngine;
 public class ChangeEnergyEffect : CardEffect
 {
     public int Value;
+    public bool enermyEqualsEnemies;
     public override IEnumerator Apply(List<object> targets)
     {
         foreach (object o in targets)
@@ -15,7 +16,12 @@ public class ChangeEnergyEffect : CardEffect
             if (player.CompareTag("Player"))
             {
                 PlayerUnit unit = player.GetComponent<PlayerUnit>();
-                unit.CurrentEnergy += Value;
+                if(enermyEqualsEnemies)
+                {
+                    unit.CurrentEnergy += Value + TargetAllEnemies.enemiesInBattle;
+                }
+                else
+                    unit.CurrentEnergy += Value;
             }
             yield return null;
         }

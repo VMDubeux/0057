@@ -6,6 +6,7 @@ using UnityEngine;
 public class CardUseCounter : MonoBehaviour
 {
     public static int timesUsed = 0;
+    public int extraDamage = 0;
 
     void Start()
     {
@@ -16,5 +17,4 @@ public class CardUseCounter : MonoBehaviour
     {
         timesUsed++;
     }
-
 }

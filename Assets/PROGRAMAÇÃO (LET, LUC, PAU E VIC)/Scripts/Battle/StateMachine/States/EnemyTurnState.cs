@@ -15,6 +15,8 @@ public class EnemyTurnState : State
     [SerializeField] PlayerUnit _playerUnit;
 
     [SerializeField] BattleVisuals currentUnit;
+    
+    public static bool enemyCanPlay = true;
 
     private void Update()
     {
@@ -39,26 +41,33 @@ public class EnemyTurnState : State
 
     public void EnemySkillChoice()
     {
-        currentUnit.GetComponentInChildren<Animator>().SetTrigger("pose");
-        Debug.Log("Enemy Pose!");
-        int r = Random.Range(0, 9);
-        if (currentUnit.HP > currentUnit.MaxHP / 2)
+        // Determinar se o inimigo pode atacar
+        if(enemyCanPlay)
         {
-            if (r < 7)
+            currentUnit.GetComponentInChildren<Animator>().SetTrigger("pose");
+            Debug.Log("Enemy Pose!");
+            int r = Random.Range(0, 9);
+            if (currentUnit.HP > currentUnit.MaxHP / 2)
             {
-                Attack();
+                if (r < 7)
+                {
+                    Attack();
+                }
+                else
+                    Shield();
             }
             else
-                Shield();
+            {
+                if (r < 3)
+                {
+                    Attack();
+                }
+                else
+                    Shield();
+            }
         }
-        else
-        {
-            if (r < 3)
-            {
-                Attack();
-            }
-            else
-                Shield();
+        else{
+            enemyCanPlay = true;
         }
     }
 

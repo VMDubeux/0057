@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Causa 6 de dano + 2 de dano extra a cada uso.
+  m_text: Causa 3 de dano + 3 de dano extra a cada uso.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
   m_sharedMaterial: {fileID: -5818334383020469955, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Peso do Nome
+  m_text: Dar de ombros
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1084661484090642170, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1174240750846163080, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -570,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_Name
-      value: Peso do Nome
+      value: Dar de ombros
       objectReference: {fileID: 0}
     - target: {fileID: 3919165328222393913, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_SizeDelta.x
@@ -767,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dc2459668ffc948878fce6ee08f45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Amount: 6
+  Amount: 3
   damageEqualsBlock: 0
 --- !u!114 &6740343382353507901
 MonoBehaviour:
@@ -781,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a126947a3257844ae6fcf3baa830a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraDamage: 2
+  extraDamage: 3
 --- !u!1 &8758739148504970407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
