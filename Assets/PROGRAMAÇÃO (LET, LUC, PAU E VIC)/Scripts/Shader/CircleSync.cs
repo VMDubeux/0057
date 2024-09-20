@@ -7,7 +7,7 @@ public class CircleSync : MonoBehaviour
     public static int PosID = Shader.PropertyToID("_Position");
     public static int SizeID = Shader.PropertyToID("_Size");
 
-    public Material WallMaterial;
+    public Material[] WallMaterial;
     public Camera Camera;
     public LayerMask Mask;
 
@@ -20,7 +20,8 @@ public class CircleSync : MonoBehaviour
 
         // Definir o tamanho do material entre 0 e 0.8 baseado na visibilidade
         float size = hit ? 0.8f : 0f;
-        WallMaterial.SetFloat(SizeID, size);
+        foreach (var wall in WallMaterial)
+            wall.SetFloat(SizeID, size);
 
         // Obter a posição do player no viewport
         Vector3 viewportPosition = Camera.WorldToViewportPoint(transform.position);
@@ -30,6 +31,8 @@ public class CircleSync : MonoBehaviour
         viewportPosition.y = 0.15f;
 
         // Configurar a posição no material
-        WallMaterial.SetVector(PosID, viewportPosition);
+        foreach (var wall in WallMaterial)
+            wall.SetVector(PosID, viewportPosition);
+
     }
 }

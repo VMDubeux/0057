@@ -1,59 +1,88 @@
 using System.Collections.Generic;
-using Main_Folders.Scripts.Player;
 using UnityEngine;
 
 namespace Main_Folders.Scripts.Minimapa
 {
     public class MarkerHolder : MonoBehaviour
     {
-        // Start is called before the first frame update
         public GameObject markerPrefab;
+        public GameObject enemyMarkerPrefab;
         public GameObject playerObject;
         public RectTransform markerParentRectTransform;
         public Camera minimapCamera;
 
         private List<(ObjectivePosition objectivePosition, RectTransform markerRectTransform)> currentObjectives;
+        private List<(EnemyPosition enemyPosition, RectTransform markerRectTransform)> currentEnemies;
 
-        // Start is called before the first frame update
         void Awake()
         {
             currentObjectives = new List<(ObjectivePosition objectivePosition, RectTransform markerRectTransform)>();
+            currentEnemies = new List<(EnemyPosition enemyPosition, RectTransform markerRectTransform)>();
             playerObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
-            minimapCamera = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).transform.Find("Camera")
-                .GetComponent<Camera>();
+            minimapCamera = GameObject.Find("CameraMinimap").GetComponent<Camera>();
         }
 
-        // Update is called once per frame
         void Update()
         {
-            foreach ((ObjectivePosition objectivePosition, RectTransform markerRectTransform) marker in
-                     currentObjectives)
+            Vector3 playerPosition = playerObject.transform.position;
+
+            foreach ((ObjectivePosition objectivePosition, RectTransform markerRectTransform) marker in currentObjectives)
             {
-                Vector3 offset = marker.objectivePosition.transform.position - playerObject.transform.position;
+                Vector3 offset = marker.objectivePosition.transform.position - playerPosition;
                 offset = Vector3.ClampMagnitude(offset, minimapCamera.orthographicSize);
-                float cameraRotationY = minimapCamera.transform.eulerAngles.y;
-                Quaternion rotation = Quaternion.Euler(0, -cameraRotationY, 0);
-                offset = rotation * offset;
-                offset = offset / minimapCamera.orthographicSize * (markerParentRectTransform.rect.width / 2f);
-                marker.markerRectTransform.anchoredPosition = new Vector2(offset.x, offset.z);
+
+                // Normaliza o offset baseado no tamanho da câmera
+                Vector2 normalizedOffset = new Vector2(offset.x, offset.z) / minimapCamera.orthographicSize;
+
+                // Converte o offset normalizado para a posição da UI
+                Vector2 markerPosition = normalizedOffset * (markerParentRectTransform.rect.width / 2f);
+                marker.markerRectTransform.anchoredPosition = markerPosition;
+            }
+
+            foreach ((EnemyPosition enemyPosition, RectTransform markerRectTransform) marker in currentEnemies)
+            {
+                Vector3 offset = marker.enemyPosition.transform.position - playerPosition;
+                offset = Vector3.ClampMagnitude(offset, minimapCamera.orthographicSize);
+
+                // Normaliza o offset baseado no tamanho da câmera
+                Vector2 normalizedOffset = new Vector2(offset.x, offset.z) / minimapCamera.orthographicSize;
+
+                // Converte o offset normalizado para a posição da UI
+                Vector2 markerPosition = normalizedOffset * (markerParentRectTransform.rect.width / 2f);
+                marker.markerRectTransform.anchoredPosition = markerPosition;
             }
         }
 
         public void AddObjectiveMarker(ObjectivePosition sender)
         {
-            RectTransform rectTransform =
-                Instantiate(markerPrefab, markerParentRectTransform).GetComponent<RectTransform>();
+            RectTransform rectTransform = Instantiate(markerPrefab, markerParentRectTransform).GetComponent<RectTransform>();
             currentObjectives.Add((sender, rectTransform));
+        }
+
+        public void AddEnemyMarker(EnemyPosition sender)
+        {
+            RectTransform rectTransform = Instantiate(enemyMarkerPrefab, markerParentRectTransform).GetComponent<RectTransform>();
+            currentEnemies.Add((sender, rectTransform));
         }
 
         public void RemoveObjectiveMarker(ObjectivePosition sender)
         {
             if (!currentObjectives.Exists(objective => objective.objectivePosition == sender))
                 return;
-            (ObjectivePosition pos, RectTransform rectTrans) foundObj =
-                currentObjectives.Find(objective => objective.objectivePosition == sender);
+
+            (ObjectivePosition pos, RectTransform rectTrans) foundObj = currentObjectives.Find(objective => objective.objectivePosition == sender);
             Destroy(foundObj.rectTrans.gameObject);
             currentObjectives.Remove(foundObj);
+        }
+
+        public void RemoveEnemyMarker(EnemyPosition sender)
+        {
+            if (!currentEnemies.Exists(objective => objective.enemyPosition == sender))
+                return;
+
+            (EnemyPosition pos, RectTransform rectTrans) foundObj = currentEnemies.Find(objective => objective.enemyPosition == sender);
+            Destroy(foundObj.rectTrans.gameObject);
+            currentEnemies.Remove(foundObj);
         }
     }
 }

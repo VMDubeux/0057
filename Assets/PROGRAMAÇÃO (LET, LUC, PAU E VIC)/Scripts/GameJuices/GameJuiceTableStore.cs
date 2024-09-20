@@ -5,6 +5,11 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 {
     public class GameJuiceTableStore : global::GameJuices
     {
+        protected override void Start()
+        {
+            throw new System.NotImplementedException();
+        }
+
         protected override void HandleTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player") && !wasOpen)
@@ -48,6 +53,11 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             SetupReturnToOrigin();
         }
 
+        protected override void AddRandomItemToInventory()
+        {
+            // Não é necessário implementar nada aqui
+        }
+
         protected override void SetupReturnToOrigin()
         {
             if (gameObject.GetComponent<ShopTriggerCollider>() != null)
@@ -58,7 +68,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 
         private void Verification()
         {
-            // Implement verification logic if needed
+            Debug.Log("Verificando!");
         }
     }
 }
