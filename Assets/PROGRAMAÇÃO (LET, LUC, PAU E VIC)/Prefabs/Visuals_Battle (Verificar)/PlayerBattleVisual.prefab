@@ -1124,6 +1124,8 @@ MonoBehaviour:
     Value: 10
   - Type: 3
     Value: 10
+  - Type: 4
+    Value: 0
   expToGive: 0
   OverworldVisualPrefab: {fileID: 1415486005634186758, guid: a3e03699e440d624e99b2063537f7271, type: 3}
   BattleVisualPrefab: {fileID: 0}

@@ -10,7 +10,7 @@ public class InflictEffect : CardEffect
     public override IEnumerator Apply(List<object> targets){
         foreach(Object o in targets){
             BattleVisuals unit = o as BattleVisuals;
-            for(int i=0; i<AppliesXTimes; i++){
+            for(int i=0; i<AppliesXTimes + SkillUpgrade.stInflictBonus; i++){
                 TryToApply(unit);
             }
             

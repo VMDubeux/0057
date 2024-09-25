@@ -8,5 +8,6 @@ public enum StatType
     HP,
     Block,
     Strength,
+    Ressurrection,
     None
 }

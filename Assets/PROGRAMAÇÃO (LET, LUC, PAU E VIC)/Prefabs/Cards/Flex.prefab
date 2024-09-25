@@ -474,7 +474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 07e66d5829c947842a327e9de4925f38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b6b19afd0e576c4193e67af9639288a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 775577076278702304, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 162e14175b71b5349919f628c92718e0, type: 3}
     - target: {fileID: 1174240750846163080, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -688,6 +692,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7224127663044569002, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 162e14175b71b5349919f628c92718e0, type: 3}
     - target: {fileID: 7382362444548729659, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -762,6 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Amount: 6
+  damageEqualsBlock: 0
 --- !u!1 &8758739148504970407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}

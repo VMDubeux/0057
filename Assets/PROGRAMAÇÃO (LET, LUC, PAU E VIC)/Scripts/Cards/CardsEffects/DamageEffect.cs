@@ -21,7 +21,7 @@ namespace Main_Folders.Scripts.Cards.CardsEffects
                 Debug.Log("Dano de escudo foi aplicado. O dano foi: " + Amount);
             }
             //Estabelece valor do FixedAmount
-            fixedAmount = Amount + lightQuantity;
+            fixedAmount = Amount + lightQuantity + SkillUpgrade.stLight;
             //Aumentar dano conforme numero de usos
             if(gameObject.GetComponent<CardUseCounter>() != null)
             {

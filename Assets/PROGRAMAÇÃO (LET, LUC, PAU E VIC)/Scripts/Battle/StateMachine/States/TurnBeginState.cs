@@ -16,6 +16,7 @@ namespace Main_Folders.Scripts.StateMachine.States
 
         [SerializeField] float accumulatedExperience = 0;
 
+
         public override IEnumerator Enter()
         {
             machine.CurrentUnit = null;
@@ -24,11 +25,19 @@ namespace Main_Folders.Scripts.StateMachine.States
                 machine.CurrentUnit = machine.Units.Dequeue();
                 if (machine.CurrentUnit.GetStatValue(1) <= 0)
                 {
+                    if(machine.CurrentUnit.GetStatValue(4) > 0)
+                    {
+                        machine.CurrentUnit.SetStatValue(1, -1);
+                        machine.CurrentUnit.SetStatValue(1, machine.CurrentUnit.GetStatValue(4) -1);  
+                    }
+                    else 
+                    {
                     Debug.LogFormat("Unit {0} tried to play, but is dead", machine.CurrentUnit);
                     AccumulatedExperienceForThePlayer(machine.CurrentUnit.gameObject.GetComponent<Unit>()
                         .expToGive); // Envia o valor de experiencia para o m�todo de ac�mulo, durante a batalha.
                     print(accumulatedExperience);
                     machine.CurrentUnit = null;
+                    }
                 }
                 else
                 {
@@ -70,7 +79,7 @@ namespace Main_Folders.Scripts.StateMachine.States
                 FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include)
                         .GetComponent<EncounterSystem>().battleActive = false;
                 EnemyMovementStates.OnStartCombat -= EncounterDefinition.Verification;
-
+                GameObject.Find("PlayerBattleVisual").GetComponent<Unit>()._stats[4].Value = SkillUpgrade.resAmount;
                 StartCoroutine(WaitThenChangeState<EndBattleState>());
             }
             else

@@ -1,131 +1,79 @@
 using Main_Folders.Scripts.UI;
+using Main_Folders.Scripts.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SkillUpgrade : MonoBehaviour
 {
-    // Variáveis de Instância
-    public GameObject currentButton;
-    public GameObject[] prevButton;
-    public GameObject[] nextButton;
+    // Variï¿½veis de Instï¿½ncia
+
+    public GameObject prevButton;
+    public GameObject nextButton;
     private SkillPoints sP_script;
+    [SerializeField] private GameObject playerBattleVisual;
+    public int value = 1;
+    public static int stInflictBonus = 0, stLight = 0, resAmount = 0;
 
-    private string skillIdentifier; // Para armazenar o identificador único da habilidade
-
-    // Métodos de Inicialização
-    private void Start()
-    {
-        currentButton = gameObject;
-        sP_script = LevelsManager.Instance.GetComponent<SkillPoints>();
-
-        if (sP_script == null)
-        {
-            Debug.LogError("SkillPoints script not found in the GameManager.");
-        }
-
-        // Cria ou obtém o identificador único da habilidade
-        skillIdentifier = PersistentIdentifierManager.GetOrCreateIdentifier(gameObject);
-
-        // Verifica se o jogador já comprou a habilidade
-        CheckSkillPurchase();
-    }
-
-    // Métodos Públicos
     public void CheckUpgrades()
     {
-        bool anyPrevButtonInteractable = CheckPrevButtons();
-        if (anyPrevButtonInteractable || gameObject.name == "First")
+        //verifica se existe upgrade inativo e o botÃ£o atual jÃ¡ foi usado
+        if (GetComponent<Button>() != null)
         {
-            bool isAnyNextButtonInteractable = CheckNextButtons();
-            SetNextButtonsInteractable(isAnyNextButtonInteractable);
-        }
-        else
-        {
-            SetNextButtonsInteractable(false);
-        }
-    }
-
-    // Métodos Privados
-    private bool CheckPrevButtons()
-    {
-        foreach (var button in prevButton)
-        {
-            var buttonComponent = button.GetComponent<Button>();
-            if (buttonComponent != null && !buttonComponent.interactable)
-            {
-                return true; // Encontrou um botão não interativo
-            }
-        }
-        return false;
-    }
-
-    private bool CheckNextButtons()
-    {
-        foreach (var button in nextButton)
-        {
-            var buttonComponent = button.GetComponent<Button>();
-            if (buttonComponent != null && buttonComponent.interactable)
-            {
-                return true; // Encontrou um botão interativo
-            }
-        }
-        return false;
-    }
-
-    private void SetNextButtonsInteractable(bool isInteractable)
-    {
-        foreach (var button in nextButton)
-        {
-            var buttonComponent = button.GetComponent<Button>();
+            Button buttonComponent = GetComponent<Button>();
+            SkillUpgrade currentSU = GetComponent<SkillUpgrade>();
             if (buttonComponent != null)
             {
-                buttonComponent.interactable = isInteractable;
+                if(prevButton == null && buttonComponent.interactable == true)
+                {
+                    buttonComponent.gameObject.SetActive(true);
+                }
+                else if (prevButton != null && prevButton.GetComponent<Button>().interactable == false && buttonComponent.interactable == true)
+                {
+                    buttonComponent.gameObject.SetActive(true);
+                }
             }
         }
     }
 
-    private void CheckSkillPurchase()
+    public void UpgradeAttack1 ()
     {
-        // Verifica se a habilidade foi comprada
-        if (PlayerPrefs.GetInt(skillIdentifier, 0) == 1)
-        {
-            // Se a habilidade foi comprada, ativar a habilidade
-            EnableSkill();
-        }
-        else
-        {
-            // Se não foi comprada, desativar a habilidade
-            DisableSkill();
-        }
+        playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
+    }         
+    public void UpgradeAttack2 ()
+    {
+        stInflictBonus = value;
+    }
+    public void UpgradeAttack3 ()
+    {
+        stLight = value;
     }
 
-    private void EnableSkill()
+    public void UpgradeDef1 ()
     {
-        // Ativa o botão atual e os próximos botões
-        var buttonComponent = currentButton.GetComponent<Button>();
-        if (buttonComponent != null)
-        {
-            buttonComponent.interactable = true;
-        }
-        CheckUpgrades();
+        playerBattleVisual.GetComponent<Unit>()._stats[2].Value += value;
+    }
+    public void UpgradeDef2 ()
+    {
+        // Inicia o jogo com VALUE carga extra da poÃ§Ã£o 
     }
 
-    private void DisableSkill()
+    public void UpgradeDef3 ()
     {
-        // Desativa o botão atual e os próximos botões
-        var buttonComponent = currentButton.GetComponent<Button>();
-        if (buttonComponent != null)
-        {
-            buttonComponent.interactable = false;
-        }
-        SetNextButtonsInteractable(false);
+        resAmount = value;
+        playerBattleVisual.GetComponent<Unit>()._stats[4].Value = resAmount;
     }
 
-    // Método para ser chamado quando o jogador compra a habilidade
-    public void OnSkillPurchased()
+    public void UpgradeHP1 ()
     {
-        PlayerPrefs.SetInt(skillIdentifier, 1);
-        PlayerPrefs.Save(); // Salva as preferências imediatamente
-        EnableSkill();
+        playerBattleVisual.GetComponent<Unit>()._stats[1].Value += value;
+    }
+    public void UpgradeHP2 ()
+    {
+        // Recebe VALUE pots de vida
+    }
+    public void UpgradeHP3 ()
+    {
+        playerBattleVisual.GetComponent<PlayerUnit>().MaxCards += value;
     }
 }
+

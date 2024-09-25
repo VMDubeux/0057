@@ -474,7 +474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 07e66d5829c947842a327e9de4925f38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8296429631221e47a143d92e4ee02ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -504,6 +504,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 775577076278702304, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 162e14175b71b5349919f628c92718e0, type: 3}
+    - target: {fileID: 1299221419953086575, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299221419953086575, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299221419953086575, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547034765338593234, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547034765338593234, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547034765338593234, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_Name
       value: Musculos
@@ -588,6 +616,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7224127663044569002, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 162e14175b71b5349919f628c92718e0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1514659964039344628, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
