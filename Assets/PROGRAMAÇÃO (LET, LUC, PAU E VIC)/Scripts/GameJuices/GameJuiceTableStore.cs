@@ -7,7 +7,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
     {
         protected override void Start()
         {
-            throw new System.NotImplementedException();
+            // Não implementar
         }
 
         protected override void HandleTriggerEnter(Collider other)

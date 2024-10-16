@@ -11,7 +11,7 @@ public class SkillPoints : MonoBehaviour
 
     private void Start()
     {
-        // Atualiza a UI no início
+        // Atualiza a UI no inï¿½cio
         UpdateSkillPointsUI();
     }
 
@@ -31,18 +31,19 @@ public class SkillPoints : MonoBehaviour
             {
                 DisableUpgradeButtons();
             }
-
-            // Atualiza os botões de upgrade
+            else
+            // Atualiza os botï¿½es de upgrade
             UpdateUpgradeButtons();
         }
     }
 
+    [ContextMenu("Level Up")]
     public void LevelUp()
     {
         skillPoints++;
         UpdateSkillPointsUI();
 
-        // Atualiza os botões de upgrade
+        // Atualiza os botï¿½es de upgrade
         UpdateUpgradeButtons();
     }
 
@@ -65,7 +66,10 @@ public class SkillPoints : MonoBehaviour
             Button buttonComponent = buttonObject.GetComponent<Button>();
             if (buttonComponent != null)
             {
-                buttonComponent.interactable = false;
+                if(buttonComponent.interactable==true)
+                {
+                    buttonComponent.gameObject.SetActive(false);
+                }
             }
         }
     }
