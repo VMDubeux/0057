@@ -1166,7 +1166,7 @@ MonoBehaviour:
   Graciosidade: 0
   _currentEnergy: 0
   DrawAmount: 5
-  MaxCards: 7
+  MaxCards: 8
   _energyMeter: {fileID: 0}
 --- !u!114 &5942586904155349352
 MonoBehaviour:

@@ -777,7 +777,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -861,9 +861,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WallMaterial:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -876546973899608171, guid: 267bc23426d58da428ac02369cc0af26, type: 3}
+  - {fileID: 2100000, guid: 19251f2144952ac44808a2cbab171e25, type: 2}
+  - {fileID: 2100000, guid: 06c5db19883bf2840b1cbcd66a0de4a7, type: 2}
+  - {fileID: 2100000, guid: e05c1387632cbba4ab69a708b51821e2, type: 2}
   Camera: {fileID: 0}
   Mask:
     serializedVersion: 2

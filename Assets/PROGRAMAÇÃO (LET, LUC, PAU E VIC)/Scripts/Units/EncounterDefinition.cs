@@ -23,9 +23,9 @@ public class EncounterDefinition : MonoBehaviour
     //[HideInInspector] public GameObject EnemyBattlePrefab;
     //[HideInInspector] public GameObject[] EnemiesBattlePrefab;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.collider.CompareTag("Player") && gameObject.GetComponent<Unit>().hasFought == false)
+        if (collider.CompareTag("Player") && gameObject.GetComponent<Unit>().hasFought == false)
         {
             EnemyMovementStates.OnStartCombat += Verification; // DELEGATE QUE INFORMA O INÍCIO DO COMBATE AO SCRIP DE MOVIMENTO DO INIMIGO
             References.Instance.CurrentEnemyBattle = this.gameObject;

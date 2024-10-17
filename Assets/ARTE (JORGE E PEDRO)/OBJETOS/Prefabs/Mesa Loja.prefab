@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 3324793334477482972}
   - component: {fileID: 3855924680897686963}
   - component: {fileID: 6590003772927063613}
-  - component: {fileID: 258182247502788182}
+  - component: {fileID: 7344563900876491876}
   - component: {fileID: 2708686623165613680}
   - component: {fileID: 5145321381827072437}
   m_Layer: 0
@@ -184,16 +184,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanvasGameJuices: {fileID: 0}
   _assetKey: 
---- !u!114 &258182247502788182
+--- !u!114 &7344563900876491876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950030622836930796}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c43c6b76e9af6d4aa6f4638d8aed358, type: 3}
+  m_Script: {fileID: 11500000, guid: 15c78176c5c9dfd46b88d81c2be00805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shopUI: {fileID: 0}
