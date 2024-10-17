@@ -3,6 +3,7 @@ using System.Collections;
 using Main_Folders.Scripts.Player;
 using Main_Folders.Scripts.UI;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 namespace Main_Folders.Scripts.Managers
@@ -11,8 +12,7 @@ namespace Main_Folders.Scripts.Managers
     {
         [Header("Player destination coordinate:")]
         [Tooltip("Enter where the player will be teleported to after using the portal")]
-        [SerializeField]
-        private Vector3 destination;
+        public Vector3 destination;
 
         [Header("Player target scene index:")]
         [Tooltip("Inform (by index) which scene the player will be teleported to")]
@@ -26,6 +26,7 @@ namespace Main_Folders.Scripts.Managers
         {
             _partyManager = FindFirstObjectByType<PartyManager>();
             GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true;
+            GameObject.Find("Player").GetComponent<NavMeshAgent>().enabled = true;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -35,6 +36,7 @@ namespace Main_Folders.Scripts.Managers
             if (other.gameObject.CompareTag("Player"))
             {
                 other.GetComponent<PlayerMovement>().enabled = false;
+                other.GetComponent<NavMeshAgent>().enabled = false;
                 LevelsManager.Instance.MoverPlayer(destinationEnd);
                 StartCoroutine(LoadScene());
             }
