@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 8934054528666262068}
   - component: {fileID: 4850492085398395869}
   - component: {fileID: 3720458733541910788}
+  - component: {fileID: 7983620357516583979}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -345,7 +346,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f7b7f95ddd6e84986ba504411ba21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemInventory:
+  itemPickUp: {fileID: 0}
+--- !u!114 &7983620357516583979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5558179635586784999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a76dd371075c04997a15820222698a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identity: 0
+  ItemType: 0
+  Id: 0
+  Name: 
+  Cost: 0
+  Sprite: {fileID: 0}
+  InventoryItem:
     type: 0
     id: 0
     pathName: {fileID: 0}
@@ -354,16 +374,6 @@ MonoBehaviour:
     pathRemoveButton: {fileID: 0}
     itemQuantity: 0
     inventoryItemController: {fileID: 0}
-  ItemPickUp: {fileID: 0}
-  deckCanvas: {fileID: 0}
-  deckImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &5944478470365129005
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +537,7 @@ RectTransform:
   m_GameObject: {fileID: 6002379034728965141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.7345905, y: 6.5291314, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5324294819185182654}

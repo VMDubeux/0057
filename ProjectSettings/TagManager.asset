@@ -16,6 +16,7 @@ TagManager:
   - ImageSold
   - PlayerXP
   - ref
+  - Mentor
   layers:
   - Default
   - TransparentFX

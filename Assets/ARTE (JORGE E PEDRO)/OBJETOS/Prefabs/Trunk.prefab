@@ -276,10 +276,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanvasGameJuices: {fileID: 0}
+  _assetKey: 
   _lightGameJuice: {fileID: 969402479744107793}
   _particleGameJuice: {fileID: 2455173106258052110}
-  _itemPrefab: {fileID: 0}
-  _possibleItemTypes: 0500000000000000010000000400000002000000
+  _possibleItemTypes: 050000000000000004000000
 --- !u!114 &7854939337004954012
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ public abstract class EnemyMovementStates : MonoBehaviour
             _distanceToTarget = Vector3.Distance(transform.position, _targetPos.transform.position);
             _agent.speed = 1;
 
-            if (_player != null)
+            if (_player != null && gameObject.GetComponent<QuestObjects>().isAvailable == true)
             {
                 if (Vector3.Distance(transform.position, _player.transform.position) < 6)
                 {

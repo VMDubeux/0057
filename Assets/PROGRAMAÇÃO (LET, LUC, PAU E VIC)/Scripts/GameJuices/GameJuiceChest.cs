@@ -1,4 +1,3 @@
-using Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
 using System.Collections;
 using Main_Folders.Scripts.Player;
 using UnityEngine;
