@@ -15,5 +15,15 @@ public class Waypoint : MonoBehaviour
             if (movementState != null)
                 movementState.SwitchStates(EnemyMovementStates.State.Idle);
         }
+
+        if (other.CompareTag("WalkerDripless"))
+        {
+            Debug.Log($"{other.gameObject.name} Entrou!");
+
+            DriplessMovement movementState = other.GetComponent<DriplessMovement>();
+
+            if (movementState != null)
+                movementState.SwitchStates(DriplessMovement.State.Idle);
+        }
     }
 }
