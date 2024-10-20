@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c82010fa285d4e4ba050b72523791e3, type: 3}
   m_Name: Player1.2
   m_EditorClassIdentifier: 
-  optionTitle: Chutaria aquele lacaio do Swag Lord para longe.
+  optionTitle: I would send that stupid Swag Lord minion flying.
   nextSteps: {fileID: 11400000, guid: d3b2eeb079b99654884cd3ce21b33726, type: 2}

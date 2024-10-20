@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c82010fa285d4e4ba050b72523791e3, type: 3}
   m_Name: Player1.1
   m_EditorClassIdentifier: 
-  optionTitle: "N\xE3o penso nisso. Nem drip eu tenho..."
+  optionTitle: I don't really think about this. I'm dripless...
   nextSteps: {fileID: 11400000, guid: 30ba0faefb9078943a8787ef1e763ada, type: 2}

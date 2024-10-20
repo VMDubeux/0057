@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mentor1
   m_EditorClassIdentifier: 
   dialogues:
-  - "Voc\xEA! Ei, voc\xEA! Se estivesse nas suas m\xE3os o poder de acabar com o
-    abuso da coleta de impostos agora, o que voc\xEA faria?"
+  - You! Hey, you! If I told you that the power to end the tax abuse is in your hands,
+    what would you say?
   options:
   - {fileID: 11400000, guid: 2a14d5a9de34bde4f8f0c6d97434e4e0, type: 2}
   - {fileID: 11400000, guid: a315fb9e74d10704f930071dab9cefee, type: 2}

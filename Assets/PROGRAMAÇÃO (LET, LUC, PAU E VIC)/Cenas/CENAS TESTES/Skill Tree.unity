@@ -406,8 +406,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Aumenta HP
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
+  m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1590,7 +1590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d1c4e64c4d9e7fe438ab31b3fe553247, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2113,8 +2113,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SKILL POINTS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
+  m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3008,7 +3008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d1c4e64c4d9e7fe438ab31b3fe553247, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3085,8 +3085,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Aumenta Escudo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
+  m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3221,8 +3221,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Aumenta ataque
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
+  m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3590,7 +3590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d1c4e64c4d9e7fe438ab31b3fe553247, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

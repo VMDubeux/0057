@@ -7,17 +7,20 @@ namespace Main_Folders.Scripts.Minimapa
     {
         public GameObject markerPrefab;
         public GameObject enemyMarkerPrefab;
+        public GameObject vendorMarkerPrefab;
         public GameObject playerObject;
         public RectTransform markerParentRectTransform;
         public Camera minimapCamera;
 
         private List<(ObjectivePosition objectivePosition, RectTransform markerRectTransform)> currentObjectives;
         private List<(EnemyPosition enemyPosition, RectTransform markerRectTransform)> currentEnemies;
+        private List<(VendorPosition vendorPosition, RectTransform markerRectTransform)> currentVendors;
 
         void Awake()
         {
             currentObjectives = new List<(ObjectivePosition objectivePosition, RectTransform markerRectTransform)>();
             currentEnemies = new List<(EnemyPosition enemyPosition, RectTransform markerRectTransform)>();
+            currentVendors = new List<(VendorPosition vendorPosition, RectTransform markerRectTransform)>();
             playerObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
             minimapCamera = GameObject.Find("CameraMinimap").GetComponent<Camera>();
         }
@@ -31,10 +34,10 @@ namespace Main_Folders.Scripts.Minimapa
                 Vector3 offset = marker.objectivePosition.transform.position - playerPosition;
                 offset = Vector3.ClampMagnitude(offset, minimapCamera.orthographicSize);
 
-                // Normaliza o offset baseado no tamanho da câmera
+                // Normaliza o offset baseado no tamanho da cï¿½mera
                 Vector2 normalizedOffset = new Vector2(offset.x, offset.z) / minimapCamera.orthographicSize;
 
-                // Converte o offset normalizado para a posição da UI
+                // Converte o offset normalizado para a posiï¿½ï¿½o da UI
                 Vector2 markerPosition = normalizedOffset * (markerParentRectTransform.rect.width / 2f);
                 marker.markerRectTransform.anchoredPosition = markerPosition;
             }
@@ -44,10 +47,23 @@ namespace Main_Folders.Scripts.Minimapa
                 Vector3 offset = marker.enemyPosition.transform.position - playerPosition;
                 offset = Vector3.ClampMagnitude(offset, minimapCamera.orthographicSize);
 
-                // Normaliza o offset baseado no tamanho da câmera
+                // Normaliza o offset baseado no tamanho da cï¿½mera
                 Vector2 normalizedOffset = new Vector2(offset.x, offset.z) / minimapCamera.orthographicSize;
 
-                // Converte o offset normalizado para a posição da UI
+                // Converte o offset normalizado para a posiï¿½ï¿½o da UI
+                Vector2 markerPosition = normalizedOffset * (markerParentRectTransform.rect.width / 2f);
+                marker.markerRectTransform.anchoredPosition = markerPosition;
+            }
+
+            foreach ((VendorPosition vendorPosition, RectTransform markerRectTransform) marker in currentVendors)
+            {
+                Vector3 offset = marker.vendorPosition.transform.position - playerPosition;
+                offset = Vector3.ClampMagnitude(offset, minimapCamera.orthographicSize);
+
+                // Normaliza o offset baseado no tamanho da cï¿½mera
+                Vector2 normalizedOffset = new Vector2(offset.x, offset.z) / minimapCamera.orthographicSize;
+
+                // Converte o offset normalizado para a posiï¿½ï¿½o da UI
                 Vector2 markerPosition = normalizedOffset * (markerParentRectTransform.rect.width / 2f);
                 marker.markerRectTransform.anchoredPosition = markerPosition;
             }
@@ -63,6 +79,12 @@ namespace Main_Folders.Scripts.Minimapa
         {
             RectTransform rectTransform = Instantiate(enemyMarkerPrefab, markerParentRectTransform).GetComponent<RectTransform>();
             currentEnemies.Add((sender, rectTransform));
+        }
+
+        public void AddVendorMarker(VendorPosition sender)
+        {
+            RectTransform rectTransform = Instantiate(vendorMarkerPrefab, markerParentRectTransform).GetComponent<RectTransform>();
+            currentVendors.Add((sender, rectTransform));
         }
 
         public void RemoveObjectiveMarker(ObjectivePosition sender)

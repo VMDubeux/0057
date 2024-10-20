@@ -49,5 +49,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogButtonPrefab: {fileID: 5974030937840644201, guid: 7113528c169906247a768e1c3c1d9aaf, type: 3}
-  buttonSize: {x: 500, y: 70}
-  nextButtonSize: {x: 160, y: 40}
+  buttonSize: {x: 500, y: 110}
+  nextButtonSize: {x: 160, y: 70}
