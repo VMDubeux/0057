@@ -74,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
             if (Vector3.Distance(transform.position, navMeshAgent.destination) < 0.1f)
             {
                 isMoving = false;
+                int random = Random.Range(1, 4);
+                animatorController.SetInteger("IdleIndex", random);
                 animatorController.SetBool("run", false);
             }
 

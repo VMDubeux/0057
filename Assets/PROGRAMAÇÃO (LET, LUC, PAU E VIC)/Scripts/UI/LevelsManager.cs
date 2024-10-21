@@ -54,7 +54,7 @@ namespace Main_Folders.Scripts.UI
                 {
                     DontDestroyOnLoad(variable);
                     if (variable.name == "Player")
-                        variable.transform.position = new Vector3(12.0f, 0, -31f);
+                        variable.transform.position = new Vector3(30.5f, 0, -56.5f);
                 }
 
                 DontDestroyOnLoad(gameObject);

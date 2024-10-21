@@ -17,6 +17,7 @@ TagManager:
   - PlayerXP
   - ref
   - Mentor
+  - WalkerDripless
   layers:
   - Default
   - TransparentFX
