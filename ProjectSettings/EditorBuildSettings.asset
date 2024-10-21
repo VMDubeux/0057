@@ -6,26 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA INTRODU\xC7\xC3O
+    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC E VIC)/Cenas/CENA INTRODU\xC7\xC3O
       GAME/LEVEL_PRE_INTRO.unity"
     guid: a4aca7bab457fe24aa466ff3f043247e
   - enabled: 1
-    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA MENU INICIAL/LEVEL_INTRO_NEW.unity"
+    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC E VIC)/Cenas/CENA MENU INICIAL/LEVEL_INTRO_NEW.unity"
     guid: dba23aabb4402984da9c8e865defe63f
   - enabled: 1
-    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA COME\xC7O/LEVEL_1_NEW.unity"
+    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC E VIC)/Cenas/CENA COME\xC7O/LEVEL_1_NEW.unity"
     guid: 72b3ba335126ccf46a8ba4e2a375faf0
   - enabled: 1
-    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA FINAL/LEVEL_2_NEW.unity"
+    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC E VIC)/Cenas/CENA FINAL/LEVEL_2_NEW.unity"
     guid: bae22de1dc1e9784e98e0efb7cc43d87
   - enabled: 1
-    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA BATALHA/LEVEL_BATTLE.unity"
+    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC E VIC)/Cenas/CENA BATALHA/LEVEL_BATTLE.unity"
     guid: face30aee84aace4f94b27b9f1e36a96
   - enabled: 1
-    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA CR\xC9DITOS/LEVEL_CREDITS.unity"
+    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC E VIC)/Cenas/CENA CR\xC9DITOS/LEVEL_CREDITS.unity"
     guid: 357d045dfda1e6842821aa49ae74e16a
   - enabled: 1
-    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA ENTRE CENAS/LOAD_SCENE.unity"
+    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC E VIC)/Cenas/CENA ENTRE CENAS/LOAD_SCENE.unity"
     guid: b9dc92457fa9514499b6ba1924d46844
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

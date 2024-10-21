@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Mentor3.1
   m_EditorClassIdentifier: 
   dialogues:
-  - "Pegue meu outfit para voc\xEA. Entenda como um... presente. Siga em diante e
-    batalhe contra aquele fantoche do Swag Lord..."
+  - You can get both my outfit and my deck for you, as a gift. Now go ahead and duel
+    that abusive Swag Lord minion!
   options: []
