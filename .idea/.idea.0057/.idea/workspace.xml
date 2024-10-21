@@ -5,10 +5,202 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1d80aaa-80e9-4d7e-8721-f6b6a076e3e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.0057/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scenes/LEVEL_1_NEW.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/StateMachine/States/TurnBeginState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Scripts/StateMachine/States/TurnBeginState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main_Folders/Sprites/Mini-mapa/Minimapa Renderer.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main_Folders/Sprites/Mini-mapa/Minimapa Renderer.renderTexture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EnemyMarker.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EnemyMarker.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFarmLite.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFarmLite/LowPolyFarmLite_2020.3_HDRP_v1.02.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFarmLite/LowPolyFarmLite_2020.3_URP_v1.02.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFoodLite.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFoodLite/LowPolyFoodLite_2020.3.0_HDRP_v1.0.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Main_Folders/Prefabs/Itens/LowPolyFoodLite/LowPolyFoodLite_2020.3.0_URP_v1.0.unitypackage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_calado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_calado.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_nananinanao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_nananinanao.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_nempense.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_nempense.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_olhabem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_olhabem.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_pesodonome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Cards/Card Sprites/dripknights_pesodonome.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Scripts/Minimapa/VendorPosition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Scripts/Minimapa/VendorPosition.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Mini-mapa/VendorMarker.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Mini-mapa/VendorMarker.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/banner.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/banner_ancorado.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/banner_ancorado.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_esc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_esc.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_redondo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_redondo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_redondo_brown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_redondo_brown.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_redondo_brown_esc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_redondo_brown_esc.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_redondo_esc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_redondo_esc.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_v.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_v_esc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/button_v_esc.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_circle_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_circle_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_circle_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_circle_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_circle_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_circle_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_circle_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_circle_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_hexagonal_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_hexagonal_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_hexagonal_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_hexagonal_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_hexagonal_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_hexagonal_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_hexagonal_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/forma_hexagonal_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_diam_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_diam_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_diam_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_diam_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_diam_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_diam_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_est_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_est_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_est_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_est_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_est_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_est_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_excl_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_excl_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_excl_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_excl_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_excl_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimap_icon_excl_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimapa_madeira.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimapa_madeira.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimapa_madeira_gold.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/minimapa_madeira_gold.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_borda_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_borda_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_borda_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_borda_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_grid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_grid.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_quina.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/painel_quina.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/panel_brown_corners_b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/panel_brown_corners_b.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/panel_brown_dark_corners_a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/panel_brown_dark_corners_a.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/panel_brown_dark_corners_b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/panel_brown_dark_corners_b.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_blue_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_blue_small.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_blue_small_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_blue_small_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_empty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_fundo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_fundo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_green_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_green_small.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_green_small_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_green_small_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_red_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_red_small.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_red_small_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_red_small_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_transparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_transparent.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_transparent_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_transparent_small.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_white.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_white_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_white_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_white_small.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_white_small.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_white_small_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progress_white_small_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progresso_azul.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/progresso_azul.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/scrollbar_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/scrollbar_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/scrollbar_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/scrollbar_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/scrollbar_mini_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/scrollbar_mini_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/scrollbar_mini_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/UI art elements/scrollbar_mini_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PlaceHolders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PlaceHolders/Kawaii Slimes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PlaceHolders/Kawaii Slimes/Render Pipelines.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemyPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Scripts/Minimapa/EnemyPosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemyPosition.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Scripts/Minimapa/EnemyPosition.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENA BATALHA/LEVEL_BATTLE.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENA BATALHA/LEVEL_BATTLE.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENA COMEÇO/LEVEL_1_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENA COMEÇO/LEVEL_1_NEW.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENA ENTRE CENAS/LOAD_SCENE.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENA ENTRE CENAS/LOAD_SCENE.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENA MENU INICIAL/LEVEL_INTRO_NEW.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENA MENU INICIAL/LEVEL_INTRO_NEW.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENAS TESTES/Skill Tree.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Cenas/CENAS TESTES/Skill Tree.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Canvas/CanvasGameJuice.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Canvas/CanvasGameJuice.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Canvas/CanvasInventárioNovo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Canvas/CanvasInventárioNovo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Sistema de diálogos (Prefabs)/Dialog.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Sistema de diálogos (Prefabs)/Dialog.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Sistema de diálogos (Prefabs)/DialogOptionButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Sistema de diálogos (Prefabs)/DialogOptionButton.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Sistema de diálogos (Prefabs)/DialogOptionMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Prefabs/Sistema de diálogos (Prefabs)/DialogOptionMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/ScriptableObject/Sistema de diálogos (ScriptableObjects)/Mentor1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/ScriptableObject/Sistema de diálogos (ScriptableObjects)/Mentor1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/ScriptableObject/Sistema de diálogos (ScriptableObjects)/Mentor3.1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/ScriptableObject/Sistema de diálogos (ScriptableObjects)/Mentor3.1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/ScriptableObject/Sistema de diálogos (ScriptableObjects)/Player1.1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/ScriptableObject/Sistema de diálogos (ScriptableObjects)/Player1.1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/ScriptableObject/Sistema de diálogos (ScriptableObjects)/Player1.2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/ScriptableObject/Sistema de diálogos (ScriptableObjects)/Player1.2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Scripts/Minimapa/MarkerHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Scripts/Minimapa/MarkerHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Shader/Casarão.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Shader/Casarão.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Shader/Floresta.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Shader/Floresta.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Shader/Tendas.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Shader/Tendas.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/10.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/6.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/7.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/8.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/9.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/GLADI_ofc_colo.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/GLADI_ofc_colo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador/GLADI_ofc_colo.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/Gladiador NÃO OFICIAIS - as oficiais tem a arte na pasta q lucio fez/GLADI_ofc_colo.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/INCOLOR_ofc_colo.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/INCOLOR_ofc_colo.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/glad_espelhado_flat_nude.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Cards/glad_espelhado_flat_nude.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Menu/Options/Dropdown.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Menu/Options/Dropdown.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Mini-mapa/EnemyMarker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Mini-mapa/EnemyMarker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Mini-mapa/QuestMarker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PROGRAMAÇÃO (LET, LUC, PAU E VIC)/Sprites/Mini-mapa/QuestMarker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,26 +233,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;branch-temp-final&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging merge4.2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "configurable.group.language",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\mrdub\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\mrdub\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\mrdub\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\mrdub\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\mrdub\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\mrdub\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Standalone Player.Standalone Player">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Desktop/Teste/_0057.exe" />
@@ -172,6 +364,7 @@
       <workItem from="1718757118659" duration="1433000" />
       <workItem from="1718810212807" duration="3575000" />
       <workItem from="1718817363221" duration="1073000" />
+      <workItem from="1729472734352" duration="18000" />
     </task>
     <servers />
   </component>

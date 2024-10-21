@@ -92160,6 +92160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markerPrefab: {fileID: 6509466769042766619, guid: 1052f3bb13fc6c34c9bc531139b59317, type: 3}
   enemyMarkerPrefab: {fileID: 6509466769042766619, guid: cf136f0e85dd6cf4594399010af85fef, type: 3}
+  vendorMarkerPrefab: {fileID: 0}
   playerObject: {fileID: 524508086}
   markerParentRectTransform: {fileID: 3598796046836063473}
   minimapCamera: {fileID: 1938610168}
