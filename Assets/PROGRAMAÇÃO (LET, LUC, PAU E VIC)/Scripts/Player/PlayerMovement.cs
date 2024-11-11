@@ -1,28 +1,29 @@
 using Main_Folders.Scripts.Managers;
 using UnityEngine;
-using UnityEngine.AI; // Necessário para trabalhar com NavMeshAgent
-using UnityEngine.EventSystems; // Necessário para verificar interações com UI
+using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private NavMeshAgent navMeshAgent; // Usando NavMeshAgent em vez de Rigidbody
+    private NavMeshAgent navMeshAgent;
     private Animator animatorController;
     private PartyManager partyManager;
     private bool isMoving;
+    private float originalSpeed; // Armazena a velocidade original do NavMeshAgent
 
     [SerializeField] private GameObject brute;
     [SerializeField] private GameObject batato;
 
-    [SerializeField] private LayerMask walkableLayer; // Camada que define o que é caminhável
+    [SerializeField] private LayerMask walkableLayer;
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animatorController = GetComponentInChildren<Animator>();
         partyManager = FindAnyObjectByType<PartyManager>();
+        originalSpeed = navMeshAgent.speed; // Armazena a velocidade original ao iniciar
 
-        // Configura o NavMeshAgent
-        navMeshAgent.updateRotation = false; // Para controlar a rotação manualmente
+        navMeshAgent.updateRotation = false;
     }
 
     void Update()
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if (!DialogueManager.isChatting)
         {
             HandleInput();
+            AdjustSpeed();
             MoveToTarget();
             partyManager.ChangeExpSliderValue();
         }
@@ -37,29 +39,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetMouseButtonDown(0)) // Detecta clique do mouse
+        if (Input.GetMouseButton(0))
         {
-            // Verifica se o clique foi em um elemento da UI
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                return; // Não faz nada se o clique foi sobre a UI
+                return;
             }
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            // Verifica se o clique do mouse está em uma área caminhável
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, walkableLayer))
             {
-                // Define o destino do NavMeshAgent para o ponto clicado
                 navMeshAgent.SetDestination(hit.point);
-                isMoving = true; // Inicia a movimentação
+                isMoving = true;
             }
             else
             {
-                // Caso não esteja em uma área caminhável, define a movimentação como falsa
                 isMoving = false;
             }
+        }
+    }
+
+    private void AdjustSpeed()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            navMeshAgent.speed = originalSpeed * 2; // Dobra a velocidade ao pressionar Shift
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            navMeshAgent.speed = originalSpeed; // Retorna à velocidade original ao soltar Shift
         }
     }
 
@@ -67,10 +77,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isMoving)
         {
-            // Atualiza a animação
             animatorController.SetBool("run", true);
 
-            // Verifica se o personagem chegou ao destino
             if (Vector3.Distance(transform.position, navMeshAgent.destination) < 0.1f)
             {
                 isMoving = false;
@@ -79,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
                 animatorController.SetBool("run", false);
             }
 
-            // Controla a rotação manualmente para que o personagem se alinhe com a direção do movimento
             Vector3 direction = navMeshAgent.velocity.normalized;
             if (direction != Vector3.zero)
             {
