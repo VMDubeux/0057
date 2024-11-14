@@ -13,36 +13,33 @@ namespace Main_Folders.Scripts.UI
         public static LevelsManager Instance;
 
         public SkillPoints skillPointsScript;
-
         internal bool isTalking = false;
 
         [SerializeField] private GameObject PauseCanvasMenu;
-
         [SerializeField] internal GameObject LevelCanvas;
-
         [SerializeField] internal GameObject CanvasInventario;
 
-        [SerializeField] private GameObject CameraPivot;
+        // Alteração: Substituindo o único CameraPivot por um array
+        [SerializeField] private GameObject[] CameraPivots = new GameObject[4];
+        private int activeCameraIndex = 0; // Índice da câmera ativa no array
 
         [SerializeField] private GameObject EventSystem;
-
         [SerializeField] private GameObject Light;
-
         [SerializeField] private Camera minimapCamera;
         [SerializeField] private GameObject minimapGameObject;
         [SerializeField] private GameObject playerGameObject;
         [SerializeField] private MinimapaSetup[] setup;
 
         [Range(0, 3)] public int nivelInicial;
-
         private int nivelAtual;
 
-        [SerializeField] [Tooltip("NÃO ESCREVA NADA")]
+        [SerializeField]
+        [Tooltip("NÃO ESCREVA NADA")]
         private int currentGameSceneIndex;
 
-        [Header("UNDESTROYABLE:")] [SerializeField]
+        [Header("UNDESTROYABLE:")]
+        [SerializeField]
         private GameObject[] staticObjects;
-        //encouterSystem, enemyManager, partyManager, inventoryManager, eventSystem;
 
         private void Awake()
         {
@@ -73,11 +70,8 @@ namespace Main_Folders.Scripts.UI
         private void Start()
         {
             PauseCanvasMenu = FindAnyObjectByType<AudioControllerLevels>(FindObjectsInactive.Include).gameObject;
-
             PauseCanvasMenu.SetActive(false);
-
-            Time.timeScale = 1.0f; // Verificar necessidade;
-
+            Time.timeScale = 1.0f;
             nivelAtual = nivelInicial;
         }
 
@@ -102,11 +96,15 @@ namespace Main_Folders.Scripts.UI
                 }
             }
 
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                SwitchCamera();
+            }
+
             if (currentGameSceneIndex > 1)
             {
                 CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
                 LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
-                CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 minimapCamera = GameObject.Find("CameraMinimap").GetComponent<Camera>();
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
@@ -123,23 +121,23 @@ namespace Main_Folders.Scripts.UI
                     return;
 
                 case > 1:
-                {
-                    if (minimapCamera.enabled)
                     {
-                        Quaternion rotacao = new Quaternion();
-                        Vector3 orientacao = new Vector3();
+                        if (minimapCamera.enabled)
+                        {
+                            Quaternion rotacao = new Quaternion();
+                            Vector3 orientacao = new Vector3();
 
-                        orientacao.x = 0;
-                        orientacao.y = 0;
-                        playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include)
-                            .gameObject;
-                        orientacao.z = playerGameObject.transform.rotation.eulerAngles.y;
+                            orientacao.x = 0;
+                            orientacao.y = 0;
+                            playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include)
+                                .gameObject;
+                            orientacao.z = playerGameObject.transform.rotation.eulerAngles.y;
 
-                        rotacao.eulerAngles = orientacao;
+                            rotacao.eulerAngles = orientacao;
+                        }
+
+                        break;
                     }
-
-                    break;
-                }
             }
         }
 
@@ -149,14 +147,6 @@ namespace Main_Folders.Scripts.UI
 
             if (currentGameSceneIndex == 1)
             {
-                /*PauseCanvasMenu.SetActive(false);
-                CanvasInventario = null;
-                LevelCanvas = null;
-                CameraPivot = null;
-                EventSystem = null;
-                Light = null;
-                playerGameObject.SetActive(false);*/
-
                 foreach (var variable in staticObjects)
                 {
                     Destroy(variable);
@@ -167,12 +157,10 @@ namespace Main_Folders.Scripts.UI
 
             if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 1)
             {
-                CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
                 playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
-                CameraPivot.SetActive(true);
                 EventSystem.SetActive(true);
                 Light.SetActive(true);
                 playerGameObject.SetActive(true);
@@ -201,11 +189,9 @@ namespace Main_Folders.Scripts.UI
             {
                 CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
                 LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
-                CameraPivot = FindFirstObjectByType<CameraPivot>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
-                CameraPivot.SetActive(false);
                 CanvasInventario.SetActive(false);
                 LevelCanvas.SetActive(false);
                 EventSystem.SetActive(false);
@@ -260,6 +246,14 @@ namespace Main_Folders.Scripts.UI
         {
             staticObjects[0].transform.position = pos;
             staticObjects[3].GetComponent<PartyManager>().SetPosition(pos);
+        }
+
+        // Novo método para alternar entre as câmeras
+        private void SwitchCamera()
+        {
+            CameraPivots[activeCameraIndex].SetActive(false);
+            activeCameraIndex = (activeCameraIndex + 1) % CameraPivots.Length;
+            CameraPivots[activeCameraIndex].SetActive(true);
         }
     }
 }
