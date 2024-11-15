@@ -1,3 +1,4 @@
+using System.Collections;
 using Main_Folders.Scripts.Audio;
 using Main_Folders.Scripts.Managers;
 using Main_Folders.Scripts.Minimapa;
@@ -19,9 +20,11 @@ namespace Main_Folders.Scripts.UI
         [SerializeField] internal GameObject LevelCanvas;
         [SerializeField] internal GameObject CanvasInventario;
 
-        // Alteração: Substituindo o único CameraPivot por um array
-        [SerializeField] private GameObject[] CameraPivots = new GameObject[4];
-        private int activeCameraIndex = 0; // Índice da câmera ativa no array
+        [SerializeField] private GameObject CameraPivot;
+        [SerializeField] private Quaternion[] cameraRotations = new Quaternion[4];
+        [SerializeField] private Vector3[] cameraPositions = new Vector3[4];
+        private int activeTransformIndex = 0;
+        private bool isTransitioning = false;
 
         [SerializeField] private GameObject EventSystem;
         [SerializeField] private GameObject Light;
@@ -248,12 +251,39 @@ namespace Main_Folders.Scripts.UI
             staticObjects[3].GetComponent<PartyManager>().SetPosition(pos);
         }
 
-        // Novo método para alternar entre as câmeras
         private void SwitchCamera()
         {
-            CameraPivots[activeCameraIndex].SetActive(false);
-            activeCameraIndex = (activeCameraIndex + 1) % CameraPivots.Length;
-            CameraPivots[activeCameraIndex].SetActive(true);
+            if (!isTransitioning)
+            {
+                activeTransformIndex = (activeTransformIndex + 1) % cameraRotations.Length;
+                StartCoroutine(SmoothTransition(
+                    CameraPivot.transform.position,
+                    cameraPositions[activeTransformIndex],
+                    CameraPivot.transform.rotation,
+                    cameraRotations[activeTransformIndex],
+                    1.0f
+                ));
+            }
+        }
+
+        private IEnumerator SmoothTransition(Vector3 startPosition, Vector3 endPosition, Quaternion startRotation, Quaternion endRotation, float duration)
+        {
+            isTransitioning = true;
+            float elapsedTime = 0;
+
+            while (elapsedTime < duration)
+            {
+                CameraPivot.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+                CameraPivot.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            CameraPivot.transform.position = endPosition;
+            CameraPivot.transform.rotation = endRotation;
+
+            isTransitioning = false;
         }
     }
 }
