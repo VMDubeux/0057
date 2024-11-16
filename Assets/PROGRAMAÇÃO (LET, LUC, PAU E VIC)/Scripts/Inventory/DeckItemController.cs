@@ -1,18 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
+namespace Assets.PROGRAMAÃ‡ÃƒO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
 {
     public class DeckItemController : MonoBehaviour
     {
-        [SerializeField] private Image itemImage; // Referência à imagem do item no botão
-        [SerializeField] private Button button; // Referência ao botão
+        [SerializeField] private Image itemImage; // Referï¿½ncia ï¿½ imagem do item no botï¿½o
+        [SerializeField] private Button button; // Referï¿½ncia ao botï¿½o
 
-        [SerializeField] private ItemPickUp itemPickUp; // Item associado a este botão
+        [SerializeField] private ItemPickUp itemPickUp; // Item associado a este botï¿½o
 
         void Awake()
         {
-            // Obtém referências aos componentes Image e Button
+            // Obtï¿½m referï¿½ncias aos componentes Image e Button
             itemImage = GetComponent<Image>();
             button = GetComponent<Button>();
         }
@@ -21,21 +21,21 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
         {
             if (button != null)
             {
-                // Configura o evento de clique do botão para retornar o item ao inventário
+                // Configura o evento de clique do botï¿½o para retornar o item ao inventï¿½rio
                 button.onClick.AddListener(ReturnItemToInventory);
             }
             else
             {
-                Debug.LogError("Button component não encontrado no GameObject.");
+                Debug.LogError("Button component nï¿½o encontrado no GameObject.");
             }
         }
 
         public void Setup(ItemPickUp item, Sprite itemSprite)
         {
-            itemPickUp = item; // Associa o item ao botão
+            itemPickUp = item; // Associa o item ao botï¿½o
             if (itemImage != null)
             {
-                itemImage.sprite = itemSprite; // Atualiza a imagem do botão
+                itemImage.sprite = itemSprite; // Atualiza a imagem do botï¿½o
             }
 
             gameObject.SetActive(true);
@@ -45,24 +45,24 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
         {
             if (itemPickUp != null)
             {
-                // Retorna o item ao inventário
+                // Retorna o item ao inventï¿½rio
                 InventoryManager.Instance.Add(itemPickUp);
-                Clear(); // Limpa o botão e desativa o GameObject
+                Clear(); // Limpa o botï¿½o e desativa o GameObject
             }
         }
 
         public bool IsEmpty()
         {
-            // Verifica se o botão está livre
+            // Verifica se o botï¿½o estï¿½ livre
             return itemPickUp == null;
         }
 
         private void Clear()
         {
-            itemPickUp = null; // Limpa a referência ao item
+            itemPickUp = null; // Limpa a referï¿½ncia ao item
             if (itemImage != null)
             {
-                itemImage.sprite = null; // Limpa a imagem do botão
+                itemImage.sprite = null; // Limpa a imagem do botï¿½o
             }
 
             // Desativa o GameObject

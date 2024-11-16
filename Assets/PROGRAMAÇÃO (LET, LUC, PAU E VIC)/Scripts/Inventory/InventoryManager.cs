@@ -2,17 +2,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
+namespace Assets.PROGRAMAÃ‡ÃƒO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
         public static InventoryManager Instance { get; private set; }
 
-        [Header("Itens do Inventário")]
+        [Header("Itens do Inventï¿½rio")]
         [SerializeField] private ItemPickUp[] items = new ItemPickUp[10];
         [SerializeField] private InventoryItem[] inventoryList = new InventoryItem[10];
 
-        [Header("Referências na HUD")]
+        [Header("Referï¿½ncias na HUD")]
         [SerializeField] private GameObject inventory;
         [SerializeField] private Transform[] contentTransforms = new Transform[2]; // 0: Itens, 1: Cartas
         [SerializeField] private GameObject inventoryItemBackground;

@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 79941815391260951}
   - component: {fileID: 3622770087328768734}
   - component: {fileID: 6902943938501250103}
+  - component: {fileID: 2617588202955302121}
   m_Layer: 0
   m_Name: Mercador
   m_TagString: Untagged
@@ -255,7 +256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856136959746272915}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.89015174, z: -0, w: 0.4556643}
+  m_LocalRotation: {x: 0, y: 0.8901531, z: 0, w: 0.45566148}
   m_LocalPosition: {x: -7.52, y: -0.03, z: 14.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -378,6 +379,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempoAtual: 0
   estaAtivo: 0
+--- !u!114 &2617588202955302121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856136959746272915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19db1c4c4d05e164eac259ae99493504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &943344316536412181
 GameObject:
   m_ObjectHideFlags: 0

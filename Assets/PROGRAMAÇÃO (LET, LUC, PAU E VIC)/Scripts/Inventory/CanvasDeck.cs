@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.PROGRAMA«√O__LET__LUC__PAU_E_VIC_.Scripts.Inventory
+namespace Assets.PROGRAMA√á√ÉO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
 {
     public class CanvasDeck : MonoBehaviour
     {

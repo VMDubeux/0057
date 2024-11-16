@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mentor2.2
   m_EditorClassIdentifier: 
   dialogues:
-  - "Ah! Que maravilha... Diante de um cidad\xE3o t\xE3o corajoso, cedo meu drip
-    e meus pertences para que voc\xEA possa derrot\xE1-lo."
+  - Ah, that's good to hear! Facing such a noble gentleman like you, I hereby declare
+    that all my drip and my deck now belongs to you! Now go, face that abusive tax
+    collector minion!
   options: []

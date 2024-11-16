@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
+namespace Assets.PROGRAMAÃ‡ÃƒO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 {
     public class GameJuiceTableStore : global::GameJuices
     {
         protected override void Start()
         {
-            // Não implementar
+            // Nï¿½o implementar
         }
 
         protected override void HandleTriggerEnter(Collider other)
@@ -26,7 +26,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                 CanvasGameJuices.SetActive(false);
                 isInside = false;
 
-                // Sempre volta à origem ao sair do trigger
+                // Sempre volta ï¿½ origem ao sair do trigger
                 GetComponent<Animator>().SetBool("Trigger", false);
                 wasOpen = false;
 
@@ -55,7 +55,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 
         protected override void AddRandomItemToInventory()
         {
-            // Não é necessário implementar nada aqui
+            // Nï¿½o ï¿½ necessï¿½rio implementar nada aqui
         }
 
         protected override void SetupReturnToOrigin()

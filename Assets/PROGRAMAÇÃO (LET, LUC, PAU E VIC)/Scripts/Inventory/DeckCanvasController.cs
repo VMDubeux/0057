@@ -1,4 +1,4 @@
-using Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
+using Assets.PROGRAMAÃ‡ÃƒO__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
 using UnityEngine;
 //using static UnityEditor.Progress;
 
@@ -10,14 +10,14 @@ public class DeckCanvasController : MonoBehaviour
     {
         if (deckCanvas == null)
         {
-            Debug.LogError("Canvas não atribuído!");
+            Debug.LogError("Canvas nï¿½o atribuï¿½do!");
             return;
         }
 
         // Inicialmente desativa o Canvas
         deckCanvas.gameObject.SetActive(false);
 
-        // Faz com que este objeto não seja destruído entre cenas
+        // Faz com que este objeto nï¿½o seja destruï¿½do entre cenas
         DontDestroyOnLoad(gameObject);
     }
 

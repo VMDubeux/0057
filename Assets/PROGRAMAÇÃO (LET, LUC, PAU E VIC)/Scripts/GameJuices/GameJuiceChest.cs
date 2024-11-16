@@ -2,7 +2,7 @@ using System.Collections;
 using Main_Folders.Scripts.Player;
 using UnityEngine;
 
-namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
+namespace Assets.PROGRAMAÃ‡ÃƒO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 {
     public class GameJuiceChest : global::GameJuices
     {
@@ -79,9 +79,9 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                 if (_particleGameJuice != null)
                     _particleGameJuice.SetActive(true);
 
-                AddRandomItemToInventory(); // Adiciona um item ao inventário
+                AddRandomItemToInventory(); // Adiciona um item ao inventï¿½rio
 
-                PlayerPrefs.SetInt(_assetKey, 1); // Marca o baú como aberto usando o identificador da classe pai
+                PlayerPrefs.SetInt(_assetKey, 1); // Marca o baï¿½ como aberto usando o identificador da classe pai
             }
         }
 
@@ -103,17 +103,17 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                     }
                     else
                     {
-                        Debug.LogError("O componente PlayerShop não está anexado ao jogador.");
+                        Debug.LogError("O componente PlayerShop nï¿½o estï¿½ anexado ao jogador.");
                     }
                 }
                 else
                 {
-                    Debug.LogError("O jogador (_player) não está definido.");
+                    Debug.LogError("O jogador (_player) nï¿½o estï¿½ definido.");
                 }
             }
             else
             {
-                Debug.LogWarning("O array de tipos de itens está vazio ou não configurado.");
+                Debug.LogWarning("O array de tipos de itens estï¿½ vazio ou nï¿½o configurado.");
             }
         }
 

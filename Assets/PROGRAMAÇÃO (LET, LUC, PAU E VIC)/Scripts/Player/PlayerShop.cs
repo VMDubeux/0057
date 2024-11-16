@@ -1,4 +1,4 @@
-using Assets.PROGRAMA«√O__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
+using Assets.PROGRAMA√á√ÉO__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
 using UnityEngine;
 
 namespace Main_Folders.Scripts.Player

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Assets.PROGRAMA«√O__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
+using Assets.PROGRAMA√á√ÉO__LET__LUC__PAU_E_VIC_.Scripts.Inventory;
 using NUnit.Framework.Internal.Commands;
 using Unity.VisualScripting;
 using UnityEngine;

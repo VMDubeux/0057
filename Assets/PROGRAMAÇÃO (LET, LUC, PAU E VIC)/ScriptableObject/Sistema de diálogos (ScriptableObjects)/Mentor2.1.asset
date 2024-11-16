@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Mentor2.1
   m_EditorClassIdentifier: 
   dialogues:
-  - "E se eu lhe dissesse que voc\xEA poderia ter drip imediatamente?"
+  - And what if I told you that you can actually have an insane amount of drip like...
+    right now?
   options:
   - {fileID: 11400000, guid: 968d46b6feda10c47b01a38525d31dbe, type: 2}

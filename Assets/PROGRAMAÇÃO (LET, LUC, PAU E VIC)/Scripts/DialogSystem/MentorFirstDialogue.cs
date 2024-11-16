@@ -9,7 +9,7 @@ using System;
 public class MentorFirstDialogue : MonoBehaviour
 {
     [SerializeField] private DialogManager dialogTriggerPrefab;
-    internal DialogManager dialogTrigger;
+    public DialogManager dialogTrigger;
     [SerializeField] private DialogStep mentorDialogue;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private GameObject tronco;
@@ -22,7 +22,7 @@ public class MentorFirstDialogue : MonoBehaviour
         questManager.completedQuest += EndedQuest;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void StartDialogue()
     {
         dialogTrigger = Instantiate(dialogTriggerPrefab);
         dialogTrigger.step = mentorDialogue;
@@ -32,15 +32,10 @@ public class MentorFirstDialogue : MonoBehaviour
         QuestSystem.Instance.InvokeEvent();
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        LevelsManager.Instance.isTalking = false;
-        Destroy(dialogTrigger.gameObject);
-    }
-
     private void EndedDialog()
     {
         questManager.IntegralizarQuest(questManager.Quests[0]);
+        Destroy(GetComponent<ParticleSystem>());
     }
 
     private void EndedQuest()
