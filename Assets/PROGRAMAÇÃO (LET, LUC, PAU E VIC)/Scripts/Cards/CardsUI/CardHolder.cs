@@ -11,10 +11,18 @@ public class CardHolder : MonoBehaviour
     public RectTransform Holder;
     public Text CardAmount;
     public int CardRotation;
-    void Awake(){
-        Cards = new List<Card>();
+    private CardsList cardList;
+
+    private void Awake(){
+        //Cards = new List<Card>();
+        foreach (Card card in cardList.Cards) 
+        {
+            Cards.Add(card);
+        }
+        
         CardAmount.text = string.Format("{0}", Cards.Count);
     }
+
     public void AddCard(Card card){
         RectTransform rect = card.transform as RectTransform;
         rect.anchorMax = Holder.anchorMax;
@@ -40,5 +48,4 @@ public class CardHolder : MonoBehaviour
             rect.rotation = Quaternion.Euler(0, CardRotation, 0);
         }
     }
-
 }
