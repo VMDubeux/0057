@@ -44,9 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b1415eb37748f408b39eee04e34931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CartaComum: {fileID: 21300000, guid: c18c333e93a79ab4aa04f445ca128c51, type: 3}
-  PerfumePeq: {fileID: 21300000, guid: 8db8e943753efe04a84922a546671e5e, type: 3}
-  PerfumeMed: {fileID: 21300000, guid: b6c5f043b526e7949962172010dc1c93, type: 3}
-  PerfumeGrd: {fileID: 21300000, guid: df6b54409db4fff4c8a651bb5ebbad01, type: 3}
-  CartaEsp: {fileID: 21300000, guid: 87a6323029b21fe418518a500fb750b3, type: 3}
-  CartaMed: {fileID: 21300000, guid: f593176669630d84a98ba0534c5cd026, type: 3}
+  BelezaSurreal: {fileID: 21300000, guid: b14a6ba935a9dce47aa4e651bd734fcc, type: 3}
+  Calado: {fileID: 21300000, guid: de79e98df6de3884092da2a156f17084, type: 3}
+  Polimento: {fileID: 21300000, guid: d10148a3a0bce8f40bbb20bf24752d14, type: 3}
+  LindoNaoBelo: {fileID: 21300000, guid: 56d3a59fea7a2cd4eaf962809fe7cb72, type: 3}
+  Flex: {fileID: 21300000, guid: f7e3af945c140e4479a2e642a5ecd2ec, type: 3}
+  JogadaDeCabelo: {fileID: 21300000, guid: 775e42aa28516844387ae535c2cabfcd, type: 3}
+  Musculos: {fileID: 21300000, guid: 7a6788247150dbc4293d688deef62662, type: 3}
+  NaNaNiNaNao: {fileID: 21300000, guid: fe11419229baac141adcc73fe3247a7e, type: 3}
+  NadaDelicado: {fileID: 0}
+  NemPense: {fileID: 21300000, guid: 0d9545cb8a7f3ad49abeba5dc903f135, type: 3}
+  OlhaBem: {fileID: 21300000, guid: a49115179412f38468e597e37a6f69df, type: 3}
+  PesoDoNome: {fileID: 21300000, guid: 09875bf9e8458294d95c3046624d9063, type: 3}
+  SacaIsso: {fileID: 0}
+  SemEstilo: {fileID: 21300000, guid: af4e3099a754ea641b44c0ccef3d6610, type: 3}
+  VemCa: {fileID: 0}

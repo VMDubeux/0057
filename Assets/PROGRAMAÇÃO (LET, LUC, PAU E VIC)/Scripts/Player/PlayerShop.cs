@@ -24,7 +24,7 @@ namespace Main_Folders.Scripts.Player
             obj.GetComponent<ItemPickUp>().Id = ItemSO.GetId(itemType);
             obj.GetComponent<ItemPickUp>().Name = ItemSO.GetName(itemType);
             obj.GetComponent<ItemPickUp>().Cost = ItemSO.GetCost(itemType);
-            obj.GetComponent<ItemPickUp>().Sprite = ItemSO.GetSprite(itemType);
+            //obj.GetComponent<ItemPickUp>().Sprite = ItemSO.GetSprite(itemType);
 
             Debug.Log("Bought: " + obj.GetComponent<ItemPickUp>().Name);
             InventoryManager.Instance.Add(obj.GetComponent<ItemPickUp>());

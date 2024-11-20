@@ -1,2 +1,26 @@
 fileFormatVersion: 2
 guid: f2b1415eb37748f408b39eee04e34931
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BelezaSurreal: {fileID: 21300000, guid: ab83b8842bc40ef4f88d5d5176797080, type: 3}
+  - Calado: {fileID: 21300000, guid: 5ac76f38b0c5d494087d98130b156585, type: 3}
+  - Polimento: {fileID: 21300000, guid: b5c6a39721d5d20409568d2e8b9acb9f, type: 3}
+  - LindoNaoBelo: {fileID: 21300000, guid: 71f14c30c6510a54fa438095261a6d3d, type: 3}
+  - Flex: {fileID: 21300000, guid: b6b6531e7e4a4fc4db6f0cbb99b3a086, type: 3}
+  - JogadaDeCabelo: {fileID: 21300000, guid: 2467f1663e66d2f4ba16cf6bc3e55ccb, type: 3}
+  - Musculos: {fileID: 21300000, guid: 694803d0ca2f6814aaf0e350e2ead716, type: 3}
+  - NaNaNiNaNao: {fileID: 21300000, guid: 2e9504242d5fc784ba495b74b3326cdd, type: 3}
+  - NadaDelicado: {fileID: 21300000, guid: 1f30e48ca6099f549aa5b5c0a8f67b0c, type: 3}
+  - NemPense: {fileID: 21300000, guid: c36c1d0fdf35ce74a89ebafd2bf0fbd7, type: 3}
+  - OlhaBem: {fileID: 21300000, guid: d8c110f36f700e641ba294fd1466c814, type: 3}
+  - PesoDoNome: {fileID: 21300000, guid: de768aff5e80aff46b4172523787537b, type: 3}
+  - SacaIsso: {fileID: 21300000, guid: fa062f46a5e402c49ad04ed9de12e5a4, type: 3}
+  - SemEstilo: {fileID: 21300000, guid: c5c2b882c0097b94aaba51380c84cdff, type: 3}
+  - VemCa: {fileID: 21300000, guid: 79c6fd679eaebd746bddca0dc96588aa, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

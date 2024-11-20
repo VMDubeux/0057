@@ -38,7 +38,7 @@ public class ItemSO
         }
     }
 
-    public static int GetCost(ItemType itemType)
+    public static int GetCost(ItemType itemType) //Não terá custo, pois não serão compradas
     {
         switch (itemType)
         {
@@ -53,7 +53,7 @@ public class ItemSO
         }
     }
 
-    public static Sprite GetSprite(ItemType itemType)
+    /*public static Sprite GetSprite(ItemType itemType) 
     {
         switch (itemType)
         {
@@ -66,7 +66,7 @@ public class ItemSO
             case ItemType.CartaEsp: return GameAssets.i.CartaEsp;
             case ItemType.CartaMed: return GameAssets.i.CartaMed;
         }
-    }
+    }*/
 
     public static ItemType GetItemType(int value)
     {

@@ -9,7 +9,7 @@ public abstract class GameJuices : MonoBehaviour
     public GameObject CanvasGameJuices;
     internal bool isInside = false;
     internal bool wasOpen = false;
-    internal GameObject _player;
+    internal CardInventoryManager cardInventoryManager;
     internal Animator _animator;
     [SerializeField] internal string _assetKey;
 

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Main_Folders.Scripts.Player;
 using UnityEngine;
 
@@ -9,27 +10,69 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
         [Header("Specific Variables:")]
         [SerializeField] private GameObject _lightGameJuice;
         [SerializeField] private GameObject _particleGameJuice;
-        [SerializeField] private ItemType[] _possibleItemTypes;
+        [SerializeField] private CardToPickUp[] allAvailableCards;
+        [SerializeField] private CardToPickUp.CardRarity[] _DroppableCardsRarity;
+        [SerializeField] private List<CardToPickUp> _CardsToDrop;
 
         protected override void Start()
         {
+            StartCoroutine(InitializeAfterDelay());
+        }
+
+        private IEnumerator InitializeAfterDelay()
+        {
+            yield return new WaitForEndOfFrame(); // Garante que tudo seja inicializado antes
+
             if (PlayerPrefs.GetInt(_assetKey, 0) == 1)
             {
-                wasOpen = true;
-
-                if (_animator != null)
-                {
-                    string finalStateName = "Open";
-                    _animator.Play(finalStateName, 0, 1f);
-                    _animator.Update(0f);
-                }
-
-                if (_lightGameJuice != null)
-                    _lightGameJuice.SetActive(true);
-
-                if (_particleGameJuice != null)
-                    _particleGameJuice.SetActive(false);
+                HandleChestAlreadyOpen();
             }
+            else
+            {
+                InitializeDroppableCards();
+            }
+        }
+
+        private void HandleChestAlreadyOpen()
+        {
+            wasOpen = true;
+
+            if (_animator != null)
+            {
+                string finalStateName = "Open";
+                _animator.Play(finalStateName, 0, 1f);
+                _animator.Update(0f);
+            }
+
+            if (_lightGameJuice != null)
+                _lightGameJuice.SetActive(true);
+
+            if (_particleGameJuice != null)
+                _particleGameJuice.SetActive(false);
+        }
+
+        private void InitializeDroppableCards()
+        {
+            _CardsToDrop = new List<CardToPickUp>();
+
+            if (CardInventoryManager.Instance == null || CardInventoryManager.Instance.cardsToPick == null)
+            {
+                Debug.LogError("CardInventoryManager.Instance ou cardsToPick não está inicializado!");
+                return;
+            }
+
+            allAvailableCards = CardInventoryManager.Instance.cardsToPick;
+
+            foreach (var card in allAvailableCards)
+            {
+                if (System.Array.Exists(_DroppableCardsRarity, rarity => rarity == card.cardRarity))
+                {
+                    Debug.Log($"Carta adicionada: {card.Name}, Raridade: {card.cardRarity}");
+                    _CardsToDrop.Add(card);
+                }
+            }
+
+            Debug.Log($"Total de cartas dropáveis configuradas: {_CardsToDrop.Count}");
         }
 
         protected override void HandleTriggerEnter(Collider other)
@@ -38,7 +81,6 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             {
                 CanvasGameJuices.SetActive(true);
                 isInside = true;
-                _player = other.gameObject;
             }
         }
 
@@ -79,41 +121,26 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                 if (_particleGameJuice != null)
                     _particleGameJuice.SetActive(true);
 
-                AddRandomItemToInventory(); // Adiciona um item ao invent�rio
+                AddRandomItemToInventory(); // Adiciona um item ao inventário
 
-                PlayerPrefs.SetInt(_assetKey, 1); // Marca o ba� como aberto usando o identificador da classe pai
+                PlayerPrefs.SetInt(_assetKey, 1);
             }
         }
 
         protected override void AddRandomItemToInventory()
         {
-            if (_possibleItemTypes != null && _possibleItemTypes.Length > 0)
+            if (_CardsToDrop != null && _CardsToDrop.Count > 0)
             {
-                int randomIndex = Random.Range(0, _possibleItemTypes.Length);
-                ItemType selectedItemType = _possibleItemTypes[randomIndex];
+                int randomIndex = Random.Range(0, _CardsToDrop.Count);
+                CardToPickUp randomSelectedCardToPick = _CardsToDrop[randomIndex];
 
-                Debug.Log($"Selecionado ItemType: {selectedItemType}");
+                Debug.Log($"Carta selecionada: {randomSelectedCardToPick.Name} (Posição no inventário: {randomSelectedCardToPick.InventoryPos}).");
 
-                if (_player != null)
-                {
-                    var playerShop = _player.GetComponent<PlayerShop>();
-                    if (playerShop != null)
-                    {
-                        playerShop.BoughtItem(selectedItemType);
-                    }
-                    else
-                    {
-                        Debug.LogError("O componente PlayerShop n�o est� anexado ao jogador.");
-                    }
-                }
-                else
-                {
-                    Debug.LogError("O jogador (_player) n�o est� definido.");
-                }
+                CardInventoryManager.Instance.CardPickedUp(randomSelectedCardToPick);
             }
             else
             {
-                Debug.LogWarning("O array de tipos de itens est� vazio ou n�o configurado.");
+                Debug.LogWarning("A lista '_CardsToDrop' está vazia ou não foi inicializada.");
             }
         }
 

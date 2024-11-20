@@ -28,7 +28,7 @@ namespace Main_Folders.Scripts.Shop
             {
                 int random = Random.Range(0, 6);
                 item.itemType = ItemSO.GetItemType(random);
-                CreateItemButton(item.itemType, ItemSO.GetSprite(item.itemType), ItemSO.GetName(item.itemType), ItemSO.GetCost(item.itemType));
+                //CreateItemButton(item.itemType, ItemSO.GetSprite(item.itemType), ItemSO.GetName(item.itemType), ItemSO.GetCost(item.itemType));
             }
 
             //Hide();

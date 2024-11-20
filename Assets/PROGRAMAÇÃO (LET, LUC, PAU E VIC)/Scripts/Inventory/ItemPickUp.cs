@@ -25,7 +25,7 @@ public class ItemPickUp : MonoBehaviour
         Id = ItemSO.GetId(ItemType);
         Name = ItemSO.GetName(ItemType);
         Cost = ItemSO.GetCost(ItemType);
-        Sprite = ItemSO.GetSprite(ItemType);
+        //Sprite = ItemSO.GetSprite(ItemType);
         if (PlayerPrefs.HasKey(Id + Name + identity))
         {
             Destroy(this.gameObject);
@@ -55,7 +55,7 @@ public class ItemPickUp : MonoBehaviour
         Id = ItemSO.GetId(type);
         Name = ItemSO.GetName(type);
         Cost = ItemSO.GetCost(type);
-        Sprite = ItemSO.GetSprite(type);
+        //Sprite = ItemSO.GetSprite(type);
         if (PlayerPrefs.HasKey(Id + Name + identity))
         {
             Destroy(this.gameObject);

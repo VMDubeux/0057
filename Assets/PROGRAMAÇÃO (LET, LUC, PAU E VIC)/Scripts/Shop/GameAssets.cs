@@ -13,10 +13,9 @@ public class GameAssets : MonoBehaviour
     }
 
     [Header("Sprites: ")]
-    public Sprite CartaComum,
-        PerfumePeq,
-        PerfumeMed,
-        PerfumeGrd, 
-        CartaEsp,
-        CartaMed;
+    public Sprite BelezaSurreal, Calado, Polimento,
+        LindoNaoBelo, Flex, JogadaDeCabelo,
+        Musculos, NaNaNiNaNao, NadaDelicado,
+        NemPense, OlhaBem, PesoDoNome,
+        SacaIsso, SemEstilo, VemCa;
 }

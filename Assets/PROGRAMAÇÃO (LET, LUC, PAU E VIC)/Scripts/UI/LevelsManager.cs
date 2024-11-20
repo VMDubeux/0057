@@ -106,7 +106,7 @@ namespace Main_Folders.Scripts.UI
 
             if (currentGameSceneIndex > 1)
             {
-                CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+                CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
                 LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 minimapCamera = GameObject.Find("CameraMinimap").GetComponent<Camera>();
@@ -170,14 +170,14 @@ namespace Main_Folders.Scripts.UI
 
                 if (isTalking == false)
                 {
-                    CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+                    CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
                     LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                     CanvasInventario.SetActive(true);
                     LevelCanvas.SetActive(true);
                 }
                 else
                 {
-                    CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+                    CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
                     LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                     CanvasInventario.SetActive(false);
                     LevelCanvas.SetActive(false);
@@ -190,7 +190,7 @@ namespace Main_Folders.Scripts.UI
             }
             else if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 2)
             {
-                CanvasInventario = FindAnyObjectByType<CanvasInventario>(FindObjectsInactive.Include).gameObject;
+                CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
                 LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;

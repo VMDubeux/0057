@@ -109,7 +109,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
             };
 
             item.pathName.text = ItemSO.GetName(itemPickUp.ItemType);
-            item.pathIcon.sprite = ItemSO.GetSprite(itemPickUp.ItemType);
+            //item.pathIcon.sprite = ItemSO.GetSprite(itemPickUp.ItemType);
             item.id = ItemSO.GetId(itemPickUp.ItemType);
             item.itemQuantity = 1;
             item.pathNumber.text = item.itemQuantity.ToString();

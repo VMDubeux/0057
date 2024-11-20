@@ -99,7 +99,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.Inventory
                 if (deckButton.IsEmpty())
                 {
                     // Adiciona a referência ao item pick-up
-                    deckButton.Setup(item, ItemSO.GetSprite(item.ItemType));
+                    //deckButton.Setup(item, ItemSO.GetSprite(item.ItemType));
                     break;
                 }
             }
