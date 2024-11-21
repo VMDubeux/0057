@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Main_Folders.Scripts.Player;
 using Main_Folders.Scripts.UI;
 using UnityEngine;
-using System;
 
 [RequireComponent(typeof(QuestManager))]
 public class MentorFirstDialogue : MonoBehaviour
@@ -29,7 +28,16 @@ public class MentorFirstDialogue : MonoBehaviour
         dialogTrigger.dialogueDelegate += EndedDialog;
         dialogTriggerPrefab.gameObject.SetActive(true);
         LevelsManager.Instance.isTalking = true;
-        QuestSystem.Instance.InvokeEvent();
+
+        // Notifica o QuestSystem sobre a interação
+        if (QuestSystem.Instance != null)
+        {
+            QuestSystem.Instance.NotifyQuestCompletion();
+        }
+        else
+        {
+            Debug.LogWarning("QuestSystem.Instance não está disponível. Verifique se o QuestSystem está configurado corretamente na cena.");
+        }
     }
 
     private void EndedDialog()

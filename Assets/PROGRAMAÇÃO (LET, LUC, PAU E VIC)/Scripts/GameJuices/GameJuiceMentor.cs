@@ -4,9 +4,13 @@ using UnityEngine;
 using Main_Folders.Scripts.Player;
 using Main_Folders.Scripts.UI;
 using Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices;
+using System.Collections.Generic;
 
-public class GameJuiceMentor : GameJuices {
+public class GameJuiceMentor : GameJuices
+{
     private MentorFirstDialogue mentorDialog;
+
+    [SerializeField] private CardToPickUp[] _CardsToDrop = new CardToPickUp[3];
 
     protected override void Start()
     {
@@ -58,13 +62,14 @@ public class GameJuiceMentor : GameJuices {
         throw new System.NotImplementedException();
     }
 
-    protected override void AddRandomItemToInventory()
+    protected override void AddRandomItemToInventory() // Não será randomico aqui
     {
-
+        foreach(CardToPickUp card in _CardsToDrop)
+            CardInventoryManager.Instance.CardPickedUp(card);
     }
 
     private void Verification()
     {
         Debug.Log("Verificando!");
     }
-}   
+}
