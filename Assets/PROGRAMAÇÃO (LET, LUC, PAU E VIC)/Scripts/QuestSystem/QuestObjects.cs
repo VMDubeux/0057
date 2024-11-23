@@ -1,83 +1,111 @@
-using System.Collections;
+using Main_Folders.Scripts.Minimapa;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class QuestObjects : MonoBehaviour
 {
-    [Header("Inputs:")]
-    [Tooltip("Insira as quests prévias obrigatórias")]
+    [Header("Dependencies")]
+    [Tooltip("Insira as quests prévias obrigatórias.")]
     public QuestObjects[] requiredQuests;
 
-    [Header("Outputs:")]
-    [Tooltip("Insira (se houver) os objetos que serão manipulados pelo método CompletedQuest")]
-    public GameObject[] possibleOutputs;
+    [Header("Quest Outputs")]
+    [Tooltip("Objetos manipulados ao concluir a quest.")]
+    public List<GameObject> questOutputs = new();
 
-    [Header("Availability:")]
-    [Tooltip("Dirá se está disponível para ser realizada a quest")]
+    [Header("Quest Status")]
+    [Tooltip("Indica se a quest está disponível.")]
     public bool isAvailable;
+    [Tooltip("Indica se a quest foi concluída.")]
+    public bool isCompleted;
 
-    [Header("Status:")]
-    [Tooltip("Dirá se a quest foi realizada")]
-    public bool isFinished;
+    private void Start()
+    {
+        AddMinimapIconPosition();
+        CheckDependencies();
+    }
 
     /// <summary>
-    /// Verifica se a quest pode ser disponibilizada com base nas requiredQuests.
+    /// Adiciona o ícone no minimapa, mas adaptável, pois pode ser um inimigo ou objetivo.
     /// </summary>
-    public void CheckQuestAvailability()
+    protected abstract void AddMinimapIconPosition();
+
+    /// <summary>
+    /// Verifica se todas as quests dependentes foram concluídas.
+    /// </summary>
+    public void CheckDependencies()
     {
-        if (requiredQuests != null)
+        if (requiredQuests == null || requiredQuests.Length == 0)
         {
-            foreach (var quest in requiredQuests)
+            MarkQuestAsAvailable();
+            return;
+        }
+
+        foreach (var quest in requiredQuests)
+        {
+            if (!quest.isCompleted)
             {
-                if (!quest.isFinished) // Se qualquer requiredQuest não foi concluída
-                {
-                    isAvailable = false;
-                    return;
-                }
+                isAvailable = false;
+                return;
             }
         }
 
-        isAvailable = true; // Disponibiliza a quest se todas as requiredQuests estiverem concluídas
+        MarkQuestAsAvailable();
     }
 
     /// <summary>
-    /// Finaliza a quest atual.
+    /// Marca a quest como disponível.
     /// </summary>
-    public void FinishQuest()
+    public void MarkQuestAsAvailable()
     {
-        if (!isFinished && isAvailable)
-        {
-            isFinished = true;
-            CompletedQuest();
-            NotifyQuestCompletion();
-        }
+        isAvailable = true;
     }
-
-    protected abstract void CompletedQuest(); // Método abstrato para personalizar a conclusão da quest
 
     /// <summary>
-    /// Notifica o QuestSystem sobre a conclusão da quest.
+    /// Finaliza a quest.
     /// </summary>
-    protected void NotifyQuestCompletion()
+    public void CompleteQuest()
     {
-        if (QuestSystem.Instance != null)
+        if (!isAvailable || isCompleted)
         {
-            QuestSystem.Instance.NotifyQuestCompletion();
+            Debug.LogWarning("Quest já concluída ou indisponível.");
+            return;
         }
-        else
-        {
-            Debug.LogWarning("QuestSystem.Instance não está disponível. Verifique se o objeto QuestSystem está na cena.");
-        }
+
+        isCompleted = true;
+        Debug.Log("Chegou aqui 1");
+        ProcessQuestCompletion();
+        Debug.Log("Chegou aqui 4");
     }
 
-    protected void OnEnable()
+    /// <summary>
+    /// Lógica personalizada de conclusão da quest, implementada nas subclasses.
+    /// </summary>
+    protected virtual void ProcessQuestCompletion()
     {
-        QuestSystem.Instance.QuestCompleted += CheckQuestAvailability;
-        QuestSystem.Instance.NotifyQuestCompletion();
+        if (questOutputs != null)
+        {
+            // Lógica padrão: Ativar ou manipular objetos de saída
+            foreach (var output in questOutputs)
+            {
+                if (output != null)
+                {
+                    output.SetActive(false);
+                }
+            }
+
+            questOutputs.Clear();
+        }
+
+        // Verifica e chama o método de GameJuiceMentor
+        GameJuiceCall();
+
+        Debug.Log("Quest concluída com sucesso.");
     }
 
-    protected void OnDisable()
+    protected abstract void GameJuiceCall();
+
+    private void Update()
     {
-        QuestSystem.Instance.QuestCompleted -= CheckQuestAvailability;
+        CheckDependencies();
     }
 }

@@ -11,19 +11,19 @@ public class QuestSystem : MonoBehaviour
     {
         if (Instance == null)
         {
-            Instance = this; // Define a instância se ainda não foi atribuída
+            Instance = this;
         }
         else
         {
-            Destroy(gameObject); // Garante que apenas uma instância exista
+            Destroy(gameObject);
             return;
         }
 
-        DontDestroyOnLoad(gameObject); // Opcional: Garante que o QuestSystem persista entre cenas
+        DontDestroyOnLoad(gameObject);
     }
 
     /// <summary>
-    /// Método para notificar que uma quest foi concluída.
+    /// Notifica que uma quest foi concluída.
     /// </summary>
     public void NotifyQuestCompletion()
     {

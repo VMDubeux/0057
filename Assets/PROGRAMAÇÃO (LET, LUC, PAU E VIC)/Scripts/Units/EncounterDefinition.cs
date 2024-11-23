@@ -14,68 +14,75 @@ public class EncounterDefinition : MonoBehaviour
     [HideInInspector] public int levelMin;
     [HideInInspector] public int levelMax;
 
-    [Header("Hiden Fields:")]
-    [HideInInspector] public int numEncouters;
-    [HideInInspector] public int minNumEncouters;
-    [HideInInspector] public int maxNumEncouters;
+    [Header("Hidden Fields:")]
+    [HideInInspector] public int numEncounters;
+    [HideInInspector] public int minNumEncounters;
+    [HideInInspector] public int maxNumEncounters;
 
-    //[Header("Prefab Battle: ")]
-    //[HideInInspector] public GameObject EnemyBattlePrefab;
-    //[HideInInspector] public GameObject[] EnemiesBattlePrefab;
+    private bool isBattleStarted = false; // Controle para evitar múltiplas execuções
 
-    private void OnTriggerEnter(Collider collider)
+    private void Update()
     {
-        if (collider.CompareTag("Player") && gameObject.GetComponent<Unit>().hasFought == false)
+        // Verifica se o diálogo foi finalizado, e a batalha ainda não foi iniciada
+        QuestLacaio questLacaio = GetComponent<QuestLacaio>();
+        if (questLacaio != null && !isBattleStarted && questLacaio.isDialogueFinished)
         {
-            EnemyMovementStates.OnStartCombat += Verification; // DELEGATE QUE INFORMA O INÍCIO DO COMBATE AO SCRIP DE MOVIMENTO DO INIMIGO
-            References.Instance.CurrentEnemyBattle = this.gameObject;
-            OverworldVisualPrefab = gameObject.GetComponent<Unit>().OverworldVisualPrefab;
-            BattleVisualPrefab = gameObject.GetComponent<Unit>().BattleVisualPrefab;
-            EncounterSystem encouter = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
-            StartCoroutine(encouter.StartGenerateEnemiesByEncouter(minNumEncouters, maxNumEncouters, numEncouters, EncounterIsVariable, levelMin, levelMax, OverworldVisualPrefab, BattleVisualPrefab));
+            isBattleStarted = true; // Marca como iniciado para evitar múltiplas execuções
+            StartBattleSequence(); // Inicia o processo de batalha
         }
     }
 
-    public static void Verification() // MÉTODO ACESSADO NO SCRIPT TURN BEGIN STATE PARA RETIRAR O MÉTODO VERIFICATION DO DELEGATE DO SCRIPT DE MOVIMENTO DO INIMIGO
+    private void StartBattleSequence()
     {
-        //não precisa de implementação
+        Debug.Log("Iniciando sequência de batalha após o diálogo.");
+
+        References.Instance.CurrentEnemyBattle = this.gameObject;
+
+        OverworldVisualPrefab = gameObject.GetComponent<Unit>().OverworldVisualPrefab;
+        BattleVisualPrefab = gameObject.GetComponent<Unit>().BattleVisualPrefab;
+
+        EncounterSystem encounterSystem = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
+        StartCoroutine(encounterSystem.StartGenerateEnemiesByEncouter(
+            minNumEncounters,
+            maxNumEncounters,
+            numEncounters,
+            EncounterIsVariable,
+            levelMin,
+            levelMax,
+            OverworldVisualPrefab,
+            BattleVisualPrefab
+        ));
     }
-}
 
 #if UNITY_EDITOR
-[CustomEditor(typeof(EncounterDefinition))]
-public class EncounterDefinition_Editor : Editor
-{
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(EncounterDefinition))]
+    public class EncounterDefinition_Editor : Editor
     {
-        var script = (EncounterDefinition)target;
-
-        script.EncounterIsVariable = EditorGUILayout.Toggle("N�mero de Encouter � vari�vel?", script.EncounterIsVariable);
-
-        if (script.EncounterIsVariable == false)
+        public override void OnInspectorGUI()
         {
-            //script.EnemyBattlePrefab = EditorGUILayout.ObjectField("Enemy Battle Visual Prefab", script.EnemyBattlePrefab, typeof(GameObject), true) as GameObject;
-            script.numEncouters = EditorGUILayout.IntField("N�mero fixo de Encouters:", script.numEncouters);
+            var script = (EncounterDefinition)target;
+
+            script.EncounterIsVariable = EditorGUILayout.Toggle("Número de Encounter é variável?", script.EncounterIsVariable);
+
+            if (!script.EncounterIsVariable)
+            {
+                script.numEncounters = EditorGUILayout.IntField("Número fixo de Encounters:", script.numEncounters);
+                LevelControl();
+                return;
+            }
+
+            script.minNumEncounters = EditorGUILayout.IntField("Número mínimo de Encounters:", script.minNumEncounters);
+            script.maxNumEncounters = EditorGUILayout.IntField("Número máximo de Encounters:", script.maxNumEncounters);
             LevelControl();
-            return;
         }
 
-        script.minNumEncouters = EditorGUILayout.IntField("N�mero m�nimo de Encouters:", script.minNumEncouters);
-        script.maxNumEncouters = EditorGUILayout.IntField("N�mero m�ximo de Encouters:", script.maxNumEncouters);
-        LevelControl();
+        private void LevelControl()
+        {
+            var script = (EncounterDefinition)target;
 
-        //script.EnemiesBattlePrefab[0] = EditorGUILayout.ObjectField("Enemy Battle Visual Prefab", script.EnemiesBattlePrefab[0], typeof(GameObject), true) as GameObject;
-        //script.EnemyBattlePrefab = EditorGUILayout.ObjectField("Enemy Battle Visual Prefab", script.EnemyBattlePrefab, typeof(GameObject), true) as GameObject;
-
+            script.levelMin = EditorGUILayout.IntField("Level mínimo:", script.levelMin);
+            script.levelMax = EditorGUILayout.IntField("Level máximo:", script.levelMax);
+        }
     }
-
-    private void LevelControl()
-    {
-        var script = (EncounterDefinition)target;
-
-        script.levelMin = EditorGUILayout.IntField("Level m�nimo:", script.levelMin);
-        script.levelMax = EditorGUILayout.IntField("Level m�ximo:", script.levelMax);
-    }
-
-}
 #endif
+}

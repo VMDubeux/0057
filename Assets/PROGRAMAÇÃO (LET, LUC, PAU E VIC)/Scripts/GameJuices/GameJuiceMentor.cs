@@ -1,20 +1,21 @@
 using System.Collections;
-using Main_Folders.Scripts.Player;
 using UnityEngine;
 using Main_Folders.Scripts.Player;
 using Main_Folders.Scripts.UI;
 using Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices;
-using System.Collections.Generic;
 
 public class GameJuiceMentor : GameJuices
 {
-    private MentorFirstDialogue mentorDialog;
-
-    [SerializeField] private CardToPickUp[] _CardsToDrop = new CardToPickUp[3];
+    [SerializeField] private QuestMentor mentorQuest; // Substitui MentorFirstDialogue
+    [SerializeField] private CardToPickUp[] cardsToDrop = new CardToPickUp[2];
 
     protected override void Start()
     {
-        mentorDialog = GetComponent<MentorFirstDialogue>();
+        // Valida que a QuestMentor foi atribuída
+        if (mentorQuest == null)
+        {
+            Debug.LogError("A QuestMentor não foi atribuída ao GameJuiceMentor. Verifique no editor.");
+        }
     }
 
     protected override void HandleTriggerEnter(Collider other)
@@ -33,10 +34,19 @@ public class GameJuiceMentor : GameJuices
             CanvasGameJuices.SetActive(false);
             isInside = false;
             wasOpen = false;
-            // Remove the subscription to the event
-            ShopTriggerCollider.OnPlayerEntered -= Verification;
+
+            // Finaliza interações
             LevelsManager.Instance.isTalking = false;
-            Destroy(mentorDialog.dialogTrigger.gameObject);
+
+            // Garante que o diálogo ativo seja destruído
+            if (mentorQuest != null)
+            {
+                GameObject activeDialog = mentorQuest.GetActiveDialog();
+                if (activeDialog != null)
+                {
+                    Destroy(activeDialog);
+                }
+            }
         }
     }
 
@@ -54,20 +64,30 @@ public class GameJuiceMentor : GameJuices
     {
         wasOpen = true;
         CanvasGameJuices.SetActive(false);
-        mentorDialog.StartDialogue();
+
+        // Inicia o diálogo associado à QuestMentor
+        if (mentorQuest != null)
+        {
+            mentorQuest.StartDialogue();
+        }
+        else
+        {
+            Debug.LogWarning("A QuestMentor não está configurada. Certifique-se de que ela foi atribuída.");
+        }
     }
 
     protected override void SetupReturnToOrigin()
     {
-        throw new System.NotImplementedException();
+        Debug.LogWarning("SetupReturnToOrigin não foi implementado.");
     }
 
-    protected override void AddRandomItemToInventory() // Não será randomico aqui
+    internal override void AddRandomItemToInventory() // Aqui os itens não serão aleatórios
     {
-        foreach(CardToPickUp card in _CardsToDrop)
+        foreach (CardToPickUp card in cardsToDrop)
+        {
             CardInventoryManager.Instance.CardPickedUp(card);
+        }
     }
-
     private void Verification()
     {
         Debug.Log("Verificando!");

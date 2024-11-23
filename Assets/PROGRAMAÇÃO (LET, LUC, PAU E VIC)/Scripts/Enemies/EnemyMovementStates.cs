@@ -1,13 +1,11 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using Vector3 = UnityEngine.Vector3;
 
 public abstract class EnemyMovementStates : MonoBehaviour
 {
     public delegate void StartCombat();
-    public static event StartCombat OnStartCombat;
+    public event StartCombat OnStartCombat; // Evento para indicar o início do combate
 
     public enum State
     {
@@ -31,64 +29,43 @@ public abstract class EnemyMovementStates : MonoBehaviour
     protected Animator _animator;
     protected State _currentState;
     private Vector3 _startPos;
+    protected Unit unitComponent;
+
+    internal bool isDialogueInProgress = false; // Flag para verificar se o diálogo está em andamento
 
     private void Start()
     {
         InitialSetup();
         SwitchStates(State.Idle);
+        unitComponent = gameObject.GetComponent<Unit>();
     }
 
     private void Update()
     {
-        if (_targetPos != null && _currentState == State.Patrol)
+        if (unitComponent != null && unitComponent.hasFought == false && !isDialogueInProgress)
         {
-            _distanceToTarget = Vector3.Distance(transform.position, _targetPos.transform.position);
-            _agent.speed = 1;
-
-            if (_player != null && gameObject.GetComponent<QuestObjects>().isAvailable == true)
+            switch (_currentState)
             {
-                if (Vector3.Distance(transform.position, _player.transform.position) < 6)
-                {
-                    SwitchStates(State.Follow);
-                }
-            }
+                case State.Patrol:
+                    HandlePatrolLogic();
+                    break;
 
-            return;
+                case State.Follow:
+                    HandleFollowLogic();
+                    break;
+
+                case State.Battle:
+                    HandleBattleLogic();
+                    break;
+
+                case State.Dead:
+                    HandleDeadLogic();
+                    break;
+            }
         }
-
-        if (_player != null && _currentState == State.Follow)
+        if(unitComponent.hasFought == true)
         {
-            _distanceToTarget = Vector3.Distance(transform.position, _player.transform.position);
-            _agent.destination = _player.transform.position;
-            _agent.speed = 1.25f;
-
-            if (_distanceToTarget > 8)
-            {
-                SwitchStates(State.Patrol);
-                _agent.speed = 1;
-            }
-
-
-            if (OnStartCombat != null)
-            {
-                SwitchStates(State.Battle);
-            }
-
-            return;
-        }
-
-        if (OnStartCombat == null && _currentState == State.Battle)
-        {
-            if (gameObject.GetComponent<Unit>().hasFought == true)
-            {
-                SwitchStates(State.Dead);
-            }
-            else
-            {
-                _animator.SetBool("OnBattle", false);
-                gameObject.transform.position = _startPos;
-                SwitchStates(State.Patrol);
-            }
+            SwitchStates(State.Dead);
         }
     }
 
@@ -112,7 +89,24 @@ public abstract class EnemyMovementStates : MonoBehaviour
 
     protected abstract void HandlePatrol();
 
-    protected void HandleFollow()
+    private void HandlePatrolLogic()
+    {
+        if (_targetPos != null)
+        {
+            _distanceToTarget = Vector3.Distance(transform.position, _targetPos.transform.position);
+            _agent.speed = 1;
+
+            if (_player != null && gameObject.GetComponent<QuestObjects>().isAvailable)
+            {
+                if (Vector3.Distance(transform.position, _player.transform.position) < 6 && !isDialogueInProgress)
+                {
+                    SwitchStates(State.Follow);
+                }
+            }
+        }
+    }
+
+    private void HandleFollowLogic()
     {
         if (_player == null)
         {
@@ -120,28 +114,62 @@ public abstract class EnemyMovementStates : MonoBehaviour
             return;
         }
 
-        _animator.SetBool("IsWalking", true);
+        _distanceToTarget = Vector3.Distance(transform.position, _player.transform.position);
+        _agent.destination = _player.transform.position;
+        _agent.speed = 1.25f;
+
+        if (_distanceToTarget > 8)
+        {
+            SwitchStates(State.Patrol);
+            _agent.speed = 1;
+        }
+        else if (_distanceToTarget <= 2 && !isDialogueInProgress)
+        {
+            _agent.SetDestination(transform.position);
+            SwitchStates(State.Idle); // Para o movimento do inimigo
+            StartDialogue(); // Inicia o diálogo
+        }
     }
 
-    protected IEnumerator HandleBattle()
+    private void HandleBattleLogic()
+    {
+        if (OnStartCombat != null)
+        {
+            SwitchStates(State.Battle);
+        }
+        else if (gameObject.GetComponent<Unit>().hasFought)
+        {
+            SwitchStates(State.Dead);
+        }
+        else
+        {
+            _animator.SetBool("OnBattle", false);
+            transform.position = _startPos;
+            SwitchStates(State.Patrol);
+        }
+    }
+
+    private void HandleDeadLogic()
+    {
+        gameObject.GetComponent<QuestLacaio>().CompleteQuest();
+        _animator.SetTrigger("PlayerWin");
+        Debug.Log("Iniciar animação de morte");
+        _animator.SetBool("OnBattle", false);
+    }
+
+    private IEnumerator HandleBattle()
     {
         _agent.destination += new Vector3(2, 0, 2);
 
         yield return new WaitForSeconds(1);
 
         _animator.SetBool("OnBattle", true);
-
         _agent.speed = 1;
     }
 
-    protected void HandleDead()
+    public void StartCombatLogic()
     {
-        _animator.SetTrigger("PlayerWin");
-        Debug.Log("Iniciar animação de morte");
-        _animator.SetBool("OnBattle", false);
-        //Destroy(gameObject);
-        //Substituir por animação de morte depois
-        // Inserir um delegate para somente destruir o objeto ou tocar a animação após o drop da carta
+        OnStartCombat?.Invoke(); // Invoca o evento
     }
 
     public void SwitchStates(State state)
@@ -158,14 +186,36 @@ public abstract class EnemyMovementStates : MonoBehaviour
                 HandlePatrol();
                 break;
             case State.Follow:
-                HandleFollow();
+                HandleFollowLogic();
                 break;
             case State.Battle:
                 StartCoroutine(HandleBattle());
                 break;
             case State.Dead:
-                HandleDead();
+                HandleDeadLogic();
                 break;
         }
+    }
+
+    public void StartDialogue()
+    {
+        QuestLacaio questLacaio = GetComponent<QuestLacaio>();
+        if (questLacaio != null)
+        {
+            questLacaio.StartDialogue(); // Inicia o diálogo com o lacaio
+            isDialogueInProgress = true; // Marca que o diálogo está em andamento
+        }
+    }
+
+    public void OnDialogueEnded()
+    {
+        isDialogueInProgress = false; // Marca o fim do diálogo
+        StartCombatLogic(); // Inicia o combate após o término do diálogo
+    }
+
+    // Método para parar o movimento
+    public void StopMovement()
+    {
+        _agent.isStopped = true; // Impede o movimento do agente
     }
 }

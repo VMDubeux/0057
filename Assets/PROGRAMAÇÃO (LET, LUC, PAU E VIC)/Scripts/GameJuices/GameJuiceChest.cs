@@ -127,7 +127,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             }
         }
 
-        protected override void AddRandomItemToInventory()
+        internal override void AddRandomItemToInventory()
         {
             if (_CardsToDrop != null && _CardsToDrop.Count > 0)
             {

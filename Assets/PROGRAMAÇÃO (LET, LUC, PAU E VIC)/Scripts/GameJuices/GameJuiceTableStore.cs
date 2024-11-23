@@ -53,7 +53,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             SetupReturnToOrigin();
         }
 
-        protected override void AddRandomItemToInventory()
+        internal override void AddRandomItemToInventory()
         {
             // N�o � necess�rio implementar nada aqui
         }

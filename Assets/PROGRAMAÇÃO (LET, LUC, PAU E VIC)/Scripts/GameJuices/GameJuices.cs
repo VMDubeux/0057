@@ -18,7 +18,7 @@ public abstract class GameJuices : MonoBehaviour
     protected abstract void HandleTriggerExit(Collider other);
     protected abstract IEnumerator IsInside();
     protected abstract void HandleButtonPress();
-    protected abstract void AddRandomItemToInventory();
+    internal abstract void AddRandomItemToInventory();
     protected abstract void SetupReturnToOrigin();
 
     protected virtual void Awake()

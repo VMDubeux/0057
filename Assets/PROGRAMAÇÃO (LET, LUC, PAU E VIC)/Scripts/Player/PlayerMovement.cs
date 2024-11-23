@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private LayerMask walkableLayer;
 
+    // Flag para bloquear a movimentação
+    public static bool isMovementBlocked = false;
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -28,6 +31,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Bloqueia a movimentação durante o diálogo ou combate
+        if (isMovementBlocked)
+        {
+            StopMovement();
+            return;
+        }
+
         if (!DialogueManager.isChatting)
         {
             HandleInput();
@@ -98,6 +108,13 @@ public class PlayerMovement : MonoBehaviour
         {
             animatorController.SetBool("run", false);
         }
+    }
+
+    private void StopMovement()
+    {
+        navMeshAgent.SetDestination(transform.position); // Para o agente no local atual
+        animatorController.SetBool("run", false); // Interrompe a animação de movimento
+        isMoving = false; // Reseta o estado de movimento
     }
 
     public void GiveDripToPlayer()
