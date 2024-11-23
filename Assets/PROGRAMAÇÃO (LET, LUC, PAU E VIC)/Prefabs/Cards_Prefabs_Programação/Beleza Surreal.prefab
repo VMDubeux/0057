@@ -153,7 +153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Beleza Surreal
+  m_text: Surreal beauty
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Aplica Temor a todos os inimigos
+  m_text: Apply fear on all enemies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
   m_sharedMaterial: {fileID: -5818334383020469955, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Receba 1 de escudo, 1 de graciosidade e 1 de energia
+  m_text: Gain 1 defense point, 1 gracefulness and 1 show
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
   m_sharedMaterial: {fileID: -5818334383020469955, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
@@ -462,7 +462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nada Delicado
+  m_text: Kinda rough
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f30e48ca6099f549aa5b5c0a8f67b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd413f62f5272ff4fa2bedb7799c8a59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

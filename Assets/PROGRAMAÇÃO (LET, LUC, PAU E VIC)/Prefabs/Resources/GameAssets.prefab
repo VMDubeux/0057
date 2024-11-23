@@ -52,10 +52,10 @@ MonoBehaviour:
   JogadaDeCabelo: {fileID: 21300000, guid: 775e42aa28516844387ae535c2cabfcd, type: 3}
   Musculos: {fileID: 21300000, guid: 7a6788247150dbc4293d688deef62662, type: 3}
   NaNaNiNaNao: {fileID: 21300000, guid: fe11419229baac141adcc73fe3247a7e, type: 3}
-  NadaDelicado: {fileID: 0}
+  NadaDelicado: {fileID: 21300000, guid: fd413f62f5272ff4fa2bedb7799c8a59, type: 3}
   NemPense: {fileID: 21300000, guid: 0d9545cb8a7f3ad49abeba5dc903f135, type: 3}
   OlhaBem: {fileID: 21300000, guid: a49115179412f38468e597e37a6f69df, type: 3}
   PesoDoNome: {fileID: 21300000, guid: 09875bf9e8458294d95c3046624d9063, type: 3}
-  SacaIsso: {fileID: 0}
+  SacaIsso: {fileID: 21300000, guid: 3ab85e76cb01fb44c924288c78c72bd3, type: 3}
   SemEstilo: {fileID: 21300000, guid: af4e3099a754ea641b44c0ccef3d6610, type: 3}
-  VemCa: {fileID: 0}
+  VemCa: {fileID: 21300000, guid: 621c41e7b61289a4386c8644f27146f2, type: 3}

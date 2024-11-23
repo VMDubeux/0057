@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Saca isso !
+  m_text: Check this out
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 07e66d5829c947842a327e9de4925f38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ab85e76cb01fb44c924288c78c72bd3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -438,9 +438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Causa 5 de dano.
-
-    Aplica 1 DESLEIXO.'
+  m_text: Deal 4 damage and apply 1 point of slouch on target enemy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
   m_sharedMaterial: {fileID: -5818334383020469955, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
@@ -467,8 +465,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 8
@@ -712,6 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Amount: 5
+  damageEqualsBlock: 0
 --- !u!114 &4333679315904061379
 MonoBehaviour:
   m_ObjectHideFlags: 0

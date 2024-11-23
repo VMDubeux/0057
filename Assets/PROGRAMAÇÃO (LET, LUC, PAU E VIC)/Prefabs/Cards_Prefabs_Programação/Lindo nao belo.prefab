@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Causa 3 de dano + 3 de dano extra a cada uso.
+  m_text: Deal 15 damage and apply 3 dust points on every enemy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
   m_sharedMaterial: {fileID: -5818334383020469955, guid: 49745231a8ff28a4e97b4d076ed9af35, type: 2}
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 8
@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.9431}
+  m_AnchoredPosition: {x: -0.8, y: -0.9431}
   m_SizeDelta: {x: 80, y: 9.9215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7235379658034495754
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dar de ombros
+  m_text: Uber handsome
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -229,7 +229,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 8
-  m_fontSizeBase: 36
+  m_fontSizeBase: 4.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 8
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 07e66d5829c947842a327e9de4925f38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56d3a59fea7a2cd4eaf962809fe7cb72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_Name
-      value: Dar de ombros
+      value: Lindo nao belo
       objectReference: {fileID: 0}
     - target: {fileID: 3919165328222393913, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_SizeDelta.x
