@@ -23,7 +23,7 @@
     },
     "com.unity.burst": {
       "version": "1.8.12",
-      "depth": 4,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
@@ -114,7 +114,7 @@
     },
     "com.unity.mathematics": {
       "version": "1.2.6",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -144,6 +144,17 @@
         "com.unity.modules.terrain": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.rendering.light-transport": "1.0.0"
+      }
+    },
+    "com.unity.render-pipelines.universal": {
+      "version": "16.0.5",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1",
+        "com.unity.burst": "1.8.9",
+        "com.unity.render-pipelines.core": "16.0.5",
+        "com.unity.shadergraph": "16.0.5"
       }
     },
     "com.unity.rendering.light-transport": {
@@ -219,6 +230,15 @@
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
+      }
+    },
+    "com.unity.visualeffectgraph": {
+      "version": "16.0.5",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.shadergraph": "16.0.5",
+        "com.unity.render-pipelines.core": "16.0.5"
       }
     },
     "com.unity.visualscripting": {
