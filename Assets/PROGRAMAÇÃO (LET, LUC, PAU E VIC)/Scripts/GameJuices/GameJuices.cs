@@ -7,6 +7,7 @@ public abstract class GameJuices : MonoBehaviour
     public static event PressedButton OnPressedButton;
 
     public GameObject CanvasGameJuices;
+    public GameObject CanvasCardDroppedMessage;
     internal bool isInside = false;
     internal bool wasOpen = false;
     internal CardInventoryManager cardInventoryManager;
@@ -46,5 +47,13 @@ public abstract class GameJuices : MonoBehaviour
     private void Update()
     {
         StartCoroutine(IsInside());
+    }
+
+    protected IEnumerator CanvasCardDropped()
+    {
+        if (CanvasCardDroppedMessage == null) yield break;
+        CanvasCardDroppedMessage.SetActive(true);
+        yield return new WaitForSeconds(3);
+        CanvasCardDroppedMessage.SetActive(false);
     }
 }

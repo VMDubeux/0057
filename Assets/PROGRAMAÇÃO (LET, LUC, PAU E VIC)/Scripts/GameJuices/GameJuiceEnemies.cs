@@ -10,6 +10,8 @@ public class GameJuiceEnemies : GameJuices
     [SerializeField] private CardToPickUp[] allAvailableCards;
     [SerializeField] private CardToPickUp.CardRarity[] _DroppableCardsRarity;
     [SerializeField] private List<CardToPickUp> _CardsToDrop;
+    [Tooltip("Apenas deixe selecionado se o NPC, quando derrotado, tiver que fornecer Carta")]
+    [SerializeField] private bool isCardDroppable = false;
 
     private bool itemDelivered = false; // Controla se o item já foi entregue
 
@@ -49,6 +51,8 @@ public class GameJuiceEnemies : GameJuices
 
     internal override void AddRandomItemToInventory()
     {
+        if (isCardDroppable == false) return;
+
         if (_CardsToDrop != null && _CardsToDrop.Count > 0)
         {
             int randomIndex = Random.Range(0, _CardsToDrop.Count);
@@ -57,6 +61,8 @@ public class GameJuiceEnemies : GameJuices
             Debug.Log($"Carta selecionada: {randomSelectedCardToPick.Name} (Posição no inventário: {randomSelectedCardToPick.InventoryPos}).");
 
             CardInventoryManager.Instance.CardPickedUp(randomSelectedCardToPick);
+
+            StartCoroutine(CanvasCardDropped());
         }
         else
         {

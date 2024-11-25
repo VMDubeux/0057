@@ -18,8 +18,8 @@ public class CircleSync : MonoBehaviour
         var ray = new Ray(transform.position, dir.normalized);
         bool hit = Physics.Raycast(ray, Mathf.Infinity, Mask);
 
-        // Definir o tamanho do material entre 0 e 0.8 baseado na visibilidade
-        float size = hit ? 0.8f : 0f;
+        // Definir o tamanho do material entre 0 e 1.2 baseado na visibilidade
+        float size = hit ? 1.2f : 0f;
         foreach (var wall in WallMaterial)
             wall.SetFloat(SizeID, size);
 
@@ -27,7 +27,7 @@ public class CircleSync : MonoBehaviour
         Vector3 viewportPosition = Camera.WorldToViewportPoint(transform.position);
 
         // Ajustar a posição para garantir que x e y sejam 0, e z seja a posição real
-        viewportPosition.x = 0f;
+        viewportPosition.x = -0.01f;
         viewportPosition.y = 0.15f;
 
         // Configurar a posição no material

@@ -87,6 +87,8 @@ public class GameJuiceMentor : GameJuices
         {
             CardInventoryManager.Instance.CardPickedUp(card);
         }
+
+        StartCoroutine(CanvasCardDropped());
     }
     private void Verification()
     {
