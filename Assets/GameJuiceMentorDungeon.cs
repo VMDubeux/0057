@@ -1,21 +1,19 @@
-using System.Collections;
-using UnityEngine;
-using Main_Folders.Scripts.Player;
-using Main_Folders.Scripts.UI;
-using Assets.PROGRAMA√á√ÉO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices;
 using Main_Folders.Scripts.Minimapa;
+using Main_Folders.Scripts.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class GameJuiceMentor : GameJuices
+public class GameJuiceMentorDungeon : GameJuices
 {
-    [SerializeField] private QuestMentor mentorQuest; // Substitui MentorFirstDialogue
-    [SerializeField] private CardToPickUp[] cardsToDrop = new CardToPickUp[2];
+    [SerializeField] private QuestMentorDungeon mentorDungeonQuest; // Substitui MentorFirstDialogue
 
     protected override void Start()
     {
-        // Valida que a QuestMentor foi atribu√≠da
-        if (mentorQuest == null)
+        // Valida que a QuestMentor foi atribuÌda
+        if (mentorDungeonQuest == null)
         {
-            Debug.LogError("A QuestMentor n√£o foi atribu√≠da ao GameJuiceMentor. Verifique no editor.");
+            Debug.LogError("A QuestMentor n„o foi atribuÌda ao GameJuiceMentor. Verifique no editor.");
         }
 
         StartCoroutine(InitializeAfterDelay());
@@ -35,8 +33,8 @@ public class GameJuiceMentor : GameJuices
     {
         wasOpen = true;
 
-        mentorQuest.isAvailable = true;
-        mentorQuest.isCompleted = true;
+        mentorDungeonQuest.isAvailable = true;
+        mentorDungeonQuest.isCompleted = true;
 
         var holder = Resources.FindObjectsOfTypeAll<MarkerHolder>();
         if (holder == null) return;
@@ -46,10 +44,10 @@ public class GameJuiceMentor : GameJuices
             h.RemoveObjectiveMarker(this.gameObject);
         }
 
-        if (mentorQuest.questOutputs != null)
+        if (mentorDungeonQuest.questOutputs != null)
         {
-            // L√≥gica padr√£o: Ativar ou manipular objetos de sa√≠da
-            foreach (var output in mentorQuest.questOutputs)
+            // LÛgica padr„o: Ativar ou manipular objetos de saÌda
+            foreach (var output in mentorDungeonQuest.questOutputs)
             {
                 if (output != null)
                 {
@@ -57,7 +55,7 @@ public class GameJuiceMentor : GameJuices
                 }
             }
 
-            mentorQuest.questOutputs.Clear();
+            mentorDungeonQuest.questOutputs.Clear();
         }
     }
 
@@ -65,7 +63,7 @@ public class GameJuiceMentor : GameJuices
     {
         if (other.CompareTag("Player") && !wasOpen)
         {
-            if (mentorQuest.isDialogueStarted || mentorQuest.isDialogueFinished)
+            if (mentorDungeonQuest.isDialogueStarted || mentorDungeonQuest.isDialogueFinished)
                 return;
 
             CanvasGameJuices.SetActive(true);
@@ -81,13 +79,13 @@ public class GameJuiceMentor : GameJuices
             isInside = false;
             wasOpen = false;
 
-            // Finaliza intera√ß√µes
+            // Finaliza interaÁıes
             LevelsManager.Instance.isTalking = false;
 
-            // Garante que o di√°logo ativo seja destru√≠do
-            if (mentorQuest != null)
+            // Garante que o di·logo ativo seja destruÌdo
+            if (mentorDungeonQuest != null)
             {
-                GameObject activeDialog = mentorQuest.GetActiveDialog();
+                GameObject activeDialog = mentorDungeonQuest.GetActiveDialog();
                 if (activeDialog != null)
                 {
                     Destroy(activeDialog);
@@ -111,34 +109,25 @@ public class GameJuiceMentor : GameJuices
         wasOpen = true;
         CanvasGameJuices.SetActive(false);
 
-        // Inicia o di√°logo associado √† QuestMentor
-        if (mentorQuest != null)
+        // Inicia o di·logo associado ‡ QuestMentor
+        if (mentorDungeonQuest != null)
         {
-            mentorQuest.StartDialogue();
+            mentorDungeonQuest.StartDialogue();
         }
         else
         {
-            Debug.LogWarning("A QuestMentor n√£o est√° configurada. Certifique-se de que ela foi atribu√≠da.");
+            Debug.LogWarning("A QuestMentor n„o est· configurada. Certifique-se de que ela foi atribuÌda.");
         }
     }
 
     protected override void SetupReturnToOrigin()
     {
-        Debug.LogWarning("SetupReturnToOrigin n√£o foi implementado.");
+        Debug.LogWarning("SetupReturnToOrigin n„o foi implementado.");
     }
 
-    internal override void AddRandomItemToInventory() // Aqui os itens n√£o ser√£o aleat√≥rios
+    internal override void AddRandomItemToInventory() // Aqui os itens n„o ser„o aleatÛrios
     {
-        foreach (CardToPickUp card in cardsToDrop)
-        {
-            CardInventoryManager.Instance.CardPickedUp(card);
-        }
-
-        PlayerPrefs.SetInt(_assetKey, 1);
-
-        wasOpen = true;
-
-        StartCoroutine(CanvasCardDropped());
+        Debug.LogWarning("SetupReturnToOrigin n„o foi implementado.");
     }
     private void Verification()
     {

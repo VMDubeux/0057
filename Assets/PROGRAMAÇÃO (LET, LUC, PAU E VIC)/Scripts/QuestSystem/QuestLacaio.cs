@@ -106,7 +106,6 @@ public class QuestLacaio : QuestObjects
             {
                 h.RemoveEnemyMarker(this.gameObject);
             }
-            Debug.Log("REMOVEU O ICONE?");
         }
         else
         {

@@ -1,3 +1,4 @@
+using Main_Folders.Scripts.Minimapa;
 using Main_Folders.Scripts.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,53 @@ public class GameJuiceEnemies : GameJuices
         if (lacaioQuests == null)
         {
             Debug.LogError("A QuestLacaio não foi atribuída ao GameJuiceEnemies. Verifique no editor.");
+        }
+
+        StartCoroutine(InitializeAfterDelay());
+    }
+
+    private IEnumerator InitializeAfterDelay()
+    {
+        yield return new WaitForEndOfFrame(); // Garante que tudo seja inicializado antes
+
+        if (PlayerPrefs.GetInt(_assetKey, 0) == 1)
+        {
+            HandleQuestAlreadyCompleted();
+        }
+        else
+        {
+            InitializeDroppableCards();
+        }
+    }
+
+    private void HandleQuestAlreadyCompleted()
+    {
+        wasOpen = true;
+
+        lacaioQuests.isAvailable = true;
+        lacaioQuests.isCompleted = true;
+        gameObject.GetComponent<Unit>().hasFought = true;
+
+        var holder = Resources.FindObjectsOfTypeAll<MarkerHolder>();
+        if (holder == null) return;
+
+        foreach (var h in holder)
+        {
+            h.RemoveEnemyMarker(this.gameObject);
+        }
+
+        if (lacaioQuests.questOutputs != null)
+        {
+            // Lógica padrão: Ativar ou manipular objetos de saída
+            foreach (var output in lacaioQuests.questOutputs)
+            {
+                if (output != null)
+                {
+                    output.SetActive(false);
+                }
+            }
+
+            lacaioQuests.questOutputs.Clear();
         }
     }
 
@@ -62,6 +110,10 @@ public class GameJuiceEnemies : GameJuices
 
             CardInventoryManager.Instance.CardPickedUp(randomSelectedCardToPick);
 
+            PlayerPrefs.SetInt(_assetKey, 1);
+
+            wasOpen = true;
+
             StartCoroutine(CanvasCardDropped());
         }
         else
@@ -72,7 +124,7 @@ public class GameJuiceEnemies : GameJuices
 
     protected override void HandleTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !gameObject.GetComponent<Unit>().hasFought)
+        if (other.CompareTag("Player") && !gameObject.GetComponent<Unit>().hasFought && !wasOpen)
         {
             isInside = true;
         }

@@ -1,9 +1,49 @@
 fileFormatVersion: 2
-guid: 13d6e596adfef324dbb929dc402becbe
+guid: 22c1f8a33742e314ea409713deb69d25
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialCasa.002
+    second: {fileID: 2100000, guid: b861138dfab73874c98256bdada52486, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialCasa.003
+    second: {fileID: 2100000, guid: b861138dfab73874c98256bdada52486, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialCasa1
+    second: {fileID: 2100000, guid: b861138dfab73874c98256bdada52486, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaTelhado.001
+    second: {fileID: 2100000, guid: b861138dfab73874c98256bdada52486, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaTelhado.002
+    second: {fileID: 2100000, guid: b861138dfab73874c98256bdada52486, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaTelhado.003
+    second: {fileID: 2100000, guid: b861138dfab73874c98256bdada52486, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaVidro.001
+    second: {fileID: 2100000, guid: b861138dfab73874c98256bdada52486, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaVidro.002
+    second: {fileID: 2100000, guid: b861138dfab73874c98256bdada52486, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
