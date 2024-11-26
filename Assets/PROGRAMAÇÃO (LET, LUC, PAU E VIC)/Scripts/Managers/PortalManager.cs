@@ -25,8 +25,9 @@ namespace Main_Folders.Scripts.Managers
         private void Start()
         {
             _partyManager = FindFirstObjectByType<PartyManager>();
-            GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true;
-            GameObject.Find("Player").GetComponent<NavMeshAgent>().enabled = true;
+            /*GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true;
+            GameObject.Find("Player").GetComponent<NavMeshAgent>().enabled = true;*/
+            PlayerMovement.isMovementBlocked = false;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -35,8 +36,9 @@ namespace Main_Folders.Scripts.Managers
 
             if (other.gameObject.CompareTag("Player"))
             {
-                other.GetComponent<PlayerMovement>().enabled = false;
-                other.GetComponent<NavMeshAgent>().enabled = false;
+                /*other.GetComponent<PlayerMovement>().enabled = false;
+                other.GetComponent<NavMeshAgent>().enabled = false;*/
+                PlayerMovement.isMovementBlocked = true;
                 LevelsManager.Instance.MoverPlayer(destinationEnd);
                 StartCoroutine(LoadScene());
             }

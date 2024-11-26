@@ -86,6 +86,7 @@ public class QuestLacaio : QuestObjects
     private void StartCombat()
     {
         PlayerMovement.isMovementBlocked = false;
+        LevelsManager.Instance.isTalking = false;
 
         if (enemyMovement != null)
         {
