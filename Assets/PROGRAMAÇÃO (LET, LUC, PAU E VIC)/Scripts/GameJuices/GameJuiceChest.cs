@@ -137,6 +137,8 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                 Debug.Log($"Carta selecionada: {randomSelectedCardToPick.Name} (Posição no inventário: {randomSelectedCardToPick.InventoryPos}).");
 
                 CardInventoryManager.Instance.CardPickedUp(randomSelectedCardToPick);
+
+                StartCoroutine(CanvasCardDropped());
             }
             else
             {

@@ -112,7 +112,7 @@ namespace Main_Folders.Scripts.Visuals
             if (healthBar.value <= 0)
             {
                 transform.GetChild(1).gameObject.SetActive(true);
-                Debug.Log("MORREU, JOVEM");
+                Debug.Log("Morreu");
             }
         }
 

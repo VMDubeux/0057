@@ -22,6 +22,9 @@ public class GameJuiceMentor : GameJuices
     {
         if (other.CompareTag("Player") && !wasOpen)
         {
+            if (mentorQuest.isDialogueStarted || mentorQuest.isDialogueFinished)
+                return;
+
             CanvasGameJuices.SetActive(true);
             isInside = true;
         }

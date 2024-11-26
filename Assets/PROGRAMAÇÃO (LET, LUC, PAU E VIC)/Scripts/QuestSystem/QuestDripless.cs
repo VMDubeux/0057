@@ -1,14 +1,16 @@
-using UnityEngine;
-using Main_Folders.Scripts.UI;
 using Main_Folders.Scripts.Minimapa;
+using Main_Folders.Scripts.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class QuestMentor : QuestObjects
+public class QuestDripless : QuestObjects
 {
     [Header("Dialogue Settings")]
     [SerializeField] private DialogManager dialogTriggerPrefab;
     private DialogManager dialogTrigger;
 
-    [SerializeField] private DialogStep mentorDialogueStep;
+    [SerializeField] private DialogStep[] driplessDialogueSteps = new DialogStep[3];
 
     internal bool isDialogueStarted = false;
     internal bool isDialogueFinished = false;
@@ -18,7 +20,7 @@ public class QuestMentor : QuestObjects
     /// </summary>
     protected override void AddMinimapIconPosition()
     {
-        FindFirstObjectByType<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
+        throw new System.NotImplementedException();
     }
 
     /// <summary>
@@ -34,22 +36,32 @@ public class QuestMentor : QuestObjects
     /// </summary>
     public void StartDialogue()
     {
-        if (dialogTriggerPrefab == null || mentorDialogueStep == null)
+        if (isDialogueStarted || isDialogueFinished)
+            return;
+
+        if (dialogTriggerPrefab == null || driplessDialogueSteps.Length == 0)
         {
-            Debug.LogError("DialogTriggerPrefab ou MentorDialogueStep não configurados no QuestMentor.");
+            Debug.LogError("DialogTriggerPrefab ou LacaioDialogueSteps não configurados no QuestLacaio.");
+            return;
+        }
+
+        var selectedDialogueStep = driplessDialogueSteps[Random.Range(0, driplessDialogueSteps.Length)];
+        if (selectedDialogueStep == null)
+        {
+            Debug.LogError("O diálogo selecionado é nulo. Verifique os elementos no array LacaioDialogueSteps.");
             return;
         }
 
         dialogTrigger = Instantiate(dialogTriggerPrefab);
-        dialogTrigger.step = mentorDialogueStep;
+        dialogTrigger.step = selectedDialogueStep;
         dialogTrigger.dialogueDelegate += OnDialogueEnded;
+
         dialogTrigger.gameObject.SetActive(true);
 
         LevelsManager.Instance.isTalking = true;
         isDialogueStarted = true;
         PlayerMovement.isMovementBlocked = true;
 
-        // Marca a quest como disponível
         MarkQuestAsAvailable();
     }
 
@@ -77,29 +89,10 @@ public class QuestMentor : QuestObjects
         base.ProcessQuestCompletion();
 
         // Quando a quest for completada, o marcador pode ser removido
-        FindFirstObjectByType<MarkerHolder>()?.RemoveObjectiveMarker(this.gameObject);
     }
 
     protected override void GameJuiceCall()
     {
-        var gameJuiceMentor = gameObject.GetComponent<GameJuiceMentor>();
-        if (gameJuiceMentor != null)
-        {
-            gameJuiceMentor.AddRandomItemToInventory();
-        }
-        else
-        {
-            Debug.LogWarning("GameJuiceMentor não encontrado no objeto. Certifique-se de que ele está anexado.");
-        }
-
-        var player = FindFirstObjectByType<PlayerMovement>();
-        if (player != null)
-        {
-            player.GiveDripToPlayer();
-        }
-        else
-        {
-            Debug.LogWarning("Player não encontrado.");
-        }
+        Debug.LogWarning("GameJuiceLacaio não encontrado no objeto. Certifique-se de que ele está anexado.");
     }
 }

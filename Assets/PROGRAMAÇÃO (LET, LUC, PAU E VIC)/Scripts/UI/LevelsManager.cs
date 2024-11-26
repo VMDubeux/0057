@@ -80,7 +80,7 @@ namespace Main_Folders.Scripts.UI
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha3) && currentGameSceneIndex > 1)
+            if (Input.GetKeyDown(KeyCode.Z) && currentGameSceneIndex > 1)
             {
                 TrocaMapa();
             }
@@ -142,21 +142,6 @@ namespace Main_Folders.Scripts.UI
                         break;
                     }
             }
-        }
-
-        private void OnGUI()
-        {
-            currentGameSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-            if (currentGameSceneIndex == 1)
-            {
-                foreach (var variable in staticObjects)
-                {
-                    Destroy(variable);
-                }
-
-                Destroy(gameObject);
-            }
 
             if (currentGameSceneIndex > 1 && SceneManager.sceneCount == 1)
             {
@@ -200,6 +185,21 @@ namespace Main_Folders.Scripts.UI
                 EventSystem.SetActive(false);
                 Light.SetActive(false);
                 minimapGameObject.SetActive(false);
+            }
+        }
+
+        private void OnGUI()
+        {
+            currentGameSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            if (currentGameSceneIndex == 1)
+            {
+                foreach (var variable in staticObjects)
+                {
+                    Destroy(variable);
+                }
+
+                Destroy(gameObject);
             }
         }
 

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class QuestObjects : MonoBehaviour
 {
+    [Header("Quest Log")]
+    [Tooltip("Deixe selecionado se está deve constar no Quest Log.")]
+    public bool inQuestLog;
+
     [Header("Dependencies")]
     [Tooltip("Insira as quests prévias obrigatórias.")]
     public QuestObjects[] requiredQuests;

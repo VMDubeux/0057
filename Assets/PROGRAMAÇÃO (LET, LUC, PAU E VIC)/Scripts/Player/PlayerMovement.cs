@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 isMoving = false;
                 int random = Random.Range(1, 4);
-                animatorController.SetInteger("IdleIndex", random);
+                animatorController.SetInteger("Idle", random);
                 animatorController.SetBool("run", false);
             }
 
@@ -114,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
     {
         navMeshAgent.SetDestination(transform.position); // Para o agente no local atual
         animatorController.SetBool("run", false); // Interrompe a animação de movimento
+        animatorController.SetInteger("Idle",1); // Interrompe a animação de movimento
         isMoving = false; // Reseta o estado de movimento
     }
 

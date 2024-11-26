@@ -11,7 +11,10 @@ namespace Main_Folders.Scripts.Managers
 {
     public class PartyManager : MonoBehaviour
     {
-        [SerializeField] [Tooltip("Todos os prefabs de batalha dos personagens jogáveis")]
+        public static PartyManager Instance;
+
+        [SerializeField]
+        [Tooltip("Todos os prefabs de batalha dos personagens jogáveis")]
         public GameObject[] allMember;
 
         [SerializeField] private List<PartyMember> currentParty;
@@ -20,22 +23,19 @@ namespace Main_Folders.Scripts.Managers
 
         [SerializeField] internal GameObject[] dripChosen = new GameObject[2];
 
-        [Header("Player Definitions: ")] public int playerMaxLevel;
-        public int playerMaxExp;
+        [Header("Player Definitions: ")]
+        internal int playerMaxLevel = 5;
+        internal int playerMaxExp = 30;
 
         private int playerLevel;
 
         private TextMeshProUGUI playerLevelText;
 
-        private TextMeshProUGUI playerLifeText;
+        [SerializeField] internal float playerExp;
 
-        private TextMeshProUGUI playerHandText;
+        [SerializeField] private Slider sliderExp;
 
-        private TextMeshProUGUI playerEnergyText;
-
-        private float playerExp;
-
-        private Slider sliderExp;
+        [SerializeField] private GameJuices gameJuices;
 
         /*[Header("Player Character Prefab:")] [Tooltip("Drag the player's prefab")] [SerializeField]
         private GameObject player;
@@ -50,6 +50,7 @@ namespace Main_Folders.Scripts.Managers
         private void Awake()
         {
             AddMemberToPartyByName(allMember[0].name);
+            gameJuices = gameObject.GetComponent<GameJuices>();
         }
 
         public void AddMemberToPartyByName(string memberName)
@@ -148,6 +149,7 @@ namespace Main_Folders.Scripts.Managers
             {
                 sliderExp = hud.GetComponentInChildren<Slider>();
                 sliderExp.maxValue = playerMaxExp;
+                Debug.Log($"Slider Max Value: {sliderExp.maxValue}");
                 sliderExp.value = playerExp;
 
                 if (playerExp >= playerMaxExp)
@@ -157,19 +159,11 @@ namespace Main_Folders.Scripts.Managers
 
                     playerExp = 0;
                     sliderExp.value = playerExp;
+                    gameJuices.AddRandomItemToInventory();
                 }
 
                 playerLevelText = hud.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
                 playerLevelText.text = "LVL " + playerLevel.ToString();
-
-                playerLifeText = hud.GetChild(0).GetChild(2).GetComponent<TextMeshProUGUI>();
-                playerLifeText.text = "Life " + currentParty[0].MaxHP.ToString();
-
-                playerHandText = hud.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>();
-                playerHandText.text = "Hand " + currentParty[0].Hand.ToString();
-
-                playerEnergyText = hud.GetChild(0).GetChild(4).GetComponent<TextMeshProUGUI>();
-                playerEnergyText.text = "Energy " + currentParty[0].Energy.ToString();
             }
         }
 
