@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -23,13 +23,15 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    IEnumerator LoadNextLevel()
+    private IEnumerator LoadNextLevel()
     {
         AsyncOperation loadLevel = SceneManager.LoadSceneAsync(nextSceneIndex);
 
         while (!loadLevel.isDone)
         {
-            loadingBar.fillAmount = Mathf.Clamp01(loadLevel.progress / 0.9f);
+            if (loadingBar != null)
+                loadingBar.fillAmount = Mathf.Clamp01(loadLevel.progress / 0.9f);
+
             yield return null;
         }
     }

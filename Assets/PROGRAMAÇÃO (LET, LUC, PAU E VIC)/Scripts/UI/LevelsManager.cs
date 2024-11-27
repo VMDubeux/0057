@@ -4,6 +4,7 @@ using Main_Folders.Scripts.Managers;
 using Main_Folders.Scripts.Minimapa;
 using Main_Folders.Scripts.Player;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -13,8 +14,13 @@ namespace Main_Folders.Scripts.UI
     {
         public static LevelsManager Instance;
 
+        public static Vector3 NextPlayerPosition;
+
+        public GameObject player;
+        public GameObject partyManager;
+
         public SkillPoints skillPointsScript;
-        internal bool isTalking = false;
+        [SerializeField] internal bool isTalking = false;
 
         [SerializeField] private GameObject PauseCanvasMenu;
         [SerializeField] internal GameObject LevelCanvas;
@@ -32,6 +38,11 @@ namespace Main_Folders.Scripts.UI
         [SerializeField] private GameObject minimapGameObject;
         [SerializeField] private GameObject playerGameObject;
         [SerializeField] private MinimapaSetup[] setup;
+        [SerializeField] private GameObject canvasQuestLog;
+        [SerializeField] private GameObject gameJuiceCanvas;
+        [SerializeField] private GameObject canvasMessageCard;
+        [SerializeField] private GameObject canvasMinimapa;
+        [SerializeField] private GameObject canvasTutorial;
 
         [Range(0, 3)] public int nivelInicial;
         private int nivelAtual;
@@ -53,11 +64,14 @@ namespace Main_Folders.Scripts.UI
                 foreach (var variable in staticObjects)
                 {
                     DontDestroyOnLoad(variable);
-                    if (variable.name == "Player")
-                        variable.transform.position = new Vector3(30.5f, 0, -56.5f);
                 }
 
                 DontDestroyOnLoad(gameObject);
+
+                canvasTutorial.SetActive(true);
+
+                // Adicionar callback para reposicionar o jogador após carregar uma nova cena
+                SceneManager.sceneLoaded += OnSceneLoaded;
             }
             else
             {
@@ -67,6 +81,33 @@ namespace Main_Folders.Scripts.UI
                 }
 
                 Destroy(gameObject);
+
+                canvasTutorial.SetActive(false);
+            }
+
+            gameJuiceCanvas.SetActive(false);
+            PauseCanvasMenu.SetActive(false);
+            canvasMessageCard.SetActive(false);
+            CanvasInventario.SetActive(true);
+            LevelCanvas.SetActive(true);
+            canvasMinimapa.SetActive(true);
+            canvasQuestLog.SetActive(true);
+            player = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject;
+            partyManager = GameObject.FindAnyObjectByType<PartyManager>().gameObject;
+            canvasTutorial = GameObject.FindAnyObjectByType<CanvasTutorial>().gameObject;
+        }
+
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (NextPlayerPosition != Vector3.zero) // Verifica se há uma posição salva
+            {
+                staticObjects[0].transform.position = NextPlayerPosition; // Reposiciona o jogador
+                NextPlayerPosition = Vector3.zero; // Reseta o destino para evitar problemas futuros
             }
         }
 
@@ -74,12 +115,15 @@ namespace Main_Folders.Scripts.UI
         {
             PauseCanvasMenu = FindAnyObjectByType<AudioControllerLevels>(FindObjectsInactive.Include).gameObject;
             PauseCanvasMenu.SetActive(false);
+
             Time.timeScale = 1.0f;
             nivelAtual = nivelInicial;
         }
 
         private void Update()
         {
+            currentGameSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
             if (Input.GetKeyDown(KeyCode.Z) && currentGameSceneIndex > 1)
             {
                 TrocaMapa();
@@ -113,6 +157,10 @@ namespace Main_Folders.Scripts.UI
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
                 playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
+                canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
+                gameJuiceCanvas = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).gameObject;
+                canvasMessageCard = FindFirstObjectByType<CanvasMessageCard>(FindObjectsInactive.Include).gameObject;
+                canvasMinimapa = FindFirstObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
             }
         }
 
@@ -157,15 +205,19 @@ namespace Main_Folders.Scripts.UI
                 {
                     CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
                     LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
+                    canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
                     CanvasInventario.SetActive(true);
                     LevelCanvas.SetActive(true);
+                    canvasQuestLog.SetActive(true);
                 }
                 else
                 {
                     CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
                     LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
+                    canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
                     CanvasInventario.SetActive(false);
                     LevelCanvas.SetActive(false);
+                    canvasQuestLog.SetActive(false);
                 }
 
                 if (nivelAtual != 1)
@@ -180,11 +232,13 @@ namespace Main_Folders.Scripts.UI
                 EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
+                canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
                 CanvasInventario.SetActive(false);
                 LevelCanvas.SetActive(false);
                 EventSystem.SetActive(false);
                 Light.SetActive(false);
                 minimapGameObject.SetActive(false);
+                canvasQuestLog.SetActive(false);
             }
         }
 
@@ -247,8 +301,11 @@ namespace Main_Folders.Scripts.UI
 
         public void MoverPlayer(Vector3 pos)
         {
-            staticObjects[0].transform.position = pos;
-            staticObjects[3].GetComponent<PartyManager>().SetPosition(pos);
+            NextPlayerPosition = pos; // Salva a posição para a nova cena
+            player.transform.position = pos;
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<NavMeshAgent>().enabled = true;
+            partyManager.GetComponent<PartyManager>().SetPosition(pos);
         }
 
         private void SwitchCamera()

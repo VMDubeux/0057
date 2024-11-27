@@ -17,6 +17,11 @@ public class FixedMinimapCamera : MonoBehaviour
 
     void Update()
     {
+        if (player == null || minimapCamera == null)
+        {
+            player = FindFirstObjectByType<PlayerMovement>().gameObject.transform;
+            minimapCamera = gameObject.GetComponent<Camera>();
+        }
         if (player != null)
         {
             // Atualize a posição da câmera para seguir o personagem, mas mantenha a rotação

@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
             MoveToTarget();
             partyManager.ChangeExpSliderValue();
         }
+
+        Debug.Log(isMovementBlocked);
     }
 
     private void HandleInput()

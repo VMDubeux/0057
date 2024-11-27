@@ -24,7 +24,8 @@ public abstract class GameJuices : MonoBehaviour
 
     protected virtual void Awake()
     {
-        _assetKey = PersistentIdentifierManager.GetOrCreateIdentifier(gameObject);
+        _assetKey = gameObject.name;
+        PlayerPrefs.Save(); // Ensure the data is saved immediately
         _animator = GetComponent<Animator>();
     }
 

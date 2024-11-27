@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -38,6 +39,42 @@ public class CanvasQuestlog : MonoBehaviour
         }
 
         UpdateQuestLog();
+
+        StartCoroutine(QuestAdd());
+    }
+
+    private void OnEnable()
+    {
+        questObjectsList.Clear();
+        QuestObjects[] allQuestObjects = FindObjectsByType<QuestObjects>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        foreach (var quest in allQuestObjects)
+        {
+            if (quest.inQuestLog)
+            {
+                questObjectsList.Add(quest);
+            }
+        }
+
+        UpdateQuestLog();
+    }
+
+    private IEnumerator QuestAdd() 
+    {
+        yield return new WaitForSeconds(2);
+
+        questObjectsList.Clear();
+        QuestObjects[] allQuestObjects = FindObjectsByType<QuestObjects>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        foreach (var quest in allQuestObjects)
+        {
+            if (quest.inQuestLog)
+            {
+                questObjectsList.Add(quest);
+            }
+        }
+
+        UpdateQuestLog();
     }
 
     private void Update()
@@ -52,40 +89,25 @@ public class CanvasQuestlog : MonoBehaviour
     {
         if (questLogText == null) return;
 
-        // Limpa o texto
         questLogText.text = "";
-
-        // Lista temporária para armazenar os textos formatados com números
-        List<string> questTexts = new();
+        List<(int number, string text)> questTexts = new();
 
         foreach (var quest in questObjectsList)
         {
             if (quest == null) continue;
+            int questNumber = ExtractLeadingNumber(quest.transform.GetChild(0).gameObject.name);
+            string formattedText = quest.isCompleted
+                ? $"<s>{quest.transform.GetChild(0).gameObject.name}</s>"
+                : quest.transform.GetChild(0).gameObject.name;
 
-            // Formata o texto com riscado, se concluído
-            if (quest.isCompleted)
-            {
-                questTexts.Add($"<s>{quest.transform.GetChild(0).gameObject.name}</s>");
-            }
-            else
-            {
-                questTexts.Add(quest.transform.GetChild(0).gameObject.name);
-            }
+            questTexts.Add((questNumber, formattedText));
         }
 
-        // Ordena os textos com base no número inicial
-        questTexts.Sort((a, b) =>
-        {
-            // Extrai os números iniciais de cada texto
-            int numA = ExtractLeadingNumber(a);
-            int numB = ExtractLeadingNumber(b);
-            return numA.CompareTo(numB);
-        });
+        questTexts.Sort((a, b) => a.number.CompareTo(b.number));
 
-        // Adiciona os textos ordenados ao TextMeshPro, com espaçamento
-        foreach (var text in questTexts)
+        foreach (var quest in questTexts)
         {
-            questLogText.text += $"{text}\n\n";
+            questLogText.text += $"{quest.text}\n\n";
         }
     }
 

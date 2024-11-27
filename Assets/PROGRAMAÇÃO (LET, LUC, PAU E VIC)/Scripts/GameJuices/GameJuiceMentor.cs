@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using Main_Folders.Scripts.Player;
-using Main_Folders.Scripts.UI;
-using Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices;
 using Main_Folders.Scripts.Minimapa;
+using Main_Folders.Scripts.Managers;
+using Main_Folders.Scripts.UI;
 
 public class GameJuiceMentor : GameJuices
 {

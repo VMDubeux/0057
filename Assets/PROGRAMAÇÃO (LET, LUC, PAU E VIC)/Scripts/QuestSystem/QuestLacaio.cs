@@ -1,3 +1,4 @@
+using Main_Folders.Scripts.Managers;
 using Main_Folders.Scripts.Minimapa;
 using Main_Folders.Scripts.UI;
 using UnityEngine;

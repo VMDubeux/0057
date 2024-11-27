@@ -1,45 +1,35 @@
-using System;
-using System.Collections;
-using Main_Folders.Scripts.Player;
 using Main_Folders.Scripts.UI;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
 namespace Main_Folders.Scripts.Managers
 {
     public class PortalManager : MonoBehaviour
     {
-        [Header("Player destination coordinate:")]
-        [Tooltip("Enter where the player will be teleported to after using the portal")]
-        public Vector3 destination;
+        [Header("Player destination Transform:")]
+        public Vector3 Destination;
 
         [Header("Player target scene index:")]
-        [Tooltip("Inform (by index) which scene the player will be teleported to")]
         [SerializeField]
         private int sceneId;
 
-        //Non-serialized fields
-        private PartyManager _partyManager;
-
         private void Start()
         {
-            _partyManager = FindFirstObjectByType<PartyManager>();
-            /*GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true;
-            GameObject.Find("Player").GetComponent<NavMeshAgent>().enabled = true;*/
             PlayerMovement.isMovementBlocked = false;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            Vector3 destinationEnd = destination;
-
             if (other.gameObject.CompareTag("Player"))
             {
-                /*other.GetComponent<PlayerMovement>().enabled = false;
-                other.GetComponent<NavMeshAgent>().enabled = false;*/
-                PlayerMovement.isMovementBlocked = true;
-                LevelsManager.Instance.MoverPlayer(destinationEnd);
+                //PlayerMovement.isMovementBlocked = true;
+                other.GetComponent<PlayerMovement>().enabled = false;
+                other.GetComponent<NavMeshAgent>().enabled = false;
+
+                // Salvar a posição de destino antes de mudar a cena
+                LevelsManager.Instance.MoverPlayer(Destination);
+
                 StartCoroutine(LoadScene());
             }
         }
@@ -47,6 +37,7 @@ namespace Main_Folders.Scripts.Managers
         private IEnumerator LoadScene()
         {
             yield return new WaitForSeconds(0.5f);
+
             SceneLoader.LoadScene(sceneId);
         }
     }
