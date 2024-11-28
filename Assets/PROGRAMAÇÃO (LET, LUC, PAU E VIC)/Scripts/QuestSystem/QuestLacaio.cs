@@ -29,7 +29,7 @@ public class QuestLacaio : QuestObjects
 
     protected override void AddMinimapIconPosition()
     {
-        FindFirstObjectByType<MarkerHolder>().AddEnemyMarker(this.gameObject);
+        FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddEnemyMarker(this.gameObject);
     }
 
     public GameObject GetActiveDialog()
@@ -55,29 +55,20 @@ public class QuestLacaio : QuestObjects
             return;
         }
 
-        dialogTrigger = Instantiate(dialogTriggerPrefab);
-        dialogTrigger.step = selectedDialogueStep;
-        dialogTrigger.dialogueDelegate += OnDialogueEnded;
-
-        dialogTrigger.gameObject.SetActive(true);
-
         LevelsManager.Instance.isTalking = true;
         isDialogueStarted = true;
         PlayerMovement.isMovementBlocked = true;
+        enemyMovement.StopMovement();
 
-        // Impede o movimento do inimigo enquanto o diálogo estiver em andamento
-        if (enemyMovement != null)
-        {
-            enemyMovement.StopMovement();
-        }
+        dialogTrigger = Instantiate(dialogTriggerPrefab);
+        dialogTrigger.step = selectedDialogueStep;
+        dialogTrigger.gameObject.SetActive(true);
 
-        MarkQuestAsAvailable();
+        dialogTrigger.dialogueDelegate += OnDialogueEnded;
     }
 
     private void OnDialogueEnded()
     {
-        isDialogueFinished = true;
-
         if (dialogTrigger != null)
             Destroy(dialogTrigger.gameObject);
 
@@ -86,12 +77,9 @@ public class QuestLacaio : QuestObjects
 
     private void StartCombat()
     {
-        PlayerMovement.isMovementBlocked = false;
-        LevelsManager.Instance.isTalking = false;
-
         if (enemyMovement != null)
         {
-            enemyMovement.StartCombatLogic();
+            enemyMovement.OnDialogueEnded();
         }
     }
 
@@ -101,13 +89,7 @@ public class QuestLacaio : QuestObjects
         {
             base.ProcessQuestCompletion();
 
-            var holder = Resources.FindObjectsOfTypeAll<MarkerHolder>();
-            if (holder == null) return;
-
-            foreach (var h in holder)
-            {
-                h.RemoveEnemyMarker(this.gameObject);
-            }
+            FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.RemoveEnemyMarker(this.gameObject);
         }
         else
         {

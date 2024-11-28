@@ -170,8 +170,8 @@ GameObject:
   - component: {fileID: 284846733607023063}
   - component: {fileID: 6130479143200910253}
   m_Layer: 6
-  m_Name: Brute_ReB
-  m_TagString: Untagged
+  m_Name: Bruto
+  m_TagString: Drip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -749,7 +749,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brute: {fileID: 628298554311699309}
+  bruteVisual: {fileID: 1903129411115756956, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
   batato: {fileID: 7004494079195179749}
+  batatoVisual: {fileID: 1903129411115756956, guid: e7c28409af6000b49bc5927300f5aea4, type: 3}
   walkableLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -4521,7 +4523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b71cb2f076c4ed148948453781eb97dc, type: 3}
       propertyPath: m_Name
-      value: Dripless_ReB
+      value: Dripless
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b71cb2f076c4ed148948453781eb97dc, type: 3}
       propertyPath: m_Layer
@@ -4530,6 +4532,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b71cb2f076c4ed148948453781eb97dc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b71cb2f076c4ed148948453781eb97dc, type: 3}
+      propertyPath: m_TagString
+      value: Drip
       objectReference: {fileID: 0}
     - target: {fileID: 1279192922901625689, guid: b71cb2f076c4ed148948453781eb97dc, type: 3}
       propertyPath: m_Layer

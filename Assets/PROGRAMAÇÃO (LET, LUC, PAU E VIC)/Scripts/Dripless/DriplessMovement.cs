@@ -63,7 +63,7 @@ public class DriplessMovement : MonoBehaviour
         Debug.Log("Entering Idle state.");
         _animator.SetBool("run", false);
         int random = Random.Range(1, 4);
-        _animator.SetInteger("IdleIndex", random);
+        _animator.SetInteger("Idle", random);
         yield return new WaitForSeconds(idleTime);
         Debug.Log($"Batato {gameObject.name}: Idle time completed. Switching to Patrol.");
         SwitchStates(State.Patrol);

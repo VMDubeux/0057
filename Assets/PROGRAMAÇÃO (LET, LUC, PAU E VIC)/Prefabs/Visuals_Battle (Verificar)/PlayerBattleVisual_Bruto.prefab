@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 8222850607996121716}
   - component: {fileID: 5312620602083879081}
   m_Layer: 6
-  m_Name: PlayerBattleVisual
+  m_Name: PlayerBattleVisual_Bruto
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,7 +1128,7 @@ MonoBehaviour:
     Value: 0
   expToGive: 0
   OverworldVisualPrefab: {fileID: 1415486005634186758, guid: a3e03699e440d624e99b2063537f7271, type: 3}
-  BattleVisualPrefab: {fileID: 0}
+  BattleVisualPrefab: {fileID: 1903129411115756956}
   hasFought: 0
 --- !u!114 &3621656645966171477
 MonoBehaviour:

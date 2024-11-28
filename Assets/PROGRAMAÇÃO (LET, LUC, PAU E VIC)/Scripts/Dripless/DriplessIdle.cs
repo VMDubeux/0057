@@ -17,6 +17,6 @@ public class DriplessIdle : MonoBehaviour
     private void HandleIdle()
     {
         int random = Random.Range(1, 4);
-        _animator.SetInteger("IdleIndex", random);
+        _animator.SetInteger("Idle", random);
     }
 }

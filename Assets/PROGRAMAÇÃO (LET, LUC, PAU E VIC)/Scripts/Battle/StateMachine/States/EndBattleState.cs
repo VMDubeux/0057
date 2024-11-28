@@ -10,6 +10,6 @@ public class EndBattleState : State
     {
         yield return null;
         Debug.Log("Battle ended");
-        SceneManager.UnloadSceneAsync("LEVEL_BATTLE");
+        SceneLoader.UnloadBattleScene(4);
     }
 }

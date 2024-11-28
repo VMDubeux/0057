@@ -18,6 +18,7 @@ TagManager:
   - ref
   - Mentor
   - WalkerDripless
+  - Drip
   layers:
   - Default
   - TransparentFX

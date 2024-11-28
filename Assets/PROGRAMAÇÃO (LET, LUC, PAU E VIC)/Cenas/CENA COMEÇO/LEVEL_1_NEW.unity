@@ -93099,6 +93099,7 @@ MonoBehaviour:
   - {fileID: 587014343}
   _targetPos: {fileID: 0}
   _distanceToTarget: 0
+  isDialogueInProgress: 0
 --- !u!114 &1677596149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123343,6 +123344,7 @@ MonoBehaviour:
   - {fileID: 333891133}
   _targetPos: {fileID: 0}
   _distanceToTarget: 0
+  isDialogueInProgress: 0
 --- !u!114 &2130975928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147562,7 +147564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allMember:
-  - {fileID: 1903129411115756956, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
+  - {fileID: 1903129411115756956, guid: e7c28409af6000b49bc5927300f5aea4, type: 3}
   currentParty: []
   playerPosition: {x: 0, y: 0, z: 0}
   dripChosen:
@@ -160882,6 +160884,7 @@ MonoBehaviour:
   - {fileID: 7344962365009508987}
   _targetPos: {fileID: 0}
   _distanceToTarget: 0
+  isDialogueInProgress: 0
 --- !u!4 &6366720467255057390
 Transform:
   m_ObjectHideFlags: 0
@@ -167690,6 +167693,7 @@ MonoBehaviour:
   - {fileID: 2883512260476774803}
   _targetPos: {fileID: 0}
   _distanceToTarget: 0
+  isDialogueInProgress: 0
 --- !u!1 &7942108489221672860
 GameObject:
   m_ObjectHideFlags: 0

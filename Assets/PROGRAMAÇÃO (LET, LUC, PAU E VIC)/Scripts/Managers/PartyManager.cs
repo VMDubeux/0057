@@ -167,32 +167,13 @@ namespace Main_Folders.Scripts.Managers
             }
         }
 
-        public void Drips(GameObject dChosen, GameObject dReplaced)
-        {
-            var player = GameObject.Find("Player");
-
-            if (dripChosen[0] == null)
-            {
-                player.transform.Find("Dripless_ReB").gameObject.SetActive(true);
-                currentParty[0].Drips[0] = player.transform.Find("Dripless_ReB").gameObject;
-                player.transform.Find("Brute_ReB").gameObject.SetActive(false);
-                currentParty[0].Drips[1] = player.transform.Find("Brute_ReB").gameObject;
-                return;
-            }
-
-            currentParty[0].Drips[0] = dChosen;
-            player.transform.Find(dripChosen[0].name).gameObject.SetActive(true);
-
-            currentParty[0].Drips[1] = dReplaced;
-            player.transform.Find(dripChosen[1].name).gameObject.SetActive(false);
-        }
-
-        public void ChosenDrip(GameObject chosen, GameObject replaced)
+        public void ChosenDrip(GameObject chosen, GameObject replaced, GameObject visual)
         {
             dripChosen[0] = chosen;
             dripChosen[1] = replaced;
-
-            Drips(chosen, replaced);
+            allMember[0] = visual;
+            currentParty.Clear();
+            AddMemberToPartyByName(visual.name);
         }
 
         private void OnGUI()
@@ -215,7 +196,6 @@ namespace Main_Folders.Scripts.Managers
         public float CurrExp;
 
         //public int MaxExp;
-        public GameObject[] Drips = new GameObject[2];
         public GameObject MemberBattleVisualPrefab; //what will be displayed in battle scene
         public GameObject MemberOverworldVisualPrefab; //what will be displayed in overworld scene
     }

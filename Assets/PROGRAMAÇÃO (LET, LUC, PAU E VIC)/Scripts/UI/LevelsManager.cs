@@ -49,7 +49,7 @@ namespace Main_Folders.Scripts.UI
 
         [SerializeField]
         [Tooltip("NÃO ESCREVA NADA")]
-        private int currentGameSceneIndex;
+        internal int currentGameSceneIndex;
 
         [Header("UNDESTROYABLE:")]
         [SerializeField]

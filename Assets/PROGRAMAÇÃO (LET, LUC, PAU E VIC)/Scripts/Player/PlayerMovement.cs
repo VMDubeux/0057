@@ -1,4 +1,5 @@
 using Main_Folders.Scripts.Managers;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -12,7 +13,9 @@ public class PlayerMovement : MonoBehaviour
     private float originalSpeed; // Armazena a velocidade original do NavMeshAgent
 
     [SerializeField] private GameObject brute;
+    [SerializeField] private GameObject bruteVisual;
     [SerializeField] private GameObject batato;
+    [SerializeField] private GameObject batatoVisual;
 
     [SerializeField] private LayerMask walkableLayer;
 
@@ -27,6 +30,13 @@ public class PlayerMovement : MonoBehaviour
         originalSpeed = navMeshAgent.speed; // Armazena a velocidade original ao iniciar
 
         navMeshAgent.updateRotation = false;
+        StartCoroutine(StartDrip());
+    }
+
+    private IEnumerator StartDrip()
+    {
+        yield return new WaitForSeconds(2);
+        partyManager.ChosenDrip(batato, brute, batatoVisual);
     }
 
     void Update()
@@ -116,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
     {
         navMeshAgent.SetDestination(transform.position); // Para o agente no local atual
         animatorController.SetBool("run", false); // Interrompe a animação de movimento
-        animatorController.SetInteger("Idle",1); // Interrompe a animação de movimento
+        animatorController.SetInteger("Idle", 1); // Interrompe a animação de movimento
         isMoving = false; // Reseta o estado de movimento
     }
 
@@ -127,6 +137,6 @@ public class PlayerMovement : MonoBehaviour
 
         animatorController = brute.GetComponent<Animator>();
 
-        partyManager.ChosenDrip(brute, batato);
+        partyManager.ChosenDrip(brute, batato, bruteVisual);
     }
 }

@@ -19,7 +19,8 @@ public class QuestMentor : QuestObjects
     /// </summary>
     protected override void AddMinimapIconPosition()
     {
-        FindFirstObjectByType<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
+        FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
+        //FindFirstObjectByType<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
     }
 
     /// <summary>
@@ -78,7 +79,7 @@ public class QuestMentor : QuestObjects
         base.ProcessQuestCompletion();
 
         // Quando a quest for completada, o marcador pode ser removido
-        FindFirstObjectByType<MarkerHolder>()?.RemoveObjectiveMarker(this.gameObject);
+        FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.RemoveObjectiveMarker(this.gameObject);
     }
 
     protected override void GameJuiceCall()

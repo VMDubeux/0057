@@ -1,5 +1,6 @@
 using System.Collections;
 using Main_Folders.Scripts.Managers;
+using Main_Folders.Scripts.UI;
 using Main_Folders.Scripts.Units;
 using UnityEngine;
 using UnityEngine.AI;
@@ -51,24 +52,26 @@ namespace Main_Folders.Scripts.StateMachine.States
             if (machine.Units.Count == 1 || _playerUnit.HP <= 0)
             {
                 GameObject player = GameObject.Find("Player");
+                encounterSystem = FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>();
+
                 if (_playerUnit.HP > 0) // inimigo derrotado
                 {
                     partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
                     partyManager.SetExperience(0, accumulatedExperience); // Envio do quantitativo acumulado de experiência para o player
-                    encounterSystem = FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>();
                     encounterSystem.prefab.GetComponent<Unit>().hasFought = true;
-                    encounterSystem.battleActive = false;
+                    encounterSystem.prefab.GetComponent<EnemyMovementStates>().SwitchStates(EnemyMovementStates.State.Dead);
                 }
-                else
+                else // player derrotado
                 {
+                    encounterSystem.prefab.GetComponent<EnemyMovementStates>().SwitchStates(EnemyMovementStates.State.Idle); // Status pós batalha perdida
                     // player retorna ao respawnPoint
                     Transform respawnPoint = FindFirstObjectByType<RespawnPoint>(FindObjectsInactive.Include).transform;
-                    player.transform.position = new Vector3(respawnPoint.position.x - 1, player.transform.position.y, respawnPoint.position.z);
-                    player.GetComponent<NavMeshAgent>().SetDestination(player.transform.position);
-                    yield return new WaitForSeconds(7.5f);
+                    var rebournPlayer = new Vector3(respawnPoint.position.x - 1, player.transform.position.y, respawnPoint.position.z);
+                    LevelsManager.Instance.MoverPlayer(rebournPlayer); // Faz com que o player não saia caminhando pelo cenário
+                    yield return new WaitForSeconds(7.5f); // Tempo de espera para a animação de derrota GLOW UP
                 }
 
-                FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>().battleActive = false;
+                encounterSystem.battleActive = false;
                 StartCoroutine(WaitThenChangeState<EndBattleState>());
             }
             else

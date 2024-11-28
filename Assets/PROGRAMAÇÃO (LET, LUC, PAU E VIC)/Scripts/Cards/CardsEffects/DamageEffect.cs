@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Main_Folders.Scripts.StateMachine.States;
+using Main_Folders.Scripts.Units;
 using Main_Folders.Scripts.Visuals;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -58,7 +59,7 @@ namespace Main_Folders.Scripts.Cards.CardsEffects
                     }
                 }
             }
-            GameObject.Find("PlayerBattleVisual").GetComponent<PoseAnimation>().AttackPose();
+            FindFirstObjectByType<PlayerUnit>().GetComponent<PoseAnimation>().AttackPose();
         }
 
         void ApplyModifier(ModifiedValues modifiedValues, ModifierTags tag, BattleVisuals unit)

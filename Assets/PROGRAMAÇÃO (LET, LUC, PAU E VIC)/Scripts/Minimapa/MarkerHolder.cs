@@ -39,7 +39,7 @@ namespace Main_Folders.Scripts.Minimapa
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        private void InitializeReferences()
+        internal void InitializeReferences()
         {
             playerObject = FindFirstObjectByType<PlayerMovement>()?.gameObject;
             minimapCamera = GameObject.Find("CameraMinimap")?.GetComponent<Camera>();
@@ -116,8 +116,26 @@ namespace Main_Folders.Scripts.Minimapa
             currentEnemies.Remove(foundObj);
         }
 
+        public void ClearAllMarkers()
+        {
+            foreach (var marker in currentObjectives)
+                Destroy(marker.markerRectTransform.gameObject);
+            currentObjectives.Clear();
+
+            foreach (var marker in currentEnemies)
+                Destroy(marker.markerRectTransform.gameObject);
+            currentEnemies.Clear();
+
+            foreach (var marker in currentVendors)
+                Destroy(marker.markerRectTransform.gameObject);
+            currentVendors.Clear();
+        }
+
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            // Limpeza feita ao carregar cena adicionalmente
+            if (SceneManager.sceneCount > 1) return;
+            ClearAllMarkers();
             InitializeReferences();
         }
     }

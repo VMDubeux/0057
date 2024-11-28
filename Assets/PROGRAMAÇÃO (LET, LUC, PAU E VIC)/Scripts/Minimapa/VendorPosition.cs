@@ -7,6 +7,6 @@ public class VendorPosition : MonoBehaviour
 {
     void Start()
     {
-        FindAnyObjectByType<MarkerHolder>().AddVendorMarker(this);
+        FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddVendorMarker(this.gameObject.GetComponent<VendorPosition>());
     }
 }

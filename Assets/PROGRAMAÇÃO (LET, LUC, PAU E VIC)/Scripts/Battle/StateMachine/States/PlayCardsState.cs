@@ -12,15 +12,18 @@ public class PlayCardsState : State
     Coroutine _cardSequencer;
     HorizontalLayoutGroup _handLayout;
     PlayerUnit _playerUnit;
+    
     void Awake(){
         _handLayout = CardsController.Instance.Hand.Holder.GetComponent<HorizontalLayoutGroup>();        
     }
+
     private void Update() {
         if( _playerUnit == null && machine.CurrentUnit.CompareTag("Player"))
         {
             _playerUnit = machine.CurrentUnit as PlayerUnit;
         }
     }
+
     public override IEnumerator Enter(){
         yield return new WaitForSeconds(0.5f);
         Graciosidade();
@@ -28,12 +31,14 @@ public class PlayCardsState : State
         _handLayout.enabled = false;
         _cardSequencer = StartCoroutine(CardSequencer());
     }
+
     public override IEnumerator Exit(){
         yield return null;
         EndTurnButton(false);
         _handLayout.enabled = true;
         StopCoroutine(_cardSequencer);
     }
+
     IEnumerator CardSequencer(){
         while(true){
             if(machine.CardsToPlay.Count>0){
@@ -47,6 +52,7 @@ public class PlayCardsState : State
             yield return null;
         }
     }
+
     IEnumerator PlayCardEffect(Card card, Transform playTransform){
         for(int i=0; i<playTransform.childCount; i++){
             ITarget targeter = playTransform.GetChild(i).GetComponent<ITarget>();

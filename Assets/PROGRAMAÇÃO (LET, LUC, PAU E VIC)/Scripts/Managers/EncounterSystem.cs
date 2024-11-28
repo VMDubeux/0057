@@ -48,6 +48,7 @@ public class EncounterSystem : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         // Carrega a cena de batalha como adicional
-        SceneManager.LoadScene("LEVEL_BATTLE", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("LEVEL_BATTLE", LoadSceneMode.Additive);
+        SceneLoader.LoadScene(4, SceneLoader.LoadType.Additive);
     }
 }
