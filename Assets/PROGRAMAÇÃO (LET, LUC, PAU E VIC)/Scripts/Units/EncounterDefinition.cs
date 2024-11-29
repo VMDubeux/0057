@@ -19,14 +19,18 @@ public class EncounterDefinition : MonoBehaviour
     [HideInInspector] public int minNumEncounters;
     [HideInInspector] public int maxNumEncounters;
 
-    private bool isBattleStarted = false; // Controle para evitar múltiplas execuções
+    internal bool isBattleStarted = false; // Controle para evitar múltiplas execuções
 
     private void Update()
     {
         // Verifica se o diálogo foi finalizado, e a batalha ainda não foi iniciada
-        QuestLacaio questLacaio = GetComponent<QuestLacaio>();
-        if (questLacaio != null && !isBattleStarted && questLacaio.isDialogueFinished)
+        QuestLacaio questLacaio = gameObject.GetComponent<QuestLacaio>();
+        if (questLacaio.isDialogueFinished == true &&
+            questLacaio != null &&
+            isBattleStarted == false &&
+            gameObject.GetComponent<Unit>().hasFought == false)
         {
+            Debug.Log("Iniciar Sequencia de Batalha AGORA");
             isBattleStarted = true; // Marca como iniciado para evitar múltiplas execuções
             StartBattleSequence(); // Inicia o processo de batalha
         }

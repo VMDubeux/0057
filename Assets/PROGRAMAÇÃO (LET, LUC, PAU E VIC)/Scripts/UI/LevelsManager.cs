@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Main_Folders.Scripts.UI
 {
@@ -60,6 +61,8 @@ namespace Main_Folders.Scripts.UI
             if (Instance == null)
             {
                 Instance = this;
+
+                CatchAllReferences();
 
                 foreach (var variable in staticObjects)
                 {
@@ -150,18 +153,23 @@ namespace Main_Folders.Scripts.UI
 
             if (currentGameSceneIndex > 1)
             {
-                CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
-                LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
-                EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
-                minimapCamera = GameObject.Find("CameraMinimap").GetComponent<Camera>();
-                minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
-                playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
-                Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
-                canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
-                gameJuiceCanvas = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).gameObject;
-                canvasMessageCard = FindFirstObjectByType<CanvasMessageCard>(FindObjectsInactive.Include).gameObject;
-                canvasMinimapa = FindFirstObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
+                CatchAllReferences();
             }
+        }
+
+        private void CatchAllReferences()
+        {
+            CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
+            LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
+            EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
+            minimapCamera = GameObject.Find("CameraMinimap").GetComponent<Camera>();
+            minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
+            playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
+            Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
+            canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
+            gameJuiceCanvas = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).transform.GetChild(0).gameObject;
+            canvasMessageCard = FindFirstObjectByType<CanvasMessageCard>(FindObjectsInactive.Include).transform.GetChild(0).gameObject;
+            canvasMinimapa = FindFirstObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
         }
 
         private void LateUpdate()
@@ -301,10 +309,17 @@ namespace Main_Folders.Scripts.UI
 
         public void MoverPlayer(Vector3 pos)
         {
-            NextPlayerPosition = pos; // Salva a posição para a nova cena
+            NextPlayerPosition = pos; // Salva a posição
+            NavMeshAgent agent = player.GetComponent<NavMeshAgent>();
+
+            agent.enabled = false;
             player.transform.position = pos;
+            agent.enabled = true;
+            agent.SetDestination(pos);
+
             player.GetComponent<PlayerMovement>().enabled = true;
-            player.GetComponent<NavMeshAgent>().enabled = true;
+            PlayerMovement.isMovementBlocked = false;
+            Debug.Log("MoverPlayer chamado: isMovementBlocked = false");
             partyManager.GetComponent<PartyManager>().SetPosition(pos);
         }
 

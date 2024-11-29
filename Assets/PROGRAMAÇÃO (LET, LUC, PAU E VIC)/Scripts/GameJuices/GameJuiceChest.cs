@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Main_Folders.Scripts.Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 {
@@ -30,6 +31,8 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             else
             {
                 InitializeDroppableCards();
+                CanvasGameJuices = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).transform.GetChild(0).gameObject;
+                CanvasCardDroppedMessage = FindFirstObjectByType<CanvasMessageCard>(FindObjectsInactive.Include).transform.GetChild(0).gameObject;
             }
         }
 

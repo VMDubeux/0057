@@ -6,8 +6,8 @@ public abstract class GameJuices : MonoBehaviour
     public delegate void PressedButton();
     public static event PressedButton OnPressedButton;
 
-    public GameObject CanvasGameJuices;
-    public GameObject CanvasCardDroppedMessage;
+    [SerializeField] internal GameObject CanvasGameJuices;
+    [SerializeField] internal GameObject CanvasCardDroppedMessage;
     internal bool isInside = false;
     internal bool wasOpen = false;
     internal CardInventoryManager cardInventoryManager;

@@ -27,6 +27,9 @@ public class GameJuiceMentorDungeon : GameJuices
         {
             HandleQuestAlreadyCompleted();
         }
+
+        CanvasGameJuices = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).
+            transform.GetChild(0).gameObject;
     }
 
     private void HandleQuestAlreadyCompleted()

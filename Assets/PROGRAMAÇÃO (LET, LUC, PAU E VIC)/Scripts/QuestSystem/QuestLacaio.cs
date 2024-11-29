@@ -39,7 +39,7 @@ public class QuestLacaio : QuestObjects
 
     public void StartDialogue()
     {
-        if (isDialogueStarted || isDialogueFinished)
+        if (isDialogueStarted == true || isDialogueFinished == true)
             return;
 
         if (dialogTriggerPrefab == null || lacaioDialogueSteps.Length == 0)
@@ -70,7 +70,7 @@ public class QuestLacaio : QuestObjects
     private void OnDialogueEnded()
     {
         if (dialogTrigger != null)
-            Destroy(dialogTrigger.gameObject);
+            Destroy(dialogTrigger);
 
         StartCombat();
     }

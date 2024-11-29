@@ -224,13 +224,14 @@ GameObject:
   - component: {fileID: 7623132271382347259}
   - component: {fileID: 8399211552683294535}
   - component: {fileID: 4615449961779647190}
+  - component: {fileID: 1972313034243672786}
   m_Layer: 5
   m_Name: CanvasMessageCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2393193372711524513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -314,3 +315,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1972313034243672786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8559266251596354830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00bd98d9fdb58d41ba30801eee04702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

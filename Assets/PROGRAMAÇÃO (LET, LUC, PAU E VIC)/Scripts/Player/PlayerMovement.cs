@@ -41,9 +41,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log($"Está bloqueado ? {isMovementBlocked}");
+
         // Bloqueia a movimentação durante o diálogo ou combate
         if (isMovementBlocked)
         {
+            navMeshAgent.ResetPath(); // Limpa qualquer destino pendente
             StopMovement();
             return;
         }
@@ -55,8 +58,6 @@ public class PlayerMovement : MonoBehaviour
             MoveToTarget();
             partyManager.ChangeExpSliderValue();
         }
-
-        Debug.Log(isMovementBlocked);
     }
 
     private void HandleInput()

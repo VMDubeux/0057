@@ -59,19 +59,50 @@ namespace Main_Folders.Scripts.StateMachine.States
                     partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
                     partyManager.SetExperience(0, accumulatedExperience); // Envio do quantitativo acumulado de experiência para o player
                     encounterSystem.prefab.GetComponent<Unit>().hasFought = true;
+
+                    // Localiza o player utilizando a classe PlayerMovement
+                    GameObject playerPos = FindFirstObjectByType<PlayerMovement>().gameObject;
+
+                    // Desabilita o NavMeshAgent antes de alterar a posição diretamente
+                    NavMeshAgent agent = player.GetComponent<NavMeshAgent>();
+                    agent.enabled = false;
+
+                    // Altera a posição diretamente
+                    player.transform.position = playerPos.transform.position;
+
+                    // Reabilita o NavMeshAgent e define o destino para garantir coerência na navegação
+                    agent.enabled = true;
+                    agent.ResetPath(); // Limpa qualquer destino pendente antes de definir um novo
+                    agent.Warp(playerPos.transform.position); // Teletransporta sem cálculos de rota
+                    PlayerMovement.isMovementBlocked = false;
+
                     encounterSystem.prefab.GetComponent<EnemyMovementStates>().SwitchStates(EnemyMovementStates.State.Dead);
                 }
                 else // player derrotado
                 {
                     encounterSystem.prefab.GetComponent<EnemyMovementStates>().SwitchStates(EnemyMovementStates.State.Idle); // Status pós batalha perdida
                     // player retorna ao respawnPoint
-                    Transform respawnPoint = FindFirstObjectByType<RespawnPoint>(FindObjectsInactive.Include).transform;
-                    var rebournPlayer = new Vector3(respawnPoint.position.x - 1, player.transform.position.y, respawnPoint.position.z);
-                    LevelsManager.Instance.MoverPlayer(rebournPlayer); // Faz com que o player não saia caminhando pelo cenário
+                    GameObject respawnPoint = FindFirstObjectByType<RespawnPoint>(FindObjectsInactive.Include).gameObject;
+
+                    NavMeshAgent agent = player.GetComponent<NavMeshAgent>();
+
+                    // Desabilita temporariamente para evitar conflito
+                    agent.enabled = false;
+                    player.transform.position = respawnPoint.transform.position;
+                    agent.enabled = true;
+
+                    // Define o destino final após reposicionar
+                    agent.SetDestination(respawnPoint.transform.position);
+                    PlayerMovement.isMovementBlocked = false;
+
+                    encounterSystem.prefab.GetComponent<QuestLacaio>().isDialogueFinished = false;
                     yield return new WaitForSeconds(7.5f); // Tempo de espera para a animação de derrota GLOW UP
                 }
 
+                encounterSystem.prefab.GetComponent<QuestLacaio>().isDialogueStarted = false;
                 encounterSystem.battleActive = false;
+                encounterSystem.prefab.GetComponent<EncounterDefinition>().isBattleStarted = false;
+
                 StartCoroutine(WaitThenChangeState<EndBattleState>());
             }
             else

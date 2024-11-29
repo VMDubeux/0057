@@ -5,9 +5,6 @@ using UnityEngine.AI;
 
 public abstract class EnemyMovementStates : MonoBehaviour
 {
-    public delegate void StartCombat();
-    public event StartCombat OnStartCombat; // Evento para indicar o início do combate
-
     public enum State
     {
         Idle,
@@ -52,7 +49,6 @@ public abstract class EnemyMovementStates : MonoBehaviour
 
     private IEnumerator HandleIdle()
     {
-        _agent.isStopped = false;
         Debug.Log("Entering Idle state.");
         _animator.SetBool("IsWalking", false);
         yield return new WaitForSeconds(idleTime);
@@ -83,8 +79,8 @@ public abstract class EnemyMovementStates : MonoBehaviour
                 {
                     StopMovement();
                     Debug.Log("Entering start dialog Idle state.");
-                    _animator.SetBool("IsWalking", false);
                     StartDialogue(); // Inicia o diálogo
+                    _animator.SetBool("IsWalking", false);
                     yield break; // Interrompe a execução da corrotina
                 }
             }
@@ -101,18 +97,19 @@ public abstract class EnemyMovementStates : MonoBehaviour
 
     private IEnumerator HandleBattle()
     {
-        OnStartCombat -= ExecuteBattleActions;
-
         _animator.SetBool("OnBattle", true);
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
-        GetComponent<QuestLacaio>().isDialogueFinished = false;
-        GetComponent<EnemyMovementStates>().isDialogueInProgress = false;
+        GetComponent<QuestLacaio>().isDialogueFinished = true; // Inicia o combate após a animação, pois essa variável é analisada pelo EncounterDefinition
+
+        _animator.SetBool("OnBattle", false);
+
         LevelsManager.Instance.isTalking = false;
+        GetComponent<EnemyMovementStates>().isDialogueInProgress = false;
     }
 
-private void HandleDead()
+    private void HandleDead()
     {
         gameObject.GetComponent<QuestLacaio>().CompleteQuest();
         _animator.SetTrigger("PlayerWin");
@@ -158,24 +155,17 @@ private void HandleDead()
     {
         Debug.Log("DIALOGO ACABOU? ENEMY STATE");
         isDialogueInProgress = false; // Marca o fim do diálogo
-        GetComponent<QuestLacaio>().isDialogueFinished = true;
-        StartCombatLogic(); // Inicia o combate após o término do diálogo
-    }
-
-    public void StartCombatLogic()
-    {
-        OnStartCombat += ExecuteBattleActions;
-        OnStartCombat?.Invoke(); // Invoca o evento
-    }
-
-    public void ExecuteBattleActions()
-    {
-        SwitchStates(State.Battle);
+        SwitchStates(State.Battle); 
     }
 
     // Método para parar o movimento
     public void StopMovement()
     {
-        _agent.isStopped = true; // Impede o movimento do agente
+        _agent.SetDestination(transform.position); // Impede o movimento do agente
+    }
+
+    private void Update()
+    {
+        Debug.Log($"{gameObject.name} + {_currentState}");
     }
 }

@@ -39,6 +39,7 @@ public class GameJuiceEnemies : GameJuices
         else
         {
             InitializeDroppableCards();
+            CanvasCardDroppedMessage = FindFirstObjectByType<CanvasMessageCard>(FindObjectsInactive.Include).transform.GetChild(0).gameObject;
         }
     }
 
