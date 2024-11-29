@@ -4,11 +4,31 @@ public class PoseAnimation : MonoBehaviour
 {
 
 
-    [ContextMenu("Attack Pose")]
-    public void AttackPose()
+    [ContextMenu("Attack Pose")] public void AttackPose()
     {
             Animator anim = GetComponentInChildren<Animator>();
             anim.SetTrigger("attack");
-            Debug.Log("Pose!");
+            Debug.Log(anim.gameObject.name + " é o objeto");
+    }
+    [ContextMenu("Def Pose")] public void DefPose()
+    {
+        //implementa o VFX de defesa
+        GameObject defVFX = GameObject.Find("VFX Def");
+        if(defVFX.activeSelf == true)
+        {
+            defVFX.SetActive(false);
+        }
+        defVFX.SetActive(true);
+        Debug.Log("VFX Def apply");       
+    }
+    [ContextMenu("Hit Pose")] public void HitAnim()
+    {
+        GameObject hitVFX = GameObject.Find("Hit VFX");
+        if(hitVFX.activeSelf == true)
+        {
+            hitVFX.SetActive(false);
+        }
+        hitVFX.SetActive(true);
+        Debug.Log("VFX Hit apply");   
     }
 }

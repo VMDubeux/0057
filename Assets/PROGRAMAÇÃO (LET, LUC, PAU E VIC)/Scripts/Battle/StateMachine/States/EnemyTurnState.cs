@@ -100,6 +100,8 @@ public class EnemyTurnState : State
         {
             _playerUnit.Modify[(int)ModifierTags.WhenUnitDies](null);
         }
+
+        FindFirstObjectByType<PlayerUnit>().GetComponent<PoseAnimation>().HitAnim();
     }
 
     void ApplyModifier(ModifiedValues modifiedValues, ModifierTags tag, BattleVisuals unit)
