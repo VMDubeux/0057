@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Main_Folders.Scripts.Units;
 using Main_Folders.Scripts.Visuals;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class BlockEffect : CardEffect
             Debug.LogFormat("Unit {0} gained {1} block", unit.name, modifiedValues.FinalValue);
             int currentBlock = unit.GetStatValue(3);
             unit.SetStatValue(3, currentBlock + modifiedValues.FinalValue);
-
+            FindFirstObjectByType<PlayerUnit>().GetComponent<PoseAnimation>().DefPose();
             yield return null;
         }
     }

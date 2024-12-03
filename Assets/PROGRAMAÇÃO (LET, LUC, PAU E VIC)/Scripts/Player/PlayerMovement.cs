@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private PartyManager partyManager;
     private bool isMoving;
     private float originalSpeed; // Armazena a velocidade original do NavMeshAgent
+    public ImageSequencePlayer imageSequencePlayer;
 
     [SerializeField] private GameObject brute;
     [SerializeField] private GameObject bruteVisual;
@@ -133,6 +134,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void GiveDripToPlayer()
     {
+        if (imageSequencePlayer != null)
+            imageSequencePlayer.PlaySequence();
+
         brute.SetActive(true);
         batato.SetActive(false);
 

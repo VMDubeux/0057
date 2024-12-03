@@ -57,7 +57,8 @@ public class CardInventoryManager : MonoBehaviour
             return;
         }
 
-        var cardImage = cardsToPick[cardPickedUp.InventoryPos].transform.GetChild(0).GetComponent<Image>();
+        var card = cardsToPick[cardPickedUp.InventoryPos];
+        var cardImage = card.transform.GetChild(0).GetComponent<Image>();
         if (cardImage == null)
         {
             Debug.LogError($"Componente Image não encontrado no filho do card de índice {cardPickedUp.InventoryPos}.");
@@ -68,11 +69,17 @@ public class CardInventoryManager : MonoBehaviour
         currentColor.a = 1f;
         cardImage.color = currentColor;
 
+        var toggle = card.GetComponent<Toggle>();
+        if (toggle != null)
+        {
+            toggle.interactable = true;
+            toggle.isOn = true; // Ativa o Toggle por padrão
+            HandleToggleChange(card, true); // Garante que a carta será adicionada ao chosenCards
+        }
+
         Debug.Log($"Carta '{cardPickedUp.Name}' (Posição: {cardPickedUp.InventoryPos}) teve o alpha aumentado para {currentColor.a}.");
 
-        cardsToPick[cardPickedUp.InventoryPos].gameObject.GetComponent<Toggle>().interactable = true;
-
-        cardsPickedUp.Add(cardsToPick[cardPickedUp.InventoryPos]);
+        cardsPickedUp.Add(card);
     }
 
     private void HandleToggleChange(CardToPickUp card, bool isOn)
