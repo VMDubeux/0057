@@ -5202,7 +5202,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 432164414221191000, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 533332595386581264, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
       propertyPath: m_fontAsset
@@ -5218,7 +5218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1903129411115756956, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4897157445181698913, guid: 28aba2ecab3c3b9489bf8fa584f9d5c3, type: 3}
       propertyPath: m_LocalPosition.x

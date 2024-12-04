@@ -8,13 +8,14 @@ public class ImageSequencePlayer : MonoBehaviour
     public class Frame
     {
         public Sprite sprite;
-        public float duration = 0.1f; // Duração específica para este frame
+        public float duration = 0.1f; // Duraï¿½ï¿½o especï¿½fica para este frame
     }
 
-    public Frame[] imageSequence; // Sequência de frames com durações específicas
-    public float fadeDuration = 0.5f; // Duração do fade in/out
+    public Frame[] imageSequence; // Sequï¿½ncia de frames com duraï¿½ï¿½es especï¿½ficas
+    public float fadeDuration = 0.5f; // Duraï¿½ï¿½o do fade in/out
     public GameObject background; // Objeto de fundo que cobre a tela
-    public Color yellowScreenColor = new Color(1, 1, 0, 1); // Cor do fade amarelo (padrão amarelo)
+    public GameObject dicas;
+    public Color yellowScreenColor = new Color(1, 1, 0, 1); // Cor do fade amarelo (padrï¿½o amarelo)
     private Image uiImage;
     private bool isPlaying = false;
 
@@ -22,7 +23,7 @@ public class ImageSequencePlayer : MonoBehaviour
     {
         uiImage = GetComponent<Image>();
         uiImage.enabled = false;
-        uiImage.color = new Color(1, 1, 1, 0); // Transparente no início
+        uiImage.color = new Color(1, 1, 1, 0); // Transparente no inï¿½cio
         if (background != null)
         {
             background.SetActive(false); // Certifique-se de que o fundo esteja desativado inicialmente
@@ -40,12 +41,12 @@ public class ImageSequencePlayer : MonoBehaviour
     private IEnumerator PlayImages()
     {
         isPlaying = true;
-        background.SetActive(true); // Ativar fundo no início da sequência
+        background.SetActive(true); // Ativar fundo no inï¿½cio da sequï¿½ncia
         uiImage.enabled = true;
 
         for (int i = 0; i < imageSequence.Length; i++)
         {
-            if (i == 4) // Exibir tela amarela antes da 5ª imagem
+            if (i == 4) // Exibir tela amarela antes da 5ï¿½ imagem
             {
                 yield return StartCoroutine(ShowYellowScreen());
             }
@@ -56,7 +57,8 @@ public class ImageSequencePlayer : MonoBehaviour
         }
 
         uiImage.enabled = false;
-        background.SetActive(false); // Desativar fundo no final da sequência
+        background.SetActive(false); // Desativar fundo no final da sequï¿½ncia
+        dicas.SetActive(true);
         isPlaying = false;
     }
 
@@ -70,7 +72,7 @@ public class ImageSequencePlayer : MonoBehaviour
             uiImage.color = new Color(1, 1, 1, normalizedTime); // Manipula apenas o alfa
             yield return null;
         }
-        uiImage.color = new Color(1, 1, 1, 1); // Totalmente visível
+        uiImage.color = new Color(1, 1, 1, 1); // Totalmente visï¿½vel
     }
 
     private IEnumerator FadeOut()

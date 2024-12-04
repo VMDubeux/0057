@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 4670298462211123921}
   - component: {fileID: 7854939337004954012}
   - component: {fileID: 8331863782720398960}
+  - component: {fileID: 1345795413154633520}
   m_Layer: 0
   m_Name: Trunk_House
   m_TagString: Untagged
@@ -276,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanvasGameJuices: {fileID: 0}
+  CanvasCardDroppedMessage: {fileID: 0}
   _assetKey: 
   _lightGameJuice: {fileID: 969402479744107793}
   _particleGameJuice: {fileID: 2455173106258052110}
@@ -318,6 +320,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.28, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1345795413154633520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175344762413698804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eedb01302b9d1504bb48b0885292c38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2455173106258052110
 GameObject:
   m_ObjectHideFlags: 0

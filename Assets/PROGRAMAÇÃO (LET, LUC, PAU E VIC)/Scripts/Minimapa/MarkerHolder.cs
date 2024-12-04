@@ -6,9 +6,12 @@ namespace Main_Folders.Scripts.Minimapa
 {
     public class MarkerHolder : MonoBehaviour
     {
-        public GameObject markerPrefab;
+        public GameObject questMarker;
         public GameObject enemyMarkerPrefab;
         public GameObject vendorMarkerPrefab;
+        public GameObject portalMarker;
+        public GameObject playerMarker;
+        public GameObject trunkMarker;
         public GameObject playerObject;
         public RectTransform markerParentRectTransform;
         public Camera minimapCamera;
@@ -16,6 +19,9 @@ namespace Main_Folders.Scripts.Minimapa
         private List<(GameObject objectiveObject, RectTransform markerRectTransform)> currentObjectives;
         private List<(GameObject enemyPosition, RectTransform markerRectTransform)> currentEnemies;
         private List<(VendorPosition vendorPosition, RectTransform markerRectTransform)> currentVendors;
+        private List<(PortalPosition portalPosition, RectTransform markerRectTransform)> currentPortals;
+        private List<(TrunkPosition trunkPosition, RectTransform markerRectTransform)> currentTrunks;
+        private (PlayerPosition playerPosition,  RectTransform markerRectTransform) currentPlayer;
 
         void Awake()
         {
@@ -25,6 +31,8 @@ namespace Main_Folders.Scripts.Minimapa
             currentObjectives = new List<(GameObject, RectTransform)>();
             currentEnemies = new List<(GameObject, RectTransform)>();
             currentVendors = new List<(VendorPosition, RectTransform)>();
+            currentPortals = new List<(PortalPosition, RectTransform)>();
+            currentTrunks = new List<(TrunkPosition, RectTransform)>();
 
             // Configura eventos para carregar referências ao mudar de cena
             SceneManager.sceneLoaded += OnSceneLoaded;
@@ -68,6 +76,18 @@ namespace Main_Folders.Scripts.Minimapa
             {
                 UpdateMarkerPosition(marker.vendorPosition.transform.position, marker.markerRectTransform, playerPosition);
             }
+
+            // Atualização dos marcadores de portal
+            foreach (var marker in currentPortals)
+            {
+                UpdateMarkerPosition(marker.portalPosition.transform.position, marker.markerRectTransform, playerPosition);
+            }
+
+            // Atualização dos marcadores de trunk
+            foreach (var marker in currentTrunks)
+            {
+                UpdateMarkerPosition(marker.trunkPosition.transform.position, marker.markerRectTransform, playerPosition);
+            }
         }
 
         private void UpdateMarkerPosition(Vector3 targetPosition, RectTransform markerRectTransform, Vector3 playerPosition)
@@ -82,7 +102,7 @@ namespace Main_Folders.Scripts.Minimapa
 
         public void AddObjectiveMarker(GameObject sender)
         {
-            RectTransform rectTransform = Instantiate(markerPrefab, markerParentRectTransform).GetComponent<RectTransform>();
+            RectTransform rectTransform = Instantiate(questMarker, markerParentRectTransform).GetComponent<RectTransform>();
             currentObjectives.Add((sender, rectTransform));
         }
 
@@ -96,6 +116,24 @@ namespace Main_Folders.Scripts.Minimapa
         {
             RectTransform rectTransform = Instantiate(vendorMarkerPrefab, markerParentRectTransform).GetComponent<RectTransform>();
             currentVendors.Add((sender, rectTransform));
+        }
+
+        public void AddPortalMarker(PortalPosition sender)
+        {
+            RectTransform rectTransform = Instantiate(portalMarker, markerParentRectTransform).GetComponent<RectTransform>();
+            currentPortals.Add((sender, rectTransform));
+        }
+
+        public void AddTrunkMarker(TrunkPosition sender)
+        {
+            RectTransform rectTransform = Instantiate(trunkMarker, markerParentRectTransform).GetComponent<RectTransform>();
+            currentTrunks.Add((sender, rectTransform));
+        }
+
+        public void AddPlayerMarker(PlayerPosition sender)
+        {
+            RectTransform rectTransform = Instantiate(playerMarker, markerParentRectTransform).GetComponent<RectTransform>();
+            currentPlayer = (sender, rectTransform);
         }
 
         public void RemoveObjectiveMarker(GameObject sender)
@@ -116,6 +154,24 @@ namespace Main_Folders.Scripts.Minimapa
             currentEnemies.Remove(foundObj);
         }
 
+        public void RemoveTrunkMarker(GameObject sender)
+        {
+            var foundObj = currentTrunks.Find(enemy => enemy.trunkPosition == sender);
+            if (foundObj.trunkPosition == null) return;
+
+            Destroy(foundObj.markerRectTransform.gameObject);
+            currentTrunks.Remove(foundObj);
+        }
+
+        public void RemovePortalMarker(GameObject sender)
+        {
+            var foundObj = currentPortals.Find(enemy => enemy.portalPosition == sender);
+            if (foundObj.portalPosition == null) return;
+
+            Destroy(foundObj.markerRectTransform.gameObject);
+            currentPortals.Remove(foundObj);
+        }
+
         public void ClearAllMarkers()
         {
             foreach (var marker in currentObjectives)
@@ -129,6 +185,18 @@ namespace Main_Folders.Scripts.Minimapa
             foreach (var marker in currentVendors)
                 Destroy(marker.markerRectTransform.gameObject);
             currentVendors.Clear();
+
+            foreach (var marker in currentPortals)
+                Destroy(marker.markerRectTransform.gameObject);
+            currentPortals.Clear();
+
+            foreach (var marker in currentTrunks)
+                Destroy(marker.markerRectTransform.gameObject);
+            currentTrunks.Clear();
+
+            Destroy(currentPlayer.markerRectTransform);
+            currentPlayer.markerRectTransform = null;
+            currentPlayer.playerPosition = null;
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
