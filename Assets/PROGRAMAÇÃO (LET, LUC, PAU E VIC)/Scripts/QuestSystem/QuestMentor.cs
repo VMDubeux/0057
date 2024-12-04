@@ -15,7 +15,7 @@ public class QuestMentor : QuestObjects
     internal bool isDialogueFinished = false;
 
     /// <summary>
-    /// Retorna o gameObject para inserir o ícone no minimapa.
+    /// Retorna o gameObject para inserir o ï¿½cone no minimapa.
     /// </summary>
     protected override void AddMinimapIconPosition()
     {
@@ -24,7 +24,7 @@ public class QuestMentor : QuestObjects
     }
 
     /// <summary>
-    /// Retorna o objeto do diálogo ativo, caso exista.
+    /// Retorna o objeto do diï¿½logo ativo, caso exista.
     /// </summary>
     public GameObject GetActiveDialog()
     {
@@ -32,13 +32,13 @@ public class QuestMentor : QuestObjects
     }
 
     /// <summary>
-    /// Inicia o diálogo associado ao mentor.
+    /// Inicia o diï¿½logo associado ao mentor.
     /// </summary>
     public void StartDialogue()
     {
         if (dialogTriggerPrefab == null || mentorDialogueStep == null)
         {
-            Debug.LogError("DialogTriggerPrefab ou MentorDialogueStep não configurados no QuestMentor.");
+            Debug.LogError("DialogTriggerPrefab ou MentorDialogueStep nï¿½o configurados no QuestMentor.");
             return;
         }
 
@@ -51,12 +51,14 @@ public class QuestMentor : QuestObjects
         isDialogueStarted = true;
         PlayerMovement.isMovementBlocked = true;
 
-        // Marca a quest como disponível
+        GetComponent<GameJuiceMentor>().enabled = false;
+
+        // Marca a quest como disponï¿½vel
         MarkQuestAsAvailable();
     }
 
     /// <summary>
-    /// Executado ao término do diálogo.
+    /// Executado ao tï¿½rmino do diï¿½logo.
     /// </summary>
     private void OnDialogueEnded()
     {
@@ -72,7 +74,7 @@ public class QuestMentor : QuestObjects
     }
 
     /// <summary>
-    /// Lógica executada ao completar a quest.
+    /// Lï¿½gica executada ao completar a quest.
     /// </summary>
     protected override void ProcessQuestCompletion()
     {
@@ -85,13 +87,14 @@ public class QuestMentor : QuestObjects
     protected override void GameJuiceCall()
     {
         var gameJuiceMentor = gameObject.GetComponent<GameJuiceMentor>();
+        gameJuiceMentor.enabled = true;
         if (gameJuiceMentor != null)
         {
             gameJuiceMentor.AddRandomItemToInventory();
         }
         else
         {
-            Debug.LogWarning("GameJuiceMentor não encontrado no objeto. Certifique-se de que ele está anexado.");
+            Debug.LogWarning("GameJuiceMentor nï¿½o encontrado no objeto. Certifique-se de que ele estï¿½ anexado.");
         }
 
         var player = FindFirstObjectByType<PlayerMovement>();
@@ -101,7 +104,9 @@ public class QuestMentor : QuestObjects
         }
         else
         {
-            Debug.LogWarning("Player não encontrado.");
+            Debug.LogWarning("Player nï¿½o encontrado.");
         }
+
+        Destroy(gameJuiceMentor);
     }
 }
