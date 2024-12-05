@@ -8784,7 +8784,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126748013}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05134fbd42c79da4bb07cce4c8102381, type: 3}
   m_Name: 
@@ -179160,7 +179160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19, y: 105.79846}
+  m_AnchoredPosition: {x: 19, y: 105.798096}
   m_SizeDelta: {x: -1758, y: -874}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2022409162268709431
@@ -182017,9 +182017,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2470552759634134729, guid: 7d392237a1430b340a6333907c2b65e0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470552759634134729, guid: 7d392237a1430b340a6333907c2b65e0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470552759634134729, guid: 7d392237a1430b340a6333907c2b65e0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 450
+      objectReference: {fileID: 0}
     - target: {fileID: 4804238505666516940, guid: 7d392237a1430b340a6333907c2b65e0, type: 3}
       propertyPath: m_Name
       value: CanvasQuesLog
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901080334768312837, guid: 7d392237a1430b340a6333907c2b65e0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -182241,7 +182257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19, y: 105.79846}
+  m_AnchoredPosition: {x: 19, y: 105.798096}
   m_SizeDelta: {x: -1758, y: -874}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2832630499562021062
