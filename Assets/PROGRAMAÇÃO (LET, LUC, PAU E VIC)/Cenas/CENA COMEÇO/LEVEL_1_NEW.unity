@@ -167479,7 +167479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 3903109483182574400, guid: 5f2ca472ebd674741b2beb3d73005a55, type: 3}
-  cardType: 0
+  cardType: 13
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -172716,7 +172716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 4989792092866745549, guid: ab5368db02188554f8652f5cc5c2c80a, type: 3}
-  cardType: 0
+  cardType: 6
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -174892,7 +174892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 3903109483182574400, guid: cb633d7dfee10a349a0cda52b57439dc, type: 3}
-  cardType: 0
+  cardType: 1
   cardRarity: 2
   Name: 
   Sprite: {fileID: 0}
@@ -176135,7 +176135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 4989792092866745549, guid: 15216b73fecc8a64ab991e7d15d9f924, type: 3}
-  cardType: 0
+  cardType: 8
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -179493,7 +179493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 3903109483182574400, guid: f5f1fc50d2bd1d24eb4df43d4cce92c0, type: 3}
-  cardType: 0
+  cardType: 14
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -189478,7 +189478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 6249146986226295659, guid: a7c1b64f8a17a7040ae4d0d0f167e519, type: 3}
-  cardType: 0
+  cardType: 5
   cardRarity: 1
   Name: 
   Sprite: {fileID: 0}
@@ -194427,7 +194427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 6249146986226295659, guid: 7d64731085d42fb4397a6cf28dc20e76, type: 3}
-  cardType: 0
+  cardType: 7
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -196420,7 +196420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 6249146986226295659, guid: 376b61dc22c889b48a7bdde9167692fa, type: 3}
-  cardType: 0
+  cardType: 12
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -197745,7 +197745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 4593699300808683793, guid: 799467c9da1040c4ca2b58b1bc251e2c, type: 3}
-  cardType: 0
+  cardType: 3
   cardRarity: 1
   Name: 
   Sprite: {fileID: 0}
@@ -199274,7 +199274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 4593699300808683793, guid: 04d8b5ebe975b4f489172a08d714e893, type: 3}
-  cardType: 0
+  cardType: 11
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -207147,7 +207147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 6249146986226295659, guid: 662596607566bed469bd65d6a77c4afe, type: 3}
-  cardType: 0
+  cardType: 9
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -216811,7 +216811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 6249146986226295659, guid: a6f33811d0d776a47b3cc7fac30a20de, type: 3}
-  cardType: 0
+  cardType: 10
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -218966,7 +218966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 4593699300808683793, guid: ef230848b8646c842b92558e47699c6b, type: 3}
-  cardType: 0
+  cardType: 4
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
@@ -219282,7 +219282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardConvertClass: {fileID: 5985246791289866782, guid: 2ca90fcf03fc7ab47ab11c6ecf5640d6, type: 3}
-  cardType: 0
+  cardType: 2
   cardRarity: 0
   Name: 
   Sprite: {fileID: 0}
