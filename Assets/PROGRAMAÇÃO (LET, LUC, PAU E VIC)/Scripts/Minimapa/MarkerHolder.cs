@@ -21,7 +21,7 @@ namespace Main_Folders.Scripts.Minimapa
         private List<(VendorPosition vendorPosition, RectTransform markerRectTransform)> currentVendors;
         private List<(PortalPosition portalPosition, RectTransform markerRectTransform)> currentPortals;
         private List<(TrunkPosition trunkPosition, RectTransform markerRectTransform)> currentTrunks;
-        private (PlayerPosition playerPosition,  RectTransform markerRectTransform) currentPlayer;
+        private (PlayerPosition playerPosition, RectTransform markerRectTransform) currentPlayer;
 
         void Awake()
         {
@@ -154,9 +154,9 @@ namespace Main_Folders.Scripts.Minimapa
             currentEnemies.Remove(foundObj);
         }
 
-        public void RemoveTrunkMarker(GameObject sender)
+        public void RemoveTrunkMarker(TrunkPosition sender)
         {
-            var foundObj = currentTrunks.Find(enemy => enemy.trunkPosition == sender);
+            var foundObj = currentTrunks.Find(trunk => trunk.trunkPosition == sender);
             if (foundObj.trunkPosition == null) return;
 
             Destroy(foundObj.markerRectTransform.gameObject);
@@ -165,7 +165,7 @@ namespace Main_Folders.Scripts.Minimapa
 
         public void RemovePortalMarker(GameObject sender)
         {
-            var foundObj = currentPortals.Find(enemy => enemy.portalPosition == sender);
+            var foundObj = currentPortals.Find(portal => portal.portalPosition == sender);
             if (foundObj.portalPosition == null) return;
 
             Destroy(foundObj.markerRectTransform.gameObject);
