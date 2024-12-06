@@ -4,15 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorialButton : MonoBehaviour
+public class DicasButton : MonoBehaviour
 {
     private int click = 0;
     private Button button;
     [SerializeField] private Canvas canvas;
     [SerializeField] private TextMeshProUGUI textBox;
-    [SerializeField] private TextMeshProUGUI banner;
 
-    void Start()
+    void OnEnable()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
@@ -24,10 +23,11 @@ public class TutorialButton : MonoBehaviour
         {
             button.GetComponentInChildren<TextMeshProUGUI>().text = "Close";
             textBox.text = "Walk: mouse click\nRun: SHIFT\nChange camera: C\nCard battle: drag, drop and click on target";
-            banner.text = "Controls";
         }
         else if (click == 1)
         {
+            Debug.Log("INVOCOU?");
+            QuestMentor.questMentorEvent.Invoke();
             Destroy(canvas.gameObject);
         }
 

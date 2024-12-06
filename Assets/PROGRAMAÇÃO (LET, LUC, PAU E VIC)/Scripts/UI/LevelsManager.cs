@@ -37,6 +37,7 @@ namespace Main_Folders.Scripts.UI
         [SerializeField] private GameObject Light;
         [SerializeField] private Camera minimapCamera;
         [SerializeField] private GameObject minimapGameObject;
+        [SerializeField] private GameObject canvasMinimap;
         [SerializeField] private GameObject playerGameObject;
         [SerializeField] private MinimapaSetup[] setup;
         [SerializeField] private GameObject canvasQuestLog;
@@ -44,6 +45,7 @@ namespace Main_Folders.Scripts.UI
         [SerializeField] private GameObject canvasMessageCard;
         [SerializeField] private GameObject canvasMinimapa;
         [SerializeField] private GameObject canvasTutorial;
+        [SerializeField] private GameObject canvasDicas;
 
         [Range(0, 3)] public int nivelInicial;
         private int nivelAtual;
@@ -71,8 +73,6 @@ namespace Main_Folders.Scripts.UI
 
                 DontDestroyOnLoad(gameObject);
 
-                canvasTutorial.SetActive(true);
-
                 // Adicionar callback para reposicionar o jogador após carregar uma nova cena
                 SceneManager.sceneLoaded += OnSceneLoaded;
             }
@@ -84,8 +84,6 @@ namespace Main_Folders.Scripts.UI
                 }
 
                 Destroy(gameObject);
-
-                canvasTutorial.SetActive(false);
             }
 
             gameJuiceCanvas.SetActive(false);
@@ -98,6 +96,9 @@ namespace Main_Folders.Scripts.UI
             player = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject;
             partyManager = GameObject.FindAnyObjectByType<PartyManager>().gameObject;
             canvasTutorial = GameObject.FindAnyObjectByType<CanvasTutorial>().gameObject;
+            canvasDicas = GameObject.FindAnyObjectByType<CanvasDicas>(FindObjectsInactive.Include).gameObject;
+            canvasDicas.SetActive(false);
+            canvasMinimap = GameObject.FindAnyObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
         }
 
         private void OnDestroy()
@@ -164,6 +165,7 @@ namespace Main_Folders.Scripts.UI
             EventSystem = FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include).gameObject;
             minimapCamera = GameObject.Find("CameraMinimap").GetComponent<Camera>();
             minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
+            canvasMinimap = GameObject.FindAnyObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
             playerGameObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include).gameObject;
             Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
             canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
@@ -214,7 +216,9 @@ namespace Main_Folders.Scripts.UI
                     CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
                     LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                     canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
+                    canvasMinimap = GameObject.FindAnyObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
                     CanvasInventario.SetActive(true);
+                    canvasMinimap.SetActive(true);
                     LevelCanvas.SetActive(true);
                     canvasQuestLog.SetActive(true);
                 }
@@ -223,7 +227,9 @@ namespace Main_Folders.Scripts.UI
                     CanvasInventario = FindAnyObjectByType<CardInventoryManager>(FindObjectsInactive.Include).gameObject;
                     LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
                     canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
+                    canvasMinimap = GameObject.FindAnyObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
                     CanvasInventario.SetActive(false);
+                    canvasMinimap.SetActive(false);
                     LevelCanvas.SetActive(false);
                     canvasQuestLog.SetActive(false);
                 }
@@ -241,12 +247,14 @@ namespace Main_Folders.Scripts.UI
                 Light = FindFirstObjectByType<Light>(FindObjectsInactive.Include).gameObject;
                 minimapGameObject = FindFirstObjectByType<MarkerHolder>(FindObjectsInactive.Include).gameObject;
                 canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
+                canvasMinimap = GameObject.FindAnyObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
                 CanvasInventario.SetActive(false);
                 LevelCanvas.SetActive(false);
                 EventSystem.SetActive(false);
                 Light.SetActive(false);
                 minimapGameObject.SetActive(false);
                 canvasQuestLog.SetActive(false);
+                canvasMinimap.SetActive(false);
             }
         }
 

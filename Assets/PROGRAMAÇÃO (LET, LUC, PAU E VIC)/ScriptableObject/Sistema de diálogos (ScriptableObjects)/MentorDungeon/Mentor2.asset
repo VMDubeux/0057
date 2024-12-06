@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc53821a10428a34882944376c57e047, type: 3}
-  m_Name: Mentor1
+  m_Name: Mentor2
   m_EditorClassIdentifier: 
   dialogues:
-  - May the drip be with you! Shine!
+  - Go ahead!
   options:
   - {fileID: 11400000, guid: f3a0b8ebd09cb4842bf7d4987897d224, type: 2}

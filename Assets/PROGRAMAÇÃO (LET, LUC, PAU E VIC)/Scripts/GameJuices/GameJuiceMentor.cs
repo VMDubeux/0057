@@ -142,6 +142,7 @@ public class GameJuiceMentor : GameJuices
 
         StartCoroutine(CanvasCardDropped());
     }
+
     private void Verification()
     {
         Debug.Log("Verificando!");

@@ -79,7 +79,6 @@ public abstract class QuestObjects : MonoBehaviour
         isCompleted = true;
         Debug.Log("Chegou aqui 1");
         ProcessQuestCompletion();
-        Debug.Log("Chegou aqui 4");
     }
 
     /// <summary>
@@ -94,7 +93,8 @@ public abstract class QuestObjects : MonoBehaviour
             {
                 if (output != null)
                 {
-                    output.SetActive(false);
+                    output.gameObject.SetActive(false);
+                    Debug.Log("Chegou aqui 4");
                 }
             }
 

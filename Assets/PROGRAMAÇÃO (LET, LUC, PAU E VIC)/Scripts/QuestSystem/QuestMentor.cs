@@ -5,6 +5,9 @@ using Main_Folders.Scripts.UI;
 
 public class QuestMentor : QuestObjects
 {
+    public delegate void QuestMentorEvent();
+    public static QuestMentorEvent questMentorEvent;
+
     [Header("Dialogue Settings")]
     [SerializeField] private DialogManager dialogTriggerPrefab;
     private DialogManager dialogTrigger;
@@ -20,6 +23,7 @@ public class QuestMentor : QuestObjects
     protected override void AddMinimapIconPosition()
     {
         FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
+        questMentorEvent += AfterDicas;
         //FindFirstObjectByType<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
     }
 
@@ -36,13 +40,29 @@ public class QuestMentor : QuestObjects
     /// </summary>
     public void StartDialogue()
     {
+        if (isDialogueStarted == true || isDialogueFinished == true)
+            return;
+
         if (dialogTriggerPrefab == null || mentorDialogueStep == null)
         {
             Debug.LogError("DialogTriggerPrefab ou MentorDialogueStep n�o configurados no QuestMentor.");
             return;
         }
 
+        LevelsManager.Instance.isTalking = true;
+        isDialogueStarted = true;
+        PlayerMovement.isMovementBlocked = true;
+
         dialogTrigger = Instantiate(dialogTriggerPrefab);
+        dialogTrigger.step = mentorDialogueStep;
+        dialogTrigger.gameObject.SetActive(true);
+        //GetComponent<GameJuiceMentor>().enabled = false;
+
+        dialogTrigger.dialogueDelegate += OnDialogueEnded;
+
+        MarkQuestAsAvailable();
+
+        /*dialogTrigger = Instantiate(dialogTriggerPrefab);
         dialogTrigger.step = mentorDialogueStep;
         dialogTrigger.dialogueDelegate += OnDialogueEnded;
         dialogTrigger.gameObject.SetActive(true);
@@ -54,7 +74,7 @@ public class QuestMentor : QuestObjects
         GetComponent<GameJuiceMentor>().enabled = false;
 
         // Marca a quest como dispon�vel
-        MarkQuestAsAvailable();
+        MarkQuestAsAvailable();*/
     }
 
     /// <summary>
@@ -67,7 +87,7 @@ public class QuestMentor : QuestObjects
         CompleteQuest();
         if (dialogTrigger != null)
         {
-            Destroy(dialogTrigger.gameObject);
+            Destroy(dialogTrigger);
         }
 
         PlayerMovement.isMovementBlocked = false;
@@ -81,22 +101,12 @@ public class QuestMentor : QuestObjects
         base.ProcessQuestCompletion();
 
         // Quando a quest for completada, o marcador pode ser removido
-        FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.RemoveObjectiveMarker(this.gameObject);
+        FindFirstObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).transform.GetChild(0).GetComponent<MarkerHolder>()?.RemoveObjectiveMarker(this.gameObject);
+        Debug.Log("Chegou aqui 10");
     }
 
     protected override void GameJuiceCall()
     {
-        var gameJuiceMentor = gameObject.GetComponent<GameJuiceMentor>();
-        gameJuiceMentor.enabled = true;
-        if (gameJuiceMentor != null)
-        {
-            gameJuiceMentor.AddRandomItemToInventory();
-        }
-        else
-        {
-            Debug.LogWarning("GameJuiceMentor n�o encontrado no objeto. Certifique-se de que ele est� anexado.");
-        }
-
         var player = FindFirstObjectByType<PlayerMovement>();
         if (player != null)
         {
@@ -106,7 +116,21 @@ public class QuestMentor : QuestObjects
         {
             Debug.LogWarning("Player n�o encontrado.");
         }
+    }
 
-        Destroy(gameJuiceMentor);
+    private void AfterDicas()
+    {
+        var gameJuiceMentor = gameObject.GetComponent<GameJuiceMentor>();
+        gameJuiceMentor.enabled = true;
+        if (gameJuiceMentor != null)
+        {
+            gameJuiceMentor.AddRandomItemToInventory();
+            questMentorEvent -= AfterDicas;
+            //Destroy(gameJuiceMentor); // Não pode destruir, caso contrário o Canvas do Drop fica travado
+        }
+        else
+        {
+            Debug.LogWarning("GameJuiceMentor n�o encontrado no objeto. Certifique-se de que ele est� anexado.");
+        }
     }
 }

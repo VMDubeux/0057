@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc53821a10428a34882944376c57e047, type: 3}
-  m_Name: Mentor1
+  m_Script: {fileID: 11500000, guid: 6c82010fa285d4e4ba050b72523791e3, type: 3}
+  m_Name: PlayerC2
   m_EditorClassIdentifier: 
-  dialogues:
-  - May the drip be with you! Shine!
-  options:
-  - {fileID: 11400000, guid: f3a0b8ebd09cb4842bf7d4987897d224, type: 2}
+  optionTitle: May I...?
+  nextSteps: {fileID: 11400000, guid: 5ed01752e8d7fd94d88eb93a6fdea12c, type: 2}
