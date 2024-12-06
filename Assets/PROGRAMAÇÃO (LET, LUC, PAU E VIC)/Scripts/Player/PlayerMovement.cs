@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            navMeshAgent.speed = originalSpeed * 2; // Dobra a velocidade ao pressionar Shift
+            navMeshAgent.speed = originalSpeed / 2; // Dobra a velocidade ao pressionar Shift
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {

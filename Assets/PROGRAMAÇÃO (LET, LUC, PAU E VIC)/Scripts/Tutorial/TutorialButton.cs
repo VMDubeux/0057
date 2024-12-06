@@ -23,7 +23,7 @@ public class TutorialButton : MonoBehaviour
         if (click == 0)
         {
             button.GetComponentInChildren<TextMeshProUGUI>().text = "Close";
-            textBox.text = "Walk: mouse click\nRun: SHIFT\nChange camera: C\nCard battle: drag, drop and click on target";
+            textBox.text = "Walk: SHIFT\nRun: mouse click\nChange camera: C\nChange minimap: Z\nCard battle: drag, drop and click on target";
             banner.text = "Controls";
         }
         else if (click == 1)
