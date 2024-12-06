@@ -124,7 +124,9 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                 if (_particleGameJuice != null)
                     _particleGameJuice.SetActive(true);
 
+                Debug.Log("CHEGOUU 1?");
                 AddRandomItemToInventory(); // Adiciona um item ao inventário
+                Debug.Log("CHEGOUU 2?");
 
                 PlayerPrefs.SetInt(_assetKey, 1);
             }
@@ -140,7 +142,9 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                 Debug.Log($"Carta selecionada: {randomSelectedCardToPick.Name} (Posição no inventário: {randomSelectedCardToPick.InventoryPos}).");
 
                 CardInventoryManager.Instance.CardPickedUp(randomSelectedCardToPick);
-
+                
+                Debug.Log("CHEGOUU 3?");
+                
                 StartCoroutine(CanvasCardDropped());
             }
             else
