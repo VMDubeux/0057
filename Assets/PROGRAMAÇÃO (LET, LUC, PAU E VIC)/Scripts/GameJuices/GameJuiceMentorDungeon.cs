@@ -64,7 +64,7 @@ public class GameJuiceMentorDungeon : GameJuices
 
     protected override void HandleTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !wasOpen)
+        if (other.CompareTag("Player") && !wasOpen && mentorDungeonQuest.isAvailable == true)
         {
             if (mentorDungeonQuest.isDialogueStarted || mentorDungeonQuest.isDialogueFinished)
                 return;
@@ -132,8 +132,11 @@ public class GameJuiceMentorDungeon : GameJuices
     {
         Debug.LogWarning("SetupReturnToOrigin não foi implementado.");
     }
-    private void Verification()
+
+    internal void SetPlayerPrefs()
     {
-        Debug.Log("Verificando!");
+        PlayerPrefs.SetInt(_assetKey, 1);
+
+        wasOpen = true;
     }
 }

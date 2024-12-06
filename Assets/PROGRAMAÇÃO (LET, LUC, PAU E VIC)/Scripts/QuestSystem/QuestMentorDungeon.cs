@@ -35,22 +35,25 @@ public class QuestMentorDungeon : QuestObjects
     /// </summary>
     public void StartDialogue()
     {
+        if (isDialogueStarted == true || isDialogueFinished == true)
+            return;
+
         if (dialogTriggerPrefab == null || mentorDungeonDialogueStep == null)
         {
-            Debug.LogError("DialogTriggerPrefab ou MentorDialogueStep não configurados no QuestMentor.");
+            Debug.LogError("DialogTriggerPrefab ou MentorDialogueStep n o configurados no QuestMentor.");
             return;
         }
-
-        dialogTrigger = Instantiate(dialogTriggerPrefab);
-        dialogTrigger.step = mentorDungeonDialogueStep;
-        dialogTrigger.dialogueDelegate += OnDialogueEnded;
-        dialogTrigger.gameObject.SetActive(true);
 
         LevelsManager.Instance.isTalking = true;
         isDialogueStarted = true;
         PlayerMovement.isMovementBlocked = true;
 
-        // Marca a quest como disponível
+        dialogTrigger = Instantiate(dialogTriggerPrefab);
+        dialogTrigger.step = mentorDungeonDialogueStep;
+        dialogTrigger.gameObject.SetActive(true);
+
+        dialogTrigger.dialogueDelegate += OnDialogueEnded;
+
         MarkQuestAsAvailable();
     }
 
@@ -64,7 +67,7 @@ public class QuestMentorDungeon : QuestObjects
         CompleteQuest();
         if (dialogTrigger != null)
         {
-            Destroy(dialogTrigger.gameObject);
+            Destroy(dialogTrigger);
         }
 
         PlayerMovement.isMovementBlocked = false;
@@ -78,15 +81,12 @@ public class QuestMentorDungeon : QuestObjects
         base.ProcessQuestCompletion();
 
         // Quando a quest for completada, o marcador pode ser removido
-        FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.RemoveObjectiveMarker(this.gameObject);
+        FindFirstObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).transform.GetChild(0).GetComponent<MarkerHolder>()?.RemoveObjectiveMarker(this.gameObject);
     }
 
     protected override void GameJuiceCall()
     {
-        GameJuiceMentorDungeon mentorDungeon = GetComponent<GameJuiceMentorDungeon>();
-
-        PlayerPrefs.SetInt(mentorDungeon._assetKey, 1);
-
-        mentorDungeon.wasOpen = true;
+        var gameJuiceMentor = FindFirstObjectByType<GameJuiceMentorDungeon>(FindObjectsInactive.Include).GetComponent<GameJuiceMentorDungeon>();
+        gameJuiceMentor.SetPlayerPrefs();
     }
 }
