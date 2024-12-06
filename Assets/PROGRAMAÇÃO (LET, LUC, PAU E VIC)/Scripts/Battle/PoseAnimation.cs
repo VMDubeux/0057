@@ -13,7 +13,7 @@ public class PoseAnimation : MonoBehaviour
     [ContextMenu("Def Pose")] public void DefPose()
     {
         //implementa o VFX de defesa
-        GameObject defVFX = GameObject.Find("VFX Def");
+        GameObject defVFX = gameObject.transform.Find("VFX Def").gameObject;
         if(defVFX.activeSelf == true)
         {
             defVFX.SetActive(false);
@@ -23,7 +23,7 @@ public class PoseAnimation : MonoBehaviour
     }
     [ContextMenu("Hit Pose")] public void HitAnim()
     {
-        GameObject hitVFX = GameObject.Find("Hit VFX");
+        GameObject hitVFX = gameObject.transform.Find("Hit VFX").gameObject;
         if(hitVFX.activeSelf == true)
         {
             hitVFX.SetActive(false);

@@ -46,27 +46,31 @@ namespace Main_Folders.Scripts.StateMachine.States
             {
                 _playerUnit = machine.CurrentUnit as PlayerUnit;
             }
-
+            Debug.Log("AQUI ESTAMOS 0");
             yield return null;
 
             if (machine.Units.Count == 1 || _playerUnit.HP <= 0)
             {
-                GameObject player = GameObject.Find("Player");
-                encounterSystem = FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>();
+                Debug.Log("AQUI ESTAMOS 1");
 
+                GameObject player = GameObject.Find("Player");
+                Debug.Log("AQUI ESTAMOS 1.1");
+                encounterSystem = FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>();
+                Debug.Log("AQUI ESTAMOS 1.2");
                 if (_playerUnit.HP > 0) // inimigo derrotado
                 {
+                    Debug.Log("AQUI ESTAMOS 1.3");
                     partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
                     partyManager.SetExperience(0, accumulatedExperience); // Envio do quantitativo acumulado de experiência para o player
                     encounterSystem.prefab.GetComponent<Unit>().hasFought = true;
-
+                    Debug.Log("AQUI ESTAMOS 1.4");
                     // Localiza o player utilizando a classe PlayerMovement
                     GameObject playerPos = FindFirstObjectByType<PlayerMovement>().gameObject;
-
+                    Debug.Log("AQUI ESTAMOS 1.5");
                     // Desabilita o NavMeshAgent antes de alterar a posição diretamente
                     NavMeshAgent agent = player.GetComponent<NavMeshAgent>();
                     agent.enabled = false;
-
+                    Debug.Log("AQUI ESTAMOS 1.6");
                     // Altera a posição diretamente
                     player.transform.position = playerPos.transform.position;
 
@@ -75,8 +79,10 @@ namespace Main_Folders.Scripts.StateMachine.States
                     agent.ResetPath(); // Limpa qualquer destino pendente antes de definir um novo
                     agent.Warp(playerPos.transform.position); // Teletransporta sem cálculos de rota
                     PlayerMovement.isMovementBlocked = false;
+                    Debug.Log("AQUI ESTAMOS 1.7");
+                    encounterSystem.prefab.GetComponent<EnemyMovementStates>().SwitchStates(EnemyMovementStates.State.Dead); // Problema estava aqui - implementei coroutina
 
-                    encounterSystem.prefab.GetComponent<EnemyMovementStates>().SwitchStates(EnemyMovementStates.State.Dead);
+                    Debug.Log("AQUI ESTAMOS 2");
                 }
                 else // player derrotado
                 {
@@ -99,11 +105,13 @@ namespace Main_Folders.Scripts.StateMachine.States
                     yield return new WaitForSeconds(7.5f); // Tempo de espera para a animação de derrota GLOW UP
                 }
 
+                Debug.Log("AQUI ESTAMOS 3");
                 encounterSystem.prefab.GetComponent<QuestLacaio>().isDialogueStarted = false;
                 encounterSystem.battleActive = false;
                 encounterSystem.prefab.GetComponent<EncounterDefinition>().isBattleStarted = false;
-
+                Debug.Log("AQUI ESTAMOS 4");
                 StartCoroutine(WaitThenChangeState<EndBattleState>());
+                Debug.Log("AQUI ESTAMOS 5");
             }
             else
             {

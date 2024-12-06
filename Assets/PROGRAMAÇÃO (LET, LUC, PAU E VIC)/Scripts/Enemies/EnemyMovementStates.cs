@@ -109,11 +109,14 @@ public abstract class EnemyMovementStates : MonoBehaviour
         GetComponent<EnemyMovementStates>().isDialogueInProgress = false;
     }
 
-    private void HandleDead()
+    private IEnumerator HandleDead()
     {
-        gameObject.GetComponent<QuestLacaio>().CompleteQuest();
         _animator.SetTrigger("PlayerWin");
         Debug.Log("Iniciar animação de morte");
+
+        yield return new WaitForSeconds(5);
+
+        gameObject.GetComponent<QuestLacaio>().CompleteQuest();
     }
 
     public void SwitchStates(State state)
@@ -136,7 +139,7 @@ public abstract class EnemyMovementStates : MonoBehaviour
                 StartCoroutine(HandleBattle());
                 break;
             case State.Dead:
-                HandleDead();
+                StartCoroutine(HandleDead());
                 break;
         }
     }
@@ -155,7 +158,7 @@ public abstract class EnemyMovementStates : MonoBehaviour
     {
         Debug.Log("DIALOGO ACABOU? ENEMY STATE");
         isDialogueInProgress = false; // Marca o fim do diálogo
-        SwitchStates(State.Battle); 
+        SwitchStates(State.Battle);
     }
 
     // Método para parar o movimento

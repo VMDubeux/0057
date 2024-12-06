@@ -120,7 +120,7 @@ public class QuestMentor : QuestObjects
 
     private void AfterDicas()
     {
-        var gameJuiceMentor = gameObject.GetComponent<GameJuiceMentor>();
+        var gameJuiceMentor = FindFirstObjectByType<GameJuiceMentor>(FindObjectsInactive.Include).GetComponent<GameJuiceMentor>();
         gameJuiceMentor.enabled = true;
         if (gameJuiceMentor != null)
         {
