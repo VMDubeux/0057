@@ -8,47 +8,47 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MaterialCasa.001
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MaterialCasa.004
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MaterialCasa1.001
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Preto.002
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TexturaTelhado.001
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TexturaTelhado.004
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TexturaTelhado.005
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TexturaVidro.003
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TexturaVidro.004
-    second: {fileID: 2100000, guid: 82d630676d2339e43a312a90fa9fb98e, type: 2}
+    second: {fileID: 2100000, guid: 35ecdbe3f65e3cd459066e673a6df445, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
