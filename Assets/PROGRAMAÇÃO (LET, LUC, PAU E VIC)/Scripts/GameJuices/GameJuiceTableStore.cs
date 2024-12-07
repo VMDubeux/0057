@@ -5,20 +5,28 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 {
     public class GameJuiceTableStore : global::GameJuices
     {
-        [SerializeField] private GameObject canvasStore;
+        [SerializeField] private GameObject canvasStore; // Referência ao Canvas.
+        private Animator animator; // Referência ao Animator.
+        private bool isAnimating = false; // Controle para evitar sobreposição de animações.
+        private bool isExiting = false; // Controle para animação de saída.
 
         protected override void Start()
         {
-            canvasStore = FindFirstObjectByType<CanvasStore>(FindObjectsInactive.Include).gameObject;
-            canvasStore.SetActive(false);
+            animator = GetComponent<Animator>();
+
+            // Localiza o Canvas e desativa inicialmente.
+            canvasStore = FindFirstObjectByType<CanvasStore>(FindObjectsInactive.Include)?.gameObject;
+            if (canvasStore != null)
+            {
+                canvasStore.SetActive(false);
+            }
         }
 
         protected override void HandleTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") && !wasOpen)
+            if (other.CompareTag("Player") && !wasOpen && !isExiting)
             {
                 CanvasGameJuices.transform.GetChild(0).gameObject.SetActive(true);
-
                 isInside = true;
             }
         }
@@ -27,21 +35,48 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
         {
             if (other.CompareTag("Player"))
             {
-                CanvasGameJuices.transform.GetChild(0).gameObject.SetActive(false);
                 isInside = false;
-
-                // Sempre volta � origem ao sair do trigger
-                GetComponent<Animator>().SetBool("Trigger", false);
-                wasOpen = false;
-
-                // Remove the subscription to the event
-                //ShopTriggerCollider.OnPlayerEntered -= Verification;
+                StartCoroutine(HandleExitNoAnimation());
             }
+        }
+
+        private IEnumerator HandleExitNoAnimation() 
+        {
+            isExiting = true;
+
+            // Toca a animação de saída.
+            animator.SetBool("Trigger", false);
+
+            CanvasGameJuices.transform.GetChild(0).gameObject.SetActive(false);
+
+            // Reseta estados para permitir reaproximação.
+            wasOpen = false;
+            isAnimating = false;
+            isExiting = false;
+
+            yield return null;
+        }
+
+        private IEnumerator HandleExitAnimation()
+        {
+            isExiting = true;
+
+            // Toca a animação de saída.
+            animator.SetBool("Trigger", false);
+
+            // Aguarda o término da animação de saída.
+            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+            // Reseta estados para permitir reaproximação.
+            wasOpen = false;
+            isAnimating = false;
+            isExiting = false;
         }
 
         protected override IEnumerator IsInside()
         {
-            if (isInside && Input.GetKeyDown(KeyCode.E))
+            // Verifica entrada do jogador e interações dentro do trigger.
+            if (isInside && Input.GetKeyDown(KeyCode.E) && !isAnimating)
             {
                 HandleButtonPress();
             }
@@ -51,35 +86,44 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 
         protected override void HandleButtonPress()
         {
-            GetComponent<Animator>().SetBool("Trigger", true);
+            animator.SetBool("Trigger", true);
             wasOpen = true;
-            CanvasGameJuices.SetActive(false);
-            //ShopUserInterface.OnPlayerEntered += Verification;
+            isAnimating = true;
+            CanvasGameJuices.transform.GetChild(0).gameObject.SetActive(false);
             StartCoroutine(OpenStoreCanvas());
-        }
-
-        internal override void AddRandomItemToInventory()
-        {
-            // N�o � necess�rio implementar nada aqui
-        }
-
-        protected override void SetupReturnToOrigin()
-        {
-            // Não precisa
         }
 
         private IEnumerator OpenStoreCanvas()
         {
-            yield return new WaitForSeconds(2.5f);
-            canvasStore.SetActive(true);
+            // Aguarda a conclusão da animação antes de ativar o Canvas.
+            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+            if (canvasStore != null)
+            {
+                canvasStore.SetActive(true);
+            }
+
+            // Espera até que o jogador pressione a tecla Q para fechar o Canvas.
             while (true)
             {
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     canvasStore.SetActive(false);
+                    StartCoroutine(HandleExitAnimation());
                     break;
                 }
+                yield return null;
             }
+        }
+
+        internal override void AddRandomItemToInventory()
+        {
+            // Não necessário neste caso.
+        }
+
+        protected override void SetupReturnToOrigin()
+        {
+            // Não necessário neste caso.
         }
     }
 }
