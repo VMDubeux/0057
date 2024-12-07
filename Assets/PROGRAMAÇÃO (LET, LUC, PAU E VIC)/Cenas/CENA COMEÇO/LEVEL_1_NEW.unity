@@ -57509,6 +57509,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6851347620426637460, guid: ebef08220d91c6d458cb72e938499841, type: 3}
   m_PrefabInstance: {fileID: 752686529}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &752739699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8591398577743394881, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
+  m_PrefabInstance: {fileID: 5236019303246698730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &752902499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125185,13 +125190,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 20
+    Value: 60
   - Type: 1
-    Value: 20
+    Value: 60
   - Type: 2
     Value: 0
   - Type: 3
-    Value: 1
+    Value: 2
   expToGive: 10
   OverworldVisualPrefab: {fileID: 1677596143}
   BattleVisualPrefab: {fileID: 1445210012511453399, guid: 5467ae7c89b52e64c9ac6c550a698426, type: 3}
@@ -125209,8 +125214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterIsVariable: 0
-  levelMin: 4
-  levelMax: 6
+  levelMin: 1
+  levelMax: 2
   numEncounters: 1
   minNumEncounters: 0
   maxNumEncounters: 0
@@ -164607,13 +164612,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 20
+    Value: 60
   - Type: 1
-    Value: 20
+    Value: 60
   - Type: 2
     Value: 0
   - Type: 3
-    Value: 1
+    Value: 2
   expToGive: 10
   OverworldVisualPrefab: {fileID: 2130975922}
   BattleVisualPrefab: {fileID: 1445210012511453399, guid: 5467ae7c89b52e64c9ac6c550a698426, type: 3}
@@ -164631,8 +164636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterIsVariable: 0
-  levelMin: 4
-  levelMax: 6
+  levelMin: 1
+  levelMax: 2
   numEncounters: 1
   minNumEncounters: 0
   maxNumEncounters: 0
@@ -172756,13 +172761,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 20
+    Value: 60
   - Type: 1
-    Value: 20
+    Value: 60
   - Type: 2
     Value: 0
   - Type: 3
-    Value: 1
+    Value: 2
   expToGive: 10
   OverworldVisualPrefab: {fileID: 6818419152340553792}
   BattleVisualPrefab: {fileID: 1445210012511453399, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
@@ -222045,13 +222050,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 20
+    Value: 60
   - Type: 1
-    Value: 20
+    Value: 60
   - Type: 2
     Value: 0
   - Type: 3
-    Value: 1
+    Value: 2
   expToGive: 10
   OverworldVisualPrefab: {fileID: 1694609660665334290}
   BattleVisualPrefab: {fileID: 1445210012511453399, guid: 5467ae7c89b52e64c9ac6c550a698426, type: 3}
@@ -223857,6 +223862,7 @@ MonoBehaviour:
   - {fileID: 404985932}
   - {fileID: 1649196913}
   - {fileID: 244492787}
+  - {fileID: 752739699}
 --- !u!4 &6069739846418828633
 Transform:
   m_ObjectHideFlags: 0
@@ -228429,6 +228435,7 @@ GameObject:
   - component: {fileID: 1441386723186981860}
   - component: {fileID: 6068038595728434851}
   - component: {fileID: 6996273493255214693}
+  - component: {fileID: 6996273493255214694}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -228460,6 +228467,18 @@ MonoBehaviour:
   - {fileID: 5236019303246698733}
   - {fileID: 5236019303246698732}
   - {fileID: 5236019303246698731}
+--- !u!114 &6996273493255214694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996273493255214690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e862a48adaba1d4b9ee8ca191ecb3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6998601806558183554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232338,8 +232357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterIsVariable: 0
-  levelMin: 4
-  levelMax: 6
+  levelMin: 1
+  levelMax: 2
   numEncounters: 1
   minNumEncounters: 0
   maxNumEncounters: 0
@@ -233252,8 +233271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterIsVariable: 0
-  levelMin: 8
-  levelMax: 8
+  levelMin: 3
+  levelMax: 3
   numEncounters: 1
   minNumEncounters: 0
   maxNumEncounters: 0

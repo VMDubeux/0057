@@ -1150,13 +1150,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 50
+    Value: 30
   - Type: 1
-    Value: 50
+    Value: 30
   - Type: 2
-    Value: 10
+    Value: 0
   - Type: 3
-    Value: 10
+    Value: 1
   - Type: 4
     Value: 0
   expToGive: 0
@@ -1217,8 +1217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoverCursorTexture: {fileID: 2800000, guid: 605647121aa76a24693bfed91dd772c9, type: 3}
   DefaultCursorTexture: {fileID: 2800000, guid: ae1cb407ae24ab7469c27349aa3cd08b, type: 3}
-  HoverCursorOffset: {x: -5, y: 30}
-  DefaultCursorOffset: {x: -5, y: 30}
 --- !u!114 &8222850607996121716
 MonoBehaviour:
   m_ObjectHideFlags: 0

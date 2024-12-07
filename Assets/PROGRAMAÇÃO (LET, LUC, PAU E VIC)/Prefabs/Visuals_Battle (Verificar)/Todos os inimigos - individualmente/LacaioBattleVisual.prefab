@@ -734,13 +734,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 10
+    Value: 60
   - Type: 1
-    Value: 10
+    Value: 60
   - Type: 2
-    Value: 1
+    Value: 0
   - Type: 3
-    Value: 5
+    Value: 2
   expToGive: 10
   OverworldVisualPrefab: {fileID: 0}
   BattleVisualPrefab: {fileID: 1445210012511453399}

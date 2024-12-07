@@ -45,7 +45,8 @@ public class EnemyManager : MonoBehaviour
         Enemy newEnemy = new Enemy();
         newEnemy.EnemyName = enemy.name;
         newEnemy.Level = level;
-        float levelModifier = (LEVEL_MOD * newEnemy.Level);
+        float levelModifier = newEnemy.Level;
+        //float levelModifier = (LEVEL_MOD * newEnemy.Level);
 
         newEnemy.HP = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[1].Value +
                                        (enemy.GetComponent<Unit>()._stats[1].Value * levelModifier));

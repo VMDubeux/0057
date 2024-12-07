@@ -25,13 +25,13 @@ namespace Main_Folders.Scripts.Cards.CardsEffects
                 Debug.Log("Dano de escudo foi aplicado. O dano foi: " + Amount);
             }
             //Estabelece valor do FixedAmount
-            fixedAmount = Amount + lightQuantity + SkillUpgrade.stLight;
-            Debug.Log($"STRENGTH TOTAL É TAL: {strenght}");
+            fixedAmount = (Amount * strenght) + lightQuantity + SkillUpgrade.stLight;
+            Debug.Log($"STRENGTH TOTAL É TAL: {fixedAmount}");
 
             //Aumentar dano conforme numero de usos
             if (gameObject.GetComponent<CardUseCounter>() != null)
             {
-                fixedAmount = (Amount * strenght) + (gameObject.GetComponent<CardUseCounter>().extraDamage* CardUseCounter.timesUsed);
+                fixedAmount = Amount + (gameObject.GetComponent<CardUseCounter>().extraDamage* CardUseCounter.timesUsed);
                 Debug.Log("Dano inicial: " + Amount + " e o Dano Final: " + fixedAmount);
                 gameObject.GetComponent<CardUseCounter>().Increase();
             }

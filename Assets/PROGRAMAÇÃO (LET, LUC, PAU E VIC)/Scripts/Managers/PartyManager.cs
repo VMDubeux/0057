@@ -85,7 +85,7 @@ namespace Main_Folders.Scripts.Managers
             switch (stat)
             {
                 case 0:
-                    currentParty[0].MaxHP += value;
+                    currentParty[0].MaxHP *= value;
                     currentParty[0].HP = currentParty[0].MaxHP;
                     break;
                 case 1:

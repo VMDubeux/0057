@@ -759,9 +759,9 @@ MonoBehaviour:
   - Type: 1
     Value: 10
   - Type: 2
-    Value: 1
+    Value: 0
   - Type: 3
-    Value: 1
+    Value: 0
   - Type: 4
     Value: 0
   expToGive: 0

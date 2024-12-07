@@ -4307,108 +4307,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!1001 &1414742115
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798369310011844985, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8591398577743394881, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-      propertyPath: m_Name
-      value: CanvasStore
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
---- !u!1 &1414742116 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8591398577743394881, guid: ac49eed9668ab134c9ab0b99ab8bdb5e, type: 3}
-  m_PrefabInstance: {fileID: 1414742115}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1423239766
 GameObject:
   m_ObjectHideFlags: 0
@@ -10301,7 +10199,6 @@ GameObject:
   - component: {fileID: 3324793334902956128}
   - component: {fileID: 3855924681323750927}
   - component: {fileID: 6590003772807380353}
-  - component: {fileID: 7344563900752414680}
   - component: {fileID: 2708686622781885900}
   - component: {fileID: 5145321381648505353}
   m_Layer: 0
@@ -28376,8 +28273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterIsVariable: 0
-  levelMin: 1
-  levelMax: 1
+  levelMin: 4
+  levelMax: 5
   numEncounters: 1
   minNumEncounters: 0
   maxNumEncounters: 0
@@ -28394,8 +28291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterIsVariable: 0
-  levelMin: 1
-  levelMax: 1
+  levelMin: 4
+  levelMax: 5
   numEncounters: 1
   minNumEncounters: 0
   maxNumEncounters: 0
@@ -37504,7 +37401,7 @@ MonoBehaviour:
   CanvasGameJuices: {fileID: 0}
   CanvasCardDroppedMessage: {fileID: 0}
   _assetKey: 
-  canvasStore: {fileID: 1414742116}
+  canvasStore: {fileID: 0}
 --- !u!4 &6631654226343783624
 Transform:
   m_ObjectHideFlags: 0
@@ -38220,13 +38117,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 20
+    Value: 60
   - Type: 1
-    Value: 20
+    Value: 60
   - Type: 2
     Value: 0
   - Type: 3
-    Value: 1
+    Value: 2
   expToGive: 10
   OverworldVisualPrefab: {fileID: 8497040104165400533}
   BattleVisualPrefab: {fileID: 1445210012511453399, guid: 26738dc10fa99104d9a0fa5ec2336387, type: 3}
@@ -38708,19 +38605,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1999954296041956548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7344563900752414680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950030623455572816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c78176c5c9dfd46b88d81c2be00805, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopUI: {fileID: 0}
 --- !u!4 &7380148409822313638
 Transform:
   m_ObjectHideFlags: 0
@@ -39758,13 +39642,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 20
+    Value: 60
   - Type: 1
-    Value: 20
+    Value: 60
   - Type: 2
     Value: 0
   - Type: 3
-    Value: 1
+    Value: 2
   expToGive: 10
   OverworldVisualPrefab: {fileID: 9028023625765893959}
   BattleVisualPrefab: {fileID: 1445210012511453399, guid: 5467ae7c89b52e64c9ac6c550a698426, type: 3}
@@ -39783,13 +39667,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
   - Type: 0
-    Value: 20
+    Value: 60
   - Type: 1
-    Value: 20
+    Value: 60
   - Type: 2
     Value: 0
   - Type: 3
-    Value: 1
+    Value: 2
   expToGive: 10
   OverworldVisualPrefab: {fileID: 9028023625830937249}
   BattleVisualPrefab: {fileID: 1445210012511453399, guid: 5467ae7c89b52e64c9ac6c550a698426, type: 3}
@@ -40583,8 +40467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EncounterIsVariable: 0
-  levelMin: 1
-  levelMax: 1
+  levelMin: 4
+  levelMax: 4
   numEncounters: 1
   minNumEncounters: 0
   maxNumEncounters: 0
@@ -51551,7 +51435,6 @@ SceneRoots:
   - {fileID: 6631654226343783624}
   - {fileID: 1484151802617179670}
   - {fileID: 3175058194007963197}
-  - {fileID: 1414742115}
   - {fileID: 1238200470}
   - {fileID: 956793864393008864}
   - {fileID: 6534644155640263331}

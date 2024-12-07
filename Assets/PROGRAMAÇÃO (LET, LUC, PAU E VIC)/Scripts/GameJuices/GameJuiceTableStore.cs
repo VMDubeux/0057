@@ -20,6 +20,8 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             {
                 canvasStore.SetActive(false);
             }
+
+            CanvasGameJuices = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).gameObject;
         }
 
         protected override void HandleTriggerEnter(Collider other)
@@ -40,7 +42,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             }
         }
 
-        private IEnumerator HandleExitNoAnimation() 
+        private IEnumerator HandleExitNoAnimation()
         {
             isExiting = true;
 
