@@ -1,55 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class SelectableUnit : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public List<BodyPart> BodyParts;
+    public Texture2D HoverCursorTexture; // Cursor para quando o mouse está sobre o personagem.
+    public Texture2D DefaultCursorTexture; // Cursor padrão do jogo.
+    private Vector2 CursorHotspot; // Ponto de ancoragem do cursor.
 
     void Start()
     {
-        BodyParts = new List<BodyPart>();
-
-        foreach (SkinnedMeshRenderer skinnedMeshRenderer in gameObject.transform.GetComponentsInChildren<SkinnedMeshRenderer>())
+        // Configura o cursor padrão no início do jogo
+        if (DefaultCursorTexture != null)
         {
-            BodyPart bodyPart = new BodyPart();
-            bodyPart.SetValues(skinnedMeshRenderer.gameObject.name, skinnedMeshRenderer, skinnedMeshRenderer.material, skinnedMeshRenderer.material.color);
-            BodyParts.Add(bodyPart);
+            CursorHotspot = new Vector2(HoverCursorTexture.width / 2, HoverCursorTexture.height / 2); // Centro da textura.
+            Cursor.SetCursor(DefaultCursorTexture, CursorHotspot, CursorMode.Auto);
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        for (int i = 0; i < BodyParts.Count; i++)
+        // Altera o cursor para a textura de hover
+        if (HoverCursorTexture != null)
         {
-            BodyParts[i].Material.color = Color.white;
+            CursorHotspot = new Vector2(HoverCursorTexture.width / 2, HoverCursorTexture.height / 2); // Centro da textura.
+            Cursor.SetCursor(HoverCursorTexture, CursorHotspot, CursorMode.Auto);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        for (int i = 0; i < BodyParts.Count; i++)
+        // Restaura o cursor para o padrão
+        if (DefaultCursorTexture != null)
         {
-            BodyParts[i].Material.color = BodyParts[i].RealColor;
+            CursorHotspot = new Vector2(HoverCursorTexture.width / 2, HoverCursorTexture.height / 2); // Centro da textura.
+            Cursor.SetCursor(DefaultCursorTexture, CursorHotspot, CursorMode.Auto);
         }
-    }
-}
-
-public class BodyPart
-{
-    public string Name;
-    public SkinnedMeshRenderer BodyRenderer;
-    public Material Material;
-    public Color RealColor;
-
-    public void SetValues(string name, SkinnedMeshRenderer skinned, Material material, Color color)
-    {
-        Name = name;
-        BodyRenderer = skinned;
-        Material = material;
-        RealColor = color;
     }
 }
