@@ -48,13 +48,10 @@ public class EnemyManager : MonoBehaviour
         float levelModifier = newEnemy.Level;
         //float levelModifier = (LEVEL_MOD * newEnemy.Level);
 
-        newEnemy.HP = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[1].Value +
-                                       (enemy.GetComponent<Unit>()._stats[1].Value * levelModifier));
+        newEnemy.HP = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[1].Value * levelModifier);
         newEnemy.MaxHP = newEnemy.HP;
-        newEnemy.Block = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[2].Value +
-                                          (enemy.GetComponent<Unit>()._stats[2].Value * levelModifier));
-        newEnemy.Strength = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[3].Value +
-                                             (enemy.GetComponent<Unit>()._stats[3].Value * levelModifier));
+        newEnemy.Block = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[2].Value + levelModifier);
+        newEnemy.Strength = Mathf.RoundToInt(enemy.GetComponent<Unit>()._stats[3].Value * levelModifier);
         newEnemy.EnemyVisualPrefab = battlePrefab;
         newEnemy.EnemyOverviewPrefab = overviewPrefab;
 
