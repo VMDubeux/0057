@@ -337,7 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -510,7 +510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1084661484090642170, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: Value
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1174240750846163080, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_Enabled
@@ -733,9 +733,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7311601621141154279}
-    - targetCorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6740343382353507901}
   m_SourcePrefab: {fileID: 100100000, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
 --- !u!224 &4735189566010247485 stripped
 RectTransform:
@@ -771,21 +768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dc2459668ffc948878fce6ee08f45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Amount: 3
+  Amount: 18
   damageEqualsBlock: 0
---- !u!114 &6740343382353507901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8444566900685433897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85a126947a3257844ae6fcf3baa830a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  extraDamage: 3
 --- !u!1 &8758739148504970407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
@@ -803,4 +787,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285ea5e31d67fd341b2285b8da7e7904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Energy: 1
+  Energy: 2

@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -510,7 +510,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 79ed716ee2374b54c8d657f947848797, type: 3}
     - target: {fileID: 1084661484090642170, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: Value
-      value: -2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       propertyPath: m_Name
@@ -634,6 +634,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5815917790836248358}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6337097332399785948}
     - targetCorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       insertIndex: -1
       addedObject: {fileID: 230526214759506321}
@@ -646,6 +649,24 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 868518312923241361, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
   m_PrefabInstance: {fileID: 4922968026929457405}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8099709156343484150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3762220678462924299, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+  m_PrefabInstance: {fileID: 4922968026929457405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6337097332399785948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099709156343484150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285ea5e31d67fd341b2285b8da7e7904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Energy: 1
 --- !u!1 &8996952438003422840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
@@ -676,4 +697,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatusEffectPrefab: {fileID: -7550512387213707962, guid: b1d7d5499b4dca848b79405912e77be0, type: 3}
-  AppliesXTimes: 4
+  AppliesXTimes: 3

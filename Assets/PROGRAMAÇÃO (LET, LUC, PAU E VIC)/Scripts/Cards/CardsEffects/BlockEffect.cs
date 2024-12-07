@@ -20,7 +20,7 @@ public class BlockEffect : CardEffect
             Debug.LogFormat("Unit {0} gained {1} block", unit.name, modifiedValues.FinalValue);
             int currentBlock = unit.GetStatValue(3);
             unit.SetStatValue(3, currentBlock + modifiedValues.FinalValue);
-            FindFirstObjectByType<PlayerUnit>().GetComponent<PoseAnimation>().DefPose();
+            FindFirstObjectByType<PlayerUnit>().GetComponent<PoseAnimation>().DefPose();  // Verificar se precisará de modificação futura
             yield return null;
         }
     }

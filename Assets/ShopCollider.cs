@@ -41,7 +41,7 @@ public class ShopCollider : MonoBehaviour
     {
         if (shopCostumer != null)
         {
-            shopUI.Show(shopCostumer);
+          //shopUI.Show(shopCostumer);
             colliderObject.GetComponent<PlayerMovement>().enabled = false;
         }
     }

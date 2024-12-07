@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285ea5e31d67fd341b2285b8da7e7904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Energy: 2
+  Energy: 3
 --- !u!1 &2037975473517084243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}

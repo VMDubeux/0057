@@ -664,10 +664,13 @@ PrefabInstance:
       addedObject: {fileID: 7510248704122212382}
     - targetCorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5822711131911434996}
+    - targetCorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 4320002224289229119}
     - targetCorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5822711131911434996}
+      addedObject: {fileID: 8128473459212697670}
   m_SourcePrefab: {fileID: 100100000, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
 --- !u!1 &1221669458727397085 stripped
 GameObject:
@@ -692,6 +695,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
   m_PrefabInstance: {fileID: 2648725849016795350}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5822711131911434996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037975473517084243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ebdce32d40bf94da88d878045459e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4320002224289229119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,7 +721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Amount: 1
   damageEqualsBlock: 0
---- !u!114 &5822711131911434996
+--- !u!114 &8128473459212697670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -715,9 +730,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2037975473517084243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ebdce32d40bf94da88d878045459e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fdb617b558a72a4e8c9e816387cefa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Value: 1
+  enermyEqualsEnemies: 0
 --- !u!224 &2940765815235713863 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 868518312923241361, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}

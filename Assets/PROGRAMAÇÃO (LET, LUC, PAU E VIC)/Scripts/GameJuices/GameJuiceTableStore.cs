@@ -5,16 +5,20 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 {
     public class GameJuiceTableStore : global::GameJuices
     {
+        [SerializeField] private GameObject canvasStore;
+
         protected override void Start()
         {
-            // N�o implementar
+            canvasStore = FindFirstObjectByType<CanvasStore>(FindObjectsInactive.Include).gameObject;
+            canvasStore.SetActive(false);
         }
 
         protected override void HandleTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player") && !wasOpen)
             {
-                CanvasGameJuices.SetActive(true);
+                CanvasGameJuices.transform.GetChild(0).gameObject.SetActive(true);
+
                 isInside = true;
             }
         }
@@ -23,7 +27,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
         {
             if (other.CompareTag("Player"))
             {
-                CanvasGameJuices.SetActive(false);
+                CanvasGameJuices.transform.GetChild(0).gameObject.SetActive(false);
                 isInside = false;
 
                 // Sempre volta � origem ao sair do trigger
@@ -31,7 +35,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                 wasOpen = false;
 
                 // Remove the subscription to the event
-                ShopTriggerCollider.OnPlayerEntered -= Verification;
+                //ShopTriggerCollider.OnPlayerEntered -= Verification;
             }
         }
 
@@ -40,9 +44,9 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             if (isInside && Input.GetKeyDown(KeyCode.E))
             {
                 HandleButtonPress();
-                yield return new WaitForSeconds(2.5f);
-                PerformDelegate();
             }
+
+            yield return null;
         }
 
         protected override void HandleButtonPress()
@@ -50,7 +54,8 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
             GetComponent<Animator>().SetBool("Trigger", true);
             wasOpen = true;
             CanvasGameJuices.SetActive(false);
-            SetupReturnToOrigin();
+            //ShopUserInterface.OnPlayerEntered += Verification;
+            StartCoroutine(OpenStoreCanvas());
         }
 
         internal override void AddRandomItemToInventory()
@@ -60,15 +65,21 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 
         protected override void SetupReturnToOrigin()
         {
-            if (gameObject.GetComponent<ShopTriggerCollider>() != null)
-            {
-                ShopTriggerCollider.OnPlayerEntered += Verification;
-            }
+            // Não precisa
         }
 
-        private void Verification()
+        private IEnumerator OpenStoreCanvas()
         {
-            Debug.Log("Verificando!");
+            yield return new WaitForSeconds(2.5f);
+            canvasStore.SetActive(true);
+            while (true)
+            {
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    canvasStore.SetActive(false);
+                    break;
+                }
+            }
         }
     }
 }

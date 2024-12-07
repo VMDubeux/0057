@@ -153,7 +153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hair Flip
+  m_text: Hair flip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
   m_sharedMaterial: {fileID: -9184434239280168384, guid: 95a83bbd20a6b6d47841b527beb66ad8, type: 2}
@@ -668,7 +668,7 @@ PrefabInstance:
       addedObject: {fileID: 7510248704122212382}
     - targetCorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 249789755656703727}
+      addedObject: {fileID: 4991347744533154242}
     - targetCorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2251383891633375168}
@@ -690,13 +690,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285ea5e31d67fd341b2285b8da7e7904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Energy: 2
+  Energy: 0
 --- !u!1 &2037975473517084243 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4074207099951464069, guid: a0d7a876fc5b94e4293bcebb8734ec42, type: 3}
   m_PrefabInstance: {fileID: 2648725849016795350}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &249789755656703727
+--- !u!114 &4991347744533154242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2037975473517084243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23630dcb40ce86442922a0004a4e31ba, type: 3}
+  m_Script: {fileID: 11500000, guid: dbacdc389a931e648a2f3275a63d48c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2251383891633375168
