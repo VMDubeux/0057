@@ -34,7 +34,10 @@ namespace Main_Folders.Scripts.Visuals
         {
             anim = gameObject.GetComponent<Animator>();
             nameCharacterUI = GetComponentInChildren<TextMeshProUGUI>();
-            nameCharacterUI.text = currentEntity.ToString();
+            if(CompareTag("Enemies"))
+                nameCharacterUI.text = "Enemy";
+            if (CompareTag("Player"))
+                nameCharacterUI.text = "Player";
         }
 
         public void SetStartingValues(int hp, int maxHP, int block, int strength, int level, int serialNumber, BattleEntities currentEntity)

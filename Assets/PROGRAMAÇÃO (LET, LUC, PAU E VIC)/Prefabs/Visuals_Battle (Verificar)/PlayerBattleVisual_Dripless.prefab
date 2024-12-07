@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ec09b020f969748a0c7172d24a630b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HoverCursorTexture: {fileID: 2800000, guid: 16e2ffddb48fb594e953ef0de09c8329, type: 3}
+  HoverCursorTexture: {fileID: 2800000, guid: 605647121aa76a24693bfed91dd772c9, type: 3}
   DefaultCursorTexture: {fileID: 2800000, guid: ae1cb407ae24ab7469c27349aa3cd08b, type: 3}
 --- !u!114 &8222850607996121716
 MonoBehaviour:
