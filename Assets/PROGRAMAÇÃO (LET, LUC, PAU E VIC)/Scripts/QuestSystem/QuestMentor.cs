@@ -20,12 +20,12 @@ public class QuestMentor : QuestObjects
     /// <summary>
     /// Retorna o gameObject para inserir o �cone no minimapa.
     /// </summary>
-    protected override void AddMinimapIconPosition()
+    /*protected override void AddMinimapIconPosition()
     {
         FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
         questMentorEvent += AfterDicas;
         //FindFirstObjectByType<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
-    }
+    }*/
 
     /// <summary>
     /// Retorna o objeto do di�logo ativo, caso exista.
@@ -118,7 +118,7 @@ public class QuestMentor : QuestObjects
         }
     }
 
-    private void AfterDicas()
+    internal void AfterDicas()
     {
         var gameJuiceMentor = FindFirstObjectByType<GameJuiceMentor>(FindObjectsInactive.Include).GetComponent<GameJuiceMentor>();
         gameJuiceMentor.enabled = true;

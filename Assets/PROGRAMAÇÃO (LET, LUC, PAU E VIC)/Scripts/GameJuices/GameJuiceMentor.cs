@@ -3,6 +3,7 @@ using UnityEngine;
 using Main_Folders.Scripts.Minimapa;
 using Main_Folders.Scripts.Managers;
 using Main_Folders.Scripts.UI;
+using static QuestMentor;
 
 public class GameJuiceMentor : GameJuices
 {
@@ -27,6 +28,11 @@ public class GameJuiceMentor : GameJuices
         if (PlayerPrefs.GetInt(_assetKey, 0) == 1)
         {
             HandleQuestAlreadyCompleted();
+        }
+        else 
+        {
+            FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
+            questMentorEvent += mentorQuest.AfterDicas;
         }
 
         CanvasGameJuices = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).

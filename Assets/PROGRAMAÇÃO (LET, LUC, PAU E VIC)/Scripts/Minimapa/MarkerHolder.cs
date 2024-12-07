@@ -6,6 +6,8 @@ namespace Main_Folders.Scripts.Minimapa
 {
     public class MarkerHolder : MonoBehaviour
     {
+        public static MarkerHolder Instance;
+
         public GameObject questMarker;
         public GameObject enemyMarkerPrefab;
         public GameObject vendorMarkerPrefab;
@@ -25,37 +27,34 @@ namespace Main_Folders.Scripts.Minimapa
 
         void Awake()
         {
+            Debug.Log("Reativou o script?");
+
             // Impede a destruição deste objeto ao mudar de cena
             DontDestroyOnLoad(gameObject);
+
+            // Inicializa as referências
+            InitializeReferences();
 
             currentObjectives = new List<(GameObject, RectTransform)>();
             currentEnemies = new List<(GameObject, RectTransform)>();
             currentVendors = new List<(VendorPosition, RectTransform)>();
             currentPortals = new List<(PortalPosition, RectTransform)>();
             currentTrunks = new List<(TrunkPosition, RectTransform)>();
-
-            // Configura eventos para carregar referências ao mudar de cena
-            SceneManager.sceneLoaded += OnSceneLoaded;
-
-            // Inicializa as referências
-            InitializeReferences();
-        }
-
-        void OnDestroy()
-        {
-            // Remove o evento para evitar exceções
-            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         internal void InitializeReferences()
         {
-            playerObject = FindFirstObjectByType<PlayerMovement>()?.gameObject;
-            minimapCamera = GameObject.Find("CameraMinimap")?.GetComponent<Camera>();
+            playerObject = FindFirstObjectByType<PlayerMovement>(FindObjectsInactive.Include)?.gameObject;
+            minimapCamera = FindFirstObjectByType<FixedMinimapCamera>(FindObjectsInactive.Include)?.GetComponent<Camera>();
         }
 
         void Update()
         {
-            if (playerObject == null || minimapCamera == null) return;
+            if (playerObject == null || minimapCamera == null)
+            {
+                InitializeReferences();
+                if (playerObject == null || minimapCamera == null) return; // Ainda não inicializado
+            }
 
             Vector3 playerPosition = playerObject.transform.position;
 
@@ -199,10 +198,10 @@ namespace Main_Folders.Scripts.Minimapa
             currentPlayer.playerPosition = null;
         }
 
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        public void ChangeScene()
         {
             // Limpeza feita ao carregar cena adicionalmente
-            if (SceneManager.sceneCount > 1) return;
+            //if (SceneManager.sceneCount >= 1) return;
             ClearAllMarkers();
             InitializeReferences();
         }

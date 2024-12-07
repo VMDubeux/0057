@@ -2,6 +2,7 @@ using Main_Folders.Scripts.UI;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.LowLevel;
 
 public abstract class EnemyMovementStates : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public abstract class EnemyMovementStates : MonoBehaviour
     protected State _currentState;
     private Vector3 _startPos;
     protected Unit unitComponent;
+    protected QuestLacaio questLacaio;
 
     [SerializeField] internal bool isDialogueInProgress = false; // Flag para verificar se o diálogo está em andamento
 
@@ -121,8 +123,9 @@ public abstract class EnemyMovementStates : MonoBehaviour
 
     public void SwitchStates(State state)
     {
-        Debug.Log("Switching state to " + state);
+        Debug.Log($"{gameObject.name} Mudando estado de {_currentState} para {state}");
         _currentState = state;
+        Debug.Log($"{gameObject.name} Estado agora é: {_currentState}");
         StopAllCoroutines();
         switch (state)
         {
@@ -146,7 +149,7 @@ public abstract class EnemyMovementStates : MonoBehaviour
 
     public void StartDialogue()
     {
-        QuestLacaio questLacaio = GetComponent<QuestLacaio>();
+        QuestLacaio questLacaio = gameObject.GetComponent<QuestLacaio>();
         if (questLacaio != null)
         {
             isDialogueInProgress = true; // Marca que o diálogo está em andamento
@@ -169,6 +172,29 @@ public abstract class EnemyMovementStates : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"{gameObject.name} + {_currentState}");
+        if ((_currentState == State.Follow || _currentState == State.Dead) || _currentState == State.Battle) return;
+        else
+        {
+            Debug.Log($"{gameObject.name} Passou do 1º");
+
+            if (_player != null && Vector3.Distance(transform.position, _player.transform.position) < 6)
+            {
+                Debug.Log($"{gameObject.name} Passou do 2º");
+
+                questLacaio = this.gameObject.GetComponent<QuestLacaio>();
+
+                if (this.isDialogueInProgress == false &&
+                    questLacaio.isAvailable == true &&
+                    questLacaio.isCompleted == false &&
+                    _currentState != State.Follow)
+                {
+                    Debug.Log($"{gameObject.name} Passou do 3º");
+
+                    _animator.SetBool("IsWalking", true);
+                    SwitchStates(State.Follow);
+                    Debug.Log("Seguindo daqui 2");
+                }
+            }
+        }
     }
 }

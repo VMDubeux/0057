@@ -25,14 +25,14 @@ public abstract class QuestObjects : MonoBehaviour
 
     private void Start()
     {
-        AddMinimapIconPosition();
+        //AddMinimapIconPosition();
         CheckDependencies();
     }
 
     /// <summary>
     /// Adiciona o ícone no minimapa, mas adaptável, pois pode ser um inimigo ou objetivo.
     /// </summary>
-    protected abstract void AddMinimapIconPosition();
+    //protected abstract void AddMinimapIconPosition();
 
     /// <summary>
     /// Verifica se todas as quests dependentes foram concluídas.

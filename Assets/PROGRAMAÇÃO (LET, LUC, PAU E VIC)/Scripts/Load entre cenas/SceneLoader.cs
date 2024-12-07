@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using Main_Folders.Scripts.Minimapa;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SceneLoader : MonoBehaviour
 
     private static int nextSceneIndex;
     private static LoadType loadType;
+
+    private MarkerHolder markerHolder;
 
     public enum LoadType
     {
@@ -27,6 +30,8 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
+        markerHolder = FindAnyObjectByType<MarkerHolder>(FindObjectsInactive.Include);
+
         if (nextSceneIndex >= 0)
         {
             if (loadType == LoadType.Additive)
@@ -43,10 +48,12 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator LoadNextLevel()
     {
         AsyncOperation loadLevel = SceneManager.LoadSceneAsync(nextSceneIndex);
+
         while (!loadLevel.isDone)
         {
             UpdateLoadingBar(loadLevel.progress);
             yield return null;
+            markerHolder.ChangeScene();
         }
 
         // Remover a cena de loading após carregamento.

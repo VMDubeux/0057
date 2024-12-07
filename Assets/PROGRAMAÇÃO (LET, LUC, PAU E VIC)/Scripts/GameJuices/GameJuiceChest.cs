@@ -34,7 +34,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
                 InitializeDroppableCards();
                 CanvasGameJuices = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).transform.GetChild(0).gameObject;
                 CanvasCardDroppedMessage = FindFirstObjectByType<CanvasMessageCard>(FindObjectsInactive.Include).transform.GetChild(0).gameObject;
-                FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddTrunkMarker(this.GetComponent<TrunkPosition>());
+                FindFirstObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).transform.GetChild(0).GetComponent<MarkerHolder>()?.AddTrunkMarker(this.GetComponent<TrunkPosition>());
             }
         }
 
@@ -145,7 +145,7 @@ namespace Assets.PROGRAMAÇÃO__LET__LUC__PAU_E_VIC_.Scripts.GameJuices
 
                 StartCoroutine(CanvasCardDropped());
 
-                FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.RemoveTrunkMarker(this.GetComponent<TrunkPosition>());
+                FindFirstObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).transform.GetChild(0).GetComponent<MarkerHolder>()?.RemoveTrunkMarker(this.GetComponent<TrunkPosition>());
             }
             else
             {

@@ -27,6 +27,10 @@ public class GameJuiceMentorDungeon : GameJuices
         {
             HandleQuestAlreadyCompleted();
         }
+        else 
+        {
+            FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
+        }
 
         CanvasGameJuices = FindFirstObjectByType<CanvasGameJuice>(FindObjectsInactive.Include).
             transform.GetChild(0).gameObject;

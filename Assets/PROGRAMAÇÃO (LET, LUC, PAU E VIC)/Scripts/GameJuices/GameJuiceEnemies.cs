@@ -40,6 +40,8 @@ public class GameJuiceEnemies : GameJuices
         {
             InitializeDroppableCards();
             CanvasCardDroppedMessage = FindFirstObjectByType<CanvasMessageCard>(FindObjectsInactive.Include).transform.GetChild(0).gameObject;
+            if (gameObject.name != "PartyManager")
+                FindFirstObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).transform.GetChild(0).GetComponent<MarkerHolder>()?.AddEnemyMarker(this.gameObject);
         }
     }
 

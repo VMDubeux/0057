@@ -17,10 +17,10 @@ public class QuestMentorDungeon : QuestObjects
     /// <summary>
     /// Retorna o gameObject para inserir o ícone no minimapa.
     /// </summary>
-    protected override void AddMinimapIconPosition()
+    /*protected override void AddMinimapIconPosition()
     {
         FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddObjectiveMarker(this.gameObject);
-    }
+    }*/
 
     /// <summary>
     /// Retorna o objeto do diálogo ativo, caso exista.

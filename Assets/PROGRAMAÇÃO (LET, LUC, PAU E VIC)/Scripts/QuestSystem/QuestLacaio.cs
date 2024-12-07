@@ -27,10 +27,10 @@ public class QuestLacaio : QuestObjects
             Debug.LogError("EnemyMovementStates component is missing on this object.");
     }
 
-    protected override void AddMinimapIconPosition()
+    /*protected override void AddMinimapIconPosition()
     {
         FindFirstObjectByType<CanvasMinimapa>().transform.GetChild(0).GetComponent<MarkerHolder>()?.AddEnemyMarker(this.gameObject);
-    }
+    }*/
 
     public GameObject GetActiveDialog()
     {
