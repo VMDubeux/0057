@@ -58,6 +58,35 @@ public class EncounterDefinition : MonoBehaviour
         ));
     }
 
+    internal void ChamarBatalha()
+    {
+        Debug.Log("Iniciar Sequencia de Batalha AGORA");
+        isBattleStarted = true; // Marca como iniciado para evitar múltiplas execuções
+        StartDungeonSequence(); // Inicia o processo de dungeon
+    }
+
+    private void StartDungeonSequence()
+    {
+        Debug.Log("Iniciando sequência de dungeon após o trigger.");
+
+        References.Instance.CurrentEnemyBattle = this.gameObject;
+
+        OverworldVisualPrefab = gameObject.GetComponent<Unit>().OverworldVisualPrefab;
+        BattleVisualPrefab = gameObject.GetComponent<Unit>().BattleVisualPrefab;
+
+        EncounterSystem encounterSystem = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
+        StartCoroutine(encounterSystem.StartGenerateEnemiesByEncouter(
+            minNumEncounters,
+            maxNumEncounters,
+            numEncounters,
+            EncounterIsVariable,
+            levelMin,
+            levelMax,
+            OverworldVisualPrefab,
+            BattleVisualPrefab
+        ));
+    }
+
 #if UNITY_EDITOR
     [CustomEditor(typeof(EncounterDefinition))]
     public class EncounterDefinition_Editor : Editor
