@@ -1,3 +1,4 @@
+using Main_Folders.Scripts.Managers;
 using Main_Folders.Scripts.Units;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,8 @@ public class SkillUpgrade : MonoBehaviour
     public GameObject nextButton;
     private SkillPoints sP_script;
     [SerializeField] private GameObject playerBattleVisual;
-    public int value = 1;
+    [SerializeField] private GameObject partyManager;
+    public int value = 10;
     public static int stInflictBonus = 0, stLight = 0, resAmount = 0;
 
     public void CheckUpgrades()
@@ -37,42 +39,50 @@ public class SkillUpgrade : MonoBehaviour
     public void UpgradeAttack1 ()
     {
         playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
+        partyManager.GetComponent<PartyManager>().SetStatsValues(2, value);
     }         
     public void UpgradeAttack2 ()
     {
-        stInflictBonus = value;
+        playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
+        partyManager.GetComponent<PartyManager>().SetStatsValues(2, value);
     }
     public void UpgradeAttack3 ()
     {
-        stLight = value;
+        playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
+        partyManager.GetComponent<PartyManager>().SetStatsValues(2, value);
     }
 
     public void UpgradeDef1 ()
     {
         playerBattleVisual.GetComponent<Unit>()._stats[2].Value += value;
+        partyManager.GetComponent<PartyManager>().SetStatsValues(1, value);
     }
     public void UpgradeDef2 ()
     {
-        // Inicia o jogo com VALUE carga extra da poção 
+        partyManager.GetComponent<PartyManager>().SetStatsValues(4, value);
     }
 
     public void UpgradeDef3 ()
     {
         resAmount = value;
-        playerBattleVisual.GetComponent<Unit>()._stats[4].Value = resAmount;
+        playerBattleVisual.GetComponent<Unit>()._stats[2].Value += value;
+        partyManager.GetComponent<PartyManager>().SetStatsValues(1, value);
     }
 
     public void UpgradeHP1 ()
     {
         playerBattleVisual.GetComponent<Unit>()._stats[1].Value += value;
+        partyManager.GetComponent<PartyManager>().SetStatsValues(0, value);
     }
     public void UpgradeHP2 ()
     {
-        // Recebe VALUE pots de vida
+        playerBattleVisual.GetComponent<Unit>()._stats[1].Value += value;
+        partyManager.GetComponent<PartyManager>().SetStatsValues(0, value);
     }
     public void UpgradeHP3 ()
     {
-        playerBattleVisual.GetComponent<PlayerUnit>().MaxCards += value;
+        playerBattleVisual.GetComponent<PlayerUnit>().MaxCards += 1;
+        partyManager.GetComponent<PartyManager>().SetStatsValues(3, value);
     }
 }
 

@@ -37,6 +37,8 @@ namespace Main_Folders.Scripts.Managers
 
         [SerializeField] private GameJuices gameJuices;
 
+        [SerializeField] private SkillPoints skillPoints;
+
         /*[Header("Player Character Prefab:")] [Tooltip("Drag the player's prefab")] [SerializeField]
         private GameObject player;
 
@@ -51,6 +53,7 @@ namespace Main_Folders.Scripts.Managers
         {
             AddMemberToPartyByName(allMember[0].name);
             gameJuices = gameObject.GetComponent<GameJuices>();
+            skillPoints = FindFirstObjectByType<SkillPoints>(FindObjectsInactive.Include).GetComponent<SkillPoints>();
         }
 
         public void AddMemberToPartyByName(string memberName)
@@ -86,10 +89,18 @@ namespace Main_Folders.Scripts.Managers
                     currentParty[0].HP = currentParty[0].MaxHP;
                     break;
                 case 1:
-                    currentParty[0].Hand += value;
+                    currentParty[0].Block += value;
                     break;
                 case 2:
-                    currentParty[0].Energy += value;
+                    currentParty[0].Strength += value;
+                    break;
+                case 3:
+                    if (currentParty[0].Hand < 7)
+                        currentParty[0].Hand += value;
+                    break;
+                case 4:
+                    if (currentParty[0].Energy < 6)
+                        currentParty[0].Energy += value;
                     break;
             }
         }
@@ -160,6 +171,7 @@ namespace Main_Folders.Scripts.Managers
                     playerExp = 0;
                     sliderExp.value = playerExp;
                     gameJuices.AddRandomItemToInventory();
+                    skillPoints.LevelUp();
                 }
 
                 playerLevelText = hud.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
