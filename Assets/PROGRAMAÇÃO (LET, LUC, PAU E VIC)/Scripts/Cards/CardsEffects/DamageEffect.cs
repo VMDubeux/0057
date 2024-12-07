@@ -16,17 +16,22 @@ namespace Main_Folders.Scripts.Cards.CardsEffects
         public bool damageEqualsBlock = false;
         public override IEnumerator Apply(List<object> targets)
         {
-            if(damageEqualsBlock)
+            var strenght = global::StateMachine.Instance.CurrentUnit.Strength;
+            Debug.Log($"STRENGTH É TAL: {strenght}");
+            
+            if (damageEqualsBlock)
             {
                 Amount = global::StateMachine.Instance.CurrentUnit.Block;
                 Debug.Log("Dano de escudo foi aplicado. O dano foi: " + Amount);
             }
             //Estabelece valor do FixedAmount
             fixedAmount = Amount + lightQuantity + SkillUpgrade.stLight;
+            Debug.Log($"STRENGTH TOTAL É TAL: {strenght}");
+
             //Aumentar dano conforme numero de usos
-            if(gameObject.GetComponent<CardUseCounter>() != null)
+            if (gameObject.GetComponent<CardUseCounter>() != null)
             {
-                fixedAmount = Amount + (gameObject.GetComponent<CardUseCounter>().extraDamage* CardUseCounter.timesUsed);
+                fixedAmount = (Amount * strenght) + (gameObject.GetComponent<CardUseCounter>().extraDamage* CardUseCounter.timesUsed);
                 Debug.Log("Dano inicial: " + Amount + " e o Dano Final: " + fixedAmount);
                 gameObject.GetComponent<CardUseCounter>().Increase();
             }
