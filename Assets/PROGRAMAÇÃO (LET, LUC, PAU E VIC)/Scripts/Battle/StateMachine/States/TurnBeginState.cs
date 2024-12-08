@@ -90,7 +90,7 @@ namespace Main_Folders.Scripts.StateMachine.States
                         StartCoroutine(WaitThenChangeState<EndBattleState>());
                         Debug.Log("FIM BATALHA BOSS 2");
                         yield return new WaitForEndOfFrame();
-                        SceneLoader.LoadScene(1, SceneLoader.LoadType.Normal);
+                        SceneLoader.LoadScene(8, SceneLoader.LoadType.Normal);
                         Debug.Log("FIM BATALHA BOSS 3");
                         yield break;
                     }

@@ -30,5 +30,8 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA DUNGEON/LEVEL_DUNGEON.unity"
     guid: 5090203de463b644c8c619471e9bfc94
+  - enabled: 1
+    path: "Assets/PROGRAMA\xC7\xC3O (LET, LUC, PAU E VIC)/Cenas/CENA VITORIA/Victory.unity"
+    guid: d072ccd5ccd69084ea4f724d9c1fc873
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
