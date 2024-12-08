@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Main_Folders.Scripts;
 using Main_Folders.Scripts.StateMachine.States;
+using Main_Folders.Scripts.Managers;
 
 public class EndBattleState : State
 {
@@ -10,11 +11,13 @@ public class EndBattleState : State
     {
         Debug.Log("Battle ended");
 
-        // Descarregar a cena de índice 7
+        AudioManager.Instance.PlayMusic("Soundtrack", 1f);
+
+        // Descarregar a cena de ï¿½ndice 7
         AsyncOperation unloadScene7 = SceneLoader.UnloadBattleScene(7);
         if (unloadScene7 != null)
         {
-            // Aguarda até que a cena de índice 7 seja descarregada
+            // Aguarda atï¿½ que a cena de ï¿½ndice 7 seja descarregada
             while (!unloadScene7.isDone)
             {
                 yield return null;
@@ -23,18 +26,18 @@ public class EndBattleState : State
         }
         else
         {
-            Debug.LogWarning("Cena 7 não está carregada.");
+            Debug.LogWarning("Cena 7 nï¿½o estï¿½ carregada.");
         }
 
         // Aguarda alguns frames para garantir que a cena 7 foi totalmente descarregada
-        yield return new WaitForEndOfFrame();  // Pode ajustar o número de frames conforme necessário
+        yield return new WaitForEndOfFrame();  // Pode ajustar o nï¿½mero de frames conforme necessï¿½rio
         yield return new WaitForEndOfFrame();  // Espera dois frames como exemplo
 
-        // Descarrega a cena de índice 4 (se necessário)
+        // Descarrega a cena de ï¿½ndice 4 (se necessï¿½rio)
         AsyncOperation unloadScene4 = SceneLoader.UnloadBattleScene(4);
         if (unloadScene4 != null)
         {
-            // Aguarda até que a cena de índice 4 seja descarregada
+            // Aguarda atï¿½ que a cena de ï¿½ndice 4 seja descarregada
             while (!unloadScene4.isDone)
             {
                 yield return null;
@@ -43,9 +46,9 @@ public class EndBattleState : State
         }
         else
         {
-            Debug.LogWarning("Cena 4 não está carregada.");
+            Debug.LogWarning("Cena 4 nï¿½o estï¿½ carregada.");
         }
 
-        Debug.Log("Todas as cenas necessárias foram descarregadas e recarregadas.");
+        Debug.Log("Todas as cenas necessï¿½rias foram descarregadas e recarregadas.");
     }
 }

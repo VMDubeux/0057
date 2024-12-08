@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Main_Folders.Scripts.Managers;
 
 public class ImageSequencePlayer : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class ImageSequencePlayer : MonoBehaviour
     {
         if (!isPlaying && imageSequence.Length > 0)
         {
+            AudioManager.Instance.PlayMusic("Transformation", 1f);
             StartCoroutine(PlayImages());
         }
     }
@@ -60,6 +62,7 @@ public class ImageSequencePlayer : MonoBehaviour
         background.SetActive(false); // Desativar fundo no final da sequ�ncia
         dicas.SetActive(true);
         isPlaying = false;
+        AudioManager.Instance.PlayMusic("Soundtrack", 1f);
     }
 
     private IEnumerator FadeIn(Sprite newSprite)
