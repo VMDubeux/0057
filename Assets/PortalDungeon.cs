@@ -6,37 +6,16 @@ using UnityEngine.AI;
 
 public class PortalDungeon : MonoBehaviour
 {
-    [Header("Player destination Transform:")]
-    public Vector3 Destination;
-
-    [Header("Player target scene index:")]
-    [SerializeField]
-    private int sceneId;
-
-    private void Start()
-    {
-        PlayerMovement.isMovementBlocked = false;
-    }
+    [SerializeField] private EncounterDefinition encounterDefinition;
 
     private void OnTriggerEnter(Collider other)
     {
+        encounterDefinition = gameObject.GetComponent<EncounterDefinition>();
+
         if (other.gameObject.CompareTag("Player"))
         {
-            //PlayerMovement.isMovementBlocked = true;
-            other.GetComponent<PlayerMovement>().enabled = false;
-            other.GetComponent<NavMeshAgent>().enabled = false;
-
-            // Salvar a posição de destino antes de mudar a cena
-            LevelsManager.Instance.MoverPlayer(Destination);
-
-            StartCoroutine(LoadScene());
+            if (encounterDefinition.isBattleStarted == true) return;
+            encounterDefinition.ChamarBatalha();
         }
-    }
-
-    private IEnumerator LoadScene()
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        SceneLoader.LoadScene(sceneId);
     }
 }

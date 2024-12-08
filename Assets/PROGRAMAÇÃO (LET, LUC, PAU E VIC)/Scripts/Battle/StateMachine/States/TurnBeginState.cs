@@ -62,7 +62,16 @@ namespace Main_Folders.Scripts.StateMachine.States
                     Debug.Log("AQUI ESTAMOS 1.3");
                     partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
                     partyManager.SetExperience(0, accumulatedExperience); // Envio do quantitativo acumulado de experiência para o player
+
+                    if (encounterSystem.prefab.name == "Miniboss" ||
+                        encounterSystem.prefab.name == "Boss")
+                    {
+                        Debug.Log("FIM BATALHA DUNGEON");
+                        StartCoroutine(WaitThenChangeState<EndBattleState>());
+                    }
+
                     encounterSystem.prefab.GetComponent<Unit>().hasFought = true;
+
                     Debug.Log("AQUI ESTAMOS 1.4");
                     // Localiza o player utilizando a classe PlayerMovement
                     GameObject playerPos = FindFirstObjectByType<PlayerMovement>().gameObject;

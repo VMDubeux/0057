@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cd25a0219f322b34191a38429bb80bd0
+guid: 800c5cfc4ae74824c8805370e436ef33
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,43 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: MiniBoss
-    second: {fileID: 2100000, guid: ebd34718cc799c44e99e843ccda93aa0, type: 2}
+      name: MaterialCasa1
+    second: {fileID: 2100000, guid: 1b9521c1d31f68641b43aa24879d8662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Preto.001
+    second: {fileID: 2100000, guid: 1b9521c1d31f68641b43aa24879d8662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Preto.002
+    second: {fileID: 2100000, guid: 1b9521c1d31f68641b43aa24879d8662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Preto.003
+    second: {fileID: 2100000, guid: 1b9521c1d31f68641b43aa24879d8662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaTelhado.001
+    second: {fileID: 2100000, guid: 1b9521c1d31f68641b43aa24879d8662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaVidro.001
+    second: {fileID: 2100000, guid: 1b9521c1d31f68641b43aa24879d8662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaVidro.002
+    second: {fileID: 2100000, guid: 1b9521c1d31f68641b43aa24879d8662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TexturaVidro.003
+    second: {fileID: 2100000, guid: 1b9521c1d31f68641b43aa24879d8662, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -102,7 +137,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

@@ -21,6 +21,8 @@ public class EncounterDefinition : MonoBehaviour
 
     internal bool isBattleStarted = false; // Controle para evitar múltiplas execuções
 
+    public GameObject Boss;
+
     private void Update()
     {
         // Verifica se o diálogo foi finalizado, e a batalha ainda não foi iniciada
@@ -65,7 +67,7 @@ public class EncounterDefinition : MonoBehaviour
         StartDungeonSequence(); // Inicia o processo de dungeon
     }
 
-    private void StartDungeonSequence()
+    private void StartDungeonSequence() // DUNGEON 1
     {
         Debug.Log("Iniciando sequência de dungeon após o trigger.");
 
@@ -75,7 +77,36 @@ public class EncounterDefinition : MonoBehaviour
         BattleVisualPrefab = gameObject.GetComponent<Unit>().BattleVisualPrefab;
 
         EncounterSystem encounterSystem = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
-        StartCoroutine(encounterSystem.StartGenerateEnemiesByEncouter(
+        StartCoroutine(encounterSystem.StartDungeonGenerateEnemiesByEncouter(
+            minNumEncounters,
+            maxNumEncounters,
+            numEncounters,
+            EncounterIsVariable,
+            levelMin,
+            levelMax,
+            OverworldVisualPrefab,
+            BattleVisualPrefab
+        ));
+    }
+
+    internal void ChamarBatalhaBoss()
+    {
+        Debug.Log("Iniciar Sequencia de Batalha AGORA");
+        isBattleStarted = true; // Marca como iniciado para evitar múltiplas execuções
+        StartBossBattle(); // Inicia o processo de dungeon
+    }
+
+    private void StartBossBattle() // DUNGEON 2
+    {
+        Boss = GameObject.Find("Boss");
+
+        References.Instance.CurrentEnemyBattle = Boss;
+
+        OverworldVisualPrefab = Boss.GetComponent<Unit>().OverworldVisualPrefab;
+        BattleVisualPrefab = Boss.GetComponent<Unit>().BattleVisualPrefab;
+
+        EncounterSystem encounterSystem = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
+        StartCoroutine(encounterSystem.StartDungeonGenerateEnemiesByEncouter(
             minNumEncounters,
             maxNumEncounters,
             numEncounters,

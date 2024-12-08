@@ -38,23 +38,23 @@ public class SkillUpgrade : MonoBehaviour
 
     public void UpgradeAttack1 ()
     {
-        playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
+        //playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
         partyManager.GetComponent<PartyManager>().SetStatsValues(2, value);
     }         
     public void UpgradeAttack2 ()
     {
-        playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
+        //playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
         partyManager.GetComponent<PartyManager>().SetStatsValues(2, value);
     }
     public void UpgradeAttack3 ()
     {
-        playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
+        //playerBattleVisual.GetComponent<Unit>()._stats[3].Value += value;
         partyManager.GetComponent<PartyManager>().SetStatsValues(2, value);
     }
 
     public void UpgradeDef1 ()
     {
-        playerBattleVisual.GetComponent<Unit>()._stats[2].Value += value;
+        //playerBattleVisual.GetComponent<Unit>()._stats[2].Value += value;
         partyManager.GetComponent<PartyManager>().SetStatsValues(1, value);
     }
     public void UpgradeDef2 ()
@@ -65,23 +65,23 @@ public class SkillUpgrade : MonoBehaviour
     public void UpgradeDef3 ()
     {
         resAmount = value;
-        playerBattleVisual.GetComponent<Unit>()._stats[2].Value += value;
+        //playerBattleVisual.GetComponent<Unit>()._stats[2].Value += value;
         partyManager.GetComponent<PartyManager>().SetStatsValues(1, value);
     }
 
     public void UpgradeHP1 ()
     {
-        playerBattleVisual.GetComponent<Unit>()._stats[1].Value += value;
+        //playerBattleVisual.GetComponent<Unit>()._stats[1].Value += value;
         partyManager.GetComponent<PartyManager>().SetStatsValues(0, value);
     }
     public void UpgradeHP2 ()
     {
-        playerBattleVisual.GetComponent<Unit>()._stats[1].Value += value;
+        //playerBattleVisual.GetComponent<Unit>()._stats[1].Value += value;
         partyManager.GetComponent<PartyManager>().SetStatsValues(0, value);
     }
     public void UpgradeHP3 ()
     {
-        playerBattleVisual.GetComponent<PlayerUnit>().MaxCards += 1;
+        //playerBattleVisual.GetComponent<PlayerUnit>().MaxCards += 1;
         partyManager.GetComponent<PartyManager>().SetStatsValues(3, value);
     }
 }

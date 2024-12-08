@@ -19,6 +19,7 @@ TagManager:
   - Mentor
   - WalkerDripless
   - Drip
+  - Boss
   layers:
   - Default
   - TransparentFX
