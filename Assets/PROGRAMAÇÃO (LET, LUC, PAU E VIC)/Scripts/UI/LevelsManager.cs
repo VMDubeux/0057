@@ -234,6 +234,16 @@ namespace Main_Folders.Scripts.UI
                     canvasQuestLog.SetActive(false);
                 }
 
+                if (CanvasInventario.transform.GetChild(0).gameObject.activeSelf)
+                {
+                    LevelCanvas = FindAnyObjectByType<CanvasHUD>(FindObjectsInactive.Include).gameObject;
+                    canvasQuestLog = FindFirstObjectByType<CanvasQuestlog>(FindObjectsInactive.Include).gameObject;
+                    canvasMinimap = GameObject.FindAnyObjectByType<CanvasMinimapa>(FindObjectsInactive.Include).gameObject;
+                    canvasMinimap.SetActive(false);
+                    LevelCanvas.SetActive(false);
+                    canvasQuestLog.SetActive(false);
+                }
+
                 if (nivelAtual != 1)
                 {
                     VisualizarMiniMapa(true);
