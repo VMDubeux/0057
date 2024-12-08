@@ -120,7 +120,10 @@ namespace Main_Folders.Scripts.StateMachine.States
                 }
                 else // player derrotado
                 {
-                    encounterSystem.prefab.GetComponent<EnemyMovementStates>().SwitchStates(EnemyMovementStates.State.Idle); // Status pós batalha perdida
+                    if (encounterSystem.prefab.name != "Miniboss")
+                        if (encounterSystem.prefab.name != "Boss")
+                            encounterSystem.prefab.GetComponent<EnemyMovementStates>().SwitchStates(EnemyMovementStates.State.Idle); // Status pós batalha perdida
+
                     // player retorna ao respawnPoint
                     GameObject respawnPoint = FindFirstObjectByType<RespawnPoint>(FindObjectsInactive.Include).gameObject;
 
@@ -135,12 +138,18 @@ namespace Main_Folders.Scripts.StateMachine.States
                     agent.SetDestination(respawnPoint.transform.position);
                     PlayerMovement.isMovementBlocked = false;
 
-                    encounterSystem.prefab.GetComponent<QuestLacaio>().isDialogueFinished = false;
+                    if (encounterSystem.prefab.name != "Miniboss")
+                        if (encounterSystem.prefab.name != "Boss")
+                            encounterSystem.prefab.GetComponent<QuestLacaio>().isDialogueFinished = false;
+
                     yield return new WaitForSeconds(7.5f); // Tempo de espera para a animação de derrota GLOW UP
                 }
 
                 Debug.Log("AQUI ESTAMOS 3");
-                encounterSystem.prefab.GetComponent<QuestLacaio>().isDialogueStarted = false;
+                if (encounterSystem.prefab.name != "Miniboss")
+                    if (encounterSystem.prefab.name != "Boss")
+                        encounterSystem.prefab.GetComponent<QuestLacaio>().isDialogueStarted = false;
+
                 encounterSystem.battleActive = false;
                 encounterSystem.prefab.GetComponent<EncounterDefinition>().isBattleStarted = false;
                 Debug.Log("AQUI ESTAMOS 4");

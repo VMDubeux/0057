@@ -1541,9 +1541,9 @@ MonoBehaviour:
   allBattlers: []
   enemyBattlers: []
   playerBattlers: []
-  camera: {fileID: 0}
-  canvasDeath: {fileID: 0}
-  canvasBattle: {fileID: 0}
+  camera: {fileID: 2025161616504964619}
+  canvasDeath: {fileID: 6657751404167989501}
+  canvasBattle: {fileID: 4995853366340547250}
 --- !u!4 &312542771
 Transform:
   m_ObjectHideFlags: 0
