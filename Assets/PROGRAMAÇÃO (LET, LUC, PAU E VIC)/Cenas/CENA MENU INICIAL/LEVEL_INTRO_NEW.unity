@@ -4227,6 +4227,10 @@ MonoBehaviour:
   musicSounds:
   - Name: Soundtrack
     Clip: {fileID: 8300000, guid: 52fed029c30deed4ab5493047eb91ff2, type: 3}
+  - Name: Battle
+    Clip: {fileID: 8300000, guid: b42c6b1c76eb2594ca4a414a61b9e69f, type: 3}
+  - Name: Transformation
+    Clip: {fileID: 8300000, guid: bd02c73a798bff54ba33c957dabf273f, type: 3}
   sfxSounds: []
   musicSource: {fileID: 5917565988654805599}
   sfxSource: {fileID: 5917565990596187975}

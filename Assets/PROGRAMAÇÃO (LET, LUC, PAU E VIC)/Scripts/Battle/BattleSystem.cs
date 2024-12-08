@@ -7,6 +7,8 @@ using Main_Folders.Scripts.Visuals;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Main_Folders.Scripts.Managers;
+using Unity.VisualScripting;
 
 public class BattleSystem : MonoBehaviour
 {
@@ -68,6 +70,8 @@ public class BattleSystem : MonoBehaviour
         CreateEnemyEntities();
         //ShowBattleMenu();
         //DetermineBattleOrder();
+
+        AudioManager.Instance.PlayMusic("Battle", 1f);
     }
 
     /*
