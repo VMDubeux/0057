@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class PortalDungeon : MonoBehaviour
 {
     [SerializeField] private EncounterDefinition encounterDefinition;
+    [SerializeField] private GameObject newPlayerPos;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +15,8 @@ public class PortalDungeon : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            if (encounterDefinition.isBattleStarted == true) return;
+            other.transform.position = newPlayerPos.transform.position;
+            other.GetComponent<NavMeshAgent>().Warp(newPlayerPos.transform.position);
             encounterDefinition.ChamarBatalha();
         }
     }

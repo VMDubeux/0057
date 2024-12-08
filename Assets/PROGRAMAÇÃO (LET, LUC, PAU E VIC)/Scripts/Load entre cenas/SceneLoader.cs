@@ -73,16 +73,18 @@ public class SceneLoader : MonoBehaviour
         SceneManager.UnloadSceneAsync("LOAD_SCENE");
     }
 
-    public static void UnloadBattleScene(int sceneIndex)
+    public static AsyncOperation UnloadBattleScene(int sceneIndex)
     {
         Scene sceneToUnload = SceneManager.GetSceneByBuildIndex(sceneIndex);
         if (sceneToUnload.isLoaded)
         {
-            SceneManager.UnloadSceneAsync(sceneIndex);
+            Debug.Log($"Descarregando cena de índice {sceneIndex}...");
+            return SceneManager.UnloadSceneAsync(sceneIndex);
         }
         else
         {
             Debug.LogWarning($"A cena de índice {sceneIndex} não está carregada.");
+            return null;
         }
     }
 
@@ -92,5 +94,23 @@ public class SceneLoader : MonoBehaviour
         {
             loadingBar.fillAmount = Mathf.Clamp01(progress / 0.9f);
         }
+    }
+
+    public static IEnumerator ReloadScene(int sceneIndex)
+    {
+        // Verifica se a cena está carregada e a descarrega
+        Scene sceneToUnload = SceneManager.GetSceneByBuildIndex(sceneIndex);
+        if (sceneToUnload.isLoaded)
+        {
+            AsyncOperation unloadOperation = SceneManager.UnloadSceneAsync(sceneIndex);
+            while (!unloadOperation.isDone)
+            {
+                yield return null; // Aguarda o descarregamento
+            }
+            Debug.Log($"Cena {sceneIndex} descarregada.");
+        }
+
+        // Recarrega a cena
+        LoadScene(sceneIndex, LoadType.Additive);
     }
 }

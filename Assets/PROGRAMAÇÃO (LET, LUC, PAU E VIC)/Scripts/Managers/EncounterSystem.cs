@@ -8,9 +8,9 @@ public class EncounterSystem : MonoBehaviour
     public bool battleActive;
     public GameObject prefab;
 
-    void Start()
+    void Awake()
     {
-        enemyManager = GameObject.FindFirstObjectByType<EnemyManager>();
+        enemyManager = GameObject.FindFirstObjectByType<EnemyManager>(FindObjectsInactive.Include);
     }
 
     /// <summary>
@@ -81,10 +81,45 @@ public class EncounterSystem : MonoBehaviour
             enemyManager.GenerateVariableEnemiesByEncouter(min, max, levelMin, levelMax, battlePrefab, overworldPrefab);
         }
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
 
         // Carrega a cena de batalha como adicional
         //SceneManager.LoadScene("LEVEL_BATTLE", LoadSceneMode.Additive);
         SceneLoader.LoadScene(7, SceneLoader.LoadType.Additive);
+    }
+
+    public IEnumerator StartDungeonBossGenerateEnemiesByEncouter(
+    int min,
+        int max,
+        int fixedCount,
+        bool isVariable,
+        int levelMin,
+        int levelMax,
+        GameObject overworldPrefab,
+        GameObject battlePrefab)
+    {
+        if (battleActive)
+        {
+            yield break; // Evita iniciar múltiplas batalhas
+        }
+
+        battleActive = true;
+        prefab = overworldPrefab;
+
+        if (!isVariable)
+        {
+            // Geração fixa de inimigos
+            enemyManager.GenerateEnemyByEncouter(fixedCount, levelMin, levelMax, battlePrefab, overworldPrefab);
+        }
+        else
+        {
+            // Geração variável de inimigos
+            enemyManager.GenerateVariableEnemiesByEncouter(min, max, levelMin, levelMax, battlePrefab, overworldPrefab);
+        }
+
+        yield return new WaitForEndOfFrame();
+
+        // Garante que a cena 7 seja descarregada e recarregada
+        yield return StartCoroutine(SceneLoader.ReloadScene(7));
     }
 }

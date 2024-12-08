@@ -63,11 +63,36 @@ namespace Main_Folders.Scripts.StateMachine.States
                     partyManager = GameObject.Find("PartyManager").GetComponent<PartyManager>();
                     partyManager.SetExperience(0, accumulatedExperience); // Envio do quantitativo acumulado de experiência para o player
 
-                    if (encounterSystem.prefab.name == "Miniboss" ||
-                        encounterSystem.prefab.name == "Boss")
+                    if (encounterSystem.prefab.name == "Miniboss")
                     {
-                        Debug.Log("FIM BATALHA DUNGEON");
+                        Debug.Log("FIM BATALHA MINIBOSS 1");
+                        encounterSystem.battleActive = false;
+                        encounterSystem.prefab.GetComponent<EncounterDefinition>().isBattleStarted = false;
+
+                        // Espera a transição de estado finalizar
+                        yield return StartCoroutine(WaitThenChangeState<EndBattleState>());
+                        Debug.Log("FIM BATALHA MINIBOSS 2");
+
+                        // Aguarda alguns frames para garantir que a cena 7 foi totalmente descarregada
+                        yield return new WaitForEndOfFrame();  // Pode ajustar o número de frames conforme necessário
+                        yield return new WaitForEndOfFrame();  // Espera dois frames como exemplo
+                        // Continua com a lógica do Boss
+                        encounterSystem.prefab.GetComponent<EncounterDefinition>().ChamarBatalhaBoss();
+                        Debug.Log("FIM BATALHA MINIBOSS 3");
+                        yield break;
+                    }
+
+                    if (encounterSystem.prefab.name == "Boss")
+                    {
+                        Debug.Log("FIM BATALHA BOSS 1");
+                        encounterSystem.battleActive = false;
+                        encounterSystem.prefab.GetComponent<EncounterDefinition>().isBattleStarted = false;
                         StartCoroutine(WaitThenChangeState<EndBattleState>());
+                        Debug.Log("FIM BATALHA BOSS 2");
+                        yield return new WaitForEndOfFrame();
+                        SceneLoader.LoadScene(1, SceneLoader.LoadType.Normal);
+                        Debug.Log("FIM BATALHA BOSS 3");
+                        yield break;
                     }
 
                     encounterSystem.prefab.GetComponent<Unit>().hasFought = true;

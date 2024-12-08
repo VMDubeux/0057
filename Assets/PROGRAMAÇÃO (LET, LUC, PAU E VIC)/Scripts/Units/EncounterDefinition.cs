@@ -98,7 +98,8 @@ public class EncounterDefinition : MonoBehaviour
 
     private void StartBossBattle() // DUNGEON 2
     {
-        Boss = GameObject.Find("Boss");
+        while (Boss == null)
+            Boss = FindFirstObjectByType<BossReferences>(FindObjectsInactive.Include).gameObject.GetComponent<BossReferences>().BossPrefab;
 
         References.Instance.CurrentEnemyBattle = Boss;
 
@@ -106,7 +107,7 @@ public class EncounterDefinition : MonoBehaviour
         BattleVisualPrefab = Boss.GetComponent<Unit>().BattleVisualPrefab;
 
         EncounterSystem encounterSystem = GameObject.Find("EncounterSystem").GetComponent<EncounterSystem>();
-        StartCoroutine(encounterSystem.StartDungeonGenerateEnemiesByEncouter(
+        StartCoroutine(encounterSystem.StartDungeonBossGenerateEnemiesByEncouter(
             minNumEncounters,
             maxNumEncounters,
             numEncounters,

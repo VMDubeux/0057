@@ -1,37 +1,51 @@
 using System.Collections;
-using System.Collections.Generic;
-using Main_Folders.Scripts.StateMachine.States;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Main_Folders.Scripts;
+using Main_Folders.Scripts.StateMachine.States;
 
 public class EndBattleState : State
 {
-    [SerializeField] EncounterSystem encounterSystem;
-
     public override IEnumerator Enter()
     {
-        encounterSystem = FindAnyObjectByType<EncounterSystem>(FindObjectsInactive.Include).GetComponent<EncounterSystem>();
         Debug.Log("Battle ended");
-        if (encounterSystem.prefab.name == "Miniboss")
+
+        // Descarregar a cena de índice 7
+        AsyncOperation unloadScene7 = SceneLoader.UnloadBattleScene(7);
+        if (unloadScene7 != null)
         {
-            Debug.Log("Battle ended. Venceu Miniboss 1");
-            encounterSystem.prefab.GetComponent<EncounterDefinition>().ChamarBatalhaBoss();
-            Debug.Log("Battle ended. Venceu Miniboss 2");
-            SceneLoader.UnloadBattleScene(7);
-            yield break;
+            // Aguarda até que a cena de índice 7 seja descarregada
+            while (!unloadScene7.isDone)
+            {
+                yield return null;
+            }
+            Debug.Log("Cena 7 descarregada.");
         }
-        if (encounterSystem.prefab.name == "Boss")
+        else
         {
-            Debug.Log("Battle ended. Venceu Boss 1");
-            SceneLoader.LoadScene(1, SceneLoader.LoadType.Normal); // Chamar vitória, mas no momento chamará menu
-            Debug.Log("Battle ended. Venceu Boss 2");
-            SceneLoader.UnloadBattleScene(7);
-            yield break;
+            Debug.LogWarning("Cena 7 não está carregada.");
         }
 
-        yield return null;
+        // Aguarda alguns frames para garantir que a cena 7 foi totalmente descarregada
+        yield return new WaitForEndOfFrame();  // Pode ajustar o número de frames conforme necessário
+        yield return new WaitForEndOfFrame();  // Espera dois frames como exemplo
 
-        SceneLoader.UnloadBattleScene(4);
+        // Descarrega a cena de índice 4 (se necessário)
+        AsyncOperation unloadScene4 = SceneLoader.UnloadBattleScene(4);
+        if (unloadScene4 != null)
+        {
+            // Aguarda até que a cena de índice 4 seja descarregada
+            while (!unloadScene4.isDone)
+            {
+                yield return null;
+            }
+            Debug.Log("Cena 4 descarregada.");
+        }
+        else
+        {
+            Debug.LogWarning("Cena 4 não está carregada.");
+        }
+
+        Debug.Log("Todas as cenas necessárias foram descarregadas e recarregadas.");
     }
 }

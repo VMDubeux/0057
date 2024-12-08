@@ -56,10 +56,10 @@ public class BattleSystem : MonoBehaviour
     private const string OVERWORLD_SCENE = "LEVEL_1";
     */
 
-    private void Start()
+    private void Awake()
     {
-        partyManager = GameObject.FindFirstObjectByType<PartyManager>();
-        enemyManager = GameObject.FindFirstObjectByType<EnemyManager>();
+        partyManager = GameObject.FindFirstObjectByType<PartyManager>(FindObjectsInactive.Include);
+        enemyManager = GameObject.FindFirstObjectByType<EnemyManager>(FindObjectsInactive.Include);
         //camera = GameObject.FindFirstObjectByType<CinemachineVirtualCamera>().gameObject;
         //canvasDeath = GameObject.FindFirstObjectByType<CanvasDeath>(FindObjectsInactive.Include).gameObject;
         //canvasBattle = GameObject.FindFirstObjectByType<CanvasBattle>(FindObjectsInactive.Include).gameObject;
