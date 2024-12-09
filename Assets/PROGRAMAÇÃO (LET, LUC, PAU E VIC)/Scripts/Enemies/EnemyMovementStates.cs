@@ -116,7 +116,7 @@ public abstract class EnemyMovementStates : MonoBehaviour
         _animator.SetTrigger("PlayerWin");
         Debug.Log("Iniciar animação de morte");
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         gameObject.GetComponent<QuestLacaio>().CompleteQuest();
     }

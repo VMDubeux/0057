@@ -272,7 +272,7 @@ namespace Main_Folders.Scripts.UI
         {
             currentGameSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            if (currentGameSceneIndex == 1)
+            if (currentGameSceneIndex == 1 || currentGameSceneIndex == 8)
             {
                 foreach (var variable in staticObjects)
                 {

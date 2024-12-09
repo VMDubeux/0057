@@ -13005,7 +13005,6 @@ GameObject:
   - component: {fileID: 8120433040681469155}
   - component: {fileID: 8120433040681469154}
   - component: {fileID: 4581283764514327024}
-  - component: {fileID: 8120433040681469156}
   m_Layer: 0
   m_Name: Miniboss
   m_TagString: Untagged
@@ -42696,6 +42695,7 @@ GameObject:
   - component: {fileID: 4722264785402602189}
   - component: {fileID: 8646044383479950755}
   - component: {fileID: 3986957892247379928}
+  - component: {fileID: 8784961881170036513}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -45551,20 +45551,6 @@ MonoBehaviour:
   minNumEncounters: 0
   maxNumEncounters: 0
   Boss: {fileID: 0}
---- !u!114 &8120433040681469156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968368466577715432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca64788cc8abe0447951d42ba80c3f4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BossPrefab: {fileID: 6866385685931421975}
-  BossVisualPrefab: {fileID: 1445210012511453399, guid: 930741be27bc4c4438cbb9b5df5a25a9, type: 3}
 --- !u!1 &8137477798637818762
 GameObject:
   m_ObjectHideFlags: 0
@@ -46649,7 +46635,7 @@ MonoBehaviour:
     Value: 0
   - Type: 3
     Value: 2
-  expToGive: 10
+  expToGive: 0
   OverworldVisualPrefab: {fileID: 6866385685931421975}
   BattleVisualPrefab: {fileID: 1445210012511453399, guid: 930741be27bc4c4438cbb9b5df5a25a9, type: 3}
   hasFought: 0
@@ -56589,6 +56575,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0005017284, y: -0.00008255709, z: 0.016890611}
     m_Extent: {x: 0.006803114, y: 0.009439726, z: 0.019619856}
   m_DirtyAABB: 0
+--- !u!114 &8784961881170036513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866385685931421975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca64788cc8abe0447951d42ba80c3f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossPrefab: {fileID: 6866385685931421975}
+  BossVisualPrefab: {fileID: 1445210012511453399, guid: 930741be27bc4c4438cbb9b5df5a25a9, type: 3}
 --- !u!4 &8798307173635020972
 Transform:
   m_ObjectHideFlags: 0
